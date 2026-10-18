@@ -1,0 +1,21 @@
+{
+  "captured": "2026-10-18",
+  "browser": "156.0.8078.4",
+  "renderer": "SwiftShader software, medium quality, detailed geometry; no GPU-only transmission/AO",
+  "desktop": [
+    1440,
+    1000
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "performance": {
+    "frames": 12,
+    "elapsedMs": 6473.899999999256,
+    "framesPerSecond": 1.8535967500272448,
+    "quality": "▂▅▇low quality",
+    "triangles": 36892
+  },
+  "errors": []
+}

@@ -1,0 +1,15 @@
+node_modules
+dist
+playwright-report
+test-results
+public/models
+public/data
+src/data/catalog.snapshot.json
+package-lock.json
+db/seed.sql
+
+public/decoders
+
+.imports
+public/vehicles
+src/data/initialVehicle.json

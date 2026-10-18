@@ -1,0 +1,3795 @@
+{
+  "captured": "2026-10-18T17:16:19.257Z",
+  "browser": "156.0.8078.4",
+  "viewport": "1440×1000; mobile 390×844 and short phone 390×664",
+  "renderer": "SwiftShader; medium quality; no hardware-only AO/transmission",
+  "scope": "Actual running application; original unverified hatch fixture. NOT photorealistic full-vehicle completion.",
+  "errors": [],
+  "states": {
+    "a-sample": {
+      "selected": null,
+      "canvasId": "ad166931-8993-4581-8807-c5066c6466be",
+      "xray": false,
+      "section": "off",
+      "clipExteriorOnly": true,
+      "explode": 0,
+      "displayedExplosion": 0,
+      "activeAssembly": "rear-hatch",
+      "assemblyLod": "rear-hatch-high",
+      "hatchOpen": 0,
+      "inspectionRotation": 0,
+      "strutAttachments": [
+        {
+          "id": "hatch-strut-left",
+          "body": [
+            0.555,
+            1.03,
+            -1.27
+          ],
+          "hatch": [
+            0.54,
+            1.29,
+            -0.95
+          ]
+        },
+        {
+          "id": "hatch-strut-right",
+          "body": [
+            -0.555,
+            1.03,
+            -1.27
+          ],
+          "hatch": [
+            -0.54,
+            1.29,
+            -0.95
+          ]
+        }
+      ],
+      "camera": [
+        0.9841333927583865,
+        1.4979190369241242,
+        -3.0010141239566313
+      ],
+      "parts": [
+        {
+          "id": "hatch-upper-frame",
+          "visible": true,
+          "position": [
+            0,
+            1.2510349750518799,
+            -0.9755804538726807
+          ],
+          "base": [
+            0,
+            1.2510349750518799,
+            -0.9755804538726807
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-upper-trim",
+          "visible": true,
+          "position": [
+            0,
+            1.2459649741649628,
+            -0.9603267908096313
+          ],
+          "base": [
+            0,
+            1.2459649741649628,
+            -0.9603267908096313
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-spoiler",
+          "visible": true,
+          "position": [
+            -2.9802322387695312e-8,
+            1.4956485033035278,
+            -0.8426111042499542
+          ],
+          "base": [
+            -2.9802322387695312e-8,
+            1.4956485033035278,
+            -0.8426111042499542
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-hinge-left",
+          "visible": true,
+          "position": [
+            0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "base": [
+            0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-hinge-right",
+          "visible": true,
+          "position": [
+            -0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "base": [
+            -0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-strut-left",
+          "visible": true,
+          "position": [
+            0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "base": [
+            0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-strut-right",
+          "visible": true,
+          "position": [
+            -0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "base": [
+            -0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "rear-glass",
+          "visible": true,
+          "position": [
+            0,
+            1.2484999895095825,
+            -1.0017340133229773
+          ],
+          "base": [
+            0,
+            1.2484999895095825,
+            -1.0017340133229773
+          ],
+          "opacity": 0.48,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-panel",
+          "visible": true,
+          "position": [
+            0,
+            0.8512499630451202,
+            -1.320705077631573
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.320705077631573
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "tailgate",
+          "visible": true,
+          "position": [
+            0,
+            0.8512499630451202,
+            -1.2666966319084167
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.2666966319084167
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lock-right",
+          "visible": true,
+          "position": [
+            -0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "base": [
+            -0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lock-left",
+          "visible": true,
+          "position": [
+            0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "base": [
+            0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-upper-lock",
+          "visible": true,
+          "position": [
+            0,
+            1.0087505418722114,
+            -1.113000691163286
+          ],
+          "base": [
+            0,
+            1.0087505418722114,
+            -1.113000691163286
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-trim",
+          "visible": true,
+          "position": [
+            0,
+            0.8512499630451202,
+            -1.2080082649364896
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.2080082649364896
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-hinge-left",
+          "visible": true,
+          "position": [
+            0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "base": [
+            0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-hinge-right",
+          "visible": true,
+          "position": [
+            -0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "base": [
+            -0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-seal",
+          "visible": true,
+          "position": [
+            -0.000032335519790649414,
+            1.0713993906974792,
+            -0.9924294650554657
+          ],
+          "base": [
+            -0.000032335519790649414,
+            1.0713993906974792,
+            -0.9924294650554657
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-brake-light",
+          "visible": true,
+          "position": [
+            0,
+            1.4930000305175781,
+            -0.9435071802013404
+          ],
+          "base": [
+            0,
+            1.4930000305175781,
+            -0.9435071802013404
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-wiper-motor",
+          "visible": true,
+          "position": [
+            0.04625000152736902,
+            1.4385001180271517,
+            -0.7649999856948853
+          ],
+          "base": [
+            0.04625000152736902,
+            1.4385001180271517,
+            -0.7649999856948853
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-handle-switch",
+          "visible": true,
+          "position": [
+            0,
+            1.0149999856948853,
+            -1.1790003812778846
+          ],
+          "base": [
+            0,
+            1.0149999856948853,
+            -1.1790003812778846
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-wiper-arm",
+          "visible": true,
+          "position": [
+            -0.22228992078453302,
+            1.4129941422018404,
+            -0.9437536488017676
+          ],
+          "base": [
+            -0.22228992078453302,
+            1.4129941422018404,
+            -0.9437536488017676
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "triangles": 295456,
+      "drawCalls": 87
+    },
+    "b-xray": {
+      "selected": null,
+      "canvasId": "ad166931-8993-4581-8807-c5066c6466be",
+      "xray": true,
+      "section": "off",
+      "clipExteriorOnly": true,
+      "explode": 0,
+      "displayedExplosion": 0,
+      "activeAssembly": "rear-hatch",
+      "assemblyLod": "rear-hatch-high",
+      "hatchOpen": 0,
+      "inspectionRotation": 0,
+      "strutAttachments": [
+        {
+          "id": "hatch-strut-left",
+          "body": [
+            0.555,
+            1.03,
+            -1.27
+          ],
+          "hatch": [
+            0.54,
+            1.29,
+            -0.95
+          ]
+        },
+        {
+          "id": "hatch-strut-right",
+          "body": [
+            -0.555,
+            1.03,
+            -1.27
+          ],
+          "hatch": [
+            -0.54,
+            1.29,
+            -0.95
+          ]
+        }
+      ],
+      "camera": [
+        0.9841333927583865,
+        1.4979190369241242,
+        -3.0010141239566313
+      ],
+      "parts": [
+        {
+          "id": "hatch-upper-frame",
+          "visible": true,
+          "position": [
+            0,
+            1.2510349750518799,
+            -0.9755804538726807
+          ],
+          "base": [
+            0,
+            1.2510349750518799,
+            -0.9755804538726807
+          ],
+          "opacity": 0.16,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-upper-trim",
+          "visible": true,
+          "position": [
+            0,
+            1.2459649741649628,
+            -0.9603267908096313
+          ],
+          "base": [
+            0,
+            1.2459649741649628,
+            -0.9603267908096313
+          ],
+          "opacity": 0.16,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-spoiler",
+          "visible": true,
+          "position": [
+            -2.9802322387695312e-8,
+            1.4956485033035278,
+            -0.8426111042499542
+          ],
+          "base": [
+            -2.9802322387695312e-8,
+            1.4956485033035278,
+            -0.8426111042499542
+          ],
+          "opacity": 0.16,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-hinge-left",
+          "visible": true,
+          "position": [
+            0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "base": [
+            0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-hinge-right",
+          "visible": true,
+          "position": [
+            -0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "base": [
+            -0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-strut-left",
+          "visible": true,
+          "position": [
+            0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "base": [
+            0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-strut-right",
+          "visible": true,
+          "position": [
+            -0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "base": [
+            -0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "rear-glass",
+          "visible": true,
+          "position": [
+            0,
+            1.2484999895095825,
+            -1.0017340133229773
+          ],
+          "base": [
+            0,
+            1.2484999895095825,
+            -1.0017340133229773
+          ],
+          "opacity": 0.16,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-panel",
+          "visible": true,
+          "position": [
+            0,
+            0.8512499630451202,
+            -1.320705077631573
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.320705077631573
+          ],
+          "opacity": 0.16,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "tailgate",
+          "visible": true,
+          "position": [
+            0,
+            0.8512499630451202,
+            -1.2666966319084167
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.2666966319084167
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lock-right",
+          "visible": true,
+          "position": [
+            -0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "base": [
+            -0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lock-left",
+          "visible": true,
+          "position": [
+            0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "base": [
+            0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-upper-lock",
+          "visible": true,
+          "position": [
+            0,
+            1.0087505418722114,
+            -1.113000691163286
+          ],
+          "base": [
+            0,
+            1.0087505418722114,
+            -1.113000691163286
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-trim",
+          "visible": true,
+          "position": [
+            0,
+            0.8512499630451202,
+            -1.2080082649364896
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.2080082649364896
+          ],
+          "opacity": 0.16,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-hinge-left",
+          "visible": true,
+          "position": [
+            0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "base": [
+            0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-hinge-right",
+          "visible": true,
+          "position": [
+            -0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "base": [
+            -0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-seal",
+          "visible": true,
+          "position": [
+            -0.000032335519790649414,
+            1.0713993906974792,
+            -0.9924294650554657
+          ],
+          "base": [
+            -0.000032335519790649414,
+            1.0713993906974792,
+            -0.9924294650554657
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-brake-light",
+          "visible": true,
+          "position": [
+            0,
+            1.4930000305175781,
+            -0.9435071802013404
+          ],
+          "base": [
+            0,
+            1.4930000305175781,
+            -0.9435071802013404
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-wiper-motor",
+          "visible": true,
+          "position": [
+            0.04625000152736902,
+            1.4385001180271517,
+            -0.7649999856948853
+          ],
+          "base": [
+            0.04625000152736902,
+            1.4385001180271517,
+            -0.7649999856948853
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-handle-switch",
+          "visible": true,
+          "position": [
+            0,
+            1.0149999856948853,
+            -1.1790003812778846
+          ],
+          "base": [
+            0,
+            1.0149999856948853,
+            -1.1790003812778846
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-wiper-arm",
+          "visible": true,
+          "position": [
+            -0.22228992078453302,
+            1.4129941422018404,
+            -0.9437536488017676
+          ],
+          "base": [
+            -0.22228992078453302,
+            1.4129941422018404,
+            -0.9437536488017676
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "triangles": 150626,
+      "drawCalls": 45
+    },
+    "c-exploded": {
+      "selected": null,
+      "canvasId": "ad166931-8993-4581-8807-c5066c6466be",
+      "xray": false,
+      "section": "off",
+      "clipExteriorOnly": true,
+      "explode": 1,
+      "displayedExplosion": 1,
+      "activeAssembly": "rear-hatch",
+      "assemblyLod": "rear-hatch-high",
+      "hatchOpen": 0,
+      "inspectionRotation": 0,
+      "strutAttachments": [
+        {
+          "id": "hatch-strut-left",
+          "body": [
+            1.0950000000000002,
+            1.1500000000000001,
+            -1.42
+          ],
+          "hatch": [
+            1.08,
+            1.4100000000000001,
+            -1.0999999999999999
+          ]
+        },
+        {
+          "id": "hatch-strut-right",
+          "body": [
+            -1.0950000000000002,
+            1.1500000000000001,
+            -1.42
+          ],
+          "hatch": [
+            -1.08,
+            1.4100000000000001,
+            -1.0999999999999999
+          ]
+        }
+      ],
+      "camera": [
+        2.2847536240466786,
+        2.147329892873457,
+        -5.5484541737670625
+      ],
+      "parts": [
+        {
+          "id": "hatch-upper-frame",
+          "visible": true,
+          "position": [
+            0,
+            1.37103497505188,
+            -0.7555804538726807
+          ],
+          "base": [
+            0,
+            1.2510349750518799,
+            -0.9755804538726807
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-upper-trim",
+          "visible": true,
+          "position": [
+            0,
+            1.6059649741649626,
+            -0.4103267908096313
+          ],
+          "base": [
+            0,
+            1.2459649741649628,
+            -0.9603267908096313
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-spoiler",
+          "visible": true,
+          "position": [
+            -2.9802322387695312e-8,
+            2.095648503303528,
+            -1.0226111042499542
+          ],
+          "base": [
+            -2.9802322387695312e-8,
+            1.4956485033035278,
+            -0.8426111042499542
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-hinge-left",
+          "visible": true,
+          "position": [
+            0.7700000017881393,
+            1.8449999737739562,
+            -0.6407499957084656
+          ],
+          "base": [
+            0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-hinge-right",
+          "visible": true,
+          "position": [
+            -0.7700000017881393,
+            1.8449999737739562,
+            -0.6407499957084656
+          ],
+          "base": [
+            -0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-strut-left",
+          "visible": true,
+          "position": [
+            1.0902736819880208,
+            1.2800000000000002,
+            -1.2599999999999998
+          ],
+          "base": [
+            0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-strut-right",
+          "visible": true,
+          "position": [
+            -1.0902736819880208,
+            1.2800000000000002,
+            -1.2599999999999998
+          ],
+          "base": [
+            -0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "rear-glass",
+          "visible": true,
+          "position": [
+            0,
+            1.3484999895095826,
+            -1.5817340133229774
+          ],
+          "base": [
+            0,
+            1.2484999895095825,
+            -1.0017340133229773
+          ],
+          "opacity": 0.48,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-panel",
+          "visible": true,
+          "position": [
+            0,
+            0.6712499630451203,
+            -1.9707050776315729
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.320705077631573
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "tailgate",
+          "visible": true,
+          "position": [
+            0,
+            0.7912499630451202,
+            -1.3266966319084168
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.2666966319084167
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lock-right",
+          "visible": true,
+          "position": [
+            -1.0187498928601644,
+            0.9449999749660491,
+            -1.6259999918937682
+          ],
+          "base": [
+            -0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lock-left",
+          "visible": true,
+          "position": [
+            1.0187498928601644,
+            0.9449999749660491,
+            -1.6259999918937682
+          ],
+          "base": [
+            0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-upper-lock",
+          "visible": true,
+          "position": [
+            0,
+            0.9287505418722114,
+            -2.0530006911632857
+          ],
+          "base": [
+            0,
+            1.0087505418722114,
+            -1.113000691163286
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-trim",
+          "visible": true,
+          "position": [
+            0,
+            0.7312499630451202,
+            -0.7280082649364896
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.2080082649364896
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-hinge-left",
+          "visible": true,
+          "position": [
+            0.7399999976158143,
+            0.24499999165534975,
+            -1.2654990790690996
+          ],
+          "base": [
+            0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-hinge-right",
+          "visible": true,
+          "position": [
+            -0.7399999976158143,
+            0.24499999165534975,
+            -1.2654990790690996
+          ],
+          "base": [
+            -0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-seal",
+          "visible": true,
+          "position": [
+            -0.000032335519790649414,
+            1.0713993906974792,
+            -0.1324294650554657
+          ],
+          "base": [
+            -0.000032335519790649414,
+            1.0713993906974792,
+            -0.9924294650554657
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-brake-light",
+          "visible": true,
+          "position": [
+            0,
+            1.873000030517578,
+            -1.6035071802013405
+          ],
+          "base": [
+            0,
+            1.4930000305175781,
+            -0.9435071802013404
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-wiper-motor",
+          "visible": true,
+          "position": [
+            0.32625000152736905,
+            1.7085001180271517,
+            0.015000014305114773
+          ],
+          "base": [
+            0.04625000152736902,
+            1.4385001180271517,
+            -0.7649999856948853
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-handle-switch",
+          "visible": true,
+          "position": [
+            -0.3,
+            0.9349999856948853,
+            -2.0290003812778847
+          ],
+          "base": [
+            0,
+            1.0149999856948853,
+            -1.1790003812778846
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-wiper-arm",
+          "visible": true,
+          "position": [
+            -0.04228992078453303,
+            1.5129941422018405,
+            -1.9637536488017675
+          ],
+          "base": [
+            -0.22228992078453302,
+            1.4129941422018404,
+            -0.9437536488017676
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "triangles": 295456,
+      "drawCalls": 87
+    },
+    "d-cutaway": {
+      "selected": null,
+      "canvasId": "ad166931-8993-4581-8807-c5066c6466be",
+      "xray": false,
+      "section": "left",
+      "clipExteriorOnly": true,
+      "explode": 0,
+      "displayedExplosion": 0,
+      "activeAssembly": "rear-hatch",
+      "assemblyLod": "rear-hatch-high",
+      "hatchOpen": 0,
+      "inspectionRotation": 0,
+      "strutAttachments": [
+        {
+          "id": "hatch-strut-left",
+          "body": [
+            0.555,
+            1.03,
+            -1.27
+          ],
+          "hatch": [
+            0.54,
+            1.29,
+            -0.95
+          ]
+        },
+        {
+          "id": "hatch-strut-right",
+          "body": [
+            -0.555,
+            1.03,
+            -1.27
+          ],
+          "hatch": [
+            -0.54,
+            1.29,
+            -0.95
+          ]
+        }
+      ],
+      "camera": [
+        0.9841333927583865,
+        1.4979190369241242,
+        -3.0010141239566313
+      ],
+      "parts": [
+        {
+          "id": "hatch-upper-frame",
+          "visible": true,
+          "position": [
+            0,
+            1.2510349750518799,
+            -0.9755804538726807
+          ],
+          "base": [
+            0,
+            1.2510349750518799,
+            -0.9755804538726807
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [
+            {
+              "normal": [
+                -1,
+                0,
+                0
+              ],
+              "constant": 0
+            }
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-upper-trim",
+          "visible": true,
+          "position": [
+            0,
+            1.2459649741649628,
+            -0.9603267908096313
+          ],
+          "base": [
+            0,
+            1.2459649741649628,
+            -0.9603267908096313
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [
+            {
+              "normal": [
+                -1,
+                0,
+                0
+              ],
+              "constant": 0
+            }
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-spoiler",
+          "visible": true,
+          "position": [
+            -2.9802322387695312e-8,
+            1.4956485033035278,
+            -0.8426111042499542
+          ],
+          "base": [
+            -2.9802322387695312e-8,
+            1.4956485033035278,
+            -0.8426111042499542
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [
+            {
+              "normal": [
+                -1,
+                0,
+                0
+              ],
+              "constant": 0
+            }
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-hinge-left",
+          "visible": true,
+          "position": [
+            0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "base": [
+            0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-hinge-right",
+          "visible": true,
+          "position": [
+            -0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "base": [
+            -0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-strut-left",
+          "visible": true,
+          "position": [
+            0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "base": [
+            0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-strut-right",
+          "visible": true,
+          "position": [
+            -0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "base": [
+            -0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "rear-glass",
+          "visible": true,
+          "position": [
+            0,
+            1.2484999895095825,
+            -1.0017340133229773
+          ],
+          "base": [
+            0,
+            1.2484999895095825,
+            -1.0017340133229773
+          ],
+          "opacity": 0.48,
+          "emissive": "000000",
+          "clippingPlanes": [
+            {
+              "normal": [
+                -1,
+                0,
+                0
+              ],
+              "constant": 0
+            }
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-panel",
+          "visible": true,
+          "position": [
+            0,
+            0.8512499630451202,
+            -1.320705077631573
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.320705077631573
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [
+            {
+              "normal": [
+                -1,
+                0,
+                0
+              ],
+              "constant": 0
+            }
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "tailgate",
+          "visible": true,
+          "position": [
+            0,
+            0.8512499630451202,
+            -1.2666966319084167
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.2666966319084167
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lock-right",
+          "visible": true,
+          "position": [
+            -0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "base": [
+            -0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lock-left",
+          "visible": true,
+          "position": [
+            0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "base": [
+            0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-upper-lock",
+          "visible": true,
+          "position": [
+            0,
+            1.0087505418722114,
+            -1.113000691163286
+          ],
+          "base": [
+            0,
+            1.0087505418722114,
+            -1.113000691163286
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-trim",
+          "visible": true,
+          "position": [
+            0,
+            0.8512499630451202,
+            -1.2080082649364896
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.2080082649364896
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [
+            {
+              "normal": [
+                -1,
+                0,
+                0
+              ],
+              "constant": 0
+            }
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-hinge-left",
+          "visible": true,
+          "position": [
+            0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "base": [
+            0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-hinge-right",
+          "visible": true,
+          "position": [
+            -0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "base": [
+            -0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-seal",
+          "visible": true,
+          "position": [
+            -0.000032335519790649414,
+            1.0713993906974792,
+            -0.9924294650554657
+          ],
+          "base": [
+            -0.000032335519790649414,
+            1.0713993906974792,
+            -0.9924294650554657
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-brake-light",
+          "visible": true,
+          "position": [
+            0,
+            1.4930000305175781,
+            -0.9435071802013404
+          ],
+          "base": [
+            0,
+            1.4930000305175781,
+            -0.9435071802013404
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-wiper-motor",
+          "visible": true,
+          "position": [
+            0.04625000152736902,
+            1.4385001180271517,
+            -0.7649999856948853
+          ],
+          "base": [
+            0.04625000152736902,
+            1.4385001180271517,
+            -0.7649999856948853
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-handle-switch",
+          "visible": true,
+          "position": [
+            0,
+            1.0149999856948853,
+            -1.1790003812778846
+          ],
+          "base": [
+            0,
+            1.0149999856948853,
+            -1.1790003812778846
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-wiper-arm",
+          "visible": true,
+          "position": [
+            -0.22228992078453302,
+            1.4129941422018404,
+            -0.9437536488017676
+          ],
+          "base": [
+            -0.22228992078453302,
+            1.4129941422018404,
+            -0.9437536488017676
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "triangles": 295456,
+      "drawCalls": 87
+    },
+    "e-focus": {
+      "selected": "hatch-strut-left",
+      "canvasId": "ad166931-8993-4581-8807-c5066c6466be",
+      "xray": false,
+      "section": "off",
+      "clipExteriorOnly": true,
+      "explode": 0,
+      "displayedExplosion": 0,
+      "activeAssembly": "rear-hatch",
+      "assemblyLod": "rear-hatch-high",
+      "hatchOpen": 0,
+      "inspectionRotation": 0,
+      "strutAttachments": [
+        {
+          "id": "hatch-strut-left",
+          "body": [
+            0.555,
+            1.03,
+            -1.27
+          ],
+          "hatch": [
+            0.54,
+            1.29,
+            -0.95
+          ]
+        },
+        {
+          "id": "hatch-strut-right",
+          "body": [
+            -0.555,
+            1.03,
+            -1.27
+          ],
+          "hatch": [
+            -0.54,
+            1.29,
+            -0.95
+          ]
+        }
+      ],
+      "camera": [
+        0.8550830097201141,
+        1.29063256902804,
+        -1.7196186554641866
+      ],
+      "parts": [
+        {
+          "id": "hatch-upper-frame",
+          "visible": false,
+          "position": [
+            0,
+            1.2510349750518799,
+            -0.9755804538726807
+          ],
+          "base": [
+            0,
+            1.2510349750518799,
+            -0.9755804538726807
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-upper-trim",
+          "visible": false,
+          "position": [
+            0,
+            1.2459649741649628,
+            -0.9603267908096313
+          ],
+          "base": [
+            0,
+            1.2459649741649628,
+            -0.9603267908096313
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-spoiler",
+          "visible": false,
+          "position": [
+            -2.9802322387695312e-8,
+            1.4956485033035278,
+            -0.8426111042499542
+          ],
+          "base": [
+            -2.9802322387695312e-8,
+            1.4956485033035278,
+            -0.8426111042499542
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-hinge-left",
+          "visible": false,
+          "position": [
+            0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "base": [
+            0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-hinge-right",
+          "visible": false,
+          "position": [
+            -0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "base": [
+            -0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-strut-left",
+          "visible": true,
+          "position": [
+            0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "base": [
+            0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "opacity": 1,
+          "emissive": "2787ff",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-strut-right",
+          "visible": false,
+          "position": [
+            -0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "base": [
+            -0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "rear-glass",
+          "visible": false,
+          "position": [
+            0,
+            1.2484999895095825,
+            -1.0017340133229773
+          ],
+          "base": [
+            0,
+            1.2484999895095825,
+            -1.0017340133229773
+          ],
+          "opacity": 0.48,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-panel",
+          "visible": false,
+          "position": [
+            0,
+            0.8512499630451202,
+            -1.320705077631573
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.320705077631573
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "tailgate",
+          "visible": false,
+          "position": [
+            0,
+            0.8512499630451202,
+            -1.2666966319084167
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.2666966319084167
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lock-right",
+          "visible": false,
+          "position": [
+            -0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "base": [
+            -0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lock-left",
+          "visible": false,
+          "position": [
+            0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "base": [
+            0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-upper-lock",
+          "visible": false,
+          "position": [
+            0,
+            1.0087505418722114,
+            -1.113000691163286
+          ],
+          "base": [
+            0,
+            1.0087505418722114,
+            -1.113000691163286
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-trim",
+          "visible": false,
+          "position": [
+            0,
+            0.8512499630451202,
+            -1.2080082649364896
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.2080082649364896
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-hinge-left",
+          "visible": false,
+          "position": [
+            0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "base": [
+            0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-hinge-right",
+          "visible": false,
+          "position": [
+            -0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "base": [
+            -0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-seal",
+          "visible": false,
+          "position": [
+            -0.000032335519790649414,
+            1.0713993906974792,
+            -0.9924294650554657
+          ],
+          "base": [
+            -0.000032335519790649414,
+            1.0713993906974792,
+            -0.9924294650554657
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-brake-light",
+          "visible": false,
+          "position": [
+            0,
+            1.4930000305175781,
+            -0.9435071802013404
+          ],
+          "base": [
+            0,
+            1.4930000305175781,
+            -0.9435071802013404
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-wiper-motor",
+          "visible": false,
+          "position": [
+            0.04625000152736902,
+            1.4385001180271517,
+            -0.7649999856948853
+          ],
+          "base": [
+            0.04625000152736902,
+            1.4385001180271517,
+            -0.7649999856948853
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-handle-switch",
+          "visible": false,
+          "position": [
+            0,
+            1.0149999856948853,
+            -1.1790003812778846
+          ],
+          "base": [
+            0,
+            1.0149999856948853,
+            -1.1790003812778846
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-wiper-arm",
+          "visible": false,
+          "position": [
+            -0.22228992078453302,
+            1.4129941422018404,
+            -0.9437536488017676
+          ],
+          "base": [
+            -0.22228992078453302,
+            1.4129941422018404,
+            -0.9437536488017676
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "triangles": 5376,
+      "drawCalls": 8
+    },
+    "mobile": {
+      "selected": "rear-hatch",
+      "canvasId": "ad166931-8993-4581-8807-c5066c6466be",
+      "xray": false,
+      "section": "off",
+      "clipExteriorOnly": true,
+      "explode": 1,
+      "displayedExplosion": 1,
+      "activeAssembly": "rear-hatch",
+      "assemblyLod": "rear-hatch-high",
+      "hatchOpen": 0,
+      "inspectionRotation": 0,
+      "strutAttachments": [
+        {
+          "id": "hatch-strut-left",
+          "body": [
+            1.0950000000000002,
+            1.1500000000000001,
+            -1.42
+          ],
+          "hatch": [
+            1.08,
+            1.4100000000000001,
+            -1.0999999999999999
+          ]
+        },
+        {
+          "id": "hatch-strut-right",
+          "body": [
+            -1.0950000000000002,
+            1.1500000000000001,
+            -1.42
+          ],
+          "hatch": [
+            -1.08,
+            1.4100000000000001,
+            -1.0999999999999999
+          ]
+        }
+      ],
+      "camera": [
+        2.2847536240466786,
+        2.147329892873457,
+        -5.5484541737670625
+      ],
+      "parts": [
+        {
+          "id": "hatch-upper-frame",
+          "visible": true,
+          "position": [
+            0,
+            1.37103497505188,
+            -0.7555804538726807
+          ],
+          "base": [
+            0,
+            1.2510349750518799,
+            -0.9755804538726807
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-upper-trim",
+          "visible": true,
+          "position": [
+            0,
+            1.6059649741649626,
+            -0.4103267908096313
+          ],
+          "base": [
+            0,
+            1.2459649741649628,
+            -0.9603267908096313
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-spoiler",
+          "visible": true,
+          "position": [
+            -2.9802322387695312e-8,
+            2.095648503303528,
+            -1.0226111042499542
+          ],
+          "base": [
+            -2.9802322387695312e-8,
+            1.4956485033035278,
+            -0.8426111042499542
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-hinge-left",
+          "visible": true,
+          "position": [
+            0.7700000017881393,
+            1.8449999737739562,
+            -0.6407499957084656
+          ],
+          "base": [
+            0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-hinge-right",
+          "visible": true,
+          "position": [
+            -0.7700000017881393,
+            1.8449999737739562,
+            -0.6407499957084656
+          ],
+          "base": [
+            -0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-strut-left",
+          "visible": true,
+          "position": [
+            1.0902736819880208,
+            1.2800000000000002,
+            -1.2599999999999998
+          ],
+          "base": [
+            0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-strut-right",
+          "visible": true,
+          "position": [
+            -1.0902736819880208,
+            1.2800000000000002,
+            -1.2599999999999998
+          ],
+          "base": [
+            -0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "rear-glass",
+          "visible": true,
+          "position": [
+            0,
+            1.3484999895095826,
+            -1.5817340133229774
+          ],
+          "base": [
+            0,
+            1.2484999895095825,
+            -1.0017340133229773
+          ],
+          "opacity": 0.48,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-panel",
+          "visible": true,
+          "position": [
+            0,
+            0.6712499630451203,
+            -1.9707050776315729
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.320705077631573
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "tailgate",
+          "visible": true,
+          "position": [
+            0,
+            0.7912499630451202,
+            -1.3266966319084168
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.2666966319084167
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lock-right",
+          "visible": true,
+          "position": [
+            -1.0187498928601644,
+            0.9449999749660491,
+            -1.6259999918937682
+          ],
+          "base": [
+            -0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lock-left",
+          "visible": true,
+          "position": [
+            1.0187498928601644,
+            0.9449999749660491,
+            -1.6259999918937682
+          ],
+          "base": [
+            0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-upper-lock",
+          "visible": true,
+          "position": [
+            0,
+            0.9287505418722114,
+            -2.0530006911632857
+          ],
+          "base": [
+            0,
+            1.0087505418722114,
+            -1.113000691163286
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-trim",
+          "visible": true,
+          "position": [
+            0,
+            0.7312499630451202,
+            -0.7280082649364896
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.2080082649364896
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-hinge-left",
+          "visible": true,
+          "position": [
+            0.7399999976158143,
+            0.24499999165534975,
+            -1.2654990790690996
+          ],
+          "base": [
+            0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-hinge-right",
+          "visible": true,
+          "position": [
+            -0.7399999976158143,
+            0.24499999165534975,
+            -1.2654990790690996
+          ],
+          "base": [
+            -0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-seal",
+          "visible": true,
+          "position": [
+            -0.000032335519790649414,
+            1.0713993906974792,
+            -0.1324294650554657
+          ],
+          "base": [
+            -0.000032335519790649414,
+            1.0713993906974792,
+            -0.9924294650554657
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-brake-light",
+          "visible": true,
+          "position": [
+            0,
+            1.873000030517578,
+            -1.6035071802013405
+          ],
+          "base": [
+            0,
+            1.4930000305175781,
+            -0.9435071802013404
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-wiper-motor",
+          "visible": true,
+          "position": [
+            0.32625000152736905,
+            1.7085001180271517,
+            0.015000014305114773
+          ],
+          "base": [
+            0.04625000152736902,
+            1.4385001180271517,
+            -0.7649999856948853
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-handle-switch",
+          "visible": true,
+          "position": [
+            -0.3,
+            0.9349999856948853,
+            -2.0290003812778847
+          ],
+          "base": [
+            0,
+            1.0149999856948853,
+            -1.1790003812778846
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-wiper-arm",
+          "visible": true,
+          "position": [
+            -0.04228992078453303,
+            1.5129941422018405,
+            -1.9637536488017675
+          ],
+          "base": [
+            -0.22228992078453302,
+            1.4129941422018404,
+            -0.9437536488017676
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "triangles": 295456,
+      "drawCalls": 87
+    },
+    "phone-measure": {
+      "selected": "rear-hatch",
+      "canvasId": "ad166931-8993-4581-8807-c5066c6466be",
+      "xray": false,
+      "section": "off",
+      "clipExteriorOnly": true,
+      "explode": 0,
+      "displayedExplosion": 0,
+      "activeAssembly": "rear-hatch",
+      "assemblyLod": "rear-hatch-high",
+      "hatchOpen": 0,
+      "inspectionRotation": 0,
+      "strutAttachments": [
+        {
+          "id": "hatch-strut-left",
+          "body": [
+            0.555,
+            1.03,
+            -1.27
+          ],
+          "hatch": [
+            0.54,
+            1.29,
+            -0.95
+          ]
+        },
+        {
+          "id": "hatch-strut-right",
+          "body": [
+            -0.555,
+            1.03,
+            -1.27
+          ],
+          "hatch": [
+            -0.54,
+            1.29,
+            -0.95
+          ]
+        }
+      ],
+      "camera": [
+        2.1891360953207715e-16,
+        1.3442823745053385,
+        -2.8203126159100105
+      ],
+      "parts": [
+        {
+          "id": "hatch-upper-frame",
+          "visible": true,
+          "position": [
+            0,
+            1.2510349750518799,
+            -0.9755804538726807
+          ],
+          "base": [
+            0,
+            1.2510349750518799,
+            -0.9755804538726807
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-upper-trim",
+          "visible": true,
+          "position": [
+            0,
+            1.2459649741649628,
+            -0.9603267908096313
+          ],
+          "base": [
+            0,
+            1.2459649741649628,
+            -0.9603267908096313
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-spoiler",
+          "visible": true,
+          "position": [
+            -2.9802322387695312e-8,
+            1.4956485033035278,
+            -0.8426111042499542
+          ],
+          "base": [
+            -2.9802322387695312e-8,
+            1.4956485033035278,
+            -0.8426111042499542
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-hinge-left",
+          "visible": true,
+          "position": [
+            0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "base": [
+            0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-hinge-right",
+          "visible": true,
+          "position": [
+            -0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "base": [
+            -0.42000000178813934,
+            1.4649999737739563,
+            -0.7607499957084656
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-strut-left",
+          "visible": true,
+          "position": [
+            0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "base": [
+            0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-strut-right",
+          "visible": true,
+          "position": [
+            -0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "base": [
+            -0.5502736819880207,
+            1.1600000000000001,
+            -1.1099999999999999
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "rear-glass",
+          "visible": true,
+          "position": [
+            0,
+            1.2484999895095825,
+            -1.0017340133229773
+          ],
+          "base": [
+            0,
+            1.2484999895095825,
+            -1.0017340133229773
+          ],
+          "opacity": 0.48,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-panel",
+          "visible": true,
+          "position": [
+            0,
+            0.8512499630451202,
+            -1.320705077631573
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.320705077631573
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "tailgate",
+          "visible": true,
+          "position": [
+            0,
+            0.8512499630451202,
+            -1.2666966319084167
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.2666966319084167
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lock-right",
+          "visible": true,
+          "position": [
+            -0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "base": [
+            -0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lock-left",
+          "visible": true,
+          "position": [
+            0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "base": [
+            0.5687498928601644,
+            0.9949999749660492,
+            -1.2459999918937683
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-upper-lock",
+          "visible": true,
+          "position": [
+            0,
+            1.0087505418722114,
+            -1.113000691163286
+          ],
+          "base": [
+            0,
+            1.0087505418722114,
+            -1.113000691163286
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-trim",
+          "visible": true,
+          "position": [
+            0,
+            0.8512499630451202,
+            -1.2080082649364896
+          ],
+          "base": [
+            0,
+            0.8512499630451202,
+            -1.2080082649364896
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-hinge-left",
+          "visible": true,
+          "position": [
+            0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "base": [
+            0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-lower-hinge-right",
+          "visible": true,
+          "position": [
+            -0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "base": [
+            -0.4399999976158142,
+            0.6649999916553497,
+            -1.2654990790690996
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-seal",
+          "visible": true,
+          "position": [
+            -0.000032335519790649414,
+            1.0713993906974792,
+            -0.9924294650554657
+          ],
+          "base": [
+            -0.000032335519790649414,
+            1.0713993906974792,
+            -0.9924294650554657
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-brake-light",
+          "visible": true,
+          "position": [
+            0,
+            1.4930000305175781,
+            -0.9435071802013404
+          ],
+          "base": [
+            0,
+            1.4930000305175781,
+            -0.9435071802013404
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-wiper-motor",
+          "visible": true,
+          "position": [
+            0.04625000152736902,
+            1.4385001180271517,
+            -0.7649999856948853
+          ],
+          "base": [
+            0.04625000152736902,
+            1.4385001180271517,
+            -0.7649999856948853
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-handle-switch",
+          "visible": true,
+          "position": [
+            0,
+            1.0149999856948853,
+            -1.1790003812778846
+          ],
+          "base": [
+            0,
+            1.0149999856948853,
+            -1.1790003812778846
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "hatch-wiper-arm",
+          "visible": true,
+          "position": [
+            -0.22228992078453302,
+            1.4129941422018404,
+            -0.9437536488017676
+          ],
+          "base": [
+            -0.22228992078453302,
+            1.4129941422018404,
+            -0.9437536488017676
+          ],
+          "opacity": 1,
+          "emissive": "000000",
+          "clippingPlanes": [],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "triangles": 148642,
+      "drawCalls": 47
+    }
+  }
+}

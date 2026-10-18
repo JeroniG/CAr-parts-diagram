@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Acquire and validate complete Smart 451 body geometry",
+    "body": "## Problem and scope\n\nReplace educational exterior surfaces with redistribution-approved U.S. 451 Passion coupe geometry.\n\n## Acceptance criteria\n\nRecord license, creator and source; compare wheelbase, dimensions, door/glass/panel outlines against photographs and measurements; preserve semantic component roots; attach reviewer evidence before Tier B/A promotion.\n\n## Baseline\n\nThe initial AutoAtlas release contains Tier C educational geometry and no confirmed OEM fitment for the selected gasoline configuration. Do not promote accuracy or fitment without evidence. See docs/ROADMAP.md and ASSET_LICENSES.md.\n",
+    "url": "https://github.com/JeroniG/CAr-parts-diagram/issues/1"
+  },
+  {
+    "title": "Model the 451 gasoline engine internals from technical references",
+    "body": "## Problem and scope\n\nAdd detailed engine internals without borrowing Electric Drive or 453 components.\n\n## Acceptance criteria\n\nSource engine-specific diagrams or licensed CAD; confirm block/head, crankshaft, connecting rods, pistons, camshafts and timing; validate pivots and meshes; keep unverified shapes Tier C and unmodeled entries D.\n\n## Baseline\n\nThe initial AutoAtlas release contains Tier C educational geometry and no confirmed OEM fitment for the selected gasoline configuration. Do not promote accuracy or fitment without evidence. See docs/ROADMAP.md and ASSET_LICENSES.md.\n",
+    "url": "https://github.com/JeroniG/CAr-parts-diagram/issues/2"
+  },
+  {
+    "title": "Validate clutch, gearbox and actuator breakdown",
+    "body": "## Problem and scope\n\nReplace the conceptual clutch and actuator with reference-backed geometry.\n\n## Acceptance criteria\n\nConfirm 2015 gasoline transmission configuration; obtain actuator housing/rod/connector references and licensed gearbox diagrams; model only supported internals; preserve the six-stage lesson and explicitly document timing evidence.\n\n## Baseline\n\nThe initial AutoAtlas release contains Tier C educational geometry and no confirmed OEM fitment for the selected gasoline configuration. Do not promote accuracy or fitment without evidence. See docs/ROADMAP.md and ASSET_LICENSES.md.\n",
+    "url": "https://github.com/JeroniG/CAr-parts-diagram/issues/3"
+  },
+  {
+    "title": "Implement reference-backed suspension animation",
+    "body": "## Problem and scope\n\nAdd meaningful suspension travel for the verified 451 layout.\n\n## Acceptance criteria\n\nObtain front strut and rear De Dion measurements; establish joints, mounting points and travel limits; verify wheel/arm/spring relationships; label illustrative values; add timeline and mechanical constraints tests.\n\n## Baseline\n\nThe initial AutoAtlas release contains Tier C educational geometry and no confirmed OEM fitment for the selected gasoline configuration. Do not promote accuracy or fitment without evidence. See docs/ROADMAP.md and ASSET_LICENSES.md.\n",
+    "url": "https://github.com/JeroniG/CAr-parts-diagram/issues/4"
+  },
+  {
+    "title": "Add electrical-system visualization",
+    "body": "## Problem and scope\n\nIntroduce power-source, module and load relationships.\n\n## Acceptance criteria\n\nVerify battery, alternator, SAM, ECU and controller locations for the selected configuration; record sources; show unmodeled components honestly; provide accessible system filtering and isolate paths.\n\n## Baseline\n\nThe initial AutoAtlas release contains Tier C educational geometry and no confirmed OEM fitment for the selected gasoline configuration. Do not promote accuracy or fitment without evidence. See docs/ROADMAP.md and ASSET_LICENSES.md.\n",
+    "url": "https://github.com/JeroniG/CAr-parts-diagram/issues/5"
+  },
+  {
+    "title": "Model wiring connections and current-flow lessons",
+    "body": "## Problem and scope\n\nRepresent selected wiring routes without inventing connector pinouts.\n\n## Acceptance criteria\n\nAcquire appropriately licensed configuration-specific wiring evidence; map connector IDs to physical components; record routing confidence and circuit metadata; test connectivity; no repair diagnosis claims without verification.\n\n## Baseline\n\nThe initial AutoAtlas release contains Tier C educational geometry and no confirmed OEM fitment for the selected gasoline configuration. Do not promote accuracy or fitment without evidence. See docs/ROADMAP.md and ASSET_LICENSES.md.\n",
+    "url": "https://github.com/JeroniG/CAr-parts-diagram/issues/6"
+  },
+  {
+    "title": "Integrate verified and licensed repair procedures",
+    "body": "## Problem and scope\n\nAdd a source-backed procedure model and limited pilot content.\n\n## Acceptance criteria\n\nObtain redistribution permission; scope each procedure to configuration and production restrictions; attach tools, torque values and safety review only when verified; version evidence; keep unsupported procedures unavailable.\n\n## Baseline\n\nThe initial AutoAtlas release contains Tier C educational geometry and no confirmed OEM fitment for the selected gasoline configuration. Do not promote accuracy or fitment without evidence. See docs/ROADMAP.md and ASSET_LICENSES.md.\n",
+    "url": "https://github.com/JeroniG/CAr-parts-diagram/issues/7"
+  },
+  {
+    "title": "Add fastener-level catalog and modeling",
+    "body": "## Problem and scope\n\nExtend assemblies down to serviceable fasteners with reviewed evidence.\n\n## Acceptance criteria\n\nValidate identity, thread/size/grade and assembly membership from permitted references; support arbitrary-depth browsing and multi-mesh parts; benchmark picking and batched rendering before scaling.\n\n## Baseline\n\nThe initial AutoAtlas release contains Tier C educational geometry and no confirmed OEM fitment for the selected gasoline configuration. Do not promote accuracy or fitment without evidence. See docs/ROADMAP.md and ASSET_LICENSES.md.\n",
+    "url": "https://github.com/JeroniG/CAr-parts-diagram/issues/8"
+  },
+  {
+    "title": "Support additional Smart configurations with isolated fitment",
+    "body": "## Problem and scope\n\nExpand beyond the single U.S. Passion gasoline coupe.\n\n## Acceptance criteria\n\nAdd Pure and Cabrio only with distinct configuration metadata, licensed matching assets and tested catalog switching; treat Electric Drive and 453 as separate baselines; prevent cross-configuration bindings and fitment leakage.\n\n## Baseline\n\nThe initial AutoAtlas release contains Tier C educational geometry and no confirmed OEM fitment for the selected gasoline configuration. Do not promote accuracy or fitment without evidence. See docs/ROADMAP.md and ASSET_LICENSES.md.\n",
+    "url": "https://github.com/JeroniG/CAr-parts-diagram/issues/9"
+  },
+  {
+    "title": "Add additional makes and models through the registry",
+    "body": "## Problem and scope\n\nProve extensibility with a second unrelated vehicle.\n\n## Acceptance criteria\n\nProvide licensed models, source records, normalized catalog, semantic mapping and accuracy classification; implement runtime catalog/model switching with loading cancellation and disposal tests; benchmark progressive loading and per-part LOD.\n\n## Baseline\n\nThe initial AutoAtlas release contains Tier C educational geometry and no confirmed OEM fitment for the selected gasoline configuration. Do not promote accuracy or fitment without evidence. See docs/ROADMAP.md and ASSET_LICENSES.md.\n",
+    "url": "https://github.com/JeroniG/CAr-parts-diagram/issues/10"
+  },
+  {
+    "title": "Design evidence-backed replacement-part marketplace integration",
+    "body": "## Problem and scope\n\nAdd compatible alternatives and current availability only with appropriate provider access.\n\n## Acceptance criteria\n\nChoose licensed APIs, confirm terms, provenance, fitment and timestamps; keep identity separate from compatibility; test unavailable/stale data; never infer fitment from broad product titles or VIN attributes alone.\n\n## Baseline\n\nThe initial AutoAtlas release contains Tier C educational geometry and no confirmed OEM fitment for the selected gasoline configuration. Do not promote accuracy or fitment without evidence. See docs/ROADMAP.md and ASSET_LICENSES.md.\n",
+    "url": "https://github.com/JeroniG/CAr-parts-diagram/issues/11"
+  }
+]

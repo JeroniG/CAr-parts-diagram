@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "vehicles": [
+    {
+      "id": "smart-451-us-2015-passion-coupe-gas",
+      "label": "2015 smart Fortwo",
+      "configuration": {
+        "id": "smart-451-us-2015-passion-coupe-gas",
+        "manufacturer": "smart",
+        "model": "Fortwo",
+        "year": 2015,
+        "generation": "Second generation",
+        "chassisCode": "451",
+        "market": "United States",
+        "trim": "Passion",
+        "bodyStyle": "Coupé",
+        "engineCode": null,
+        "transmissionCode": null,
+        "engine": "1.0 L · 3-cylinder gasoline",
+        "transmission": "5-speed automated manual",
+        "drivetrain": "Rear engine · rear-wheel drive",
+        "productionStart": null,
+        "productionEnd": null,
+        "dimensions": {
+          "length": 2695,
+          "widthWithMirrors": 1752,
+          "height": 1555,
+          "wheelbase": 1867
+        },
+        "sourceIds": [
+          "owners-2015",
+          "intro-451"
+        ]
+      },
+      "manifestUrl": "/vehicles/smart-451-us-2015-passion-coupe-gas/2026-10-18.1/manifest.json",
+      "manifestHash": "c3c881d417830c78ea211af3fd8d26559684efda426cab35d5cdb9587a569173",
+      "revision": "2026-10-18.1"
+    }
+  ]
+}

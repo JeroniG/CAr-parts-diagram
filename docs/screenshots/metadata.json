@@ -1,0 +1,13 @@
+{
+  "browser": "156.0.8078.4",
+  "renderer": "Chromium headless / SwiftShader software rendering, low quality",
+  "desktop": [1440, 1000],
+  "mobile": [390, 844],
+  "captured": "2026-10-17",
+  "performanceSummary": "56 selectable component groups\n451 · Gasoline\nBuilt to explore. Grounded in evidence.\n1 render fps\n92k triangles\nAbout this atlas",
+  "frameMeasurement": {
+    "animationFrames": 8,
+    "elapsedMilliseconds": 8542.099999999813,
+    "animationFramesPerSecond": 0.9365378536893944
+  }
+}
