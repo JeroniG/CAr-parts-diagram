@@ -1,0 +1,5424 @@
+{
+  "schemaVersion": 1,
+  "vehicle": {
+    "id": "smart-451-us-2015-passion-coupe-gas",
+    "manufacturer": "smart",
+    "model": "Fortwo",
+    "year": 2015,
+    "generation": "Second generation",
+    "chassisCode": "451",
+    "market": "United States",
+    "trim": "Passion",
+    "bodyStyle": "Coupé",
+    "engineCode": null,
+    "transmissionCode": null,
+    "engine": "1.0 L · 3-cylinder gasoline",
+    "transmission": "5-speed automated manual",
+    "drivetrain": "Rear engine · rear-wheel drive",
+    "productionStart": null,
+    "productionEnd": null,
+    "dimensions": {
+      "length": 2695,
+      "widthWithMirrors": 1752,
+      "height": 1555,
+      "wheelbase": 1867
+    },
+    "sourceIds": [
+      "owners-2015",
+      "intro-451"
+    ]
+  },
+  "systems": [
+    {
+      "id": "exterior",
+      "name": "Exterior & body",
+      "description": "Panels, glazing and the safety cell",
+      "color": "#9eac89",
+      "parentSystemId": null
+    },
+    {
+      "id": "engine",
+      "name": "Engine & exhaust",
+      "description": "Rear-mounted gasoline powerplant",
+      "color": "#d59d70",
+      "parentSystemId": null
+    },
+    {
+      "id": "transmission",
+      "name": "Transmission & clutch",
+      "description": "Automated manual drivetrain",
+      "color": "#a394c1",
+      "parentSystemId": null
+    },
+    {
+      "id": "brakes",
+      "name": "Braking system",
+      "description": "Front discs, rear drums and controls",
+      "color": "#c4877d",
+      "parentSystemId": null
+    },
+    {
+      "id": "suspension",
+      "name": "Suspension & steering",
+      "description": "Road wheels, suspension and steering",
+      "color": "#8bacc1",
+      "parentSystemId": null
+    },
+    {
+      "id": "cooling",
+      "name": "Cooling & HVAC",
+      "description": "Heat management and cabin ventilation",
+      "color": "#7dafae",
+      "parentSystemId": null
+    },
+    {
+      "id": "electrical",
+      "name": "Electrical & electronics",
+      "description": "Power, controls and connectivity",
+      "color": "#c9b46b",
+      "parentSystemId": null
+    },
+    {
+      "id": "interior",
+      "name": "Interior & safety",
+      "description": "Cabin, seating and restraint systems",
+      "color": "#a6a39b",
+      "parentSystemId": null
+    }
+  ],
+  "components": [
+    {
+      "id": "exterior",
+      "name": "Exterior & body",
+      "systemId": "exterior",
+      "parentComponentId": null,
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "System assembly",
+      "description": "Panels, glazing and the safety cell",
+      "function": "Panels, glazing and the safety cell",
+      "side": "center",
+      "componentType": "assembly",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "engine",
+      "name": "Engine & exhaust",
+      "systemId": "engine",
+      "parentComponentId": null,
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "System assembly",
+      "description": "Rear-mounted gasoline powerplant",
+      "function": "Rear-mounted gasoline powerplant",
+      "side": "center",
+      "componentType": "assembly",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "transmission",
+      "name": "Transmission & clutch",
+      "systemId": "transmission",
+      "parentComponentId": null,
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "System assembly",
+      "description": "Automated manual drivetrain",
+      "function": "Automated manual drivetrain",
+      "side": "center",
+      "componentType": "assembly",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "brakes",
+      "name": "Braking system",
+      "systemId": "brakes",
+      "parentComponentId": null,
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "System assembly",
+      "description": "Front discs, rear drums and controls",
+      "function": "Front discs, rear drums and controls",
+      "side": "center",
+      "componentType": "assembly",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "suspension",
+      "name": "Suspension & steering",
+      "systemId": "suspension",
+      "parentComponentId": null,
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "System assembly",
+      "description": "Road wheels, suspension and steering",
+      "function": "Road wheels, suspension and steering",
+      "side": "center",
+      "componentType": "assembly",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "cooling",
+      "name": "Cooling & HVAC",
+      "systemId": "cooling",
+      "parentComponentId": null,
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "System assembly",
+      "description": "Heat management and cabin ventilation",
+      "function": "Heat management and cabin ventilation",
+      "side": "center",
+      "componentType": "assembly",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "electrical",
+      "name": "Electrical & electronics",
+      "systemId": "electrical",
+      "parentComponentId": null,
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "System assembly",
+      "description": "Power, controls and connectivity",
+      "function": "Power, controls and connectivity",
+      "side": "center",
+      "componentType": "assembly",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "interior",
+      "name": "Interior & safety",
+      "systemId": "interior",
+      "parentComponentId": null,
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "System assembly",
+      "description": "Cabin, seating and restraint systems",
+      "function": "Cabin, seating and restraint systems",
+      "side": "center",
+      "componentType": "assembly",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "safety-cell",
+      "name": "Tridion safety cell",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Surrounding passenger compartment",
+      "description": "The structural safety cell surrounds the passenger compartment. The displayed form is an educational exterior outline, not a structural analysis model.",
+      "function": "The structural safety cell surrounds the passenger compartment. The displayed form is an educational exterior outline, not a structural analysis model.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "frame",
+        "chassis"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "front-bumper",
+      "name": "Front bumper cover",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Front of vehicle",
+      "description": "Exterior cover around the front impact structure.",
+      "function": "Exterior cover around the front impact structure.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "rear-bumper",
+      "name": "Rear bumper cover",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Rear of vehicle",
+      "description": "Exterior cover below the rear cargo opening.",
+      "function": "Exterior cover below the rear cargo opening.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "service-panel",
+      "name": "Front service panel",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Front, below windshield",
+      "description": "Provides access to front service reservoirs. The engine is at the rear.",
+      "function": "Provides access to front service reservoirs. The engine is at the rear.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "hood",
+        "bonnet"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "windshield",
+      "name": "Windshield",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Front of cabin",
+      "description": "Laminated front glazing.",
+      "function": "Laminated front glazing.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "windscreen"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "roof",
+      "name": "Panoramic roof",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Above cabin",
+      "description": "Fixed roof panel shown as the Passion coupé configuration.",
+      "function": "Fixed roof panel shown as the Passion coupé configuration.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "rear-glass",
+      "name": "Rear window",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Upper rear cargo opening",
+      "description": "Rear glazing above the lower tailgate.",
+      "function": "Rear glazing above the lower tailgate.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "tailgate",
+      "name": "Lower tailgate",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Rear cargo opening",
+      "description": "Lower portion of the two-part cargo opening.",
+      "function": "Lower portion of the two-part cargo opening.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "rear hatch"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "door-left",
+      "name": "Left door",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "left cabin side",
+      "description": "Door panel assembly; handle and trim are grouped meshes.",
+      "function": "Door panel assembly; handle and trim are grouped meshes.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "window-left",
+      "name": "Left side window",
+      "systemId": "exterior",
+      "parentComponentId": "door-left",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "left door",
+      "description": "Side glazing.",
+      "function": "Side glazing.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "mirror-left",
+      "name": "Left mirror",
+      "systemId": "exterior",
+      "parentComponentId": "door-left",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "left front door",
+      "description": "Exterior rear-view mirror.",
+      "function": "Exterior rear-view mirror.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "fender-left",
+      "name": "Left front fender",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "left front wheel arch",
+      "description": "Body panel around the front wheel opening.",
+      "function": "Body panel around the front wheel opening.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "quarter-left",
+      "name": "Left rear quarter panel",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "left rear wheel arch",
+      "description": "Body panel alongside the rear engine compartment.",
+      "function": "Body panel alongside the rear engine compartment.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "headlight-left",
+      "name": "Left headlight",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "left front corner",
+      "description": "Front lighting assembly. Exact lamp fitment requires a configuration-specific catalog or VIN check.",
+      "function": "Front lighting assembly. Exact lamp fitment requires a configuration-specific catalog or VIN check.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "headlamp",
+        "driver headlight"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "taillight-left",
+      "name": "Left tail lamp",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "left rear corner",
+      "description": "Rear signaling and illumination assembly.",
+      "function": "Rear signaling and illumination assembly.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "taillight"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "door-right",
+      "name": "Right door",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "right cabin side",
+      "description": "Door panel assembly; handle and trim are grouped meshes.",
+      "function": "Door panel assembly; handle and trim are grouped meshes.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "window-right",
+      "name": "Right side window",
+      "systemId": "exterior",
+      "parentComponentId": "door-right",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "right door",
+      "description": "Side glazing.",
+      "function": "Side glazing.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "mirror-right",
+      "name": "Right mirror",
+      "systemId": "exterior",
+      "parentComponentId": "door-right",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "right front door",
+      "description": "Exterior rear-view mirror.",
+      "function": "Exterior rear-view mirror.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "fender-right",
+      "name": "Right front fender",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "right front wheel arch",
+      "description": "Body panel around the front wheel opening.",
+      "function": "Body panel around the front wheel opening.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "quarter-right",
+      "name": "Right rear quarter panel",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "right rear wheel arch",
+      "description": "Body panel alongside the rear engine compartment.",
+      "function": "Body panel alongside the rear engine compartment.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "headlight-right",
+      "name": "Right headlight",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "right front corner",
+      "description": "Front lighting assembly. Exact lamp fitment requires a configuration-specific catalog or VIN check.",
+      "function": "Front lighting assembly. Exact lamp fitment requires a configuration-specific catalog or VIN check.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "headlamp",
+        "passenger headlight"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "taillight-right",
+      "name": "Right tail lamp",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "right rear corner",
+      "description": "Rear signaling and illumination assembly.",
+      "function": "Rear signaling and illumination assembly.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "taillight"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "engine-block",
+      "name": "Engine block",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Rear, beneath cargo floor",
+      "description": "Illustrates the rear transverse three-cylinder engine. Casting surfaces and mounting points are approximate.",
+      "function": "Illustrates the rear transverse three-cylinder engine. Casting surfaces and mounting points are approximate.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "motor",
+        "1.0"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "cylinder-head",
+      "name": "Cylinder head & valve cover",
+      "systemId": "engine",
+      "parentComponentId": "engine-block",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Above engine block",
+      "description": "Closes the cylinders and houses the valve train; internal detail is not modeled.",
+      "function": "Closes the cylinders and houses the valve train; internal detail is not modeled.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "intake",
+      "name": "Intake manifold",
+      "systemId": "engine",
+      "parentComponentId": "engine-block",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Beside rear engine",
+      "description": "Routes intake air to the three cylinders.",
+      "function": "Routes intake air to the three cylinders.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "exhaust",
+      "name": "Exhaust silencer",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Low rear underbody",
+      "description": "Reduces exhaust noise. Routing is schematic; catalyst internals are not modeled.",
+      "function": "Reduces exhaust noise. Routing is schematic; catalyst internals are not modeled.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "muffler"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "transmission-case",
+      "name": "Transmission housing",
+      "systemId": "transmission",
+      "parentComponentId": "transmission",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Rear, adjacent to engine",
+      "description": "Housing for the five-speed automated manual gearbox. Gearsets and differential internals are not modeled.",
+      "function": "Housing for the five-speed automated manual gearbox. Gearsets and differential internals are not modeled.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "gearbox",
+        "AMT"
+      ],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "clutch",
+      "name": "Clutch assembly",
+      "systemId": "transmission",
+      "parentComponentId": "transmission",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Between engine and gearbox",
+      "description": "Transfers torque from the engine to the gearbox. Releasing the clutch interrupts that torque path.",
+      "function": "Transfers torque from the engine to the gearbox. Releasing the clutch interrupts that torque path.",
+      "side": "center",
+      "componentType": "assembly",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "flywheel",
+      "name": "Flywheel",
+      "systemId": "transmission",
+      "parentComponentId": "clutch",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Engine side of clutch",
+      "description": "Provides the engine-side friction surface and rotating inertia.",
+      "function": "Provides the engine-side friction surface and rotating inertia.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "clutch-disc",
+      "name": "Clutch disc",
+      "systemId": "transmission",
+      "parentComponentId": "clutch",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Between flywheel and pressure plate",
+      "description": "Friction disc clamped to transmit engine torque to the gearbox.",
+      "function": "Friction disc clamped to transmit engine torque to the gearbox.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "pressure-plate",
+      "name": "Pressure plate",
+      "systemId": "transmission",
+      "parentComponentId": "clutch",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Gearbox side of clutch disc",
+      "description": "Clamps the friction disc; the conceptual animation illustrates release of clamping force.",
+      "function": "Clamps the friction disc; the conceptual animation illustrates release of clamping force.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "release-bearing",
+      "name": "Release bearing",
+      "systemId": "transmission",
+      "parentComponentId": "clutch",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Gearbox side of pressure plate",
+      "description": "Transfers release force to the clutch release spring.",
+      "function": "Transfers release force to the clutch release spring.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "clutch-actuator",
+      "name": "Clutch actuator",
+      "systemId": "transmission",
+      "parentComponentId": "transmission",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Outside the transmission housing",
+      "description": "Converts an electrical control command into movement of the clutch release mechanism. The original housing geometry here is illustrative.",
+      "function": "Converts an electrical control command into movement of the clutch release mechanism. The original housing geometry here is illustrative.",
+      "side": "center",
+      "componentType": "assembly",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "actuator motor",
+        "clutch robot"
+      ],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "actuator-rod",
+      "name": "Actuator release rod",
+      "systemId": "transmission",
+      "parentComponentId": "clutch-actuator",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Between actuator and release mechanism",
+      "description": "Transmits actuator movement to the release linkage. Travel shown is explanatory, not a service dimension.",
+      "function": "Transmits actuator movement to the release linkage. Travel shown is explanatory, not a service dimension.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "pushrod"
+      ],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "actuator-connector",
+      "name": "Clutch actuator electrical connector",
+      "systemId": "transmission",
+      "parentComponentId": "clutch-actuator",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "At clutch actuator housing",
+      "description": "Electrical connection to the clutch actuator. Pinout, connector shape and wiring have not been verified.",
+      "function": "Electrical connection to the clutch actuator. Pinout, connector shape and wiring have not been verified.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "plug",
+        "electrical connector"
+      ],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "release-fork",
+      "name": "Clutch release mechanism",
+      "systemId": "transmission",
+      "parentComponentId": "clutch",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Inside bellhousing",
+      "description": "Simplified lever conveys rod movement to the release bearing. Exact lever geometry and pivot are not validated.",
+      "function": "Simplified lever conveys rod movement to the release bearing. Exact lever geometry and pivot are not validated.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "release fork"
+      ],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "gear-selector",
+      "name": "Gear-selection actuator",
+      "systemId": "transmission",
+      "parentComponentId": "transmission",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "On transmission",
+      "description": "Selects and engages gearbox ratios under electronic control. Internal motion is not represented.",
+      "function": "Selects and engages gearbox ratios under electronic control. Internal motion is not represented.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "driveshaft-left",
+      "name": "Left driveshaft",
+      "systemId": "transmission",
+      "parentComponentId": "transmission",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "left rear axle",
+      "description": "Transfers torque from the differential to a rear wheel.",
+      "function": "Transfers torque from the differential to a rear wheel.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "half shaft",
+        "CV axle"
+      ],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "wheel-front-left",
+      "name": "Front left wheel",
+      "systemId": "suspension",
+      "parentComponentId": "suspension",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "front left corner",
+      "description": "Illustrative wheel and tire; rim design is original, not a factory wheel reproduction.",
+      "function": "Illustrative wheel and tire; rim design is original, not a factory wheel reproduction.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "tire",
+        "rim"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "brake-front-left",
+      "name": "Front left disc brake",
+      "systemId": "brakes",
+      "parentComponentId": "brakes",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "front left hub",
+      "description": "Front disc and caliper assembly. Friction converts wheel motion into heat.",
+      "function": "Front disc and caliper assembly. Friction converts wheel motion into heat.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "rotor",
+        "brake"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "spring-front-left",
+      "name": "Front left spring & damper",
+      "systemId": "suspension",
+      "parentComponentId": "suspension",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "front left suspension",
+      "description": "Conceptual coil spring and damper placement. Mounts and load paths require measured reference geometry.",
+      "function": "Conceptual coil spring and damper placement. Mounts and load paths require measured reference geometry.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "shock",
+        "strut"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "wheel-rear-left",
+      "name": "Rear left wheel",
+      "systemId": "suspension",
+      "parentComponentId": "suspension",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "rear left corner",
+      "description": "Illustrative wheel and tire; rim design is original, not a factory wheel reproduction.",
+      "function": "Illustrative wheel and tire; rim design is original, not a factory wheel reproduction.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "tire",
+        "rim"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "brake-rear-left",
+      "name": "Rear left drum brake",
+      "systemId": "brakes",
+      "parentComponentId": "brakes",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "rear left hub",
+      "description": "Rear drum brake assembly. Internal shoes are not modeled.",
+      "function": "Rear drum brake assembly. Internal shoes are not modeled.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "rotor",
+        "brake"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "spring-rear-left",
+      "name": "Rear left spring & damper",
+      "systemId": "suspension",
+      "parentComponentId": "suspension",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "rear left suspension",
+      "description": "Conceptual coil spring and damper placement. Mounts and load paths require measured reference geometry.",
+      "function": "Conceptual coil spring and damper placement. Mounts and load paths require measured reference geometry.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "shock",
+        "strut"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "driveshaft-right",
+      "name": "Right driveshaft",
+      "systemId": "transmission",
+      "parentComponentId": "transmission",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "right rear axle",
+      "description": "Transfers torque from the differential to a rear wheel.",
+      "function": "Transfers torque from the differential to a rear wheel.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "half shaft",
+        "CV axle"
+      ],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "wheel-front-right",
+      "name": "Front right wheel",
+      "systemId": "suspension",
+      "parentComponentId": "suspension",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "front right corner",
+      "description": "Illustrative wheel and tire; rim design is original, not a factory wheel reproduction.",
+      "function": "Illustrative wheel and tire; rim design is original, not a factory wheel reproduction.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "tire",
+        "rim"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "brake-front-right",
+      "name": "Front right disc brake",
+      "systemId": "brakes",
+      "parentComponentId": "brakes",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "front right hub",
+      "description": "Front disc and caliper assembly. Friction converts wheel motion into heat.",
+      "function": "Front disc and caliper assembly. Friction converts wheel motion into heat.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "rotor",
+        "brake"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "spring-front-right",
+      "name": "Front right spring & damper",
+      "systemId": "suspension",
+      "parentComponentId": "suspension",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "front right suspension",
+      "description": "Conceptual coil spring and damper placement. Mounts and load paths require measured reference geometry.",
+      "function": "Conceptual coil spring and damper placement. Mounts and load paths require measured reference geometry.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "shock",
+        "strut"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "wheel-rear-right",
+      "name": "Rear right wheel",
+      "systemId": "suspension",
+      "parentComponentId": "suspension",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "rear right corner",
+      "description": "Illustrative wheel and tire; rim design is original, not a factory wheel reproduction.",
+      "function": "Illustrative wheel and tire; rim design is original, not a factory wheel reproduction.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "tire",
+        "rim"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "brake-rear-right",
+      "name": "Rear right drum brake",
+      "systemId": "brakes",
+      "parentComponentId": "brakes",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "rear right hub",
+      "description": "Rear drum brake assembly. Internal shoes are not modeled.",
+      "function": "Rear drum brake assembly. Internal shoes are not modeled.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "rotor",
+        "brake"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "spring-rear-right",
+      "name": "Rear right spring & damper",
+      "systemId": "suspension",
+      "parentComponentId": "suspension",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "rear right suspension",
+      "description": "Conceptual coil spring and damper placement. Mounts and load paths require measured reference geometry.",
+      "function": "Conceptual coil spring and damper placement. Mounts and load paths require measured reference geometry.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "shock",
+        "strut"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "radiator",
+      "name": "Radiator",
+      "systemId": "cooling",
+      "parentComponentId": "cooling",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Front, behind grille",
+      "description": "Rejects heat from engine coolant to the surrounding air.",
+      "function": "Rejects heat from engine coolant to the surrounding air.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "coolant-pipes",
+      "name": "Underbody coolant pipes",
+      "systemId": "cooling",
+      "parentComponentId": "cooling",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Between rear engine and front radiator",
+      "description": "Schematic coolant connection between the rear engine and front radiator. Actual bends and mounts are not validated.",
+      "function": "Schematic coolant connection between the rear engine and front radiator. Actual bends and mounts are not validated.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "hoses"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "battery",
+      "name": "12 V battery",
+      "systemId": "electrical",
+      "parentComponentId": "electrical",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Passenger footwell, beneath floor covering",
+      "description": "Stores electrical energy for starting and vehicle electrical systems.",
+      "function": "Stores electrical energy for starting and vehicle electrical systems.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "dashboard",
+      "name": "Dashboard",
+      "systemId": "interior",
+      "parentComponentId": "interior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Front of cabin",
+      "description": "Supports the cabin instruments and controls.",
+      "function": "Supports the cabin instruments and controls.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "steering-wheel",
+      "name": "Steering wheel",
+      "systemId": "interior",
+      "parentComponentId": "interior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Left-hand driving position",
+      "description": "Driver steering interface. Airbag internals are not modeled.",
+      "function": "Driver steering interface. Airbag internals are not modeled.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "seat-left",
+      "name": "Driver seat",
+      "systemId": "interior",
+      "parentComponentId": "interior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Left cabin",
+      "description": "Illustrative driver seat with approximate mounting position.",
+      "function": "Illustrative driver seat with approximate mounting position.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "seat-right",
+      "name": "Passenger seat",
+      "systemId": "interior",
+      "parentComponentId": "interior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Right cabin",
+      "description": "Illustrative passenger seat; exact seat offsets are not validated.",
+      "function": "Illustrative passenger seat; exact seat offsets are not validated.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "floor",
+      "name": "Cabin floor",
+      "systemId": "interior",
+      "parentComponentId": "interior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Below seating",
+      "description": "Illustrative passenger floor and rear engine cover.",
+      "function": "Illustrative passenger floor and rear engine cover.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "front-reinforcement",
+      "name": "Front reinforcement beam",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Front reinforcement beam"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "absorber",
+      "name": "Front energy absorber",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Front energy absorber"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "wiper-motor",
+      "name": "Wiper motor",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Wiper motor"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "door-hinges",
+      "name": "Door hinges",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Door hinges"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "window-regulator",
+      "name": "Window regulator",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Window regulator"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "hatch-strut",
+      "name": "Rear hatch strut",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Rear hatch strut"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "weatherstrip",
+      "name": "Weatherstripping",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Weatherstripping"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "arch-liner",
+      "name": "Wheel-arch liners",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Wheel arch liners"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "body-clips",
+      "name": "Body clips & retainers",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Body clips & retainers"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "pistons",
+      "name": "Pistons",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Pistons"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "rods",
+      "name": "Connecting rods",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Connecting rods"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "crankshaft",
+      "name": "Crankshaft",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Crankshaft"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "camshafts",
+      "name": "Camshafts",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Camshafts"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "valves",
+      "name": "Valves & springs",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Valves & springs"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "timing",
+      "name": "Timing components",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Timing components"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "throttle",
+      "name": "Throttle body",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Throttle body"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "injectors",
+      "name": "Fuel injectors & rail",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Fuel injectors & rail"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "spark-plugs",
+      "name": "Spark plugs",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Spark plugs"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "coils",
+      "name": "Ignition coils",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Ignition coils"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "air-filter",
+      "name": "Air filter housing",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Air filter housing"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "engine-mounts",
+      "name": "Engine mounts",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Engine mounts"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "alternator",
+      "name": "Alternator",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Alternator"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "starter",
+      "name": "Starter motor",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Starter motor"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "oil-pan",
+      "name": "Oil pan",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Oil pan"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "oil-pump",
+      "name": "Oil pump",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Oil pump"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "oil-filter",
+      "name": "Oil filter",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Oil filter"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "catalyst",
+      "name": "Catalytic converter",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Catalytic converter"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "oxygen-sensor",
+      "name": "Oxygen sensors",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Oxygen sensors"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "gears",
+      "name": "Gearsets",
+      "systemId": "transmission",
+      "parentComponentId": "transmission",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Gearsets"
+      ],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "input-shaft",
+      "name": "Input shaft",
+      "systemId": "transmission",
+      "parentComponentId": "transmission",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Input shaft"
+      ],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "output-shaft",
+      "name": "Output shaft",
+      "systemId": "transmission",
+      "parentComponentId": "transmission",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Output shaft"
+      ],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "differential",
+      "name": "Differential",
+      "systemId": "transmission",
+      "parentComponentId": "transmission",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Differential"
+      ],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "trans-mount",
+      "name": "Transmission mounts",
+      "systemId": "transmission",
+      "parentComponentId": "transmission",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Transmission mounts"
+      ],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "cv-joints",
+      "name": "CV joints",
+      "systemId": "transmission",
+      "parentComponentId": "transmission",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "CV joints"
+      ],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "actuator-internals",
+      "name": "Clutch actuator internals",
+      "systemId": "transmission",
+      "parentComponentId": "clutch-actuator",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Clutch actuator internals"
+      ],
+      "sourceIds": [
+        "intro-451",
+        "zf-actuators"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "master-cylinder",
+      "name": "Brake master cylinder",
+      "systemId": "brakes",
+      "parentComponentId": "brakes",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Brake master cylinder"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "abs-module",
+      "name": "ABS / ESP module",
+      "systemId": "brakes",
+      "parentComponentId": "brakes",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "ABS / ESP module"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "brake-lines",
+      "name": "Brake lines & hoses",
+      "systemId": "brakes",
+      "parentComponentId": "brakes",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Brake lines & hoses"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "brake-pads",
+      "name": "Front brake pads",
+      "systemId": "brakes",
+      "parentComponentId": "brakes",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Front brake pads"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "parking-cable",
+      "name": "Parking brake cables",
+      "systemId": "brakes",
+      "parentComponentId": "brakes",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Parking brake cables"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "wheel-speed",
+      "name": "Wheel speed sensors",
+      "systemId": "brakes",
+      "parentComponentId": "brakes",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Wheel speed sensors"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "control-arms",
+      "name": "Control arms",
+      "systemId": "suspension",
+      "parentComponentId": "suspension",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Control arms"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "knuckles",
+      "name": "Steering knuckles",
+      "systemId": "suspension",
+      "parentComponentId": "suspension",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Steering knuckles"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "tie-rods",
+      "name": "Tie rods",
+      "systemId": "suspension",
+      "parentComponentId": "suspension",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Tie rods"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "rack",
+      "name": "Steering rack",
+      "systemId": "suspension",
+      "parentComponentId": "suspension",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Steering rack"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "hub-bearings",
+      "name": "Wheel hubs & bearings",
+      "systemId": "suspension",
+      "parentComponentId": "suspension",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Wheel hubs & bearings"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "bushings",
+      "name": "Suspension bushings",
+      "systemId": "suspension",
+      "parentComponentId": "suspension",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Suspension bushings"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "rear-axle",
+      "name": "De Dion rear axle",
+      "systemId": "suspension",
+      "parentComponentId": "suspension",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "De Dion rear axle"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "cooling-fan",
+      "name": "Radiator cooling fan",
+      "systemId": "cooling",
+      "parentComponentId": "cooling",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Radiator cooling fan"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "reservoir",
+      "name": "Coolant reservoir",
+      "systemId": "cooling",
+      "parentComponentId": "cooling",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Coolant reservoir"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "water-pump",
+      "name": "Water pump",
+      "systemId": "cooling",
+      "parentComponentId": "cooling",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Water pump"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "thermostat",
+      "name": "Thermostat",
+      "systemId": "cooling",
+      "parentComponentId": "cooling",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Thermostat"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "heater-core",
+      "name": "Heater core",
+      "systemId": "cooling",
+      "parentComponentId": "cooling",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Heater core"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "hvac-housing",
+      "name": "HVAC housing",
+      "systemId": "cooling",
+      "parentComponentId": "cooling",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "HVAC housing"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "blower",
+      "name": "Blower motor",
+      "systemId": "cooling",
+      "parentComponentId": "cooling",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Blower motor"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "ac-compressor",
+      "name": "Air-conditioning compressor",
+      "systemId": "cooling",
+      "parentComponentId": "cooling",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Air conditioning compressor"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "condenser",
+      "name": "A/C condenser",
+      "systemId": "cooling",
+      "parentComponentId": "cooling",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "A/C condenser"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "refrigerant-lines",
+      "name": "Refrigerant lines",
+      "systemId": "cooling",
+      "parentComponentId": "cooling",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Refrigerant lines"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "sam",
+      "name": "SAM / fuse & relay module",
+      "systemId": "electrical",
+      "parentComponentId": "electrical",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "SAM / fuse & relay module"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "ecu",
+      "name": "Engine control electronics",
+      "systemId": "electrical",
+      "parentComponentId": "electrical",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Engine control electronics"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "tcu",
+      "name": "Transmission control electronics",
+      "systemId": "electrical",
+      "parentComponentId": "electrical",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Transmission control electronics"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "harness",
+      "name": "Wiring harnesses",
+      "systemId": "electrical",
+      "parentComponentId": "electrical",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Wiring harnesses"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "ground",
+      "name": "Ground connections",
+      "systemId": "electrical",
+      "parentComponentId": "electrical",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Ground connections"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "cluster",
+      "name": "Instrument cluster",
+      "systemId": "electrical",
+      "parentComponentId": "electrical",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "Instrument cluster"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "obd",
+      "name": "OBD diagnostic connector",
+      "systemId": "electrical",
+      "parentComponentId": "electrical",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "OBD diagnostic connector"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "seatbelts",
+      "name": "Seat belts",
+      "systemId": "interior",
+      "parentComponentId": "interior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Seat belts"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "airbags",
+      "name": "Airbag assemblies",
+      "systemId": "interior",
+      "parentComponentId": "interior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Airbag assemblies"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "seat-mounts",
+      "name": "Seat mounting hardware",
+      "systemId": "interior",
+      "parentComponentId": "interior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Seat mounting hardware"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "console",
+      "name": "Center console",
+      "systemId": "interior",
+      "parentComponentId": "interior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Center console"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "pedals",
+      "name": "Pedals",
+      "systemId": "interior",
+      "parentComponentId": "interior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Pedals"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "door-trim",
+      "name": "Door trim",
+      "systemId": "interior",
+      "parentComponentId": "interior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "Door trim"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "hvac-controls",
+      "name": "HVAC controls",
+      "systemId": "interior",
+      "parentComponentId": "interior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Exact placement awaiting reference review",
+      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [
+        "HVAC controls"
+      ],
+      "sourceIds": [
+        "owners-2015",
+        "intro-451"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    }
+  ],
+  "sources": [
+    {
+      "id": "owners-2015",
+      "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf",
+      "publisher": "Mercedes-Benz USA / smart",
+      "documentTitle": "2015 U.S. Operator’s Manual — smart fortwo",
+      "publicationDate": null,
+      "retrievedAt": "2026-10-17",
+      "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+      "notes": "Passion dimensions: printed p. 215. Tires: p. 218. Engine compartment: p. 117. This is the gasoline manual, not the Electric Drive manual. Publication year follows Edition A-2014; exact day unknown."
+    },
+    {
+      "id": "intro-451",
+      "sourceUrl": "https://www.manualslib.com/manual/838294/Smart-Series-451.html",
+      "publisher": "smart USA (archived by ManualsLib)",
+      "documentTitle": "Introduction of the smart fortwo, Model Series 451",
+      "publicationDate": null,
+      "retrievedAt": "2026-10-17",
+      "rights": "Link only; no illustrations copied.",
+      "notes": "2007 platform introduction. Supports rear-engine architecture, 5-speed AMT, front disc / rear drum layout and suspension concepts. Not evidence of 2015 part-number fitment."
+    },
+    {
+      "id": "zf-actuators",
+      "sourceUrl": "https://aftermarket.zf.com/en/aftermarket-portal/knowledge-hub/inbrief-sachs-actuators/",
+      "publisher": "ZF Aftermarket",
+      "documentTitle": "Function and Setup of SACHS Actuators",
+      "publicationDate": "2023-04-18",
+      "retrievedAt": "2026-10-17",
+      "rights": "Link only; original explanatory text in this app.",
+      "notes": "Supports the general roles of transmission and clutch actuators. Does not validate the illustrated linkage dimensions or timing."
+    },
+    {
+      "id": "mb-actuator",
+      "sourceUrl": "https://mbparts.mbusa.com/oem-parts/smart-clutch-actuator-4512500062",
+      "publisher": "Mercedes-Benz USA Parts",
+      "documentTitle": "Clutch Actuator — Smart (4512500062)",
+      "publicationDate": null,
+      "retrievedAt": "2026-10-17",
+      "rights": "Linked factual part identity only; no catalog images or diagrams redistributed.",
+      "notes": "Manufacturer page confirms number and identity. It explicitly supplies no application/vehicle fitment data. 2015 gasoline fitment remains unknown."
+    },
+    {
+      "id": "mb-headlamps",
+      "sourceUrl": "https://classicparts.mbusa.com/v-2015-smart-fortwo--electric-drive--electric/electrical--headlamp-components",
+      "publisher": "Mercedes-Benz Classic USA Parts",
+      "documentTitle": "2015 Fortwo Electric Drive — Headlamp Components",
+      "publicationDate": null,
+      "retrievedAt": "2026-10-17",
+      "rights": "Linked factual part identity only. No catalog diagram reproduced.",
+      "notes": "Lists right 4518202459 and left 4518202559, without BRABUS. Source configuration is Electric Drive: it is NOT confirmation for this gasoline vehicle."
+    }
+  ],
+  "oemParts": [
+    {
+      "id": "oem-actuator",
+      "manufacturer": "smart",
+      "partNumber": "4512500062",
+      "description": "Clutch actuator",
+      "supersededBy": null,
+      "sourceId": "mb-actuator"
+    },
+    {
+      "id": "oem-headlight-right",
+      "manufacturer": "smart",
+      "partNumber": "4518202459",
+      "description": "Right headlamp, without BRABUS (Electric Drive source)",
+      "supersededBy": null,
+      "sourceId": "mb-headlamps"
+    },
+    {
+      "id": "oem-headlight-left",
+      "manufacturer": "smart",
+      "partNumber": "4518202559",
+      "description": "Left headlamp, without BRABUS (Electric Drive source)",
+      "supersededBy": null,
+      "sourceId": "mb-headlamps"
+    }
+  ],
+  "fitments": [
+    {
+      "id": "fitment-oem-actuator",
+      "oemPartId": "oem-actuator",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "componentId": "clutch-actuator",
+      "productionRange": null,
+      "trimRestrictions": [],
+      "optionRestrictions": [],
+      "verificationStatus": "unknown",
+      "verifiedAt": null,
+      "sourceId": "mb-actuator",
+      "notes": "OEM identity is sourced. The manufacturer listing has no vehicle-fitment data; 2015 gasoline fitment is unconfirmed."
+    },
+    {
+      "id": "fitment-oem-headlight-right",
+      "oemPartId": "oem-headlight-right",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "componentId": "headlight-right",
+      "productionRange": null,
+      "trimRestrictions": [],
+      "optionRestrictions": [],
+      "verificationStatus": "unknown",
+      "verifiedAt": null,
+      "sourceId": "mb-headlamps",
+      "notes": "Reference is from an Electric Drive catalog. Applicability to this gasoline configuration has NOT been established. Do not order based on this reference."
+    },
+    {
+      "id": "fitment-oem-headlight-left",
+      "oemPartId": "oem-headlight-left",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "componentId": "headlight-left",
+      "productionRange": null,
+      "trimRestrictions": [],
+      "optionRestrictions": [],
+      "verificationStatus": "unknown",
+      "verifiedAt": null,
+      "sourceId": "mb-headlamps",
+      "notes": "Reference is from an Electric Drive catalog. Applicability to this gasoline configuration has NOT been established. Do not order based on this reference."
+    }
+  ],
+  "relationships": [
+    {
+      "componentId": "clutch-actuator",
+      "relatedComponentId": "actuator-rod",
+      "type": "actuates",
+      "evidence": "zf-actuators"
+    },
+    {
+      "componentId": "actuator-rod",
+      "relatedComponentId": "release-fork",
+      "type": "actuates",
+      "evidence": "intro-451"
+    },
+    {
+      "componentId": "release-fork",
+      "relatedComponentId": "release-bearing",
+      "type": "actuates",
+      "evidence": "zf-actuators"
+    },
+    {
+      "componentId": "clutch-disc",
+      "relatedComponentId": "flywheel",
+      "type": "mates-with",
+      "evidence": "intro-451"
+    }
+  ],
+  "animations": [
+    {
+      "id": "amt-shift",
+      "componentId": "transmission",
+      "assetUrl": null,
+      "clipName": null,
+      "description": "Conceptual six-stage automated-manual gear change. Travel, timing and linkage geometry are illustrative.",
+      "accuracyStatus": "C",
+      "referenceSourceId": "zf-actuators"
+    }
+  ],
+  "modelAsset": {
+    "id": "smart-451-educational-v1",
+    "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+    "fileUrl": "/models/smart-451/educational-v1.glb",
+    "sourceUrl": "src/vehicles/smart451.ts",
+    "author": "AutoAtlas 3D contributors",
+    "license": "MIT",
+    "licenseEvidence": "LICENSE",
+    "redistributionAllowed": true,
+    "geometryAccuracy": "C",
+    "dimensionalVerification": "Overall proportions guided by owner manual. No part geometry is dimensionally verified. No Tier A or B components.",
+    "assetVersion": "1.0.0",
+    "contentHash": "3ba61043cc5dc99a300bce805010168c568639d77b81d4a20a9521104ea56317"
+  },
+  "meshBindings": [
+    {
+      "id": "binding-safety-cell",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/safety-cell",
+      "componentId": "safety-cell",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.7575000014901161,
+          0.26999999925494195,
+          -1.1221297979354858
+        ],
+        "max": [
+          0.7590000033378601,
+          1.5750000476837158,
+          0.8499999713897706
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-service-panel",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/service-panel",
+      "componentId": "service-panel",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.699999988079071,
+          0.7900000214576721,
+          0.7300000190734863
+        ],
+        "max": [
+          0.699999988079071,
+          1.0149999856948853,
+          1.2999999523162842
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-front-bumper",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/front-bumper",
+      "componentId": "front-bumper",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.7149999737739563,
+          0.2950000008940697,
+          1.1100000005960464
+        ],
+        "max": [
+          0.7149999737739563,
+          0.8379999995231628,
+          1.387000000052154
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-rear-bumper",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/rear-bumper",
+      "componentId": "rear-bumper",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.7250000238418579,
+          0.2900000002980232,
+          -1.320000001490116
+        ],
+        "max": [
+          0.7250000238418579,
+          0.6499999964237213,
+          -1.1199999985098839
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-tailgate",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/tailgate",
+      "componentId": "tailgate",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.6000000238418579,
+          0.6899999982118606,
+          -1.3359999996125698
+        ],
+        "max": [
+          0.6000000238418579,
+          1.0300000017881392,
+          -1.253500001192093
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-windshield",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/windshield",
+      "componentId": "windshield",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.6549999713897705,
+          0.9900000095367432,
+          0.2849999964237213
+        ],
+        "max": [
+          0.6549999713897705,
+          1.4819999933242798,
+          0.7689990997314453
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-roof",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/roof",
+      "componentId": "roof",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.6050000190734863,
+          1.4800000190734863,
+          -0.7300000190734863
+        ],
+        "max": [
+          0.6050000190734863,
+          1.5360000133514404,
+          0.25
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-rear-glass",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/rear-glass",
+      "componentId": "rear-glass",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.6399999856948853,
+          1.059999942779541,
+          -1.0800000429153442
+        ],
+        "max": [
+          0.6399999856948853,
+          1.4700000286102295,
+          -0.7599999904632568
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-door-left",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/door-left",
+      "componentId": "door-left",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.7250000238418579,
+          0.38958120346069336,
+          -0.6833958625793457
+        ],
+        "max": [
+          0.7855000001862645,
+          0.9820643663406372,
+          0.7225182056427002
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-window-left",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/window-left",
+      "componentId": "window-left",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.7120000123977661,
+          0.9749155044555664,
+          -0.7036492824554443
+        ],
+        "max": [
+          0.7329999804496765,
+          1.4199999570846558,
+          0.6757052540779114
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-mirror-left",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/mirror-left",
+      "componentId": "mirror-left",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.7176119089126587,
+          0.9689999999999999,
+          0.49
+        ],
+        "max": [
+          0.9369999999999999,
+          1.101,
+          0.69
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-fender-left",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/fender-left",
+      "componentId": "fender-left",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.7170000076293945,
+          0.2832677662372589,
+          0.5678873658180237
+        ],
+        "max": [
+          0.7580000162124634,
+          0.9624629616737366,
+          1.3123571872711182
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-quarter-left",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/quarter-left",
+      "componentId": "quarter-left",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.7269999980926514,
+          0.2835271656513214,
+          -1.3125262260437012
+        ],
+        "max": [
+          0.8129999996647239,
+          1.0220239162445068,
+          -0.5174463987350464
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-headlight-left",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/headlight-left",
+      "componentId": "headlight-left",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.33805317703243387,
+          0.654448630870503,
+          1.232
+        ],
+        "max": [
+          0.7119468229675662,
+          0.9455513691294971,
+          1.3799999997764827
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-taillight-left",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/taillight-left",
+      "componentId": "taillight-left",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.5975,
+          0.7549999976158142,
+          -1.3199999995529652
+        ],
+        "max": [
+          0.7225,
+          1.1250000023841857,
+          -1.2325000001490116
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-door-right",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/door-right",
+      "componentId": "door-right",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.7855000001862645,
+          0.38958120346069336,
+          -0.6833958625793457
+        ],
+        "max": [
+          -0.7070000171661377,
+          0.9820643663406372,
+          0.7225182056427002
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-window-right",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/window-right",
+      "componentId": "window-right",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.7279999852180481,
+          0.9749155044555664,
+          -0.7036492824554443
+        ],
+        "max": [
+          -0.7070000171661377,
+          1.4199999570846558,
+          0.6757052540779114
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-mirror-right",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/mirror-right",
+      "componentId": "mirror-right",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.9369999999999999,
+          0.9689999999999999,
+          0.49
+        ],
+        "max": [
+          -0.7176119089126587,
+          1.101,
+          0.69
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-fender-right",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/fender-right",
+      "componentId": "fender-right",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.7329999804496765,
+          0.2832677662372589,
+          0.5678873658180237
+        ],
+        "max": [
+          -0.6919999718666077,
+          0.9624629616737366,
+          1.3123571872711182
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-quarter-right",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/quarter-right",
+      "componentId": "quarter-right",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.7429999709129333,
+          0.2835271656513214,
+          -1.3125262260437012
+        ],
+        "max": [
+          -0.7020000219345093,
+          1.0220239162445068,
+          -0.5174463987350464
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-headlight-right",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/headlight-right",
+      "componentId": "headlight-right",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.7119468229675662,
+          0.654448630870503,
+          1.232
+        ],
+        "max": [
+          -0.33805317703243387,
+          0.9455513691294971,
+          1.3799999997764827
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-taillight-right",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/taillight-right",
+      "componentId": "taillight-right",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.7225,
+          0.7549999976158142,
+          -1.3199999995529652
+        ],
+        "max": [
+          -0.5975,
+          1.1250000023841857,
+          -1.2325000001490116
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-wheel-front-left",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/wheel-front-left",
+      "componentId": "wheel-front-left",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.5514999964237213,
+          -0.0017999866008758802,
+          0.6372000133991241
+        ],
+        "max": [
+          0.7315000035762786,
+          0.5687999866008758,
+          1.2077999866008757
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-brake-front-left",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/brake-front-left",
+      "componentId": "brake-front-left",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.542499998152256,
+          0.1595000020265579,
+          0.7985000020265579
+        ],
+        "max": [
+          0.610500001847744,
+          0.40849999865889547,
+          1.046499997973442
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-spring-front-left",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/spring-front-left",
+      "componentId": "spring-front-left",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.4266383647918701,
+          0.3299999985098839,
+          0.8475087285041809
+        ],
+        "max": [
+          0.5764328241348267,
+          0.7400000029802323,
+          0.9974064826965332
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-wheel-rear-left",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/wheel-rear-left",
+      "componentId": "wheel-rear-left",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.5924999985098839,
+          -0.0017999894618987988,
+          -1.233049989461899
+        ],
+        "max": [
+          0.7925000014901161,
+          0.5752999894618989,
+          -0.6559500105381012
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-brake-rear-left",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/brake-rear-left",
+      "componentId": "brake-rear-left",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.610000000089407,
+          0.18075000125169755,
+          -1.0504999987483026
+        ],
+        "max": [
+          0.6429999999105931,
+          0.39274999874830246,
+          -0.8385000012516975
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-spring-rear-left",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/spring-rear-left",
+      "componentId": "spring-rear-left",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.4776383638381958,
+          0.3299999985098839,
+          -1.0194913148880005
+        ],
+        "max": [
+          0.6274328231811523,
+          0.7400000029802323,
+          -0.8695935010910034
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-wheel-front-right",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/wheel-front-right",
+      "componentId": "wheel-front-right",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.7315000035762786,
+          -0.0017999866008758802,
+          0.6372000133991241
+        ],
+        "max": [
+          -0.5514999964237213,
+          0.5687999866008758,
+          1.2077999866008757
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-brake-front-right",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/brake-front-right",
+      "componentId": "brake-front-right",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.610500001847744,
+          0.1595000020265579,
+          0.7985000020265579
+        ],
+        "max": [
+          -0.542499998152256,
+          0.40849999865889547,
+          1.046499997973442
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-spring-front-right",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/spring-front-right",
+      "componentId": "spring-front-right",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.5763616561889648,
+          0.3299999985098839,
+          0.8475087285041809
+        ],
+        "max": [
+          -0.4265671670436859,
+          0.7400000029802323,
+          0.9974064826965332
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-wheel-rear-right",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/wheel-rear-right",
+      "componentId": "wheel-rear-right",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.7925000014901161,
+          -0.0017999894618987988,
+          -1.233049989461899
+        ],
+        "max": [
+          -0.5924999985098839,
+          0.5752999894618989,
+          -0.6559500105381012
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-brake-rear-right",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/brake-rear-right",
+      "componentId": "brake-rear-right",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.6429999999105931,
+          0.18075000125169755,
+          -1.0504999987483026
+        ],
+        "max": [
+          -0.610000000089407,
+          0.39274999874830246,
+          -0.8385000012516975
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-spring-rear-right",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/spring-rear-right",
+      "componentId": "spring-rear-right",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.6273616552352905,
+          0.3299999985098839,
+          -1.0194913148880005
+        ],
+        "max": [
+          -0.4775671660900116,
+          0.7400000029802323,
+          -0.8695935010910034
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-engine-block",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/engine-block",
+      "componentId": "engine-block",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.35499999940395355,
+          0.35499999463558196,
+          -1.0949999928474425
+        ],
+        "max": [
+          0.11499999940395356,
+          0.625000005364418,
+          -0.7050000071525574
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-cylinder-head",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/cylinder-head",
+      "componentId": "cylinder-head",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.35999999463558197,
+          0.6250000002980233,
+          -1.0850000065565109
+        ],
+        "max": [
+          0.11999999463558197,
+          0.8199999995529652,
+          -0.7549999934434891
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-intake",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/intake",
+      "componentId": "intake",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.3650000047683716,
+          0.6749999982118606,
+          -0.7850654721260071
+        ],
+        "max": [
+          0.1250000047683716,
+          0.8540970683097839,
+          -0.47000000134110453
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-exhaust",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/exhaust",
+      "componentId": "exhaust",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.44551244378089905,
+          0.15999999850988383,
+          -1.3586293458938599
+        ],
+        "max": [
+          0.3100000023841858,
+          0.3600000014901162,
+          -1.0299999982118606
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-transmission-case",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/transmission-case",
+      "componentId": "transmission-case",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.16249999981373547,
+          0.31999999821186065,
+          -1.0700000017881393
+        ],
+        "max": [
+          0.6300000005960464,
+          0.6600000017881393,
+          -0.7299999982118607
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-flywheel",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/flywheel",
+      "componentId": "flywheel",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.1174999999254942,
+          0.35499999463558196,
+          -1.035000005364418
+        ],
+        "max": [
+          0.15250000007450581,
+          0.625000005364418,
+          -0.764999994635582
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-clutch-disc",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/clutch-disc",
+      "componentId": "clutch-disc",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.15399999989569188,
+          0.3749999979138374,
+          -1.0150000020861625
+        ],
+        "max": [
+          0.17800000010430814,
+          0.6050000020861626,
+          -0.7849999979138375
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-pressure-plate",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/pressure-plate",
+      "componentId": "pressure-plate",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.1794999999254942,
+          0.3600000047683716,
+          -1.0299999952316283
+        ],
+        "max": [
+          0.21700000018998983,
+          0.6199999952316284,
+          -0.7700000047683716
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-release-bearing",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/release-bearing",
+      "componentId": "release-bearing",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.21600000044703482,
+          0.44600000023841857,
+          -0.9439999997615814
+        ],
+        "max": [
+          0.25599999955296515,
+          0.5339999997615814,
+          -0.8560000002384186
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-clutch-actuator",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/clutch-actuator",
+      "componentId": "clutch-actuator",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.3550000011920929,
+          0.26000000089406966,
+          -0.7199999982118607
+        ],
+        "max": [
+          0.5650000029802322,
+          0.3539999996125698,
+          -0.5480000005662441
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-actuator-rod",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/actuator-rod",
+      "componentId": "actuator-rod",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.22000000178813933,
+          0.29000000044703483,
+          -0.6599999995529652
+        ],
+        "max": [
+          0.39250000089406967,
+          0.32999999955296516,
+          -0.6200000004470348
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-release-fork",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/release-fork",
+      "componentId": "release-fork",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.2082587629556656,
+          0.30071261525154114,
+          -0.9061731100082397
+        ],
+        "max": [
+          0.26455017924308777,
+          0.5002887845039368,
+          -0.6324009895324707
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-driveshaft-left",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/driveshaft-left",
+      "componentId": "driveshaft-left",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.2849999976158142,
+          0.27000000089406967,
+          -0.9844999991059303
+        ],
+        "max": [
+          0.6720000000521541,
+          0.3499999991059303,
+          -0.9045000008940697
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-driveshaft-right",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/driveshaft-right",
+      "componentId": "driveshaft-right",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.6550000023841858,
+          0.27000000089406967,
+          -0.9844999991059303
+        ],
+        "max": [
+          -0.26799999994784596,
+          0.3499999991059303,
+          -0.9045000008940697
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-radiator",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/radiator",
+      "componentId": "radiator",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.375000000372529,
+          0.35999999284744266,
+          1.0049999982118607
+        ],
+        "max": [
+          0.375000000372529,
+          0.7200000071525574,
+          1.0950000017881394
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-coolant-pipes",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/coolant-pipes",
+      "componentId": "coolant-pipes",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.1860000044107437,
+          0.13243724405765533,
+          -0.722949206829071
+        ],
+        "max": [
+          -0.09399999678134918,
+          0.4608311951160431,
+          1.041776418685913
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-battery",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/battery",
+      "componentId": "battery",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.439999997317791,
+          0.2049999991059303,
+          0.3050000011920929
+        ],
+        "max": [
+          -0.20000000268220902,
+          0.4205000001862645,
+          0.4949999988079071
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-floor",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/floor",
+      "componentId": "floor",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.6499999761581421,
+          0.2075000011920929,
+          -1.2149999964237215
+        ],
+        "max": [
+          0.6499999761581421,
+          0.8599999993294477,
+          0.8
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-dashboard",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/dashboard",
+      "componentId": "dashboard",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.6200000047683716,
+          0.7850000011920929,
+          0.37000000044703485
+        ],
+        "max": [
+          0.6200000047683716,
+          1.0220000010728836,
+          0.7049999958276749
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-steering-wheel",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/steering-wheel",
+      "componentId": "steering-wheel",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.20800000488758086,
+          0.8385194490997233,
+          0.23592308733828735
+        ],
+        "max": [
+          0.5119999951124191,
+          1.1414805509002766,
+          0.3440769126617126
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-seat-left",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/seat-left",
+      "componentId": "seat-left",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          0.10499999642372132,
+          0.3249999970197678,
+          -0.45099475216041396
+        ],
+        "max": [
+          0.5350000035762787,
+          1.2299999982118606,
+          0.03500000357627869
+        ]
+      },
+      "accuracyStatus": "C"
+    },
+    {
+      "id": "binding-seat-right",
+      "modelAssetId": "smart-451-educational-v1",
+      "meshNodePath": "smart-451/seat-right",
+      "componentId": "seat-right",
+      "transformData": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "boundingBox": {
+        "min": [
+          -0.5350000035762787,
+          0.3249999970197678,
+          -0.500994752160414
+        ],
+        "max": [
+          -0.10499999642372132,
+          1.2299999982118606,
+          -0.014999996423721323
+        ]
+      },
+      "accuracyStatus": "C"
+    }
+  ]
+}
