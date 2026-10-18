@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 async function ready(page: Page) {
-  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.goto('/?fixture=smart-451', { waitUntil: 'domcontentloaded' });
   await expect(page.getByTestId('scene')).toHaveAttribute('data-status', 'ready', {
     timeout: 45000,
   });
@@ -77,6 +77,7 @@ test('transmission isolation, explosion and reset preserve original transforms',
   expect((await snapshot(page)).parts.find((p) => p.id === 'engine-block')?.visible).toBe(false);
   expect((await snapshot(page)).parts.find((p) => p.id === 'actuator-rod')?.visible).toBe(true);
   await explore(page);
+  await page.getByRole('button', { name: 'Exploded', exact: true }).click();
   await page.getByRole('slider', { name: 'Exploded view', exact: true }).fill('100');
   await expect.poll(async () => (await snapshot(page)).explode).toBe(1);
   const p = (await snapshot(page)).parts.find((p) => p.id === 'actuator-rod')!;
@@ -134,8 +135,8 @@ test('X-ray, clipping controls, theme and quality respond', async ({ page }) => 
   await page.getByLabel('Section plane', { exact: true }).selectOption('horizontal');
   await page.getByRole('slider', { name: 'Section position' }).fill('0.4');
   await page.getByRole('button', { name: 'Close section controls' }).click();
-  await page.getByRole('button', { name: 'Switch to dark mode' }).click();
-  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await page.getByRole('button', { name: 'Switch to light mode' }).click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   await page.getByRole('button', { name: 'Open settings' }).click();
   await page.getByLabel('Rendering quality', { exact: true }).selectOption('low');
   await page.getByLabel('Lighting preset', { exact: true }).selectOption('inspection');
@@ -153,7 +154,9 @@ test('keyboard access and dialog focus return work', async ({ page, isMobile }) 
   await expect(settings).toBeFocused();
   if (!isMobile) {
     await page.keyboard.press('/');
-    await expect(page.getByRole('textbox', { name: 'Search all components' })).toBeFocused();
+    await expect(
+      page.getByRole('button', { name: 'Search vehicles by name, year or VIN' }),
+    ).toBeFocused();
   }
 });
 test('VIN service results reject a different platform without switching the vehicle', async ({
@@ -178,15 +181,15 @@ test('VIN service results reject a different platform without switching the vehi
   await page.locator('.vehicle-switcher').click();
   await page.getByLabel('OPTIONAL VIN LOOKUP').fill('WMEEJ3BA0FK000001');
   await page.getByRole('button', { name: 'Decode', exact: true }).click();
-  await expect(page.getByRole('dialog').getByRole('status')).toContainText('outside the supported');
-  await expect(page.locator('.selected-vehicle')).toContainText('2015');
+  await expect(page.getByText('Vehicle identified; catalog not connected')).toBeVisible();
+  await expect(page.locator('.vehicle-switcher')).toContainText('2015');
   expect(await page.evaluate(() => localStorage.length)).toBe(0);
 });
 test('missing model leaves a working component catalog', async ({ page }) => {
   await page.route('**/models/smart-451/*.glb', (route) =>
     route.fulfill({ status: 404, body: 'missing' }),
   );
-  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.goto('/?fixture=smart-451', { waitUntil: 'domcontentloaded' });
   await expect(page.getByTestId('scene')).toHaveAttribute('data-status', 'error');
   await expect(page.getByText('Explore through the catalog')).toBeVisible();
   await selectSearch(page, 'radiator');
@@ -204,7 +207,7 @@ test('WebGL failure exposes the 2D fallback', async ({ page }) => {
       return Reflect.apply(get, this, [type, ...args]);
     } as typeof get;
   });
-  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.goto('/?fixture=smart-451', { waitUntil: 'domcontentloaded' });
   await expect(page.getByTestId('scene')).toHaveAttribute('data-status', 'error');
   await selectSearch(page, 'electrical connector');
   await expect(page.getByText('3D geometry is not yet available')).toBeVisible();

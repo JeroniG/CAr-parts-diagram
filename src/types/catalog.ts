@@ -27,9 +27,17 @@ export interface VehicleConfiguration {
   engine: string;
   transmission: string;
   drivetrain: string;
+  steeringSide?: 'left' | 'right' | null;
+  vinConditions?: string | null;
+  equipmentRestrictions?: string[];
   productionStart: string | null;
   productionEnd: string | null;
-  dimensions: { length: number; widthWithMirrors: number; height: number; wheelbase: number };
+  dimensions: {
+    length: number | null;
+    widthWithMirrors: number | null;
+    height: number | null;
+    wheelbase: number | null;
+  };
   sourceIds: string[];
 }
 export interface VehicleSystem {

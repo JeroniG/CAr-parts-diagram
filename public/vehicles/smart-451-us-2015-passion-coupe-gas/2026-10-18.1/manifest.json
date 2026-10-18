@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "revision": "2026-10-18.1",
+  "publishedAt": "2026-10-18",
+  "configuration": {
+    "id": "smart-451-us-2015-passion-coupe-gas",
+    "manufacturer": "smart",
+    "model": "Fortwo",
+    "year": 2015,
+    "generation": "Second generation",
+    "chassisCode": "451",
+    "market": "United States",
+    "trim": "Passion",
+    "bodyStyle": "Coupé",
+    "engineCode": null,
+    "transmissionCode": null,
+    "engine": "1.0 L · 3-cylinder gasoline",
+    "transmission": "5-speed automated manual",
+    "drivetrain": "Rear engine · rear-wheel drive",
+    "productionStart": null,
+    "productionEnd": null,
+    "dimensions": {
+      "length": 2695,
+      "widthWithMirrors": 1752,
+      "height": 1555,
+      "wheelbase": 1867
+    },
+    "sourceIds": [
+      "owners-2015",
+      "intro-451"
+    ]
+  },
+  "catalogUrl": "/vehicles/smart-451-us-2015-passion-coupe-gas/2026-10-18.1/catalog.json",
+  "catalogHash": "e5ba5a98f327e2bdd77cff0841f8ac1a48a87a32758229f858b617234489feaf",
+  "photos": [
+    {
+      "id": "smart-451-front",
+      "url": "/photos/smart-451/front.jpg",
+      "sha256": "74575603e58244e1270d448ec4c7fc2c4ec117471ea76c9060aeb02ef8667733",
+      "kind": "photograph",
+      "caption": "Front three-quarter · European 451",
+      "scope": "2011 European 451 facelift photograph. Reference for exterior location only; not the selected 2015 U.S. equipment. Source title and description differ on trim.",
+      "width": 2358,
+      "height": 1658,
+      "componentIds": [
+        "exterior",
+        "windshield",
+        "door-left",
+        "headlight-left",
+        "wheel-front-left"
+      ],
+      "hotspots": [
+        {
+          "instanceId": "windshield",
+          "label": "Windshield",
+          "x": 0.58,
+          "y": 0.265
+        },
+        {
+          "instanceId": "door-left",
+          "label": "Left door",
+          "x": 0.255,
+          "y": 0.47
+        },
+        {
+          "instanceId": "headlight-left",
+          "label": "Left headlight",
+          "x": 0.565,
+          "y": 0.495
+        }
+      ],
+      "author": "M 93",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Smart_Fortwo_Coup%C3%A9_Pulse_(C_451%2C_Facelift)_%E2%80%93_Frontansicht%2C_17._Juli_2011%2C_D%C3%BCsseldorf.jpg",
+      "license": "CC-BY-SA-3.0-DE",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "attribution": "© M 93 / Wikimedia Commons · CC BY-SA 3.0 DE · original photograph, unmodified",
+      "redistributionAllowed": true,
+      "retrievedAt": "2026-10-18"
+    },
+    {
+      "id": "smart-451-rear",
+      "url": "/photos/smart-451/rear.jpg",
+      "sha256": "4064221621d0b5473dfb8957d75128a95f825a78c5f701f8b2208b415d183a4c",
+      "kind": "photograph",
+      "caption": "Rear three-quarter · European 451",
+      "scope": "2011 European 451 facelift photograph. Reference for exterior location only; not the selected 2015 U.S. equipment. Source title and description differ on trim.",
+      "width": 2340,
+      "height": 1572,
+      "componentIds": [
+        "rear-hatch",
+        "rear-glass",
+        "tailgate",
+        "hatch-spoiler",
+        "hatch-wiper-arm",
+        "hatch-brake-light"
+      ],
+      "hotspots": [
+        {
+          "instanceId": "rear-glass",
+          "label": "Rear window",
+          "x": 0.265,
+          "y": 0.24
+        },
+        {
+          "instanceId": "tailgate",
+          "label": "Lower tailgate",
+          "x": 0.22,
+          "y": 0.47
+        },
+        {
+          "instanceId": "hatch-spoiler",
+          "label": "Rear spoiler",
+          "x": 0.275,
+          "y": 0.115
+        },
+        {
+          "instanceId": "hatch-wiper-arm",
+          "label": "Rear wiper",
+          "x": 0.315,
+          "y": 0.145
+        }
+      ],
+      "author": "M 93",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Smart_Fortwo_Coup%C3%A9_Pulse_(C_451%2C_Facelift)_%E2%80%93_Heckansicht%2C_17._Juli_2011%2C_D%C3%BCsseldorf.jpg",
+      "license": "CC-BY-SA-3.0-DE",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "attribution": "© M 93 / Wikimedia Commons · CC BY-SA 3.0 DE · original photograph, unmodified",
+      "redistributionAllowed": true,
+      "retrievedAt": "2026-10-18"
+    }
+  ],
+  "diagrams": [],
+  "models": [],
+  "assemblies": [],
+  "providerRevisions": [
+    {
+      "provider": "local-reviewed-catalog",
+      "revision": "2",
+      "retrievedAt": "2026-10-18",
+      "staleAfter": null
+    }
+  ],
+  "serviceProcedures": [],
+  "featuredAssemblyId": "rear-hatch",
+  "focusTargets": {
+    "hatch": "rear-hatch",
+    "powertrain": "engine-block",
+    "suspension": "suspension",
+    "interior": "interior"
+  }
+}

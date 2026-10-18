@@ -19,7 +19,13 @@
     "optimize:model": "node --import tsx scripts/optimize-model.ts",
     "capture": "node scripts/capture.mjs",
     "export:catalog": "node --import tsx scripts/export-catalog.ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "export:hatch": "node --import tsx scripts/export-hatch.ts",
+    "import:assembly": "node --import tsx scripts/import-assembly.ts",
+    "capture:hatch": "node scripts/capture-hatch.mjs",
+    "export:vehicle": "node --import tsx scripts/export-vehicle.ts",
+    "import:vehicle": "node --import tsx scripts/import-vehicle.ts",
+    "verify:production": "node scripts/verify-production.mjs"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.3.0",

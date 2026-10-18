@@ -21,6 +21,7 @@ import { mechanismState } from '../../src/scene/animations/transmission';
 import { inventoryLayout, radialLayout, explodedPosition } from '../../src/scene/explosion/layout';
 import { Vector3 } from 'three';
 import manifest from '../../public/models/smart-451/manifest.json';
+import hatchManifest from '../../public/models/smart-451/rear-hatch/high.manifest.json';
 describe('Catalog integrity and truthful coverage', () => {
   it('has unique semantic identifiers and no orphan parents', () => {
     expect(new Set(catalog.map((c) => c.id)).size).toBe(catalog.length);
@@ -53,7 +54,9 @@ describe('Catalog integrity and truthful coverage', () => {
   });
   it('requires modeled parts to have bindings', () => {
     for (const c of catalog.filter((c) => c.componentType === 'part' && c.accuracy !== 'D'))
-      expect(manifest.bindings.some((b) => b.componentId === c.id)).toBe(true);
+      expect(
+        [...manifest.bindings, ...hatchManifest.bindings].some((b) => b.componentId === c.id),
+      ).toBe(true);
   });
   it('does not claim Tier A or B without geometry evidence', () => {
     expect(catalog.every((c) => ['C', 'D'].includes(c.accuracy))).toBe(true);
@@ -70,7 +73,7 @@ describe('Catalog integrity and truthful coverage', () => {
     expect(searchComponents('pushrod')[0].id).toBe('actuator-rod');
     expect(searchComponents('4512500062')[0].id).toBe('clutch-actuator');
     expect(searchComponents('ABS')[0].id).toBe('abs-module');
-    expect(searchComponents('rear hatch strut')[0].accuracy).toBe('D');
+    expect(searchComponents('rear hatch strut')[0].accuracy).toBe('C');
   });
   it('applies inherited hiding and isolation', () => {
     expect(visibleComponent('actuator-rod', new Set(['transmission']), null)).toBe(false);

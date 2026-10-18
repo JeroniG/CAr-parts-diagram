@@ -1,8 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import type { MutableRefObject } from 'react';
 import { Box, LoaderCircle, MousePointer2 } from 'lucide-react';
+import { useCatalog } from '../features/vehicles/CatalogContext';
+import { developmentFixture } from '../vehicles/developmentFixtures';
 import { Viewer } from '../scene/Viewer';
 import type { Quality, ViewState } from '../scene/Viewer';
+import type { AssemblyLoadStatus } from '../types/assembly';
+import type { Measurement } from '../scene/controls/MeasurementController';
 declare global {
   interface Window {
     __autoatlas?: { snapshot: () => ReturnType<Viewer['snapshot']> };
@@ -15,6 +19,8 @@ export function SceneCanvas({
   onLoaded,
   onStats,
   onQuality,
+  onAssembly,
+  onMeasurement,
 }: {
   state: ViewState;
   viewerRef: MutableRefObject<Viewer | null>;
@@ -22,30 +28,46 @@ export function SceneCanvas({
   onSelect: (id: string | null) => void;
   onLoaded: (n: number) => void;
   onStats: (s: { fps: number; triangles: number; drawCalls: number }) => void;
+  onAssembly: (status: AssemblyLoadStatus) => void;
+  onMeasurement: (measurement: Measurement) => void;
 }) {
+  const data = useCatalog();
   const ref = useRef<HTMLDivElement>(null),
-    callbacks = useRef({ onSelect, onLoaded, onStats, onQuality });
-  callbacks.current = { onSelect, onLoaded, onStats, onQuality };
+    callbacks = useRef({ onSelect, onLoaded, onStats, onQuality, onAssembly, onMeasurement });
+  callbacks.current = { onSelect, onLoaded, onStats, onQuality, onAssembly, onMeasurement };
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const [error, setError] = useState('');
   const [hover, setHover] = useState<string | null>(null);
   useEffect(() => {
     let viewer: Viewer | null = null;
     try {
-      viewer = new Viewer(ref.current!, {
-        quality: (q) => callbacks.current.onQuality(q),
-        select: (id) => callbacks.current.onSelect(id),
-        hover: setHover,
-        loaded: (n) => {
-          setStatus('ready');
-          callbacks.current.onLoaded(n);
+      const fixture = state.fixtureMode ? developmentFixture(data.vehicle.id) : null;
+      const model = data.manifest.models.find((m) => m.scope === 'vehicle');
+      viewer = new Viewer(
+        ref.current!,
+        {
+          quality: (q) => callbacks.current.onQuality(q),
+          select: (id) => callbacks.current.onSelect(id),
+          hover: setHover,
+          loaded: (n) => {
+            setStatus('ready');
+            callbacks.current.onLoaded(n);
+          },
+          error: (message) => {
+            setError(message);
+            setStatus('error');
+          },
+          stats: (s) => callbacks.current.onStats(s),
+          assembly: (s) => callbacks.current.onAssembly(s),
+          measurement: (m) => callbacks.current.onMeasurement(m),
         },
-        error: (message) => {
-          setError(message);
-          setStatus('error');
+        {
+          catalog: data,
+          base: fixture?.base ?? model?.variants.low ?? null,
+          assemblies: fixture?.assemblies ?? data.manifest.assemblies,
+          fixture: !!fixture,
         },
-        stats: (s) => callbacks.current.onStats(s),
-      });
+      );
       viewerRef.current = viewer;
       if (import.meta.env.DEV) window.__autoatlas = { snapshot: () => viewer!.snapshot() };
     } catch (e) {
@@ -57,7 +79,7 @@ export function SceneCanvas({
       viewerRef.current = null;
       delete window.__autoatlas;
     };
-  }, [viewerRef]);
+  }, [viewerRef, data, state.fixtureMode]);
   useEffect(() => {
     viewerRef.current?.update(state);
   }, [state, viewerRef]);

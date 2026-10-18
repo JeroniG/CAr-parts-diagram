@@ -15,21 +15,11 @@ import {
   X,
   Scan,
   MapPin,
-  GitBranch,
 } from 'lucide-react';
-import {
-  accuracyLabels,
-  catalog,
-  componentById,
-  fitments,
-  oemParts,
-  relationships,
-  sources,
-  systems,
-  vehicle,
-} from '../data/catalog';
-import { ancestors, descendants } from '../services/catalog';
+import { accuracyLabels } from '../data/catalog';
+import { useCatalog } from '../features/vehicles/CatalogContext';
 import type { ViewState } from '../scene/Viewer';
+import { hatchPartById } from '../vehicles/rearHatch';
 export function Inspector({
   state,
   onFocus,
@@ -41,6 +31,11 @@ export function Inspector({
   onNeighbors,
   onLocation,
   onClose,
+  onAssembly,
+  onReturn,
+  onSeparate,
+  onRotate,
+  educationMode,
 }: {
   state: ViewState;
   onFocus: () => void;
@@ -52,15 +47,38 @@ export function Inspector({
   onNeighbors: () => void;
   onLocation: () => void;
   onClose: () => void;
+  onAssembly: () => void;
+  onReturn: () => void;
+  onSeparate: () => void;
+  onRotate: (angle: number) => void;
+  educationMode: boolean;
 }) {
+  const {
+    componentById,
+    fitments,
+    oemParts,
+    relationships,
+    sources,
+    systems,
+    vehicle,
+    ancestors,
+    descendants,
+    manifest,
+    coverage,
+  } = useCatalog();
   const [tab, setTab] = useState<'details' | 'parts' | 'sources'>('details');
   const c = state.selected ? componentById.get(state.selected) : null;
+  const hatchPart = c && state.fixtureMode ? hatchPartById.get(c.id) : undefined;
+  const canRender = !!c && (state.fixtureMode ? c.accuracy !== 'D' : coverage.mapped.has(c.id));
+  const reference = manifest.photos.find(
+    (p) => c && (p.componentIds.includes(c.id) || p.hotspots.some((h) => h.instanceId === c.id)),
+  );
   const partFitments = c ? fitments.filter((f) => descendants(c.id).has(f.componentId)) : fitments;
   const sourceIds = c
     ? new Set([...c.sourceIds, ...partFitments.map((f) => f.sourceId)])
     : new Set(vehicle.sourceIds);
   const availableSources = sources.filter((s) => sourceIds.has(s.id));
-  const modeled = catalog.filter((c) => c.accuracy === 'C' && c.componentType === 'part').length;
+
   return (
     <aside className="inspector" aria-label="Component inspector">
       <div className="panel-heading">
@@ -79,10 +97,12 @@ export function Inspector({
           {c ? <Box size={25} strokeWidth={1.4} /> : <Layers3 size={25} strokeWidth={1.4} />}
         </div>
         <span className="eyebrow">
-          {c ? systems.find((s) => s.id === c.systemId)?.name : 'THE CITY, RECONSIDERED'}
+          {c ? systems.find((s) => s.id === c.systemId)?.name : 'SELECTED CONFIGURATION'}
         </span>
-        <h2>{c ? c.name : 'Smart Fortwo'}</h2>
-        <p>{c ? '2015 · 451 · U.S. gasoline' : '2015 · Passion Coupé · U.S. specification'}</p>
+        <h2>{c ? c.name : `${vehicle.manufacturer} ${vehicle.model}`}</h2>
+        <p>
+          {vehicle.year} · {vehicle.chassisCode} · {vehicle.market}
+        </p>
       </div>
       <div className="inspector-tabs" role="tablist" aria-label="Inspector information">
         {(['details', 'parts', 'sources'] as const).map((t) => (
@@ -97,92 +117,67 @@ export function Inspector({
           (!c ? (
             <>
               <p className="intro-copy">
-                A different kind of compact. Explore the systems that make the rear-engined,
-                two-seat Fortwo work.
+                {vehicle.year} {vehicle.manufacturer} {vehicle.model}. Explore the published catalog
+                and available references for this configuration.
               </p>
-              <div className="spec-grid">
-                <div>
-                  <span>POWERTRAIN</span>
-                  <strong>
-                    1.0 L <small>3-cylinder</small>
-                  </strong>
-                </div>
-                <div>
-                  <span>TRANSMISSION</span>
-                  <strong>
-                    5-speed <small>AMT</small>
-                  </strong>
-                </div>
-                <div>
-                  <span>PLATFORM</span>
-                  <strong>451</strong>
-                </div>
-                <div>
-                  <span>DRIVE</span>
-                  <strong>Rear-wheel</strong>
-                </div>
-              </div>
-              <div className="section-label">THE VEHICLE, AT A GLANCE</div>
-              <dl className="dimension-list">
-                <div>
-                  <dt>Overall length</dt>
-                  <dd>
-                    2,695 <span>mm</span>
-                  </dd>
-                </div>
-                <div>
-                  <dt>Width, mirrors extended</dt>
-                  <dd>
-                    1,752 <span>mm</span>
-                  </dd>
-                </div>
-                <div>
-                  <dt>Overall height</dt>
-                  <dd>
-                    1,555 <span>mm</span>
-                  </dd>
-                </div>
-                <div>
-                  <dt>Wheelbase</dt>
-                  <dd>
-                    1,867 <span>mm</span>
-                  </dd>
-                </div>
-              </dl>
-              <a
-                className="inline-source"
-                href={sources[0].sourceUrl + '#page=216'}
-                target="_blank"
-                rel="noreferrer"
+              <button
+                hidden={!manifest.featuredAssemblyId}
+                className="hatch-feature-card"
+                onClick={onAssembly}
               >
-                U.S. owner’s manual, p. 215 <ArrowUpRight size={12} />
-              </a>
+                <Layers3 size={23} />
+                <span>
+                  <strong>
+                    Explore{' '}
+                    {manifest.featuredAssemblyId
+                      ? componentById.get(manifest.featuredAssemblyId)?.name.toLowerCase()
+                      : 'an assembly'}
+                  </strong>
+                  <small>
+                    {state.fixtureMode
+                      ? '21 sample parts · development 3D'
+                      : 'Assembly catalog · photo references'}
+                  </small>
+                </span>
+                <ChevronRight size={17} />
+              </button>
+              <div className="spec-grid">
+                {[
+                  ['POWERTRAIN', vehicle.engine],
+                  ['TRANSMISSION', vehicle.transmission],
+                  ['PLATFORM', vehicle.chassisCode],
+                  ['DRIVE', vehicle.drivetrain],
+                ].map(([label, value]) => (
+                  <div key={label}>
+                    <span>{label}</span>
+                    <strong>{value}</strong>
+                  </div>
+                ))}
+              </div>
               <div className="accuracy-card">
                 <div>
                   <ShieldCheck size={17} />
-                  <strong>Know what you’re looking at</strong>
+                  <strong>Published coverage</strong>
                 </div>
-                <p>Tier C · Educational representation</p>
+                <p>{coverage.label}</p>
                 <span>
-                  {modeled} modeled parts. Shapes and installed positions are approximate; this is
-                  not factory CAD. Unmodeled components are marked Tier D.
+                  {coverage.parts} catalog part instances · {coverage.mappedParts} mapped to
+                  reviewed 3D · {coverage.photos} photographs · {coverage.confirmedFitments}{' '}
+                  confirmed fitments.
                 </span>
               </div>
-              <div className="section-label">A GOOD PLACE TO START</div>
-              <button className="explore-link" onClick={() => onSelect('transmission')}>
-                <span>
-                  <GitBranch size={17} />
-                  Transmission & clutch
-                </span>
-                <ChevronRight size={16} />
-              </button>
-              <button className="explore-link" onClick={() => onSelect('engine-block')}>
-                <span>
-                  <Box size={17} />
-                  The rear-mounted engine
-                </span>
-                <ChevronRight size={16} />
-              </button>
+              <div className="section-label">AVAILABLE CATALOG</div>
+              {systems
+                .filter((s) => componentById.has(s.id))
+                .map((s) => (
+                  <button className="explore-link" key={s.id} onClick={() => onSelect(s.id)}>
+                    <span>
+                      <Box size={17} />
+                      {s.name}
+                    </span>
+                    <ChevronRight size={16} />
+                  </button>
+                ))}
             </>
           ) : (
             <>
@@ -195,16 +190,25 @@ export function Inspector({
                 ))}
               </div>
               <div className={`tier-badge ${c.accuracy === 'D' ? 'tier-d' : ''}`}>
-                Tier {c.accuracy}
+                {canRender ? `Tier ${c.accuracy}` : 'Catalog record'}
                 <span />
-                {accuracyLabels[c.accuracy]}
+                {canRender ? accuracyLabels[c.accuracy] : '3D coverage unavailable'}
               </div>
               <p className="component-description">{c.description}</p>
-              {c.accuracy === 'D' ? (
+              {reference && (
+                <figure className="part-photo">
+                  <img src={reference.url} alt={reference.caption} />
+                  <figcaption>Platform photograph · location reference</figcaption>
+                </figure>
+              )}
+              {!canRender ? (
                 <div className="missing-geometry">
                   <Box size={23} />
                   <strong>3D geometry is not yet available</strong>
-                  <p>This component is recorded in the catalog. No substitute shape is shown.</p>
+                  <p>
+                    This component is recorded in the catalog. No substitute shape is shown. Browse
+                    the photo references and source records.
+                  </p>
                 </div>
               ) : (
                 <>
@@ -231,15 +235,101 @@ export function Inspector({
                       ? 'Restore opaque material'
                       : 'Make component transparent'}
                   </button>
+                  {c.componentType === 'part' && (
+                    <div className="assembly-part-tools">
+                      <button className="wide-action" onClick={onSeparate}>
+                        <Layers3 size={15} />
+                        {state.separated.has(c.id) ? 'Restore this part' : 'Separate this part'}
+                      </button>
+                      {(state.isolated || state.separated.size > 0 || state.explode > 0) && (
+                        <button className="wide-action" onClick={onReturn}>
+                          <RotateCcw size={15} />
+                          Return to assembly
+                        </button>
+                      )}
+                      {state.isolated === c.id && (
+                        <label className="part-rotation">
+                          Rotate component
+                          <input
+                            aria-label="Rotate isolated component"
+                            type="range"
+                            min="-3.14"
+                            max="3.14"
+                            step="0.01"
+                            value={state.inspectionRotation}
+                            onChange={(e) => onRotate(Number(e.target.value))}
+                          />
+                        </label>
+                      )}
+                      <p className="small-muted">
+                        Visual separation only. No official removal sequence is claimed.
+                      </p>
+                    </div>
+                  )}
                 </>
               )}
+              {hatchPart && (
+                <>
+                  <div className="detail-field">
+                    <span>OEM PART NUMBER</span>
+                    <p>Not yet verified.</p>
+                  </div>
+                  <div className="detail-field">
+                    <span>MATERIAL APPEARANCE</span>
+                    <p>{hatchPart.material}</p>
+                  </div>
+                  <div className="detail-field">
+                    <span>REFERENCE IDENTIFIER</span>
+                    <p>Diagram callout: {hatchPart.callout}. This is not an OEM part number.</p>
+                  </div>
+                  <div className="detail-field">
+                    <span>VEHICLE APPLICABILITY</span>
+                    <p>
+                      Shown in the 2015 U.S. 451 Passion coupé project. Exact replacement-part
+                      fitment: <strong>Not yet verified.</strong>
+                    </p>
+                  </div>
+                </>
+              )}
+              {educationMode && (
+                <details className="learning-details">
+                  <summary>What this component does</summary>
+                  <p>{c.function}</p>
+                  <p>
+                    Failure symptoms and component-specific repair considerations:{' '}
+                    <strong>Not yet verified.</strong>
+                  </p>
+                </details>
+              )}
+              <details className="learning-details">
+                <summary>Repair & replacement information</summary>
+                {manifest.serviceProcedures
+                  .filter((p) => p.componentId === c.id)
+                  .map((p) => (
+                    <p key={p.id}>
+                      <a href={p.url} target="_blank" rel="noreferrer">
+                        {p.title}
+                      </a>
+                      <br />
+                      {p.scope} · Read the complete source, including its prerequisites.
+                    </p>
+                  ))}
+                {!manifest.serviceProcedures.some((p) => p.componentId === c.id) && (
+                  <p>
+                    Visual assembly exploration only. Verified repair procedure not available.
+                    Replacement compatibility must be checked independently against a
+                    configuration-specific source.
+                  </p>
+                )}
+                <p>Use the Part references and Sources tabs to inspect the available evidence.</p>
+              </details>
               <div className="detail-field">
                 <span>
                   <MapPin size={13} />
                   INSTALLED LOCATION
                 </span>
                 <p>{c.location}</p>
-                {c.accuracy !== 'D' && (
+                {canRender && (
                   <button onClick={onLocation}>
                     Show in assembled vehicle <ArrowUpRight size={12} />
                   </button>
@@ -256,7 +346,7 @@ export function Inspector({
                   <ChevronRight size={14} />
                 </button>
               )}
-              {c.accuracy !== 'D' && (
+              {canRender && (
                 <button className="wide-action" onClick={onNeighbors}>
                   <Link2 size={15} />
                   Show neighboring components
@@ -276,7 +366,11 @@ export function Inspector({
                   </button>
                 ))}
               {c.systemId === 'transmission' && (
-                <button className="primary-button lesson-link" onClick={onLearn}>
+                <button
+                  hidden={!state.fixtureMode}
+                  className="primary-button lesson-link"
+                  onClick={onLearn}
+                >
                   <Play size={14} />
                   See how the transmission works
                 </button>

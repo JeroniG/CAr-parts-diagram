@@ -1,10 +1,13 @@
 import { PGlite } from '@electric-sql/pglite';
+import { catalog } from '../../src/data/catalog';
 import { readFile } from 'node:fs/promises';
 import { afterAll, beforeAll, describe, it, expect } from 'vitest';
 let db: PGlite;
 beforeAll(async () => {
   db = new PGlite();
   await db.exec(await readFile('db/migrations/001_catalog.sql', 'utf8'));
+  await db.exec(await readFile('db/migrations/002_assemblies.sql', 'utf8'));
+  await db.exec(await readFile('db/migrations/003_vehicle_packages.sql', 'utf8'));
   await db.exec(await readFile('db/seed.sql', 'utf8'));
 }, 30000);
 afterAll(async () => {
@@ -13,11 +16,50 @@ afterAll(async () => {
 describe('PostgreSQL migration and seed', () => {
   it('imports the complete normalized static catalog', async () => {
     const r = await db.query<{ n: number }>('select count(*)::int n from component');
-    expect(r.rows[0].n).toBe(139);
+    expect(r.rows[0].n).toBe(catalog.length);
     const f = await db.query<{ n: number }>(
       "select count(*)::int n from part_fitment where verification_status<>'unknown'",
     );
     expect(f.rows[0].n).toBe(0);
+  });
+  it('retains both LODs and keeps repair instructions separate', async () => {
+    expect(
+      (await db.query<{ n: number }>('select count(*)::int n from assembly_asset')).rows[0].n,
+    ).toBe(2);
+    expect(
+      (await db.query<{ n: number }>('select count(*)::int n from assembly_part_profile')).rows[0]
+        .n,
+    ).toBe(21);
+    expect(
+      (await db.query<{ n: number }>('select count(*)::int n from repair_procedure')).rows[0].n,
+    ).toBe(0);
+    await expect(
+      db.exec(
+        "update assembly_part_profile set material_verification='verified' where component_id='rear-glass'",
+      ),
+    ).rejects.toThrow(/check constraint/i);
+  });
+  it('reseeding updates legacy metadata without duplicating records', async () => {
+    await db.exec("update component set parent_component_id='exterior' where id='rear-glass'");
+    await db.exec(await readFile('db/seed.sql', 'utf8'));
+    expect(
+      (
+        await db.query<{ parent_component_id: string }>(
+          "select parent_component_id from component where id='rear-glass'",
+        )
+      ).rows[0].parent_component_id,
+    ).toBe('hatch-upper');
+    expect((await db.query<{ n: number }>('select count(*)::int n from component')).rows[0].n).toBe(
+      catalog.length,
+    );
+  });
+  it('stores separate part definitions and physical instance identities', async () => {
+    expect(
+      (await db.query<{ n: number }>('select count(*)::int n from part_instance')).rows[0].n,
+    ).toBe(148);
+    await expect(
+      db.exec("update part_instance set definition_id='missing-definition' where id='rear-glass'"),
+    ).rejects.toThrow(/foreign key/i);
   });
   it('requires a source for every OEM part', async () => {
     await expect(
@@ -49,7 +91,7 @@ describe('PostgreSQL migration and seed', () => {
     const r = await db.query<{ n: number }>(
       "select count(*)::int n from pg_tables where schemaname='public' and rowsecurity",
     );
-    expect(r.rows[0].n).toBe(12);
+    expect(r.rows[0].n).toBe(20);
     const w = await db.query<{ n: number }>(
       "select count(*)::int n from pg_policies where cmd<>'SELECT'",
     );

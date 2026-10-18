@@ -9,3 +9,5 @@ playwright-report/
 *.blend1
 
 __pycache__/
+
+.imports/

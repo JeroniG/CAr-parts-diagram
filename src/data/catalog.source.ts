@@ -8,6 +8,7 @@ import type {
   VehicleConfiguration,
   VehicleSystem,
 } from '../types/catalog';
+import { hatchParts, rearHatch } from '../vehicles/rearHatch';
 export const vehicle: VehicleConfiguration = {
   id: 'smart-451-us-2015-passion-coupe-gas',
   manufacturer: 'smart',
@@ -29,6 +30,31 @@ export const vehicle: VehicleConfiguration = {
   sourceIds: ['owners-2015', 'intro-451'],
 };
 export const sources: SourceRecord[] = [
+  {
+    id: 'hatch-451-diagram',
+    sourceUrl:
+      'https://manuals.plus/m/5dfbeec2a8ea90b6b0f31005726b7b352bd997e56e40236270814d95e7507d90.pdf#page=89',
+    publisher: 'smart USA (archived technical introduction)',
+    documentTitle: '451 introduction — Rear-end door, printed page 88, P72.20-2599-00',
+    publicationDate: null,
+    retrievedAt: '2026-10-18',
+    rights: 'Reference link only. Illustration is not redistributed or traced into geometry.',
+    notes:
+      '2007 platform illustration establishes component names and organization. Callouts are not OEM numbers. It does not verify 2015-specific geometry, equipment, material, fastener locations or removal procedures.',
+  },
+  {
+    id: 'hatch-photo',
+    sourceUrl: 'https://www.ebay.co.uk/itm/156615030681',
+    publisher: 'ALL SMART CARS — used-part photographs',
+    documentTitle:
+      'Photographs of 451 coupé upper rear hatch / heated glass (listing states 2008–2014)',
+    publicationDate: null,
+    retrievedAt: '2026-10-18',
+    rights:
+      'Viewed as appearance references only. Photographs are not bundled or displayed in the app.',
+    notes:
+      'Shows upper spoiler, central brake light, top-mounted wiper, curved pane and black glazing border. Listing years do not establish 2015 fitment. No seller part numbers are imported.',
+  },
   {
     id: 'owners-2015',
     sourceUrl: 'https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf',
@@ -642,6 +668,74 @@ for (const [system, rows] of Object.entries(missing))
       'Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.',
       [name.replaceAll('-', ' ')],
     );
+// Preserve existing semantic IDs while adding the detailed assembly beneath Exterior & body.
+for (const [id, name, parent] of [
+  ['rear-hatch', 'Rear hatch / rear door', 'exterior'],
+  ['hatch-upper', 'Upper rear hatch assembly', 'rear-hatch'],
+  ['hatch-lower', 'Lower tailgate assembly', 'rear-hatch'],
+]) {
+  add(
+    id,
+    name,
+    'exterior',
+    parent,
+    true,
+    'Rear cargo opening',
+    rearHatch.verification,
+    ['rear door', 'rear hatch'],
+    true,
+  );
+  components.at(-1)!.sourceIds = rearHatch.sourceIds;
+}
+const strutAssembly = components.find((c) => c.id === 'hatch-strut')!;
+Object.assign(strutAssembly, {
+  name: 'Rear hatch struts',
+  parentComponentId: 'hatch-upper',
+  componentType: 'assembly',
+  accuracy: 'C',
+  description: 'Left and right upper hatch supports. Sample travel is illustrative.',
+  function: 'Supports the upper hatch.',
+  location: 'Sides of upper rear opening',
+  sourceIds: rearHatch.sourceIds,
+  geometryNotes: rearHatch.verification,
+});
+for (const part of hatchParts) {
+  let component = components.find((c) => c.id === part.id);
+  if (!component) {
+    add(
+      part.id,
+      part.name,
+      'exterior',
+      part.parent,
+      true,
+      part.location,
+      part.function,
+      part.aliases ?? [],
+    );
+    component = components.at(-1)!;
+  }
+  Object.assign(component, {
+    name: part.name,
+    parentComponentId: part.parent,
+    description: part.function,
+    function: part.function,
+    location: part.location,
+    aliases: part.aliases ?? [],
+    sourceIds: rearHatch.sourceIds,
+    geometryNotes: rearHatch.verification,
+  });
+}
+add(
+  'hatch-hardware',
+  'Rear hatch fasteners & mounting hardware',
+  'exterior',
+  'rear-hatch',
+  false,
+  'Not yet verified',
+  'Exact fastener inventory, attachment positions, sizes and torque values are not yet verified. No sample fasteners or removal steps are shown.',
+  ['hatch bolts', 'hatch screws'],
+);
+components.find((c) => c.id === 'hatch-hardware')!.sourceIds = rearHatch.sourceIds;
 export const catalog = components;
 export const componentById = new Map(catalog.map((c) => [c.id, c]));
 export const oemParts: OEMPart[] = [

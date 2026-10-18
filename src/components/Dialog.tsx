@@ -16,7 +16,10 @@ export function Dialog({
   useEffect(() => {
     const previous = document.activeElement as HTMLElement;
     const el = ref.current!;
-    el.querySelector<HTMLElement>('button,input,select')?.focus();
+    (
+      el.querySelector<HTMLElement>('[data-autofocus]') ??
+      el.querySelector<HTMLElement>('button,input,select')
+    )?.focus();
     const listener = (e: KeyboardEvent) => {
       if (e.key === 'Escape') closeRef.current();
       if (e.key === 'Tab') {

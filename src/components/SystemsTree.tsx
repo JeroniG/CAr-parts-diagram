@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   ChevronDown,
   ChevronRight,
@@ -10,8 +10,7 @@ import {
   Box,
   Circle,
 } from 'lucide-react';
-import { catalog, systems, componentById } from '../data/catalog';
-import { searchComponents, ancestors } from '../services/catalog';
+import { useCatalog } from '../features/vehicles/CatalogContext';
 import type { ViewState } from '../scene/Viewer';
 export function SystemsTree({
   state,
@@ -30,8 +29,27 @@ export function SystemsTree({
   onShowAll: () => void;
   onLearn: () => void;
 }) {
+  const {
+    catalog,
+    systems,
+    componentById,
+    searchComponents,
+    ancestors,
+    vehicle,
+    manifest,
+    coverage,
+  } = useCatalog();
+  const isModeled = (id: string) =>
+    state.fixtureMode ? componentById.get(id)?.accuracy !== 'D' : coverage.mapped.has(id);
   const [expanded, setExpanded] = useState(new Set<string>(['exterior']));
   const [modeledOnly, setModeledOnly] = useState(false);
+  useEffect(() => {
+    if (!state.selected) return;
+    setExpanded(
+      (current) =>
+        new Set([...current, ...ancestors(state.selected!).map((a) => a.id), state.selected!]),
+    );
+  }, [state.selected, ancestors]);
   const toggle = (id: string) =>
     setExpanded((e) => {
       const n = new Set(e);
@@ -39,15 +57,15 @@ export function SystemsTree({
       else n.add(id);
       return n;
     });
-  const modeled = catalog.filter((c) => c.componentType === 'part' && c.accuracy === 'C').length;
+  const modeled = catalog.filter((c) => c.componentType === 'part' && isModeled(c.id)).length;
   const total = catalog.filter((c) => c.componentType === 'part').length;
   const hidden = (id: string) =>
     state.hidden.has(id) || ancestors(id).some((a) => state.hidden.has(a.id));
   const row = (id: string, depth: number) => {
     const c = componentById.get(id)!;
-    if (modeledOnly && c.accuracy === 'D') return null;
+    if (modeledOnly && !isModeled(c.id)) return null;
     const children = catalog.filter(
-      (ch) => ch.parentComponentId === id && (!modeledOnly || ch.accuracy !== 'D'),
+      (ch) => ch.parentComponentId === id && (!modeledOnly || isModeled(ch.id)),
     );
     const open = expanded.has(id);
     const isSystem = depth === 0;
@@ -70,7 +88,7 @@ export function SystemsTree({
                 <ChevronRight size={14} />
               )
             ) : (
-              <span className={`part-dot ${c.accuracy === 'D' ? 'unmodeled' : ''}`} />
+              <span className={`part-dot ${!isModeled(c.id) ? 'unmodeled' : ''}`} />
             )}
           </button>
           <button
@@ -88,7 +106,7 @@ export function SystemsTree({
               />
             )}
             {c.name}
-            {c.accuracy === 'D' && <span className="unmodeled-label">D</span>}
+            {!isModeled(c.id) && <span className="unmodeled-label">D</span>}
           </button>
           <button
             className="tree-eye"
@@ -103,12 +121,26 @@ export function SystemsTree({
       </div>
     );
   };
-  const results = searchComponents(query).filter((c) => !modeledOnly || c.accuracy !== 'D');
+  const results = searchComponents(query).filter((c) => !modeledOnly || isModeled(c.id));
   return (
     <aside className="systems-panel" aria-label="Component catalog">
+      <div className="sidebar-vehicle">
+        {manifest.photos[0] && (
+          <img src={manifest.photos[0].url} alt="Vehicle platform reference" />
+        )}
+        <div>
+          <small>CURRENT CONFIGURATION</small>
+          <strong>
+            {vehicle.year} {vehicle.manufacturer} {vehicle.model}
+          </strong>
+          <span>
+            {vehicle.chassisCode} · {vehicle.bodyStyle}
+          </span>
+        </div>
+      </div>
       <div className="panel-heading">
         <span>VEHICLE SYSTEMS</span>
-        <span className="count-badge">08</span>
+        <span className="count-badge">{String(systems.length).padStart(2, '0')}</span>
       </div>
       <div className="tree-search">
         <Search size={15} />
@@ -173,11 +205,11 @@ export function SystemsTree({
             )}
           </>
         ) : (
-          systems.map((s) => row(s.id, 0))
+          systems.filter((s) => componentById.has(s.id)).map((s) => row(s.id, 0))
         )}
       </div>
       <div className="sidebar-bottom">
-        <button className="learn-teaser" onClick={onLearn}>
+        <button hidden={!state.fixtureMode} className="learn-teaser" onClick={onLearn}>
           <span className="eyebrow">
             <Circle size={8} fill="currentColor" /> UNDER THE SURFACE
           </span>
@@ -204,9 +236,13 @@ export function SystemsTree({
             </span>
           </div>
           <div className="coverage-track">
-            <i style={{ width: `${(modeled / total) * 100}%` }} />
+            <i style={{ width: `${total ? (modeled / total) * 100 : 0}%` }} />
           </div>
-          <span>Educational model · expanding with evidence</span>
+          <span>
+            {state.fixtureMode
+              ? 'Development sample · unverified geometry'
+              : 'Published geometry · scope of this catalog'}
+          </span>
         </div>
       </div>
     </aside>

@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "vehicle": {
     "id": "smart-451-us-2015-passion-coupe-gas",
     "manufacturer": "smart",
@@ -393,45 +393,51 @@
       "id": "rear-glass",
       "name": "Rear window",
       "systemId": "exterior",
-      "parentComponentId": "exterior",
+      "parentComponentId": "hatch-upper",
       "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
       "accuracy": "C",
       "location": "Upper rear cargo opening",
-      "description": "Rear glazing above the lower tailgate.",
-      "function": "Rear glazing above the lower tailgate.",
-      "side": "center",
-      "componentType": "part",
-      "safetyCritical": false,
-      "serviceable": null,
-      "aliases": [],
-      "sourceIds": [
-        "owners-2015",
-        "intro-451"
-      ],
-      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
-    },
-    {
-      "id": "tailgate",
-      "name": "Lower tailgate",
-      "systemId": "exterior",
-      "parentComponentId": "exterior",
-      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
-      "accuracy": "C",
-      "location": "Rear cargo opening",
-      "description": "Lower portion of the two-part cargo opening.",
-      "function": "Lower portion of the two-part cargo opening.",
+      "description": "Closes the upper cargo opening. The sample includes a curved tinted pane and an illustrative heating grid.",
+      "function": "Closes the upper cargo opening. The sample includes a curved tinted pane and an illustrative heating grid.",
       "side": "center",
       "componentType": "part",
       "safetyCritical": false,
       "serviceable": null,
       "aliases": [
-        "rear hatch"
+        "rear hatch glass",
+        "heated rear window"
       ],
       "sourceIds": [
-        "owners-2015",
-        "intro-451"
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
       ],
-      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "tailgate",
+      "name": "Lower tailgate",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-lower",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Lower rear cargo opening",
+      "description": "The lower portion of the split cargo opening folds downward around its lower hinge axis.",
+      "function": "The lower portion of the split cargo opening folds downward around its lower hinge axis.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "lower rear door",
+        "tailgate carrier"
+      ],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
     },
     {
       "id": "door-left",
@@ -1693,26 +1699,27 @@
     },
     {
       "id": "hatch-strut",
-      "name": "Rear hatch strut",
+      "name": "Rear hatch struts",
       "systemId": "exterior",
-      "parentComponentId": "exterior",
+      "parentComponentId": "hatch-upper",
       "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
-      "accuracy": "D",
-      "location": "Exact placement awaiting reference review",
-      "description": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
-      "function": "Catalog scope entry. Detailed identity, configuration restrictions and geometry require additional reference review.",
+      "accuracy": "C",
+      "location": "Sides of upper rear opening",
+      "description": "Left and right upper hatch supports. Sample travel is illustrative.",
+      "function": "Supports the upper hatch.",
       "side": "center",
-      "componentType": "part",
+      "componentType": "assembly",
       "safetyCritical": false,
       "serviceable": null,
       "aliases": [
         "Rear hatch strut"
       ],
       "sourceIds": [
-        "owners-2015",
-        "intro-451"
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
       ],
-      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
     },
     {
       "id": "weatherstrip",
@@ -3231,9 +3238,558 @@
         "intro-451"
       ],
       "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "rear-hatch",
+      "name": "Rear hatch / rear door",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Rear cargo opening",
+      "description": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed.",
+      "function": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed.",
+      "side": "center",
+      "componentType": "assembly",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "rear door",
+        "rear hatch"
+      ],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "hatch-upper",
+      "name": "Upper rear hatch assembly",
+      "systemId": "exterior",
+      "parentComponentId": "rear-hatch",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Rear cargo opening",
+      "description": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed.",
+      "function": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed.",
+      "side": "center",
+      "componentType": "assembly",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "rear door",
+        "rear hatch"
+      ],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "hatch-lower",
+      "name": "Lower tailgate assembly",
+      "systemId": "exterior",
+      "parentComponentId": "rear-hatch",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Rear cargo opening",
+      "description": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed.",
+      "function": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed.",
+      "side": "center",
+      "componentType": "assembly",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "rear door",
+        "rear hatch"
+      ],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Original educational geometry. Approximate shape and placement; no part-level dimensional validation. Not OEM CAD."
+    },
+    {
+      "id": "hatch-upper-frame",
+      "name": "Upper rear hatch carrier",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-upper",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Around the upper rear opening",
+      "description": "Carries the upper hatch glazing and attached fittings.",
+      "function": "Carries the upper hatch glazing and attached fittings.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-upper-trim",
+      "name": "Upper hatch interior trim",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-upper",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Cabin-facing upper hatch edge",
+      "description": "Covers the interior face of the upper hatch carrier.",
+      "function": "Covers the interior face of the upper hatch carrier.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-spoiler",
+      "name": "Rear hatch spoiler",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-upper",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Above rear glazing",
+      "description": "Forms the upper exterior edge of the hatch assembly.",
+      "function": "Forms the upper exterior edge of the hatch assembly.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-hinge-left",
+      "name": "Left upper hatch hinge",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-upper",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Upper left rear opening",
+      "description": "Defines the left support of the upper hatch opening axis.",
+      "function": "Defines the left support of the upper hatch opening axis.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-hinge-right",
+      "name": "Right upper hatch hinge",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-upper",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Upper right rear opening",
+      "description": "Defines the right support of the upper hatch opening axis.",
+      "function": "Defines the right support of the upper hatch opening axis.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-strut-left",
+      "name": "Left rear hatch gas strut",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-strut",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Left side of upper rear opening",
+      "description": "Supports the upper hatch through a telescoping gas spring. The simulation preserves its two attachment points; force and travel are not factory data.",
+      "function": "Supports the upper hatch through a telescoping gas spring. The simulation preserves its two attachment points; force and travel are not factory data.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "left rear hatch strut",
+        "left gas spring",
+        "boot support"
+      ],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-strut-right",
+      "name": "Right rear hatch gas strut",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-strut",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Right side of upper rear opening",
+      "description": "Supports the upper hatch through a telescoping gas spring. The simulation preserves its two attachment points; force and travel are not factory data.",
+      "function": "Supports the upper hatch through a telescoping gas spring. The simulation preserves its two attachment points; force and travel are not factory data.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "right rear hatch strut",
+        "right gas spring",
+        "boot support"
+      ],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-lower-panel",
+      "name": "Lower tailgate exterior panel",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-lower",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Outside lower rear cargo opening",
+      "description": "Forms the exterior surface of the lower tailgate.",
+      "function": "Forms the exterior surface of the lower tailgate.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-lock-right",
+      "name": "Right lower tailgate lock",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-lower",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Right upper edge of lower tailgate",
+      "description": "Retains the right side of the closed lower tailgate. Internal latch geometry is not modeled.",
+      "function": "Retains the right side of the closed lower tailgate. Internal latch geometry is not modeled.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-lock-left",
+      "name": "Left lower tailgate lock",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-lower",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Left upper edge of lower tailgate",
+      "description": "Retains the left side of the closed lower tailgate. Internal latch geometry is not modeled.",
+      "function": "Retains the left side of the closed lower tailgate. Internal latch geometry is not modeled.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-upper-lock",
+      "name": "Upper rear hatch lock",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-upper",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Lower central upper-hatch edge",
+      "description": "Retains the upper hatch when closed. The sample shows only an indicative housing.",
+      "function": "Retains the upper hatch when closed. The sample shows only an indicative housing.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-lower-trim",
+      "name": "Lower tailgate interior trim",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-lower",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Inside lower tailgate",
+      "description": "Covers the cabin-facing surface of the lower tailgate.",
+      "function": "Covers the cabin-facing surface of the lower tailgate.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-lower-hinge-left",
+      "name": "Left lower tailgate hinge",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-lower",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Lower left rear opening",
+      "description": "Supports the left end of the lower tailgate opening axis.",
+      "function": "Supports the left end of the lower tailgate opening axis.",
+      "side": "left",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-lower-hinge-right",
+      "name": "Right lower tailgate hinge",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-lower",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Lower right rear opening",
+      "description": "Supports the right end of the lower tailgate opening axis.",
+      "function": "Supports the right end of the lower tailgate opening axis.",
+      "side": "right",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-seal",
+      "name": "Rear opening weather seal",
+      "systemId": "exterior",
+      "parentComponentId": "rear-hatch",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Perimeter of rear cargo opening",
+      "description": "Forms a continuous sealing boundary around the rear opening. The cross-section and attachment path are illustrative.",
+      "function": "Forms a continuous sealing boundary around the rear opening. The cross-section and attachment path are illustrative.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-brake-light",
+      "name": "Center high-mounted brake light",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-upper",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Upper center of rear hatch",
+      "description": "Provides a high central stop-light location. LED/lamp construction and electrical specifications are not established.",
+      "function": "Provides a high central stop-light location. LED/lamp construction and electrical specifications are not established.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-wiper-motor",
+      "name": "Rear hatch wiper motor",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-upper",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Upper hatch trim region",
+      "description": "Drives the rear window wiper through an output shaft. The internal gearing is not modeled.",
+      "function": "Drives the rear window wiper through an output shaft. The internal gearing is not modeled.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-handle-switch",
+      "name": "Rear hatch handle switch",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-upper",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Center hatch handle region",
+      "description": "Provides the electrical input for opening the rear hatch. Connector and pinout data remain unverified.",
+      "function": "Provides the electrical input for opening the rear hatch. Connector and pinout data remain unverified.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-wiper-arm",
+      "name": "Rear window wiper arm",
+      "systemId": "exterior",
+      "parentComponentId": "hatch-upper",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "C",
+      "location": "Outside rear glazing",
+      "description": "Carries the wiping element across the rear glass. Its sweep and blade dimensions are not factory-verified.",
+      "function": "Carries the wiping element across the rear glass. Its sweep and blade dimensions are not factory-verified.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "rear wiper",
+        "rear hatch wiper blade"
+      ],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    },
+    {
+      "id": "hatch-hardware",
+      "name": "Rear hatch fasteners & mounting hardware",
+      "systemId": "exterior",
+      "parentComponentId": "rear-hatch",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Not yet verified",
+      "description": "Exact fastener inventory, attachment positions, sizes and torque values are not yet verified. No sample fasteners or removal steps are shown.",
+      "function": "Exact fastener inventory, attachment positions, sizes and torque values are not yet verified. No sample fasteners or removal steps are shown.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [
+        "hatch bolts",
+        "hatch screws"
+      ],
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
     }
   ],
   "sources": [
+    {
+      "id": "hatch-451-diagram",
+      "sourceUrl": "https://manuals.plus/m/5dfbeec2a8ea90b6b0f31005726b7b352bd997e56e40236270814d95e7507d90.pdf#page=89",
+      "publisher": "smart USA (archived technical introduction)",
+      "documentTitle": "451 introduction — Rear-end door, printed page 88, P72.20-2599-00",
+      "publicationDate": null,
+      "retrievedAt": "2026-10-18",
+      "rights": "Reference link only. Illustration is not redistributed or traced into geometry.",
+      "notes": "2007 platform illustration establishes component names and organization. Callouts are not OEM numbers. It does not verify 2015-specific geometry, equipment, material, fastener locations or removal procedures."
+    },
+    {
+      "id": "hatch-photo",
+      "sourceUrl": "https://www.ebay.co.uk/itm/156615030681",
+      "publisher": "ALL SMART CARS — used-part photographs",
+      "documentTitle": "Photographs of 451 coupé upper rear hatch / heated glass (listing states 2008–2014)",
+      "publicationDate": null,
+      "retrievedAt": "2026-10-18",
+      "rights": "Viewed as appearance references only. Photographs are not bundled or displayed in the app.",
+      "notes": "Shows upper spoiler, central brake light, top-mounted wiper, curved pane and black glazing border. Listing years do not establish 2015 fitment. No seller part numbers are imported."
+    },
     {
       "id": "owners-2015",
       "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf",
@@ -5419,6 +5975,2451 @@
         ]
       },
       "accuracyStatus": "C"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "rear-hatch",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "name": "Rear hatch / rear door",
+      "sourceIds": [
+        "hatch-451-diagram",
+        "hatch-photo",
+        "owners-2015"
+      ],
+      "replaces": [
+        "rear-glass",
+        "tailgate"
+      ],
+      "variants": {
+        "high": {
+          "assetUrl": "/models/smart-451/rear-hatch/high.glb",
+          "manifestUrl": "/models/smart-451/rear-hatch/high.manifest.json"
+        },
+        "low": {
+          "assetUrl": "/models/smart-451/rear-hatch/low.glb",
+          "manifestUrl": "/models/smart-451/rear-hatch/low.manifest.json"
+        }
+      },
+      "parts": [
+        {
+          "id": "hatch-upper-frame",
+          "name": "Upper rear hatch carrier",
+          "parent": "hatch-upper",
+          "function": "Carries the upper hatch glazing and attached fittings.",
+          "material": "Dark coated carrier; exact substrate not yet verified",
+          "location": "Around the upper rear opening",
+          "callout": "1",
+          "motion": "upper",
+          "separation": [
+            0,
+            0.12,
+            0.22
+          ]
+        },
+        {
+          "id": "hatch-upper-trim",
+          "name": "Upper hatch interior trim",
+          "parent": "hatch-upper",
+          "function": "Covers the interior face of the upper hatch carrier.",
+          "material": "Textured polymer appearance; exact grade not yet verified",
+          "location": "Cabin-facing upper hatch edge",
+          "callout": "2",
+          "motion": "upper",
+          "separation": [
+            0,
+            0.36,
+            0.55
+          ]
+        },
+        {
+          "id": "hatch-spoiler",
+          "name": "Rear hatch spoiler",
+          "parent": "hatch-upper",
+          "function": "Forms the upper exterior edge of the hatch assembly.",
+          "material": "Painted polymer appearance; exact grade not yet verified",
+          "location": "Above rear glazing",
+          "callout": "3",
+          "motion": "upper",
+          "separation": [
+            0,
+            0.6,
+            -0.18
+          ]
+        },
+        {
+          "id": "hatch-hinge-left",
+          "name": "Left upper hatch hinge",
+          "parent": "hatch-upper",
+          "function": "Defines the left support of the upper hatch opening axis.",
+          "material": "Coated metal; alloy and finish not yet verified",
+          "location": "Upper left rear opening",
+          "callout": "4",
+          "motion": "fixed",
+          "separation": [
+            0.35,
+            0.38,
+            0.12
+          ]
+        },
+        {
+          "id": "hatch-hinge-right",
+          "name": "Right upper hatch hinge",
+          "parent": "hatch-upper",
+          "function": "Defines the right support of the upper hatch opening axis.",
+          "material": "Coated metal; alloy and finish not yet verified",
+          "location": "Upper right rear opening",
+          "callout": "4",
+          "motion": "fixed",
+          "separation": [
+            -0.35,
+            0.38,
+            0.12
+          ]
+        },
+        {
+          "id": "hatch-strut-left",
+          "name": "Left rear hatch gas strut",
+          "parent": "hatch-strut",
+          "function": "Supports the upper hatch through a telescoping gas spring. The simulation preserves its two attachment points; force and travel are not factory data.",
+          "material": "Coated metal cylinder, polished rod and end fittings; grades unverified",
+          "location": "Left side of upper rear opening",
+          "callout": "5",
+          "motion": "strut",
+          "separation": [
+            0.54,
+            0.12,
+            -0.15
+          ],
+          "aliases": [
+            "left rear hatch strut",
+            "left gas spring",
+            "boot support"
+          ]
+        },
+        {
+          "id": "hatch-strut-right",
+          "name": "Right rear hatch gas strut",
+          "parent": "hatch-strut",
+          "function": "Supports the upper hatch through a telescoping gas spring. The simulation preserves its two attachment points; force and travel are not factory data.",
+          "material": "Coated metal cylinder, polished rod and end fittings; grades unverified",
+          "location": "Right side of upper rear opening",
+          "callout": "5",
+          "motion": "strut",
+          "separation": [
+            -0.54,
+            0.12,
+            -0.15
+          ],
+          "aliases": [
+            "right rear hatch strut",
+            "right gas spring",
+            "boot support"
+          ]
+        },
+        {
+          "id": "rear-glass",
+          "name": "Rear window",
+          "parent": "hatch-upper",
+          "function": "Closes the upper cargo opening. The sample includes a curved tinted pane and an illustrative heating grid.",
+          "material": "Tinted glazing with black ceramic border; composition not yet verified",
+          "location": "Upper rear cargo opening",
+          "callout": "6",
+          "motion": "upper",
+          "separation": [
+            0,
+            0.1,
+            -0.58
+          ],
+          "aliases": [
+            "rear hatch glass",
+            "heated rear window"
+          ]
+        },
+        {
+          "id": "hatch-lower-panel",
+          "name": "Lower tailgate exterior panel",
+          "parent": "hatch-lower",
+          "function": "Forms the exterior surface of the lower tailgate.",
+          "material": "Painted panel; substrate and paint specification not yet verified",
+          "location": "Outside lower rear cargo opening",
+          "callout": "7",
+          "motion": "lower",
+          "separation": [
+            0,
+            -0.18,
+            -0.65
+          ]
+        },
+        {
+          "id": "tailgate",
+          "name": "Lower tailgate",
+          "parent": "hatch-lower",
+          "function": "The lower portion of the split cargo opening folds downward around its lower hinge axis.",
+          "material": "Coated structural carrier; exact material not yet verified",
+          "location": "Lower rear cargo opening",
+          "callout": "8",
+          "motion": "lower",
+          "separation": [
+            0,
+            -0.06,
+            -0.06
+          ],
+          "aliases": [
+            "lower rear door",
+            "tailgate carrier"
+          ]
+        },
+        {
+          "id": "hatch-lock-right",
+          "name": "Right lower tailgate lock",
+          "parent": "hatch-lower",
+          "function": "Retains the right side of the closed lower tailgate. Internal latch geometry is not modeled.",
+          "material": "Metal and polymer appearance; internal construction unverified",
+          "location": "Right upper edge of lower tailgate",
+          "callout": "9",
+          "motion": "lower",
+          "separation": [
+            -0.45,
+            -0.05,
+            -0.38
+          ]
+        },
+        {
+          "id": "hatch-lock-left",
+          "name": "Left lower tailgate lock",
+          "parent": "hatch-lower",
+          "function": "Retains the left side of the closed lower tailgate. Internal latch geometry is not modeled.",
+          "material": "Metal and polymer appearance; internal construction unverified",
+          "location": "Left upper edge of lower tailgate",
+          "callout": "10",
+          "motion": "lower",
+          "separation": [
+            0.45,
+            -0.05,
+            -0.38
+          ]
+        },
+        {
+          "id": "hatch-upper-lock",
+          "name": "Upper rear hatch lock",
+          "parent": "hatch-upper",
+          "function": "Retains the upper hatch when closed. The sample shows only an indicative housing.",
+          "material": "Coated metal and polymer; exact construction unverified",
+          "location": "Lower central upper-hatch edge",
+          "callout": "11",
+          "motion": "upper",
+          "separation": [
+            0,
+            -0.08,
+            -0.94
+          ]
+        },
+        {
+          "id": "hatch-lower-trim",
+          "name": "Lower tailgate interior trim",
+          "parent": "hatch-lower",
+          "function": "Covers the cabin-facing surface of the lower tailgate.",
+          "material": "Textured polymer; exact grade not yet verified",
+          "location": "Inside lower tailgate",
+          "callout": "12",
+          "motion": "lower",
+          "separation": [
+            0,
+            -0.12,
+            0.48
+          ]
+        },
+        {
+          "id": "hatch-lower-hinge-left",
+          "name": "Left lower tailgate hinge",
+          "parent": "hatch-lower",
+          "function": "Supports the left end of the lower tailgate opening axis.",
+          "material": "Coated metal; alloy not yet verified",
+          "location": "Lower left rear opening",
+          "callout": "13",
+          "motion": "fixed",
+          "separation": [
+            0.3,
+            -0.42,
+            0
+          ]
+        },
+        {
+          "id": "hatch-lower-hinge-right",
+          "name": "Right lower tailgate hinge",
+          "parent": "hatch-lower",
+          "function": "Supports the right end of the lower tailgate opening axis.",
+          "material": "Coated metal; alloy not yet verified",
+          "location": "Lower right rear opening",
+          "callout": "13",
+          "motion": "fixed",
+          "separation": [
+            -0.3,
+            -0.42,
+            0
+          ]
+        },
+        {
+          "id": "hatch-seal",
+          "name": "Rear opening weather seal",
+          "parent": "rear-hatch",
+          "function": "Forms a continuous sealing boundary around the rear opening. The cross-section and attachment path are illustrative.",
+          "material": "Elastomer appearance; compound not yet verified",
+          "location": "Perimeter of rear cargo opening",
+          "callout": "14",
+          "motion": "fixed",
+          "separation": [
+            0,
+            0,
+            0.86
+          ]
+        },
+        {
+          "id": "hatch-brake-light",
+          "name": "Center high-mounted brake light",
+          "parent": "hatch-upper",
+          "function": "Provides a high central stop-light location. LED/lamp construction and electrical specifications are not established.",
+          "material": "Red optical lens and dark housing; lamp technology unverified",
+          "location": "Upper center of rear hatch",
+          "callout": "E21",
+          "motion": "upper",
+          "separation": [
+            0,
+            0.38,
+            -0.66
+          ]
+        },
+        {
+          "id": "hatch-wiper-motor",
+          "name": "Rear hatch wiper motor",
+          "parent": "hatch-upper",
+          "function": "Drives the rear window wiper through an output shaft. The internal gearing is not modeled.",
+          "material": "Metal motor case with polymer cover; exact construction unverified",
+          "location": "Upper hatch trim region",
+          "callout": "M6/4",
+          "motion": "upper",
+          "separation": [
+            0.28,
+            0.27,
+            0.78
+          ]
+        },
+        {
+          "id": "hatch-handle-switch",
+          "name": "Rear hatch handle switch",
+          "parent": "hatch-upper",
+          "function": "Provides the electrical input for opening the rear hatch. Connector and pinout data remain unverified.",
+          "material": "Polymer housing and elastomer touch surface; grades unverified",
+          "location": "Center hatch handle region",
+          "callout": "S88/9",
+          "motion": "upper",
+          "separation": [
+            -0.3,
+            -0.08,
+            -0.85
+          ]
+        },
+        {
+          "id": "hatch-wiper-arm",
+          "name": "Rear window wiper arm",
+          "parent": "hatch-upper",
+          "function": "Carries the wiping element across the rear glass. Its sweep and blade dimensions are not factory-verified.",
+          "material": "Coated arm and elastomer blade; exact material unverified",
+          "location": "Outside rear glazing",
+          "callout": "Photo reference",
+          "motion": "upper",
+          "separation": [
+            0.18,
+            0.1,
+            -1.02
+          ],
+          "aliases": [
+            "rear wiper",
+            "rear hatch wiper blade"
+          ]
+        }
+      ],
+      "accuracy": "C",
+      "verification": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed."
+    }
+  ],
+  "assemblyAssets": [
+    {
+      "asset": {
+        "id": "smart-451-hatch-sample-low-v1",
+        "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+        "fileUrl": "/models/smart-451/rear-hatch/low.glb",
+        "sourceUrl": "src/vehicles/rearHatchModel.ts",
+        "author": "AutoAtlas 3D contributors",
+        "license": "MIT",
+        "licenseEvidence": "LICENSE",
+        "redistributionAllowed": true,
+        "geometryAccuracy": "C",
+        "dimensionalVerification": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed.",
+        "assetVersion": "hatch-1.0.0-low",
+        "contentHash": "aa2cc66d4743150a5b75baf0f8c98f798052f07d61935d908041c0bfa7fd62d0"
+      },
+      "assemblyId": "rear-hatch",
+      "lod": "low",
+      "motionRig": "illustrative-hatch-v1",
+      "units": "metres",
+      "orientation": "+Y up, +Z front, +X vehicle left",
+      "bounds": [
+        1.299888253211975,
+        0.8987559676170349,
+        0.630500078201294
+      ],
+      "triangles": 36502,
+      "compression": "EXT_meshopt_compression",
+      "bindings": [
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-upper-frame",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-upper-frame",
+          "meshNodePath": "rear-hatch-sample/hatch-upper-frame",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.6499441266059875,
+              0.9970200061798096,
+              -1.1656264066696167
+            ],
+            "max": [
+              0.6499441266059875,
+              1.5050499439239502,
+              -0.7855358719825745
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              0.12,
+              0.22
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-upper-trim",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-upper-trim",
+          "meshNodePath": "rear-hatch-sample/hatch-upper-trim",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.630638837814331,
+              0.9969800114631653,
+              -1.1396535634994507
+            ],
+            "max": [
+              0.630638837814331,
+              1.4949499368667603,
+              -0.781000018119812
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              0.36,
+              0.55
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-spoiler",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-spoiler",
+          "meshNodePath": "rear-hatch-sample/hatch-spoiler",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.5950000286102295,
+              1.465000033378601,
+              -0.9378748536109924
+            ],
+            "max": [
+              0.5949999690055847,
+              1.5262980461120605,
+              -0.7473510503768921
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              0.6,
+              -0.18
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-hinge-left",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-hinge-left",
+          "meshNodePath": "rear-hatch-sample/hatch-hinge-left",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              0.3774999976158142,
+              1.4429999589920044,
+              -0.8040000200271606
+            ],
+            "max": [
+              0.4625000059604645,
+              1.4869999885559082,
+              -0.7174999713897705
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0.35,
+              0.38,
+              0.12
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-hinge-right",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-hinge-right",
+          "meshNodePath": "rear-hatch-sample/hatch-hinge-right",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.4625000059604645,
+              1.4429999589920044,
+              -0.8040000200271606
+            ],
+            "max": [
+              -0.3774999976158142,
+              1.4869999885559082,
+              -0.7174999713897705
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              -0.35,
+              0.38,
+              0.12
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-strut-left",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-strut-left",
+          "meshNodePath": "rear-hatch-sample/hatch-strut-left",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              0.5313165501249772,
+              1.0139999992400408,
+              -1.2860000007599592
+            ],
+            "max": [
+              0.5692308138510642,
+              1.3060000007599593,
+              -0.9339999992400407
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0.54,
+              0.12,
+              -0.15
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-strut-right",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-strut-right",
+          "meshNodePath": "rear-hatch-sample/hatch-strut-right",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.5692308138510642,
+              1.0139999992400408,
+              -1.2860000007599592
+            ],
+            "max": [
+              -0.5313165501249772,
+              1.3060000007599593,
+              -0.9339999992400407
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              -0.54,
+              0.12,
+              -0.15
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-rear-glass",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "rear-glass",
+          "meshNodePath": "rear-hatch-sample/rear-glass",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.643509030342102,
+              0.996999979019165,
+              -1.1821399927139282
+            ],
+            "max": [
+              0.643509030342102,
+              1.5,
+              -0.8212955594062805
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              0.1,
+              -0.58
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-lower-panel",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-lower-panel",
+          "meshNodePath": "rear-hatch-sample/hatch-lower-panel",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.6212966442108154,
+              0.6589999794960022,
+              -1.3480000495910645
+            ],
+            "max": [
+              0.6212966442108154,
+              1.0435000658035278,
+              -1.2933932542800903
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              -0.18,
+              -0.65
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-tailgate",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "tailgate",
+          "meshNodePath": "rear-hatch-sample/tailgate",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.6212966442108154,
+              0.6589999794960022,
+              -1.2999999523162842
+            ],
+            "max": [
+              0.6212966442108154,
+              1.0435000658035278,
+              -1.2333933115005493
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              -0.06,
+              -0.06
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-lock-right",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-lock-right",
+          "meshNodePath": "rear-hatch-sample/hatch-lock-right",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.5950000286102295,
+              0.9549999833106995,
+              -1.2725000381469727
+            ],
+            "max": [
+              -0.5425000190734863,
+              1.034999966621399,
+              -1.219499945640564
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              -0.45,
+              -0.05,
+              -0.38
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-lock-left",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-lock-left",
+          "meshNodePath": "rear-hatch-sample/hatch-lock-left",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              0.5425000190734863,
+              0.9549999833106995,
+              -1.2725000381469727
+            ],
+            "max": [
+              0.5950000286102295,
+              1.034999966621399,
+              -1.219499945640564
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0.45,
+              -0.05,
+              -0.38
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-upper-lock",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-upper-lock",
+          "meshNodePath": "rear-hatch-sample/hatch-upper-lock",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.03750000149011612,
+              0.9710000157356262,
+              -1.1399999856948853
+            ],
+            "max": [
+              0.03750000149011612,
+              1.0464999675750732,
+              -1.0859999656677246
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              -0.08,
+              -0.94
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-lower-trim",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-lower-trim",
+          "meshNodePath": "rear-hatch-sample/hatch-lower-trim",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.6212966442108154,
+              0.6589999794960022,
+              -1.2450000047683716
+            ],
+            "max": [
+              0.6212966442108154,
+              1.0435000658035278,
+              -1.1710000038146973
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              -0.12,
+              0.48
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-lower-hinge-left",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-lower-hinge-left",
+          "meshNodePath": "rear-hatch-sample/hatch-lower-hinge-left",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              0.39750000834465027,
+              0.6299999952316284,
+              -1.2879999876022339
+            ],
+            "max": [
+              0.48249998688697815,
+              0.699999988079071,
+              -1.2430000305175781
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0.3,
+              -0.42,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-lower-hinge-right",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-lower-hinge-right",
+          "meshNodePath": "rear-hatch-sample/hatch-lower-hinge-right",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.48249998688697815,
+              0.6299999952316284,
+              -1.2879999876022339
+            ],
+            "max": [
+              -0.39750000834465027,
+              0.699999988079071,
+              -1.2430000305175781
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              -0.3,
+              -0.42,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-seal",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-seal",
+          "meshNodePath": "rear-hatch-sample/hatch-seal",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.6305834650993347,
+              0.6275420784950256,
+              -1.2467707395553589
+            ],
+            "max": [
+              0.6311667561531067,
+              1.5167795419692993,
+              -0.7382450699806213
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              0,
+              0.86
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-brake-light",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-brake-light",
+          "meshNodePath": "rear-hatch-sample/hatch-brake-light",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.14499999582767487,
+              1.475000023841858,
+              -0.9599999785423279
+            ],
+            "max": [
+              0.14499999582767487,
+              1.5110000371932983,
+              -0.9269999861717224
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              0.38,
+              -0.66
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-wiper-motor",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-wiper-motor",
+          "meshNodePath": "rear-hatch-sample/hatch-wiper-motor",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.029999999329447746,
+              1.4079999923706055,
+              -0.793999969959259
+            ],
+            "max": [
+              0.12250000238418579,
+              1.468999981880188,
+              -0.7360000014305115
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0.28,
+              0.27,
+              0.78
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-handle-switch",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-handle-switch",
+          "meshNodePath": "rear-hatch-sample/hatch-handle-switch",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.057500001043081284,
+              1,
+              -1.1970000267028809
+            ],
+            "max": [
+              0.057500001043081284,
+              1.0299999713897705,
+              -1.1610000133514404
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              -0.3,
+              -0.08,
+              -0.85
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-low-v1-hatch-wiper-arm",
+          "modelAssetId": "smart-451-hatch-sample-low-v1",
+          "componentId": "hatch-wiper-arm",
+          "meshNodePath": "rear-hatch-sample/hatch-wiper-arm",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.46051037311553955,
+              1.3751014471054077,
+              -0.9850171208381653
+            ],
+            "max": [
+              0.01600000075995922,
+              1.4520000219345093,
+              -0.9024999737739563
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0.18,
+              0.1,
+              -1.02
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "asset": {
+        "id": "smart-451-hatch-sample-high-v1",
+        "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+        "fileUrl": "/models/smart-451/rear-hatch/high.glb",
+        "sourceUrl": "src/vehicles/rearHatchModel.ts",
+        "author": "AutoAtlas 3D contributors",
+        "license": "MIT",
+        "licenseEvidence": "LICENSE",
+        "redistributionAllowed": true,
+        "geometryAccuracy": "C",
+        "dimensionalVerification": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed.",
+        "assetVersion": "hatch-1.0.0-high",
+        "contentHash": "52700d360c39584d4f453a29e0e7d23ae57f366323449bdcc1382fe11bf29df5"
+      },
+      "assemblyId": "rear-hatch",
+      "lod": "high",
+      "motionRig": "illustrative-hatch-v1",
+      "units": "metres",
+      "orientation": "+Y up, +Z front, +X vehicle left",
+      "bounds": [
+        1.299888253211975,
+        0.9002954959869385,
+        0.630500078201294
+      ],
+      "triangles": 147150,
+      "compression": "EXT_meshopt_compression",
+      "bindings": [
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-upper-frame",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-upper-frame",
+          "meshNodePath": "rear-hatch-sample/hatch-upper-frame",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.6499441266059875,
+              0.9970200061798096,
+              -1.1656264066696167
+            ],
+            "max": [
+              0.6499441266059875,
+              1.5050499439239502,
+              -0.7855345010757446
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              0.12,
+              0.22
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-upper-trim",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-upper-trim",
+          "meshNodePath": "rear-hatch-sample/hatch-upper-trim",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.630638837814331,
+              0.9969800114631653,
+              -1.1396535634994507
+            ],
+            "max": [
+              0.630638837814331,
+              1.4949499368667603,
+              -0.781000018119812
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              0.36,
+              0.55
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-spoiler",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-spoiler",
+          "meshNodePath": "rear-hatch-sample/hatch-spoiler",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.5950000286102295,
+              1.465000033378601,
+              -0.9378453493118286
+            ],
+            "max": [
+              0.5949999690055847,
+              1.5262969732284546,
+              -0.7473768591880798
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              0.6,
+              -0.18
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-hinge-left",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-hinge-left",
+          "meshNodePath": "rear-hatch-sample/hatch-hinge-left",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              0.3774999976158142,
+              1.4429999589920044,
+              -0.8040000200271606
+            ],
+            "max": [
+              0.4625000059604645,
+              1.4869999885559082,
+              -0.7174999713897705
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0.35,
+              0.38,
+              0.12
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-hinge-right",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-hinge-right",
+          "meshNodePath": "rear-hatch-sample/hatch-hinge-right",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.4625000059604645,
+              1.4429999589920044,
+              -0.8040000200271606
+            ],
+            "max": [
+              -0.3774999976158142,
+              1.4869999885559082,
+              -0.7174999713897705
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              -0.35,
+              0.38,
+              0.12
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-strut-left",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-strut-left",
+          "meshNodePath": "rear-hatch-sample/hatch-strut-left",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              0.5313165501249772,
+              1.0139999992400408,
+              -1.2860000007599592
+            ],
+            "max": [
+              0.5692308138510642,
+              1.3060000007599593,
+              -0.9339999992400407
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0.54,
+              0.12,
+              -0.15
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-strut-right",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-strut-right",
+          "meshNodePath": "rear-hatch-sample/hatch-strut-right",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.5692308138510642,
+              1.0139999992400408,
+              -1.2860000007599592
+            ],
+            "max": [
+              -0.5313165501249772,
+              1.3060000007599593,
+              -0.9339999992400407
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              -0.54,
+              0.12,
+              -0.15
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-rear-glass",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "rear-glass",
+          "meshNodePath": "rear-hatch-sample/rear-glass",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.643509030342102,
+              0.996999979019165,
+              -1.1821399927139282
+            ],
+            "max": [
+              0.643509030342102,
+              1.5,
+              -0.8212919235229492
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              0.1,
+              -0.58
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-lower-panel",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-lower-panel",
+          "meshNodePath": "rear-hatch-sample/hatch-lower-panel",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.621293306350708,
+              0.6589999794960022,
+              -1.3480000495910645
+            ],
+            "max": [
+              0.621293306350708,
+              1.0434999465942383,
+              -1.2933932542800903
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              -0.18,
+              -0.65
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-tailgate",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "tailgate",
+          "meshNodePath": "rear-hatch-sample/tailgate",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.621293306350708,
+              0.6589999794960022,
+              -1.2999999523162842
+            ],
+            "max": [
+              0.621293306350708,
+              1.0434999465942383,
+              -1.2333933115005493
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              -0.06,
+              -0.06
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-lock-right",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-lock-right",
+          "meshNodePath": "rear-hatch-sample/hatch-lock-right",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.5950000286102295,
+              0.9549999833106995,
+              -1.2725000381469727
+            ],
+            "max": [
+              -0.5425000190734863,
+              1.034999966621399,
+              -1.219499945640564
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              -0.45,
+              -0.05,
+              -0.38
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-lock-left",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-lock-left",
+          "meshNodePath": "rear-hatch-sample/hatch-lock-left",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              0.5425000190734863,
+              0.9549999833106995,
+              -1.2725000381469727
+            ],
+            "max": [
+              0.5950000286102295,
+              1.034999966621399,
+              -1.219499945640564
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0.45,
+              -0.05,
+              -0.38
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-upper-lock",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-upper-lock",
+          "meshNodePath": "rear-hatch-sample/hatch-upper-lock",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.03750000149011612,
+              0.9710000157356262,
+              -1.1399999856948853
+            ],
+            "max": [
+              0.03750000149011612,
+              1.0464999675750732,
+              -1.0859999656677246
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              -0.08,
+              -0.94
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-lower-trim",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-lower-trim",
+          "meshNodePath": "rear-hatch-sample/hatch-lower-trim",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.621293306350708,
+              0.6589999794960022,
+              -1.2450000047683716
+            ],
+            "max": [
+              0.621293306350708,
+              1.0434999465942383,
+              -1.1710000038146973
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              -0.12,
+              0.48
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-lower-hinge-left",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-lower-hinge-left",
+          "meshNodePath": "rear-hatch-sample/hatch-lower-hinge-left",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              0.39750000834465027,
+              0.6299999952316284,
+              -1.2879999876022339
+            ],
+            "max": [
+              0.48249998688697815,
+              0.699999988079071,
+              -1.2430000305175781
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0.3,
+              -0.42,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-lower-hinge-right",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-lower-hinge-right",
+          "meshNodePath": "rear-hatch-sample/hatch-lower-hinge-right",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.48249998688697815,
+              0.6299999952316284,
+              -1.2879999876022339
+            ],
+            "max": [
+              -0.39750000834465027,
+              0.699999988079071,
+              -1.2430000305175781
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              -0.3,
+              -0.42,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-seal",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-seal",
+          "meshNodePath": "rear-hatch-sample/hatch-seal",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.6322147250175476,
+              0.6260014772415161,
+              -1.2469980716705322
+            ],
+            "max": [
+              0.6321500539779663,
+              1.5167973041534424,
+              -0.7378608584403992
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              0,
+              0.86
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-brake-light",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-brake-light",
+          "meshNodePath": "rear-hatch-sample/hatch-brake-light",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.14499999582767487,
+              1.475000023841858,
+              -0.9599999785423279
+            ],
+            "max": [
+              0.14499999582767487,
+              1.5110000371932983,
+              -0.9269999861717224
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0,
+              0.38,
+              -0.66
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-wiper-motor",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-wiper-motor",
+          "meshNodePath": "rear-hatch-sample/hatch-wiper-motor",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.029999999329447746,
+              1.4079999923706055,
+              -0.793999969959259
+            ],
+            "max": [
+              0.12250000238418579,
+              1.468999981880188,
+              -0.7360000014305115
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0.28,
+              0.27,
+              0.78
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-handle-switch",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-handle-switch",
+          "meshNodePath": "rear-hatch-sample/hatch-handle-switch",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.057500001043081284,
+              1,
+              -1.1970000267028809
+            ],
+            "max": [
+              0.057500001043081284,
+              1.0299999713897705,
+              -1.1610000133514404
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              -0.3,
+              -0.08,
+              -0.85
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "smart-451-hatch-sample-high-v1-hatch-wiper-arm",
+          "modelAssetId": "smart-451-hatch-sample-high-v1",
+          "componentId": "hatch-wiper-arm",
+          "meshNodePath": "rear-hatch-sample/hatch-wiper-arm",
+          "transformData": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "boundingBox": {
+            "min": [
+              -0.46057984232902527,
+              1.3739935159683228,
+              -0.9850171208381653
+            ],
+            "max": [
+              0.01600000075995922,
+              1.4520000219345093,
+              -0.9024999737739563
+            ]
+          },
+          "accuracyStatus": "C",
+          "explodedTransform": {
+            "translation": [
+              0.18,
+              0.1,
+              -1.02
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
     }
   ]
 }

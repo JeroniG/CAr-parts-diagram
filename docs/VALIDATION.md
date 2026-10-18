@@ -1,32 +1,59 @@
-# Validation record
+# Validation record — October 18, 2026
 
-Validation performed October 17, 2026 (America/Los_Angeles) in the supplied Linux workspace, Node 24.21.0.
+The existing application was tested before and after the upgrade. The public default is now a reference/photo catalog; the original vehicle and detailed hatch are explicit development fixtures. Test success does not validate factory geometry or replacement compatibility.
 
-## Completed checks
+## Automated checks
 
-- TypeScript strict checking and ESLint pass.
-- Asset validation passes for 56 component mappings, 140 deduplicated mesh primitives and 139 catalog records. Checks include source/license metadata, redistribution permission, SHA-256, finite geometry and normals, units/envelope, indices, semantic node mapping, textures/animation targets and fitment evidence.
-- Vitest: catalog/search/hierarchy/fitment/VIN boundaries, collision-separated inventory/radial target bounds, exact reassembly, mechanism states and touch selection.
-- PGlite PostgreSQL: migration and seed load successfully. Tests reject cycles, missing source foreign keys, configuration mismatch and verification without a date; RLS is enabled on all 12 tables with no public write policy.
-- Production build succeeds. Three.js is a separate chunk; the build reports its expected >500 kB uncompressed chunk warning. GLB is approximately 0.64 MB and has 91,744 source triangles before floor/grid rendering.
-- Dependency audit after updates reports zero known vulnerabilities at validation time.
+| Check               | Actual result                                                                                                                                                                    |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TypeScript          | Strict checking passes as part of the production build                                                                                                                           |
+| ESLint              | Passes                                                                                                                                                                           |
+| Vitest              | **59 passed across 7 files**                                                                                                                                                     |
+| PostgreSQL          | Migrations 001–003 and repeated seed succeed in PGlite; 20 tables have RLS, no public write policies, import jobs have no public read policy                                     |
+| Asset validation    | 3 development GLBs, 75 unique mapped groups, 216 mesh primitives, 162 catalog rows, both hatch LODs, HDR hash/rights, local decoder notices and public photo/catalog hashes pass |
+| Production build    | Passes; expected >500 kB warnings for the main metadata/UI bundle and the separate Three.js chunk                                                                                |
+| Full Chromium suite | **57 passed, 1 intentionally skipped** across 58 desktop/mobile scenarios; no failing or flaky tests, 11.3 minutes                                                               |
 
-## Browser coverage
+The skipped desktop test is specifically the mobile sheet layout scenario. Tests use one worker. Unit/database/build and Chromium rendering runs were kept sequential after an earlier environment memory problem. An early public-test run had case-sensitive name assertions and overlapping trace cleanup; those were corrected before the successful full run.
 
-Playwright uses Chromium 156.0.8078.4 with SwiftShader software rendering and the reduced-motion preference for deterministic camera assertions. Representative captures use normal motion. Desktop viewport: 1440 × 1000. Mobile emulation: iPhone 13, 390 × 844. Functional tests inspect actual Three.js visibility, original/current positions and camera state through a development-only read-only snapshot API; this API is not enabled in production.
+Unit coverage includes configuration/source/fitment boundaries, separate definitions/instances, hierarchy cycles, figure callouts, rights/path rejection, bounded HTTP retry/cancellation, VIN identity-only responses, coverage computation, immutable transforms, smooth reversal, hatch pivots/strut endpoints, measurement, SQL evidence constraints and import CLI staging/repeat publication/revision immutability/hash rejection. The test-only second vehicle is never published in the real registry.
 
-Scenarios cover startup/rendering, search, sourced OEM evidence with unknown fitment, unmodeled components, inherited system hiding, isolation, explosion and reassembly, inventory, camera presets/zoom, lesson playback/scrubbing, X-ray/sections/theme/quality, keyboard focus, mocked VIN mismatch, missing asset and WebGL failure. Mobile tests keep the 3D viewport visible above sheets. No real VIN is sent by automated tests.
+Browser coverage includes:
 
-Final browser run: **29 passed, 1 intentionally skipped, 0 failures, 0 flaky tests** across 30 desktop/mobile cases. The skipped desktop case verifies mobile-only sheet layout. The CI artifact retains failure traces if a future regression occurs. Screenshots are actual application renders under `docs/screenshots/`; they are not substituted for interactive geometry.
+- Real photo load and attribution, no default canvas/sample GLB, authored markers and synchronized inspector, reference zoom/reset, rear-hatch catalog navigation, unavailable modes, failed images and keyboard panel resizing.
+- Unsupported search/request export, optional mocked VIN resolution, explicit candidate choice, second-package switching with independent instance callouts, and integrity failure preserving the current vehicle.
+- Existing raycast selection/orbit, source-backed OEM references with unknown fitment, inherited hiding, isolate/focus/reset, exact reassembly, inventory, camera presets, clipping, X-ray, themes/quality, lesson playback, keyboard dialogs and WebGL/model fallback.
+- On-demand hatch loading, both opening leaves and real world-space strut endpoints, independent selection/isolation/rotation, controlled separation, failed download/hash retry, detail switching, cancellation of stale assembly requests, actual surface measurements, and intermediate animation/reversal under normal motion.
 
-## Performance and limits
+**After the final toolbar/settings/help extraction and import hardening, all 16 affected desktop/mobile scenarios passed again (3.6 minutes).** The production preview test also passed: the photo loads, no canvas or GLB is requested even with the fixture query parameter, the development toggle/debug snapshot are absent, and no page errors occur.
 
-The initial procedural spring paths unnecessarily produced 221,632 triangles. After capping curve sampling and reducing redundant subdivisions, the model is 91,744 triangles while retaining all 56 semantic groups. Meshopt reduces the 5.43 MB raw GLB to roughly 0.64 MB. Camera-only motion reuses the shadow map and idle frames skip rendering. Model quality adapts to software rendering and slow auto-rotation; users can override it.
+## Hardware and evidence limits
 
-The final production-build capture measured **8 animation frames over 8.54 seconds (0.94 frames/second)** during auto-rotation at low quality and a 1440 × 1000 viewport; the status bar rounded this to 1 render FPS. This constrained SwiftShader environment is slow. These measurements are software-renderer observations, not validation of the 60 FPS desktop or 30 FPS phone targets. Raw measurements are in `docs/screenshots/metadata.json`. Physical GPU desktop/mobile testing is still required. FPS appears in the app during continuous auto-rotation; idle on-demand rendering is not represented as an active frame-rate benchmark.
+Chromium uses **SwiftShader software rendering** in the constrained Codespace. Desktop is 1440 × 1000; mobile is iPhone 13 emulation at 390 × 844. Tests use reduced motion except the explicit animation scenario. Scene assertions read actual Three.js camera, transforms and visibility through a development-only snapshot API. This is not a simulated screenshot or a fake 3D image.
 
-Not executed: Blender preparation script (Blender unavailable), external Supabase project migration, live production deployment, real VIN service integration, Safari/Firefox, physical pinch gestures, screen-reader user testing, exact CAD dimensional verification, factory mechanical timing and exact OEM fitment. The original geometry remains Tier C regardless of automated test results.
+The sample vehicle contains 91,744 source triangles. The hatch has 36,890 / 147,150 source triangles at low/high detail, approximately 567 / 1,925 KiB compressed. The initial production photo workspace does not initialize WebGL. High hardware quality can use GTAO/clearcoat/transmission; SwiftShader excludes the heavy high path. Real hardware FPS targets remain unverified.
 
-## Final unit result
+Not executed: physical GPU/phone benchmarking, Safari/Firefox, physical touch/pinch, screen-reader user testing, Blender export, a real KTX2-textured production model, live service/catalog provider integration, live VIN requests, remote database deployment or public production deployment. No accurate licensed production CAD is available. No OEM fitment or repair procedure is verified by these tests.
 
-29 tests passed across four files, including six PostgreSQL tests and an imported-animation timeline test. Competing Chromium processes previously caused memory-related worker termination in this constrained workspace; the final run passed with no browser tests running. The committed configuration uses one unit-test worker.
+## Reproduce
+
+```sh
+npm ci
+npm run check
+npm run lint
+npm test
+npm run validate:assets
+npm run build
+npx playwright install --with-deps chromium
+npm run test:e2e
+```
+
+Capture the running dev site with `npm run capture` and the explicitly labeled sample with `npm run capture:hatch`. For production verification, run `npm run preview` in another terminal, then `npm run verify:production`. Actual screenshots and conditions are stored in `docs/screenshots/`; public screenshots retain the M 93 photograph attribution and CC BY-SA notices.
+
+## Actual captures and current performance
+
+Seven public interface captures and six labeled development-hatch captures were taken in Chromium 156.0.8078.4 at desktop/mobile sizes, with zero page errors. `public-desktop.png`, `public-mobile.png`, `public-mobile-inspector.png` and the other gallery/part/search/theme views show the real application. Hatch captures show the actual medium-quality detailed GLB, not a generated concept image. Metadata files record conditions and photo rights.
+
+A separate continuously rotating low-detail hatch run at 1440 × 1000 on SwiftShader measured **12 frames over 6,473.9 ms: 1.85 FPS**, with 36,892 reported triangles. This constrained software-rendering result is below the desired interactive GPU targets. It does not establish physical desktop or phone performance. The public photo/catalog experience avoids WebGL entirely. Real-GPU measurement remains a release dependency for demanding model modes.
+
+Local dev and production preview respond successfully. The private Codespaces browser URL redirects unauthenticated visitors to GitHub sign-in (HTTP 302); it is not a public production deployment.

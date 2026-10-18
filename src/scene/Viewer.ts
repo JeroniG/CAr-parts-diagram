@@ -6,48 +6,32 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { loadVehicle, disposeObject } from './loaders/vehicleLoader';
 import { inventoryLayout, radialLayout } from './explosion/layout';
 import { mechanismState } from './animations/transmission';
-import { componentById } from '../data/catalog';
-import { descendants, visibleComponent } from '../services/catalog';
-import { vehicleRegistry } from '../vehicles/registry';
-export type CameraView =
-  'perspective' | 'front' | 'rear' | 'left' | 'right' | 'top' | 'bottom' | 'interior';
-export type Quality = 'high' | 'medium' | 'low';
-export interface ViewState {
-  selected: string | null;
-  hidden: Set<string>;
-  isolated: string | null;
-  transparent: Set<string>;
-  xray: boolean;
-  explode: number;
-  layout: 'radial' | 'inventory';
-  section: 'off' | 'longitudinal' | 'cross' | 'horizontal';
-  cut: number;
-  theme: 'light' | 'dark';
-  quality: Quality;
-  adaptive: boolean;
-  autoRotate: boolean;
-  exposure: number;
-  lighting: 'studio' | 'workshop' | 'inspection';
-  animationProgress: number;
+import type { WorkspaceData } from '../features/vehicles/CatalogContext';
+import type { AssemblyDefinition } from '../types/assembly';
+export interface ViewerDataset {
+  catalog: WorkspaceData;
+  base: { assetUrl: string; manifestUrl: string } | null;
+  assemblies: AssemblyDefinition[];
+  fixture: boolean;
 }
-export const initialView: ViewState = {
-  selected: null,
-  hidden: new Set(),
-  isolated: null,
-  transparent: new Set(),
-  xray: false,
-  explode: 0,
-  layout: 'radial',
-  section: 'off',
-  cut: 0,
-  theme: 'light',
-  quality: 'high',
-  adaptive: true,
-  autoRotate: false,
-  exposure: 1.1,
-  lighting: 'studio',
-  animationProgress: 0,
-};
+import type { LoadedVehicle } from './loaders/vehicleLoader';
+
+import { hatchPose, rotateAround, strutEndpoints } from './animations/hatch';
+import { ExplodedViewController } from './explosion/ExplodedViewController';
+import {
+  preparePartMaterials,
+  setMaterialQuality,
+  styleMaterial,
+} from './materials/MaterialManager';
+import { RenderPipeline } from './rendering/RenderPipeline';
+import { MeasurementController } from './controls/MeasurementController';
+import type { Measurement } from './controls/MeasurementController';
+import type { AssemblyLoadStatus } from '../types/assembly';
+import { HDRLoader } from 'three/addons/loaders/HDRLoader.js';
+import { initialView } from './state';
+import type { CameraView, Quality, ViewState } from './state';
+export { initialView } from './state';
+export type { CameraView, Quality, ViewState } from './state';
 interface Part {
   group: T.Group;
   base: T.Vector3;
@@ -61,6 +45,8 @@ interface Callbacks {
   loaded: (count: number) => void;
   error: (message: string) => void;
   stats: (stats: { fps: number; triangles: number; drawCalls: number }) => void;
+  assembly: (status: AssemblyLoadStatus) => void;
+  measurement: (measurement: Measurement) => void;
 }
 export class Viewer {
   private renderer: T.WebGLRenderer;
@@ -70,6 +56,20 @@ export class Viewer {
   private clipController: ImportedClipController | null = null;
   private root: T.Group | null = null;
   private parts = new Map<string, Part>();
+  private vehicleParts = new Map<string, Part>();
+  private assemblyRoot: T.Group | null = null;
+  private loadedAssemblyDefinition: AssemblyDefinition | null = null;
+  private assemblyClip: ImportedClipController | null = null;
+  private assemblyRig = false;
+  private assemblyKey = '';
+  private failedAssemblyKey = '';
+  private assemblyRequest: AbortController | null = null;
+  private lifetime = new AbortController();
+  private explosion = new ExplodedViewController();
+  private opening = new ExplodedViewController(900);
+  private separations = new Map<string, ExplodedViewController>();
+  private pipeline: RenderPipeline;
+  private measurement: MeasurementController;
   private state: ViewState = initialView;
   private frame = 0;
   private observer: ResizeObserver;
@@ -106,6 +106,7 @@ export class Viewer {
   constructor(
     private container: HTMLElement,
     private cb: Callbacks,
+    private dataset: ViewerDataset,
   ) {
     this.renderer = new T.WebGLRenderer({
       antialias: true,
@@ -126,7 +127,7 @@ export class Viewer {
     this.renderer.shadowMap.autoUpdate = false;
     this.renderer.domElement.setAttribute(
       'aria-label',
-      'Interactive 3D Smart Fortwo. Use the component tree for keyboard selection.',
+      `Interactive 3D ${this.dataset.catalog.vehicle.manufacturer} ${this.dataset.catalog.vehicle.model}. Use the component tree for keyboard selection.`,
     );
     this.renderer.domElement.setAttribute('role', 'img');
     this.renderer.domElement.addEventListener('webglcontextlost', this.contextLost);
@@ -183,6 +184,12 @@ export class Viewer {
     gm.transparent = true;
     gm.opacity = 0.24;
     this.scene.add(this.grid);
+    this.grid.visible = false;
+    this.pipeline = new RenderPipeline(this.renderer, this.scene, this.camera, () => {
+      this.dirty = true;
+    });
+    this.measurement = new MeasurementController(cb.measurement);
+    this.scene.add(this.measurement.root);
     this.observer = new ResizeObserver(() => this.resize());
     this.observer.observe(container);
     this.resize();
@@ -198,11 +205,24 @@ export class Viewer {
         if (!this.disposed && this.state.adaptive) this.cb.quality('low');
       });
     void this.load();
+    void this.loadStudioEnvironment();
   }
   private async load() {
     try {
-      const definition = vehicleRegistry[0];
-      const loaded = await loadVehicle(definition.assetUrl, definition.manifestUrl);
+      const definition = this.dataset.base;
+      if (!definition) {
+        this.root = new T.Group();
+        this.scene.add(this.root);
+        this.update(this.state);
+        this.cb.loaded(0);
+        return;
+      }
+      const loaded = await loadVehicle(definition.assetUrl, definition.manifestUrl, {
+        vehicleId: this.dataset.catalog.vehicle.id,
+        componentIds: new Set(this.dataset.catalog.componentById.keys()),
+        signal: this.lifetime.signal,
+        renderer: this.renderer,
+      });
       if (this.disposed) {
         disposeObject(loaded.root);
         return;
@@ -211,30 +231,8 @@ export class Viewer {
       this.scene.add(loaded.root);
       if (loaded.clips.length)
         this.clipController = new ImportedClipController(loaded.root, loaded.clips[0]);
-      loaded.parts.forEach((group, id) => {
-        const materials: T.MeshStandardMaterial[] = [];
-        group.traverse((o) => {
-          if (o instanceof T.Mesh) {
-            o.userData.componentId = id;
-            const originals = Array.isArray(o.material) ? o.material : [o.material];
-            const clones = originals.map((m) => {
-              const clone = m.clone() as T.MeshStandardMaterial;
-              clone.userData.baseOpacity = clone.opacity;
-              clone.userData.baseTransparent = clone.transparent;
-              clone.userData.baseClearcoat = (clone as T.MeshPhysicalMaterial).clearcoat;
-              materials.push(clone);
-              return clone;
-            });
-            o.material = Array.isArray(o.material) ? clones : clones[0];
-          }
-        });
-        this.parts.set(id, {
-          group,
-          base: group.position.clone(),
-          size: new T.Box3().setFromObject(group).getSize(new T.Vector3()),
-          materials,
-        });
-      });
+      this.vehicleParts = this.prepareParts(loaded);
+      this.parts = this.vehicleParts;
       this.lastLayoutKey = '';
       this.lastMaterialKey = '';
       this.lastQuality = '';
@@ -243,7 +241,183 @@ export class Viewer {
       this.cb.loaded(this.parts.size);
       if (this.softwareRenderer && this.state.adaptive) this.cb.quality('low');
     } catch (e) {
-      this.cb.error(e instanceof Error ? e.message : 'The model could not be loaded.');
+      if (!this.disposed)
+        this.cb.error(e instanceof Error ? e.message : 'The model could not be loaded.');
+    }
+  }
+  private prepareParts(loaded: LoadedVehicle) {
+    const parts = new Map<string, Part>(),
+      originals = new Set<T.Material>();
+    loaded.parts.forEach((group, id) => {
+      group.traverse((o) => {
+        if (o instanceof T.Mesh) o.userData.componentId = id;
+      });
+      parts.set(id, {
+        group,
+        base: group.position.clone(),
+        size: new T.Box3().setFromObject(group).getSize(new T.Vector3()),
+        materials: preparePartMaterials(group, originals),
+      });
+    });
+    // Clones retain texture references; release only the superseded material programs here.
+    originals.forEach((material) => material.dispose());
+    return parts;
+  }
+  private async loadStudioEnvironment() {
+    try {
+      const response = await fetch('/environments/studio-small-09-1k.hdr', {
+        signal: this.lifetime.signal,
+      });
+      if (!response.ok) return; // The procedural studio stays available offline or on a failed request.
+      const data = new HDRLoader().parse(await response.arrayBuffer());
+      if (this.disposed) return;
+      const texture = new T.DataTexture(
+        data.data,
+        data.width,
+        data.height,
+        T.RGBAFormat,
+        data.type,
+      );
+      texture.colorSpace = T.LinearSRGBColorSpace;
+      texture.minFilter = T.LinearFilter;
+      texture.magFilter = T.LinearFilter;
+      texture.generateMipmaps = false;
+      texture.flipY = true;
+      texture.needsUpdate = true;
+      const generator = new T.PMREMGenerator(this.renderer);
+      const environment = generator.fromEquirectangular(texture);
+      generator.dispose();
+      texture.dispose();
+      this.environment.dispose();
+      this.environment = environment;
+      this.scene.environment = environment.texture;
+      this.scene.environmentIntensity = 0.75;
+      this.scene.environmentRotation.y = 0.6;
+      this.dirty = true;
+    } catch {
+      /* Preserve the working studio fallback. */
+    }
+  }
+  private releaseAssembly() {
+    this.assemblyRequest?.abort();
+    this.assemblyRequest = null;
+    this.assemblyClip?.dispose();
+    this.assemblyClip = null;
+    if (this.assemblyRoot) {
+      this.scene.remove(this.assemblyRoot);
+      disposeObject(this.assemblyRoot);
+    }
+    this.assemblyRoot = null;
+    this.loadedAssemblyDefinition = null;
+    this.assemblyKey = '';
+    this.failedAssemblyKey = '';
+    this.assemblyRig = false;
+    this.parts = this.vehicleParts;
+    if (this.root) this.root.visible = true;
+    this.lastLayoutKey = '';
+    this.lastMaterialKey = '';
+    this.lastQuality = '';
+  }
+  retryAssembly() {
+    this.failedAssemblyKey = '';
+    this.assemblyKey = '';
+    this.update(this.state);
+  }
+  private get assemblyDefinition() {
+    return this.dataset.assemblies.find((a) => a.id === this.state.activeAssembly);
+  }
+  private get assemblyParts() {
+    return new Map(this.loadedAssemblyDefinition?.parts.map((p) => [p.id, p]) ?? []);
+  }
+  private async loadAssembly(lod: 'high' | 'low') {
+    const definition = this.assemblyDefinition;
+    if (!definition) return;
+    const request = new AbortController();
+    this.assemblyRequest?.abort();
+    this.assemblyRequest = request;
+    const key = `${definition.id}-${lod}`;
+    this.assemblyKey = key;
+    this.cb.assembly({
+      phase: 'loading',
+      progress: 0,
+      lod,
+      message: `Loading ${definition.name} components…`,
+    });
+    try {
+      const variant = definition.variants[lod];
+      const loaded = await loadVehicle(variant.assetUrl, variant.manifestUrl, {
+        vehicleId: this.dataset.catalog.vehicle.id,
+        signal: request.signal,
+        assemblyId: definition.id,
+        componentIds: new Set(definition.parts.map((p) => p.id)),
+        renderer: this.renderer,
+        onProgress: (progress) => {
+          if (!request.signal.aborted && !this.disposed)
+            this.cb.assembly({
+              phase: 'loading',
+              progress,
+              lod,
+              message: 'Preparing materials and semantic parts…',
+            });
+        },
+      });
+      if (request.signal.aborted || this.disposed || this.state.activeAssembly !== definition.id) {
+        disposeObject(loaded.root);
+        return;
+      }
+      const parts = this.prepareParts(loaded);
+      this.assemblyClip?.dispose();
+      this.assemblyClip = loaded.clips.length
+        ? new ImportedClipController(loaded.root, loaded.clips[0])
+        : null;
+      if (this.assemblyRoot) {
+        this.scene.remove(this.assemblyRoot);
+        disposeObject(this.assemblyRoot);
+      }
+      this.loadedAssemblyDefinition = definition;
+      this.assemblyRoot = loaded.root;
+      this.scene.add(loaded.root);
+      this.parts = parts;
+      this.assemblyRig = loaded.motionRig === 'illustrative-hatch-v1';
+      this.assemblyRequest = null;
+      this.failedAssemblyKey = '';
+      this.lastMaterialKey = '';
+      this.lastLayoutKey = '';
+      this.lastQuality = '';
+      this.update(this.state);
+      this.frameVisible(new T.Vector3(0.7, 0.3, -1.4));
+      if (this.state.selected && this.assemblyParts.has(this.state.selected))
+        this.focus(this.state.selected);
+      this.cb.loaded(parts.size);
+      this.cb.assembly({
+        phase: 'ready',
+        progress: 1,
+        lod,
+        message: '',
+        motionAvailable: this.assemblyRig || !!this.assemblyClip,
+      });
+    } catch (error) {
+      if (request.signal.aborted || this.disposed) return;
+      this.assemblyRequest = null;
+      this.failedAssemblyKey = key;
+      this.cb.assembly({
+        phase: 'error',
+        progress: 0,
+        lod,
+        message: error instanceof Error ? error.message : 'Assembly could not be loaded.',
+      });
+    }
+  }
+  private updateVehicleContext() {
+    if (!this.root || !this.assemblyRoot) return;
+    this.root.visible = this.state.assemblyContext;
+    for (const [id, part] of this.vehicleParts) {
+      part.group.position.copy(part.base);
+      part.group.quaternion.identity();
+      part.group.visible =
+        !this.loadedAssemblyDefinition?.replaces.includes(id) &&
+        this.dataset.catalog.visibleComponent(id, this.state.hidden, null);
+      for (const material of part.materials) styleMaterial(material, false, false, true);
     }
   }
   private resize() {
@@ -253,12 +427,45 @@ export class Viewer {
     this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(w, h);
+    this.pipeline.resize(w, h);
     if (this.parts.size) this.frameVisible();
     this.dirty = true;
   }
   update(next: ViewState) {
     const previous = this.state;
     this.state = next;
+    if (!next.activeAssembly && (this.assemblyRoot || this.assemblyRequest || this.assemblyKey)) {
+      this.releaseAssembly();
+      this.cb.loaded(this.parts.size);
+      this.cb.assembly({ phase: 'idle', progress: 0, lod: null, message: '' });
+    }
+    if (next.activeAssembly && this.root) {
+      const lod = next.quality === 'low' ? 'low' : 'high';
+      const key = `${next.activeAssembly}-${lod}`;
+      if (key !== this.assemblyKey && key !== this.failedAssemblyKey) void this.loadAssembly(lod);
+      else if (!this.assemblyRoot && !this.assemblyRequest && key !== this.failedAssemblyKey)
+        void this.loadAssembly(lod);
+    }
+    if (next.explode !== previous.explode)
+      this.explosion.set(next.explode, performance.now(), this.reducedMotion);
+    if (next.hatchOpen !== previous.hatchOpen)
+      this.opening.set(next.hatchOpen, performance.now(), this.reducedMotion);
+    if (next.separated !== previous.separated) {
+      for (const id of new Set([...previous.separated, ...next.separated])) {
+        const controller = this.separations.get(id) ?? new ExplodedViewController();
+        controller.set(next.separated.has(id) ? 1 : 0, performance.now(), this.reducedMotion);
+        this.separations.set(id, controller);
+      }
+    }
+    if (
+      next.measure !== previous.measure ||
+      next.explode !== previous.explode ||
+      next.hatchOpen !== previous.hatchOpen ||
+      next.activeAssembly !== previous.activeAssembly ||
+      next.inspectionRotation !== previous.inspectionRotation ||
+      next.separated !== previous.separated
+    )
+      this.measurement.clear();
     if (next.theme !== this.lastTheme) {
       this.lastTheme = next.theme;
       (this.grid.material as T.LineBasicMaterial).opacity = next.theme === 'dark' ? 0.12 : 0.24;
@@ -279,46 +486,97 @@ export class Viewer {
         ),
       );
       this.renderer.shadowMap.enabled = next.quality !== 'low';
+      void this.pipeline
+        .configure(next.quality === 'high' && !this.softwareRenderer && next.section === 'off')
+        .catch(() => {
+          this.dirty = true;
+        });
       for (const p of this.parts.values())
-        for (const m of p.materials) {
-          if (m instanceof T.MeshPhysicalMaterial) {
-            m.clearcoat = next.quality === 'low' ? 0 : m.userData.baseClearcoat;
-            m.needsUpdate = true;
-          }
-        }
+        for (const m of p.materials)
+          setMaterialQuality(
+            m,
+            next.quality === 'high' && !this.softwareRenderer,
+            next.quality === 'low',
+          );
       this.resize();
     }
+    if (next.section !== previous.section)
+      void this.pipeline
+        .configure(next.quality === 'high' && !this.softwareRenderer && next.section === 'off')
+        .catch(() => {
+          this.dirty = true;
+        });
+    this.controls.mouseButtons.LEFT = next.pointerMode === 'pan' ? T.MOUSE.PAN : T.MOUSE.ROTATE;
     this.controls.autoRotate = next.autoRotate && !this.reducedMotion;
     this.renderer.toneMappingExposure = next.exposure;
     this.key.intensity =
-      next.lighting === 'inspection' ? 3 : next.lighting === 'workshop' ? 1.5 : 2.2;
+      next.lighting === 'inspection'
+        ? 3
+        : next.lighting === 'workshop'
+          ? 1.5
+          : next.lighting === 'premium'
+            ? 1.1
+            : next.lighting === 'showroom'
+              ? 3
+              : 2.2;
+    this.scene.environmentIntensity =
+      next.lighting === 'premium' ? 0.45 : next.lighting === 'showroom' ? 1.1 : 0.75;
     this.fill.intensity = next.lighting === 'inspection' ? 3 : 1.7;
     this.key.color.set(next.lighting === 'studio' ? 0xfff6e7 : 0xffffff);
-    const selected = next.selected ? descendants(next.selected) : new Set<string>();
-    const transparent = new Set([...next.transparent].flatMap((id) => [...descendants(id)]));
+    const selected = next.selected
+      ? this.dataset.catalog.descendants(next.selected)
+      : new Set<string>();
+    const transparent = new Set(
+      [...next.transparent].flatMap((id) => [...this.dataset.catalog.descendants(id)]),
+    );
     const materialKey = JSON.stringify([
       next.selected,
       [...next.transparent],
       next.xray,
+      next.bodyOpacity,
       next.section,
       next.cut,
+      next.quality,
+      next.dimUnselected,
+      next.activeAssembly,
     ]);
-    const layoutKey = JSON.stringify([[...next.hidden], next.isolated, next.layout]);
+    const layoutKey = JSON.stringify([
+      [...next.hidden],
+      next.isolated,
+      next.layout,
+      next.activeAssembly,
+    ]);
     if (layoutKey !== this.lastLayoutKey) {
       this.lastLayoutKey = layoutKey;
       const visible = [];
       for (const [id, part] of this.parts) {
-        part.group.visible = visibleComponent(id, next.hidden, next.isolated);
+        part.group.visible = this.dataset.catalog.visibleComponent(id, next.hidden, next.isolated);
         if (part.group.visible)
           visible.push({
             id,
             center: part.base,
             size: part.size,
-            system: componentById.get(id)!.systemId,
+            system: this.dataset.catalog.componentById.get(id)!.systemId,
           });
       }
       this.explosionTargets =
-        next.layout === 'inventory' ? inventoryLayout(visible) : radialLayout(visible);
+        next.layout === 'inventory'
+          ? inventoryLayout(visible)
+          : this.assemblyRoot || !this.dataset.fixture
+            ? new Map(
+                visible.map((p) => [
+                  p.id,
+                  p.center
+                    .clone()
+                    .add(
+                      new T.Vector3(
+                        ...(this.parts.get(p.id)!.group.userData.explodedTransform?.translation ??
+                          this.assemblyParts.get(p.id)?.separation ?? [0, 0, 0]),
+                      ),
+                    ),
+                ]),
+              )
+            : radialLayout(visible);
     }
     if (materialKey !== this.lastMaterialKey) {
       this.lastMaterialKey = materialKey;
@@ -332,37 +590,99 @@ export class Viewer {
       const planes = next.section === 'off' ? [] : [new T.Plane(normal, cut)];
       for (const [id, part] of this.parts) {
         const ghost =
-          transparent.has(id) || (next.xray && componentById.get(id)?.systemId === 'exterior');
+          transparent.has(id) ||
+          (next.xray &&
+            (this.dataset.fixture
+              ? this.dataset.catalog.componentById.get(id)?.systemId === 'exterior'
+              : !!this.dataset.catalog.manifest.exteriorComponentIds?.some((root) =>
+                  this.dataset.catalog.descendants(root).has(id),
+                )));
         for (const m of part.materials) {
-          m.emissive.set(selected.has(id) ? 0x83a33c : 0x000000);
-          m.emissiveIntensity = selected.has(id) ? 0.3 : 0;
-          m.transparent = ghost || m.userData.baseTransparent;
-          m.opacity = ghost ? 0.15 : m.userData.baseOpacity;
-          m.depthWrite = !ghost;
+          styleMaterial(
+            m,
+            selected.has(id) && next.selected !== next.activeAssembly,
+            next.dimUnselected && selected.size > 0 && !selected.has(id),
+            ghost,
+            next.bodyOpacity,
+          );
           m.clippingPlanes = planes;
           m.clipShadows = true;
           m.needsUpdate = true;
         }
       }
     }
+    this.updateVehicleContext();
     this.applyPositions();
     this.renderer.shadowMap.needsUpdate = true;
     if (
+      previous.activeAssembly !== next.activeAssembly ||
       previous.explode !== next.explode ||
       previous.layout !== next.layout ||
-      previous.isolated !== next.isolated
-    )
+      previous.isolated !== next.isolated ||
+      previous.hatchOpen !== next.hatchOpen ||
+      previous.assemblyContext !== next.assemblyContext ||
+      previous.separated !== next.separated
+    ) {
+      this.applyPositions(next.explode, next.hatchOpen, true);
       this.frameVisible();
+      this.applyPositions();
+    } else if (next.selected && previous.selected !== next.selected) {
+      if (next.activeAssembly && !this.assemblyRoot)
+        this.frameVisible(new T.Vector3(0.6, 0.25, -1));
+      else this.focus(next.selected);
+    }
+    if (previous.activeAssembly && !next.activeAssembly) this.setCamera('perspective');
     this.dirty = true;
   }
-  private applyPositions() {
+  private applyPositions(
+    explode = this.explosion.value,
+    opening = this.opening.value,
+    separationTargets = false,
+  ) {
     this.clipController?.seek(this.state.animationProgress);
-    const release = mechanismState(this.state.animationProgress).release;
+    const release = this.dataset.fixture ? mechanismState(this.state.animationProgress).release : 0;
     for (const [id, part] of this.parts) {
       part.group.position
         .copy(part.base)
-        .lerp(this.explosionTargets.get(id) ?? part.base, this.state.explode);
+        .lerp(
+          this.explosionTargets.get(id) ?? part.base,
+          Math.max(
+            explode,
+            separationTargets
+              ? this.state.separated.has(id)
+                ? 1
+                : 0
+              : (this.separations.get(id)?.value ?? 0),
+          ),
+        );
       part.group.rotation.set(0, 0, 0);
+      if (this.assemblyRoot) {
+        const definition = this.assemblyParts.get(id)!;
+        if (this.assemblyRig) {
+          const pose = hatchPose(definition.motion, opening);
+          part.group.position.add(
+            rotateAround(part.base, pose.pivot, pose.rotation).sub(part.base),
+          );
+          part.group.quaternion.copy(pose.rotation);
+          if (definition.motion === 'strut')
+            this.updateStrut(
+              part,
+              this.dataset.catalog.componentById.get(id)?.side === 'left' ? 1 : -1,
+              opening,
+            );
+        }
+        const rotation = part.group.userData.explodedTransform?.rotation;
+        if (rotation) {
+          const amount = Math.max(explode, this.separations.get(id)?.value ?? 0);
+          part.group.quaternion.multiply(
+            new T.Quaternion().setFromEuler(
+              new T.Euler(rotation[0] * amount, rotation[1] * amount, rotation[2] * amount),
+            ),
+          );
+        }
+        if (this.state.isolated === id) part.group.rotateY(this.state.inspectionRotation);
+        continue;
+      }
       // Conceptual release only: movement stays on the clutch input axis; no rotating random pieces.
       if (id === 'actuator-rod') part.group.position.x -= release * 0.004;
       if (id === 'release-fork') {
@@ -379,7 +699,23 @@ export class Viewer {
       }
       if (id === 'release-bearing') part.group.position.x -= release * 0.016;
       if (id === 'pressure-plate') part.group.position.x += release * 0.012;
+      if (this.state.isolated === id) part.group.rotateY(this.state.inspectionRotation);
     }
+    this.assemblyClip?.seek(opening);
+  }
+  private updateStrut(part: Part, side: number, opening: number) {
+    const { body, hatch, length } = strutEndpoints(side, opening),
+      direction = hatch.clone().sub(body).normalize();
+    const barrel = part.group.getObjectByName(`${part.group.userData.componentId}--strut-barrel`),
+      rod = part.group.getObjectByName(`${part.group.userData.componentId}--strut-rod`),
+      tip = part.group.getObjectByName(`${part.group.userData.componentId}--strut-tip-eye`);
+    if (!barrel || !rod || !tip) return;
+    barrel.position.copy(body).addScaledVector(direction, 0.13);
+    barrel.quaternion.setFromUnitVectors(new T.Vector3(0, 1, 0), direction);
+    rod.position.copy(body).addScaledVector(direction, 0.26 + (length - 0.26) / 2);
+    rod.quaternion.copy(barrel.quaternion);
+    rod.scale.y = length - 0.26;
+    tip.position.copy(hatch);
   }
   setCamera(view: CameraView) {
     const directions: Record<CameraView, T.Vector3> = {
@@ -394,8 +730,14 @@ export class Viewer {
     };
     this.groundVisible = view !== 'bottom';
     this.floor.visible = this.groundVisible;
-    this.grid.visible = this.groundVisible;
-    if (view === 'interior') {
+    this.grid.visible = false;
+    const authored = this.dataset.catalog.manifest.cameraPresets?.[view];
+    if (!this.dataset.fixture && authored) {
+      this.controls.minDistance = 0.05;
+      this.moveCamera(new T.Vector3(...authored.position), new T.Vector3(...authored.target));
+      return;
+    }
+    if (view === 'interior' && this.dataset.fixture) {
       this.controls.minDistance = 0.05;
       this.moveCamera(new T.Vector3(0.23, 1.17, -0.53), new T.Vector3(0.1, 0.91, 0.5));
       return;
@@ -406,6 +748,8 @@ export class Viewer {
     const box = new T.Box3();
     for (const [id, p] of this.parts)
       if (p.group.visible && (!ids || ids.has(id))) box.union(new T.Box3().setFromObject(p.group));
+    if (!ids && this.state.assemblyContext && this.root?.visible)
+      box.union(new T.Box3().setFromObject(this.root));
     return box;
   }
   private frameVisible(direction?: T.Vector3) {
@@ -446,7 +790,7 @@ export class Viewer {
     this.dirty = true;
   }
   focus(id: string) {
-    const b = this.visibleBounds(descendants(id));
+    const b = this.visibleBounds(this.dataset.catalog.descendants(id));
     if (!b.isEmpty()) this.frameBounds(b);
   }
   zoom(factor: number) {
@@ -474,21 +818,28 @@ export class Viewer {
           ),
       );
     });
-    return hit?.object.userData.componentId as string | undefined;
+    return hit ? { id: hit.object.userData.componentId as string, point: hit.point } : undefined;
   }
   private pointerDown = (e: PointerEvent) => {
     this.taps.down(e.pointerId, e.clientX, e.clientY);
   };
   private pointerUp = (e: PointerEvent) => {
-    if (this.taps.up(e.pointerId, e.clientX, e.clientY) && e.button === 0)
-      this.cb.select(this.pick(e) ?? null);
+    if (this.taps.up(e.pointerId, e.clientX, e.clientY) && e.button === 0) {
+      const hit = this.pick(e);
+      if (this.state.measure) {
+        if (hit) {
+          this.measurement.add(hit.point);
+          this.dirty = true;
+        }
+      } else this.cb.select(hit?.id ?? null);
+    }
   };
   private pointerMove = (e: PointerEvent) => {
     this.taps.move(e.pointerId, e.clientX, e.clientY);
     if (e.buttons) return;
-    const id = this.pick(e);
-    this.container.style.cursor = id ? 'pointer' : 'grab';
-    this.cb.hover(id ? (componentById.get(id)?.name ?? id) : null);
+    const id = this.pick(e)?.id;
+    this.container.style.cursor = this.state.measure ? 'crosshair' : id ? 'pointer' : 'grab';
+    this.cb.hover(id ? (this.dataset.catalog.componentById.get(id)?.name ?? id) : null);
   };
   private pointerLeave = () => {
     this.cb.hover(null);
@@ -497,8 +848,18 @@ export class Viewer {
   private tick = (now: number) => {
     if (this.disposed) return;
     this.frame = requestAnimationFrame(this.tick);
-    const dt = Math.min((now - this.previous) / 1000, 0.05);
+    const dt = Math.min((now - this.previous) / 1000, 0.25);
     this.previous = now;
+    const moving = this.explosion.sample(now),
+      opening = this.opening.sample(now);
+    let separating = false;
+    for (const controller of this.separations.values())
+      separating = controller.sample(now) || separating;
+    if (moving || opening || separating) {
+      this.applyPositions();
+      this.renderer.shadowMap.needsUpdate = true;
+      this.dirty = true;
+    }
     if (this.targetCamera && this.targetLook) {
       const alpha = 1 - Math.exp(-dt * 10);
       this.camera.position.lerp(this.targetCamera, alpha);
@@ -513,7 +874,7 @@ export class Viewer {
     }
     const changed = this.controls.update(dt);
     if (changed || this.dirty) {
-      this.renderer.render(this.scene, this.camera);
+      this.pipeline.render();
       this.dirty = false;
       this.frameCount++;
     }
@@ -542,12 +903,38 @@ export class Viewer {
     return {
       selected: this.state.selected,
       explode: this.state.explode,
+      displayedExplosion: this.explosion.value,
+      activeAssembly: this.assemblyRoot ? this.state.activeAssembly : null,
+      assemblyLod: this.assemblyKey,
+      hatchOpen: this.opening.value,
+      inspectionRotation: this.state.inspectionRotation,
+      strutAttachments:
+        this.assemblyRoot && this.assemblyRig
+          ? [...this.assemblyParts.values()]
+              .filter((p) => p.motion === 'strut')
+              .map(({ id }) => {
+                const part = this.parts.get(id)!;
+                part.group.updateWorldMatrix(true, true);
+                return {
+                  id,
+                  body: part.group
+                    .getObjectByName(`${id}--strut-base-eye`)!
+                    .getWorldPosition(new T.Vector3())
+                    .toArray(),
+                  hatch: part.group
+                    .getObjectByName(`${id}--strut-tip-eye`)!
+                    .getWorldPosition(new T.Vector3())
+                    .toArray(),
+                };
+              })
+          : [],
       camera: this.camera.position.toArray(),
       parts: [...this.parts].map(([id, p]) => ({
         id,
         visible: p.group.visible,
         position: p.group.position.toArray(),
         base: p.base.toArray(),
+        rotation: p.group.quaternion.toArray(),
       })),
       triangles: this.renderer.info.render.triangles,
       drawCalls: this.renderer.info.render.calls,
@@ -555,6 +942,8 @@ export class Viewer {
   }
   dispose() {
     this.disposed = true;
+    this.lifetime.abort();
+    this.releaseAssembly();
     cancelAnimationFrame(this.frame);
     this.observer.disconnect();
     this.controls.dispose();
@@ -565,6 +954,8 @@ export class Viewer {
     this.container.removeEventListener('pointercancel', this.pointerCancel);
     this.renderer.domElement.removeEventListener('webglcontextlost', this.contextLost);
     this.clipController?.dispose();
+    this.pipeline.dispose();
+    this.measurement.dispose();
     if (this.root) disposeObject(this.root);
     this.environment.dispose();
     this.floor.geometry.dispose();

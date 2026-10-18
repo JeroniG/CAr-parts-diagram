@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import {
   ArrowDownToLine,
   ArrowUpRight,
@@ -6,7 +6,6 @@ import {
   CarFront,
   Check,
   ChevronDown,
-  ChevronRight,
   CircleHelp,
   Crosshair,
   Expand,
@@ -18,25 +17,38 @@ import {
   PanelLeftClose,
   PanelLeftOpen,
   Plus,
-  RotateCcw,
-  RotateCw,
   Scan,
   Search,
   Settings2,
   SlidersHorizontal,
   Sun,
   X,
+  Ruler,
 } from 'lucide-react';
-import { initialView } from '../scene/Viewer';
-import type { CameraView, Quality, ViewState, Viewer } from '../scene/Viewer';
-import { SceneCanvas } from '../components/SceneCanvas';
+import { initialView } from '../scene/state';
+import type { CameraView, ViewState, Viewer } from '../scene/Viewer';
+const SceneCanvas = lazy(() =>
+  import('../components/SceneCanvas').then((m) => ({ default: m.SceneCanvas })),
+);
 import { SystemsTree } from '../components/SystemsTree';
 import { Inspector } from '../components/Inspector';
 import { LessonPanel } from '../components/LessonPanel';
-import { Dialog } from '../components/Dialog';
-import { ancestors, descendants } from '../services/catalog';
-import { componentById, vehicle } from '../data/catalog';
-import { classifyVIN, decodeVIN } from '../services/vin';
+import { ViewerToolbar } from '../components/ViewerToolbar';
+import { WorkspaceSettings } from '../components/WorkspaceSettings';
+import { WorkspaceHelp } from '../components/WorkspaceHelp';
+import { useCatalog } from '../features/vehicles/CatalogContext';
+import { VehicleSearch } from '../features/vehicles/VehicleSearch';
+import { PhotoViewport } from '../features/photos/PhotoViewport';
+import { ViewModeSelector, viewModes } from '../features/coverage/ViewModeSelector';
+import type { ViewMode } from '../types/vehiclePackage';
+import { developmentFixture } from '../vehicles/developmentFixtures';
+import { PanelResizeHandle } from '../components/PanelResizeHandle';
+import type { CSSProperties } from 'react';
+import { AssemblyExplorer } from '../components/AssemblyExplorer';
+
+import { idleAssemblyStatus } from '../types/assembly';
+import type { AssemblyLoadStatus } from '../types/assembly';
+import type { Measurement } from '../scene/controls/MeasurementController';
 function Logo() {
   return (
     <svg viewBox="0 0 32 32" aria-hidden="true">
@@ -46,10 +58,23 @@ function Logo() {
   );
 }
 export default function App() {
+  const { componentById, vehicle, ancestors, descendants, manifest, coverage } = useCatalog();
+  const fixture = developmentFixture(vehicle.id);
+  const initialFixture =
+    !!fixture && new URLSearchParams(location.search).get('fixture') === 'smart-451';
+  const [mode, setMode] = useState<ViewMode>(
+    initialFixture || coverage.modes.has('studio') ? 'studio' : 'photos',
+  );
+  const [leftWidth, setLeftWidth] = useState(244),
+    [rightWidth, setRightWidth] = useState(308);
   const [view, setView] = useState<ViewState>(() => ({
     ...initialView,
+    fixtureMode: initialFixture,
     quality: window.innerWidth < 800 ? 'medium' : 'high',
   }));
+  const [assemblyStatus, setAssemblyStatus] = useState<AssemblyLoadStatus>(idleAssemblyStatus);
+  const [measurement, setMeasurement] = useState<Measurement>({ points: 0, millimetres: null });
+  const [educationMode, setEducationMode] = useState(true);
   const [query, setQuery] = useState(''),
     [count, setCount] = useState(0),
     [stats, setStats] = useState({ fps: 0, triangles: 0, drawCalls: 0 });
@@ -64,28 +89,50 @@ export default function App() {
   const [sectionMenu, setSectionMenu] = useState(false),
     [cameraView, setCameraView] = useState<CameraView>('perspective');
   const viewerRef = useRef<Viewer | null>(null),
-    searchRef = useRef<HTMLInputElement>(null),
+    searchRef = useRef<HTMLButtonElement>(null),
     workspaceRef = useRef<HTMLElement>(null),
     savedView = useRef<ViewState | null>(null);
-  const [vin, setVin] = useState(''),
-    [vinStatus, setVinStatus] = useState(''),
-    [decoding, setDecoding] = useState(false);
+  const assemblyDefinitions =
+    view.fixtureMode && fixture ? fixture.assemblies : manifest.assemblies;
+  const featuredAssembly = manifest.featuredAssemblyId;
+  const hatchComponentIds = new Set(
+    assemblyDefinitions.flatMap((a) => [
+      a.id,
+      ...a.parts.map((p) => p.id),
+      ...a.parts
+        .flatMap((p) => ancestors(p.id).map((c) => c.id))
+        .filter((id) => id !== componentById.get(a.id)?.systemId),
+    ]),
+  );
+  const availableModes = view.fixtureMode
+    ? new Set<ViewMode>(viewModes.map((m) => m.id))
+    : coverage.modes;
+  const render3D =
+    (view.fixtureMode || manifest.models.length > 0) &&
+    availableModes.has(mode) &&
+    mode !== 'photos';
   const patch = (updates: Partial<ViewState>) => setView((v) => ({ ...v, ...updates }));
   const reset = () => {
     setPlaying(false);
     setLesson(false);
     setView((v) => ({
       ...initialView,
+      fixtureMode: v.fixtureMode,
       theme: v.theme,
       quality: v.quality,
       exposure: v.exposure,
       lighting: v.lighting,
     }));
+    setMode(view.fixtureMode ? 'studio' : 'photos');
     setCameraView('perspective');
     viewerRef.current?.setCamera('perspective');
     setNotice('Vehicle reassembled. All components restored.');
   };
   const select = (id: string | null) => {
+    if (id && hatchComponentIds.has(id)) {
+      setLesson(false);
+      setPlaying(false);
+    }
     setView((v) => {
       const hidden = new Set(v.hidden);
       if (id) {
@@ -96,10 +143,73 @@ export default function App() {
         ...v,
         selected: id,
         hidden,
+        activeAssembly: id
+          ? (assemblyDefinitions.find((a) => a.id === id || a.parts.some((p) => p.id === id))?.id ??
+            (id === featuredAssembly || ancestors(id).some((a) => a.id === featuredAssembly)
+              ? (featuredAssembly ?? null)
+              : null))
+          : v.activeAssembly,
+        assemblyContext: id && !hatchComponentIds.has(id) ? false : v.assemblyContext,
+        inspectionRotation: 0,
         isolated: v.isolated && id && !descendants(v.isolated).has(id) ? null : v.isolated,
       };
     });
     if (id) setPanel('inspector');
+  };
+  const openHatch = () => {
+    if (!featuredAssembly) return;
+    setMode('hatch');
+    setLesson(false);
+    setPlaying(false);
+    setQuery('');
+    setPanel(null);
+    patch({
+      autoRotate: false,
+      activeAssembly: featuredAssembly,
+      selected: featuredAssembly,
+      isolated: null,
+      hidden: new Set(),
+      transparent: new Set(),
+      explode: 0,
+      hatchOpen: 0,
+      section: 'off',
+      separated: new Set(),
+      assemblyContext: false,
+      inspectionRotation: 0,
+    });
+    setCameraView('rear');
+  };
+  const closeHatch = () => {
+    setMode(view.fixtureMode ? 'studio' : 'photos');
+    patch({
+      activeAssembly: null,
+      selected: null,
+      isolated: null,
+      explode: 0,
+      hatchOpen: 0,
+      separated: new Set(),
+      assemblyContext: false,
+      inspectionRotation: 0,
+      measure: false,
+    });
+    setCameraView('perspective');
+  };
+  const returnToAssembly = () =>
+    patch({
+      isolated: null,
+      explode: 0,
+      hatchOpen: 0,
+      separated: new Set(),
+      inspectionRotation: 0,
+      assemblyContext: false,
+      hidden: new Set(),
+    });
+  const separatePart = () => {
+    if (!view.selected) return;
+    const separated = new Set(view.separated);
+    if (separated.has(view.selected)) separated.delete(view.selected);
+    else separated.add(view.selected);
+    patch({ separated, hatchOpen: 0, assemblyContext: false });
   };
   const toggleHidden = (id: string) =>
     setView((v) => {
@@ -123,6 +233,8 @@ export default function App() {
       });
   };
   const startLesson = () => {
+    if (!view.fixtureMode || !fixture) return;
+    setMode('component');
     if (!lesson) savedView.current = view;
     setLesson(true);
     setPlaying(false);
@@ -137,6 +249,12 @@ export default function App() {
       animationProgress: 0,
       xray: false,
       section: 'off',
+      activeAssembly: null,
+      assemblyContext: false,
+      hatchOpen: 0,
+      separated: new Set(),
+      inspectionRotation: 0,
+      measure: false,
     }));
     setNotice('Transmission lesson opened. Drag the model to inspect the release linkage.');
   };
@@ -196,9 +314,41 @@ export default function App() {
   useEffect(() => {
     if (playing && !loop && view.animationProgress >= 1) setPlaying(false);
   }, [playing, loop, view.animationProgress]);
+  const chooseMode = (next: ViewMode) => {
+    setMode(next);
+    setPlaying(false);
+    setLesson(false);
+    const focusId = manifest.focusTargets?.[next];
+    if (focusId && componentById.has(focusId)) select(focusId);
+    if (next === 'photos') return;
+    if (!availableModes.has(next)) return;
+    if (next === 'hatch') {
+      openHatch();
+      return;
+    }
+    patch({
+      explode: next === 'exploded' ? 1 : 0,
+      hatchOpen: 0,
+      separated: new Set(),
+      inspectionRotation: 0,
+      xray: next === 'xray',
+      section: next === 'cutaway' ? 'longitudinal' : 'off',
+      lighting: next === 'showroom' ? 'showroom' : next === 'premium' ? 'premium' : 'studio',
+      isolated: next === 'component' || next === 'materials' ? view.selected : null,
+    });
+    if (next === 'underbody') camera('bottom');
+    else if (next === 'interior') camera('interior');
+    else if (manifest.modeCameras?.[next]) camera(manifest.modeCameras[next]!);
+    else if (next === 'powertrain' && view.fixtureMode) camera('rear');
+  };
   const selected = view.selected ? componentById.get(view.selected) : null;
   return (
-    <div className={`app ${sidebar ? '' : 'sidebar-collapsed'} mobile-panel-${panel ?? 'none'}`}>
+    <div
+      className={`app ${sidebar ? '' : 'sidebar-collapsed'} mobile-panel-${panel ?? 'none'} ${view.activeAssembly && render3D ? 'assembly-workspace' : ''} ${render3D ? 'model-mode' : 'photo-mode'}`}
+      style={
+        { '--left-width': `${leftWidth}px`, '--right-width': `${rightWidth}px` } as CSSProperties
+      }
+    >
       <header className="topbar">
         <button className="brand" onClick={reset} aria-label="AutoAtlas home">
           <span className="brand-icon">
@@ -209,27 +359,27 @@ export default function App() {
           </span>
         </button>
         <div className="header-divider" />
-        <button className="vehicle-switcher" onClick={() => setDialog('vehicle')}>
+        <button
+          aria-label="Change vehicle"
+          className="vehicle-switcher"
+          onClick={() => setDialog('vehicle')}
+        >
           <CarFront size={17} />
           <span>
-            2015 Smart Fortwo <b>451</b>
+            {vehicle.year} {vehicle.manufacturer} {vehicle.model} <b>{vehicle.chassisCode}</b>
           </span>
           <ChevronDown size={14} />
         </button>
-        <div className="global-search">
+        <button
+          className="global-search vehicle-global-search"
+          ref={searchRef}
+          onClick={() => setDialog('vehicle')}
+          aria-label="Search vehicles by name, year or VIN"
+        >
           <Search size={16} />
-          <input
-            ref={searchRef}
-            aria-label="Search all components"
-            placeholder="Find a component, explore a system…"
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value);
-              if (e.target.value) setPanel('systems');
-            }}
-          />
+          <span>Find a vehicle, model or VIN…</span>
           <kbd>/</kbd>
-        </div>
+        </button>
         <div className="header-actions">
           <button
             className="icon-button"
@@ -248,36 +398,54 @@ export default function App() {
           >
             <Settings2 size={18} />
           </button>
-          <span className="version">PREVIEW 01</span>
+          <span className="version">
+            {view.fixtureMode ? 'DEVELOPMENT FIXTURE' : 'REFERENCE CATALOG'}
+          </span>
         </div>
       </header>
       <nav className="subbar" aria-label="Workspace">
         <div className="workspace-tabs">
           <button
-            className={!lesson ? 'active' : ''}
+            className={!lesson && !view.activeAssembly ? 'active' : ''}
             onClick={() => {
+              setMode(view.fixtureMode ? 'studio' : 'photos');
               if (lesson) closeLesson();
+              if (view.activeAssembly) closeHatch();
             }}
           >
             <Box size={15} />
             Vehicle explorer
           </button>
-          <button className={lesson ? 'active' : ''} onClick={startLesson}>
+          <button
+            hidden={!featuredAssembly}
+            className={view.activeAssembly ? 'active' : ''}
+            onClick={openHatch}
+          >
+            <Layers3 size={15} />
+            {featuredAssembly === 'rear-hatch' ? 'Hatch assembly' : 'Assembly explorer'}
+          </button>
+          <button
+            hidden={!view.fixtureMode || !fixture}
+            className={lesson ? 'active' : ''}
+            onClick={startLesson}
+          >
             <GraduationCap size={16} />
             Mechanism lab<span className="new-tag">NEW</span>
           </button>
         </div>
         <div className="subbar-right">
           <span className="status-dot" />
-          Local model <span className="sub-separator">/</span>
+          {view.fixtureMode ? 'Unverified development model' : coverage.label}{' '}
+          <span className="sub-separator">/</span>
           <button onClick={() => setDialog('vehicle')}>
-            U.S. gasoline configuration
+            {vehicle.market} · {vehicle.chassisCode}
             <ChevronDown size={12} />
           </button>
         </div>
       </nav>
       <div className="main-layout">
         <div className="systems-wrap">
+          <PanelResizeHandle side="left" value={leftWidth} onChange={setLeftWidth} />
           <SystemsTree
             state={view}
             query={query}
@@ -288,7 +456,7 @@ export default function App() {
             onLearn={startLesson}
           />
         </div>
-        <main className="workspace" ref={workspaceRef} aria-label="3D workspace">
+        <main className="workspace" ref={workspaceRef} aria-label="Vehicle workspace">
           <div className="workspace-heading">
             <div>
               <div className="workspace-breadcrumb">
@@ -299,237 +467,245 @@ export default function App() {
                 >
                   {sidebar ? <PanelLeftClose size={15} /> : <PanelLeftOpen size={15} />}
                 </button>
-                THE VEHICLE ATLAS<span>/</span>001
+                VEHICLE EXPLORER<span>/</span>
+                {view.activeAssembly
+                  ? componentById.get(view.activeAssembly)?.name
+                  : vehicle.chassisCode}
               </div>
-              <h1>{lesson ? 'Inside the shift.' : 'Engineering, revealed.'}</h1>
+              <h1>
+                {lesson
+                  ? 'Inside the shift.'
+                  : view.activeAssembly
+                    ? componentById.get(view.activeAssembly)?.name
+                    : `${vehicle.manufacturer} ${vehicle.model}`}
+              </h1>
               <p>
                 {lesson
                   ? 'An automated manual, one movement at a time.'
-                  : 'Explore every system. Understand how it all connects.'}
+                  : view.activeAssembly
+                    ? `${vehicle.year} · ${vehicle.chassisCode} · ${vehicle.market}`
+                    : `${vehicle.year} · ${vehicle.bodyStyle} · ${vehicle.market}`}
               </p>
             </div>
-            <button className="view-chip" onClick={() => setDialog('help')}>
-              <span className="status-dot" />
-              LIVE 3D <span>↗</span>
-            </button>
+            <ViewModeSelector mode={mode} available={availableModes} onChange={chooseMode} />
           </div>
-          <SceneCanvas
-            state={view}
-            viewerRef={viewerRef}
-            onSelect={select}
-            onLoaded={setCount}
-            onStats={setStats}
-            onQuality={(q) => setView((v) => ({ ...v, quality: q }))}
-          />
-          <div className="model-caption">
-            <span className="eyebrow">SMART / 451</span>
-            <span>Fortwo Passion Coupé</span>
-            <small>2015 · Rear engine · Gasoline</small>
-          </div>
-          <div className="view-toolbar" aria-label="View tools">
-            <button
-              className={`icon-button ${view.xray ? 'active' : ''}`}
-              aria-label="Toggle X-ray mode"
-              aria-pressed={view.xray}
-              onClick={() => patch({ xray: !view.xray })}
-            >
-              <Scan size={18} />
-              <span>X-ray</span>
-            </button>
-            <button
-              className={`icon-button ${sectionMenu ? 'active' : ''}`}
-              aria-label="Section cut controls"
-              aria-expanded={sectionMenu}
-              onClick={() => setSectionMenu(!sectionMenu)}
-            >
-              <SlidersHorizontal size={18} />
-              <span>Section</span>
-            </button>
-            <div className="tool-divider" />
-            <button
-              className="icon-button"
-              aria-label="Zoom in"
-              onClick={() => viewerRef.current?.zoom(0.8)}
-            >
-              <Plus size={19} />
-            </button>
-            <button
-              className="icon-button"
-              aria-label="Zoom out"
-              onClick={() => viewerRef.current?.zoom(1.25)}
-            >
-              <Minus size={19} />
-            </button>
-            <button
-              className="icon-button"
-              aria-label="Reset camera"
-              onClick={() => camera('perspective')}
-            >
-              <Crosshair size={18} />
-            </button>
-            <div className="tool-divider" />
-            <button
-              className="icon-button"
-              aria-label="Toggle fullscreen"
-              onClick={() => {
-                if (document.fullscreenElement) void document.exitFullscreen();
-                else
-                  void workspaceRef.current
-                    ?.requestFullscreen()
-                    .catch(() => setNotice('Fullscreen is unavailable in this browser.'));
-              }}
-            >
-              <Expand size={17} />
-            </button>
-          </div>
-          {sectionMenu && (
-            <div className="section-popover">
-              <div>
-                <strong>Section cut</strong>
-                <button
-                  className="icon-button"
-                  aria-label="Close section controls"
-                  onClick={() => setSectionMenu(false)}
-                >
-                  <X size={14} />
-                </button>
-              </div>
-              <label>
-                Cut plane
-                <select
-                  aria-label="Section plane"
-                  value={view.section}
-                  onChange={(e) => patch({ section: e.target.value as ViewState['section'] })}
-                >
-                  <option value="off">No cut</option>
-                  <option value="longitudinal">Longitudinal</option>
-                  <option value="cross">Cross-section</option>
-                  <option value="horizontal">Horizontal</option>
-                </select>
-              </label>
-              <label>
-                Position
-                <input
-                  aria-label="Section position"
-                  type="range"
-                  min="-1"
-                  max="1"
-                  step=".01"
-                  value={view.cut}
-                  onChange={(e) => patch({ cut: Number(e.target.value) })}
+          {!availableModes.has(mode) && (
+            <div className="mode-unavailable" role="status">
+              <strong>{viewModes.find((m) => m.id === mode)?.name}</strong>
+              <span>{viewModes.find((m) => m.id === mode)?.reason}</span>
+              <button onClick={() => setMode('photos')}>View photo references</button>
+            </div>
+          )}
+          {view.fixtureMode && (
+            <div className="fixture-banner">
+              DEVELOPMENT FIXTURE · Unverified geometry and illustrative motion · Not a production
+              vehicle model
+            </div>
+          )}
+          {!render3D ? (
+            <PhotoViewport state={view} onSelect={select} />
+          ) : (
+            <Suspense fallback={<div className="scene-message">Loading 3D tools…</div>}>
+              <>
+                <SceneCanvas
+                  state={view}
+                  viewerRef={viewerRef}
+                  onSelect={select}
+                  onLoaded={(n) => {
+                    setCount(n);
+                    if (cameraView !== 'perspective') viewerRef.current?.setCamera(cameraView);
+                  }}
+                  onStats={setStats}
+                  onQuality={(q) => setView((v) => ({ ...v, quality: q }))}
+                  onAssembly={setAssemblyStatus}
+                  onMeasurement={setMeasurement}
                 />
-              </label>
-            </div>
+                {view.activeAssembly &&
+                  assemblyDefinitions.some((a) => a.id === view.activeAssembly) && (
+                    <AssemblyExplorer
+                      definition={assemblyDefinitions.find((a) => a.id === view.activeAssembly)!}
+                      state={view}
+                      status={assemblyStatus}
+                      onPatch={patch}
+                      onBack={closeHatch}
+                      onRetry={() => viewerRef.current?.retryAssembly()}
+                      onFrame={() => {
+                        patch({ isolated: null });
+                        if (view.activeAssembly) viewerRef.current?.focus(view.activeAssembly);
+                      }}
+                    />
+                  )}
+                {view.measure && (
+                  <div className="measurement-hud" role="status">
+                    <Ruler size={15} />
+                    <div>
+                      <strong>
+                        {measurement.millimetres === null
+                          ? `Select ${measurement.points ? 'the second' : 'two'} surface point${measurement.points ? '' : 's'}`
+                          : `${measurement.millimetres.toFixed(1)} mm · model distance`}
+                      </strong>
+                      <small>Demonstration geometry · not a verified physical measurement</small>
+                    </div>
+                    <button
+                      aria-label="Close measurement"
+                      onClick={() => patch({ measure: false })}
+                    >
+                      <X size={14} />
+                    </button>
+                  </div>
+                )}
+                <div className="model-caption">
+                  <span className="eyebrow">
+                    {vehicle.manufacturer.toUpperCase()} / {vehicle.chassisCode}
+                  </span>
+                  <span>
+                    {view.activeAssembly
+                      ? componentById.get(view.activeAssembly)?.name
+                      : `${vehicle.model} ${vehicle.trim}`}
+                  </span>
+                  <small>
+                    {view.activeAssembly
+                      ? 'Reference-guided demonstration · Tier C'
+                      : '2015 · Rear engine · Gasoline'}
+                  </small>
+                </div>
+                <div className="view-toolbar" aria-label="View tools">
+                  <button
+                    className={`icon-button ${view.xray ? 'active' : ''}`}
+                    aria-label="Toggle X-ray mode"
+                    aria-pressed={view.xray}
+                    onClick={() => patch({ xray: !view.xray })}
+                  >
+                    <Scan size={18} />
+                    <span>X-ray</span>
+                  </button>
+                  <button
+                    className={`icon-button ${sectionMenu ? 'active' : ''}`}
+                    aria-label="Section cut controls"
+                    aria-expanded={sectionMenu}
+                    onClick={() => setSectionMenu(!sectionMenu)}
+                  >
+                    <SlidersHorizontal size={18} />
+                    <span>Section</span>
+                  </button>
+                  <div className="tool-divider" />
+                  <button
+                    className="icon-button"
+                    aria-label="Zoom in"
+                    onClick={() => viewerRef.current?.zoom(0.8)}
+                  >
+                    <Plus size={19} />
+                  </button>
+                  <button
+                    className="icon-button"
+                    aria-label="Zoom out"
+                    onClick={() => viewerRef.current?.zoom(1.25)}
+                  >
+                    <Minus size={19} />
+                  </button>
+                  <button
+                    className="icon-button"
+                    aria-label="Reset camera"
+                    onClick={() => camera('perspective')}
+                  >
+                    <Crosshair size={18} />
+                  </button>
+                  <div className="tool-divider" />
+                  <button
+                    className="icon-button"
+                    aria-label="Toggle fullscreen"
+                    onClick={() => {
+                      if (document.fullscreenElement) void document.exitFullscreen();
+                      else
+                        void workspaceRef.current
+                          ?.requestFullscreen()
+                          .catch(() => setNotice('Fullscreen is unavailable in this browser.'));
+                    }}
+                  >
+                    <Expand size={17} />
+                  </button>
+                </div>
+                {sectionMenu && (
+                  <div className="section-popover">
+                    <div>
+                      <strong>Section cut</strong>
+                      <button
+                        className="icon-button"
+                        aria-label="Close section controls"
+                        onClick={() => setSectionMenu(false)}
+                      >
+                        <X size={14} />
+                      </button>
+                    </div>
+                    <label>
+                      Cut plane
+                      <select
+                        aria-label="Section plane"
+                        value={view.section}
+                        onChange={(e) => patch({ section: e.target.value as ViewState['section'] })}
+                      >
+                        <option value="off">No cut</option>
+                        <option value="longitudinal">Longitudinal</option>
+                        <option value="cross">Cross-section</option>
+                        <option value="horizontal">Horizontal</option>
+                      </select>
+                    </label>
+                    <label>
+                      Position
+                      <input
+                        aria-label="Section position"
+                        type="range"
+                        min="-1"
+                        max="1"
+                        step=".01"
+                        value={view.cut}
+                        onChange={(e) => patch({ cut: Number(e.target.value) })}
+                      />
+                    </label>
+                  </div>
+                )}
+                {view.isolated && (
+                  <div className="isolation-banner">
+                    <FocusIcon />
+                    Isolated · {componentById.get(view.isolated)?.name}
+                    <button onClick={() => patch({ isolated: null })}>
+                      Show vehicle <X size={12} />
+                    </button>
+                  </div>
+                )}
+                <div className="canvas-bottom">
+                  <span className="accuracy-pill">
+                    <span>C</span>
+                    {view.activeAssembly
+                      ? 'Demonstration · dimensions unverified'
+                      : 'Educational geometry'}
+                    <CircleHelp size={12} />
+                  </span>
+                  <div className="orbit-hint">
+                    <span>↔</span>Drag to orbit
+                    <i />
+                    Scroll to zoom
+                    <i />
+                    Click to inspect
+                  </div>
+                </div>
+                <ViewerToolbar
+                  view={view}
+                  mode={mode}
+                  patch={patch}
+                  reset={reset}
+                  ghost={ghost}
+                  toggleHidden={toggleHidden}
+                  cameraView={cameraView}
+                  camera={camera}
+                  onSettings={() => setDialog('settings')}
+                />
+              </>
+            </Suspense>
           )}
-          {view.isolated && (
-            <div className="isolation-banner">
-              <FocusIcon />
-              Isolated · {componentById.get(view.isolated)?.name}
-              <button onClick={() => patch({ isolated: null })}>
-                Show vehicle <X size={12} />
-              </button>
-            </div>
-          )}
-          <div className="canvas-bottom">
-            <span className="accuracy-pill">
-              <span>C</span>Educational geometry
-              <CircleHelp size={12} />
-            </span>
-            <div className="orbit-hint">
-              <span>↔</span>Drag to orbit
-              <i />
-              Scroll to zoom
-              <i />
-              Click to inspect
-            </div>
-          </div>
-          <div className="bottom-dock">
-            <div className="dock-top">
-              <div className="layout-tabs" aria-label="Exploded layout">
-                <button
-                  className={view.explode === 0 ? 'active' : ''}
-                  onClick={() => patch({ explode: 0 })}
-                >
-                  <Box size={14} />
-                  Assembled
-                </button>
-                <button
-                  className={view.explode > 0 && view.layout === 'radial' ? 'active' : ''}
-                  onClick={() => patch({ layout: 'radial', explode: 0.65 })}
-                >
-                  <Expand size={14} />
-                  Exploded
-                </button>
-                <button
-                  className={view.explode > 0 && view.layout === 'inventory' ? 'active' : ''}
-                  onClick={() => patch({ layout: 'inventory', explode: 1 })}
-                >
-                  <Layers3 size={14} />
-                  Inventory
-                </button>
-              </div>
-              <button className="reset-button" onClick={reset}>
-                <RotateCcw size={14} />
-                <span>Reset all</span>
-              </button>
-            </div>
-            <div className="explode-control">
-              <span>Explode</span>
-              <input
-                aria-label="Exploded view"
-                type="range"
-                min="0"
-                max="100"
-                step="1"
-                value={Math.round(view.explode * 100)}
-                onChange={(e) => patch({ explode: Number(e.target.value) / 100 })}
-              />
-              <output>
-                {Math.round(view.explode * 100)}
-                <small>%</small>
-              </output>
-            </div>
-            <div className="dock-bottom">
-              <div className="camera-select">
-                <span>VIEW</span>
-                <select
-                  aria-label="Camera view"
-                  value={cameraView}
-                  onChange={(e) => camera(e.target.value as CameraView)}
-                >
-                  <option value="perspective">Perspective</option>
-                  <option value="front">Front</option>
-                  <option value="rear">Rear</option>
-                  <option value="left">Left side</option>
-                  <option value="right">Right side</option>
-                  <option value="top">Top</option>
-                  <option value="bottom">Underbody</option>
-                  <option value="interior">Interior</option>
-                </select>
-              </div>
-              <button
-                disabled={window.matchMedia('(prefers-reduced-motion: reduce)').matches}
-                title={
-                  window.matchMedia('(prefers-reduced-motion: reduce)').matches
-                    ? 'Auto-rotation is disabled by your reduced-motion preference'
-                    : 'Rotate the vehicle automatically'
-                }
-                className={`auto-rotate ${view.autoRotate ? 'active' : ''}`}
-                aria-pressed={view.autoRotate}
-                onClick={() => patch({ autoRotate: !view.autoRotate })}
-              >
-                <RotateCw size={13} />
-                Auto-rotate
-              </button>
-              <button className="quality-select" onClick={() => setDialog('settings')}>
-                <span className="quality-bars">▂▅▇</span>
-                {view.quality} quality
-                <ChevronDown size={11} />
-              </button>
-            </div>
-          </div>
         </main>
         <div className="inspector-wrap">
+          <PanelResizeHandle side="right" value={rightWidth} onChange={setRightWidth} />
           {lesson ? (
             <LessonPanel
               progress={view.animationProgress}
@@ -547,7 +723,11 @@ export default function App() {
               state={view}
               onFocus={focus}
               onIsolate={() =>
-                patch({ isolated: view.isolated === view.selected ? null : view.selected })
+                patch({
+                  isolated: view.isolated === view.selected ? null : view.selected,
+                  assemblyContext: false,
+                  inspectionRotation: 0,
+                })
               }
               onHide={() => view.selected && toggleHidden(view.selected)}
               onGhost={ghost}
@@ -561,10 +741,23 @@ export default function App() {
                   });
               }}
               onLocation={() => {
-                patch({ explode: 0, isolated: null, hidden: new Set() });
+                patch({
+                  explode: 0,
+                  hatchOpen: 0,
+                  isolated: null,
+                  hidden: new Set(),
+                  separated: new Set(),
+                  inspectionRotation: 0,
+                  assemblyContext: !!view.activeAssembly,
+                });
                 setNotice('Restored the installed position in the complete vehicle.');
               }}
               onClose={() => setPanel(null)}
+              onAssembly={openHatch}
+              onReturn={returnToAssembly}
+              onSeparate={separatePart}
+              onRotate={(angle) => patch({ inspectionRotation: angle })}
+              educationMode={educationMode}
             />
           )}
         </div>
@@ -572,15 +765,23 @@ export default function App() {
       <footer className="statusbar">
         <span>
           <span className="status-dot" />
-          {count ? `${count} selectable component groups` : 'Loading vehicle'}
+          {render3D
+            ? `${count} selectable component groups`
+            : `${coverage.parts} catalog parts · ${coverage.photos} photographs`}
           <i />
-          451 · Gasoline
+          {vehicle.chassisCode} · {vehicle.engine}
         </span>
         <span className="status-center">Built to explore. Grounded in evidence.</span>
         <span>
-          {view.autoRotate ? `${stats.fps} render fps` : 'On-demand rendering'}
+          {render3D
+            ? view.autoRotate
+              ? `${stats.fps} render fps`
+              : 'On-demand rendering'
+            : 'Photo & catalog workspace'}
           <i />
-          {(stats.triangles / 1000).toFixed(0)}k triangles
+          {render3D
+            ? `${(stats.triangles / 1000).toFixed(0)}k triangles`
+            : `${coverage.mappedParts} reviewed 3D parts`}
           <button onClick={() => setDialog('help')}>
             About this atlas
             <ArrowUpRight size={11} />
@@ -617,224 +818,28 @@ export default function App() {
         </div>
       )}
       {dialog === 'settings' && (
-        <Dialog title="Make the workspace yours" onClose={() => setDialog(null)}>
-          <p className="modal-intro">
-            Tune the rendering to your device and the way you like to explore.
-          </p>
-          <div className="setting-row">
-            <div>
-              <strong>Appearance</strong>
-              <span>Canvas and interface theme</span>
-            </div>
-            <button
-              className="secondary-button"
-              onClick={() => patch({ theme: view.theme === 'light' ? 'dark' : 'light' })}
-            >
-              {view.theme === 'light' ? <Sun size={16} /> : <Moon size={16} />}{' '}
-              {view.theme === 'light' ? 'Light' : 'Dark'}
-            </button>
-          </div>
-          <div className="setting-row">
-            <div>
-              <strong>Rendering quality</strong>
-              <span>Pixel density and real-time shadows</span>
-            </div>
-            <select
-              aria-label="Rendering quality"
-              value={view.quality}
-              onChange={(e) => patch({ quality: e.target.value as Quality, adaptive: false })}
-            >
-              <option value="high">High · desktop</option>
-              <option value="medium">Medium · balanced</option>
-              <option value="low">Low · mobile</option>
-            </select>
-          </div>
-          <div className="setting-row">
-            <div>
-              <strong>Lighting</strong>
-              <span>Physically based materials</span>
-            </div>
-            <select
-              aria-label="Lighting preset"
-              value={view.lighting}
-              onChange={(e) => patch({ lighting: e.target.value as ViewState['lighting'] })}
-            >
-              <option value="studio">Studio</option>
-              <option value="workshop">Workshop</option>
-              <option value="inspection">Inspection</option>
-            </select>
-          </div>
-          <div className="setting-row">
-            <div>
-              <strong>Adaptive quality</strong>
-              <span>Balance rendering with device performance</span>
-            </div>
-            <input
-              aria-label="Adaptive quality"
-              type="checkbox"
-              checked={view.adaptive}
-              onChange={(e) => patch({ adaptive: e.target.checked })}
-            />
-          </div>
-          <div className="setting-row exposure">
-            <div>
-              <strong>Exposure</strong>
-              <span>{view.exposure.toFixed(1)} EV multiplier</span>
-            </div>
-            <input
-              aria-label="Exposure"
-              type="range"
-              min=".5"
-              max="2"
-              step=".1"
-              value={view.exposure}
-              onChange={(e) => patch({ exposure: Number(e.target.value) })}
-            />
-          </div>
-          <div className="performance-info">
-            {stats.drawCalls} draw calls · {stats.triangles.toLocaleString()} rendered triangles
-            <br />
-            FPS is measured while rendering, not a hardware guarantee. Reduced-motion preferences
-            disable auto-rotation and smooth camera transitions.
-          </div>
-          <button className="primary-button" onClick={() => setDialog(null)}>
-            Back to exploring
-            <ChevronRight size={15} />
-          </button>
-        </Dialog>
+        <WorkspaceSettings
+          view={view}
+          patch={patch}
+          fixture={!!fixture}
+          educationMode={educationMode}
+          setEducationMode={setEducationMode}
+          stats={stats}
+          onClose={() => setDialog(null)}
+          onFixtureChange={(enabled) => {
+            setMode(enabled ? 'studio' : 'photos');
+            patch({
+              ...initialView,
+              theme: view.theme,
+              quality: view.quality,
+              fixtureMode: enabled,
+            });
+            setLesson(false);
+          }}
+        />
       )}
-      {dialog === 'vehicle' && (
-        <Dialog title="Your vehicle, precisely." onClose={() => setDialog(null)}>
-          <p className="modal-intro">
-            One carefully scoped configuration. More vehicles will arrive as geometry and evidence
-            become available.
-          </p>
-          <div className="selected-vehicle">
-            <CarFront size={35} />
-            <div>
-              <span className="eyebrow">CURRENT VEHICLE</span>
-              <h3>2015 smart Fortwo</h3>
-              <p>Passion Coupé · 451 · United States</p>
-            </div>
-            <Check size={20} />
-          </div>
-          <div className="config-fields">
-            <div>
-              <span>Engine</span>
-              <strong>{vehicle.engine}</strong>
-            </div>
-            <div>
-              <span>Transmission</span>
-              <strong>{vehicle.transmission}</strong>
-            </div>
-            <div>
-              <span>Drivetrain</span>
-              <strong>{vehicle.drivetrain}</strong>
-            </div>
-            <div>
-              <span>Production restrictions</span>
-              <strong>VIN-specific details not established</strong>
-            </div>
-          </div>
-          <form
-            onSubmit={async (e) => {
-              e.preventDefault();
-              setDecoding(true);
-              setVinStatus('');
-              try {
-                const result = await decodeVIN(vin);
-                setVinStatus(classifyVIN(result).message);
-              } catch (error) {
-                setVinStatus(error instanceof Error ? error.message : 'VIN decoding failed.');
-              } finally {
-                setDecoding(false);
-              }
-            }}
-          >
-            <label className="vin-label" htmlFor="vin">
-              OPTIONAL VIN LOOKUP
-            </label>
-            <div className="vin-input">
-              <input
-                id="vin"
-                value={vin}
-                maxLength={17}
-                placeholder="Enter your 17-character VIN"
-                onChange={(e) => setVin(e.target.value.toUpperCase())}
-              />
-              <button type="submit" disabled={decoding}>
-                {decoding ? 'Decoding…' : 'Decode'}
-                <ArrowUpRight size={14} />
-              </button>
-            </div>
-            <p className="small-muted">
-              Sent to NHTSA only when you select Decode. Not saved. Decoding does not confirm part
-              fitment or switch the model.
-            </p>
-            {vinStatus && (
-              <p className="vin-status" role="status">
-                {vinStatus}
-              </p>
-            )}
-          </form>
-          <button className="primary-button" onClick={() => setDialog(null)}>
-            Explore this configuration
-            <ChevronRight size={15} />
-          </button>
-        </Dialog>
-      )}
-      {dialog === 'help' && (
-        <Dialog title="An atlas for the curious." onClose={() => setDialog(null)}>
-          <p className="modal-intro">
-            AutoAtlas 3D connects vehicle anatomy with transparent, traceable component information.
-          </p>
-          <div className="help-grid">
-            <div>
-              <span>01</span>
-              <strong>Move around</strong>
-              <p>Drag to orbit. Scroll or pinch to zoom. Right-drag or two-finger drag to pan.</p>
-            </div>
-            <div>
-              <span>02</span>
-              <strong>Look closer</strong>
-              <p>
-                Select a component in the model or tree. Use Focus, Isolate, X-ray and section cuts.
-              </p>
-            </div>
-            <div>
-              <span>03</span>
-              <strong>Take it apart</strong>
-              <p>
-                Drag the explosion slider. Switch to Inventory to arrange visible parts by system.
-              </p>
-            </div>
-            <div>
-              <span>04</span>
-              <strong>Check the evidence</strong>
-              <p>
-                Tier A: engineering-verified. B: visually validated. C: educational. D: unmodeled.
-                This release contains C and D only.
-              </p>
-            </div>
-          </div>
-          <div className="accuracy-card">
-            <strong>Honest about what’s here.</strong>
-            <p>
-              This is an original educational model, not licensed factory CAD. There are three
-              sourced OEM identities and zero confirmed gasoline fitments. No repair procedures are
-              provided.
-            </p>
-          </div>
-          <p className="small-muted">
-            Keyboard: Tab through controls; arrow keys adjust sliders; / focuses search; Escape
-            closes dialogs. The searchable catalog also works without WebGL.
-          </p>
-          <button className="primary-button" onClick={() => setDialog(null)}>
-            Let’s explore
-            <ArrowUpRight size={16} />
-          </button>
-        </Dialog>
-      )}
+      {dialog === 'vehicle' && <VehicleSearch onClose={() => setDialog(null)} />}
+      {dialog === 'help' && <WorkspaceHelp onClose={() => setDialog(null)} />}
     </div>
   );
 }
