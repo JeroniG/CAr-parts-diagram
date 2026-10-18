@@ -51,3 +51,9 @@ The round trips retain 21 identities, all surfaces within 0.01 model mm, materia
 Local validation: 68 unit tests across 9 files, TypeScript, lint, asset validation and production build pass. Both exports pass the existing assembly importer. The staged high-detail GLB passes browser selection/highlight, isolate/rotate/return, exterior X-ray, clipping and exact reassembly in one canvas, with zero page errors. Full desktop/mobile CI is linked from PR #12.
 
 This is progress on the asset-authoring pipeline. The main accurate vehicle and dimensionally reviewed hatch remain missing; **0/148 reviewed parts remains the truthful coverage**. The committed project is the original editable sample, not a new accurate model or a finished photorealistic digital twin.
+
+## Free sources without sign-in — current sourcing result
+
+The user ruled out downloads requiring sign-in. A publicly downloadable research-repository Smart was inspected as actual geometry: 42,302 triangles, 31 generic mesh objects, and a visual match to the older 450 rather than the required 451. It also lacks confirmed creator-issued redistribution terms. It was excluded; temporary research files were not published. Public metadata and previews clarified the two Sketchfab candidates, but their official downloads require authentication. Other leads either depict the older generation, require login or restrict source-file redistribution. Details and source links are recorded in ASSET_SOURCING.md.
+
+No suitable new model was acquired and no application or catalog behavior changed during this sourcing pass. The previous successful validation remains applicable: 68 unit tests and 61 browser passes with one intentional skip in [CI run 39151198864](https://github.com/JeroniG/CAr-parts-diagram/actions/runs/39151198864). Accurate geometry remains the unresolved dependency; additional conversion scaffolding does not remove it.
