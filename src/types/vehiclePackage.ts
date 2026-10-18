@@ -1,3 +1,4 @@
+import type { CompletionPlan } from './completeness';
 import type {
   Component,
   ComponentRelationship,
@@ -127,6 +128,7 @@ export interface VehicleManifest {
     url: string;
     scope: string;
   }[];
+  completionPlan?: CompletionPlan;
   fixture?: boolean;
 }
 export interface RegistryEntry {

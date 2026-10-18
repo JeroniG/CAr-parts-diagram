@@ -4448,6 +4448,8 @@ button:disabled {
   width: auto;
 }
 .asset-gap {
+  pointer-events: auto;
+  z-index: 3;
   max-width: 450px;
   margin: auto;
   text-align: center;
@@ -4644,5 +4646,34 @@ button:disabled {
   .mobile-panel-inspector .workspace .scene-canvas {
     top: 65px;
     bottom: 53%;
+  }
+}
+/* Empty vehicle guidance occupies the inspection area, above the measured dock. */
+.workspace:has(.asset-gap) .canvas-bottom,
+.workspace:has(.asset-gap) .view-toolbar {
+  visibility: hidden;
+}
+@media (max-width: 800px) and (max-height: 740px) {
+  .asset-gap {
+    top: 68px;
+    bottom: var(--dock-reserve, 190px);
+    transform: translateX(-50%);
+    width: calc(100% - 28px);
+    padding: 4px 10px;
+    overflow-y: auto;
+    gap: 9px;
+  }
+  .asset-gap > svg {
+    display: none;
+  }
+  .asset-gap h2 {
+    margin: 0 0 8px;
+    font-size: 15px;
+  }
+  .asset-gap p {
+    line-height: 1.5;
+  }
+  .asset-gap button {
+    padding: 7px 10px;
   }
 }

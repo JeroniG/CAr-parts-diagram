@@ -736,6 +736,151 @@ add(
   ['hatch bolts', 'hatch screws'],
 );
 components.find((c) => c.id === 'hatch-hardware')!.sourceIds = rearHatch.sourceIds;
+// Additional identities from the manufacturer manual. These records do not establish
+// exact replacement fitment, quantity, geometry or service procedures.
+const ownerAdditions = [
+  [
+    'engine-compartment-cover',
+    'Engine access cover',
+    'engine',
+    'engine',
+    'Rear cargo floor',
+    'Covers engine access.',
+    118,
+  ],
+  [
+    'engine-cover-fastener',
+    'Engine cover fastening screw',
+    'engine',
+    'engine',
+    'Engine access cover',
+    'Retains the access cover.',
+    118,
+  ],
+  [
+    'cargo-floor-lift-strap',
+    'Cargo floor lift strap',
+    'interior',
+    'interior',
+    'Cargo area',
+    'Lifts the cargo floor.',
+    118,
+  ],
+  [
+    'cargo-floor-hook',
+    'Cargo floor retaining hook',
+    'interior',
+    'interior',
+    'Cargo area',
+    'Retains the lifted floor.',
+    118,
+  ],
+  [
+    'oil-dipstick',
+    'Engine oil dipstick',
+    'engine',
+    'engine',
+    'Passenger-side engine compartment',
+    'Indicates oil level.',
+    119,
+  ],
+  [
+    'oil-filler-cap',
+    'Engine oil filler cap',
+    'engine',
+    'engine',
+    'Passenger-side engine compartment',
+    'Closes the oil filler.',
+    119,
+  ],
+  [
+    'service-panel-retaining-strap',
+    'Service flap retaining strap',
+    'exterior',
+    'exterior',
+    'Behind service flap',
+    'Tethers the service flap.',
+    120,
+  ],
+  [
+    'washer-reservoir',
+    'Windshield washer reservoir',
+    'exterior',
+    'exterior',
+    'Front compartment',
+    'Stores washer fluid.',
+    123,
+  ],
+  [
+    'brake-fluid-reservoir',
+    'Brake fluid reservoir',
+    'brakes',
+    'brakes',
+    'Front compartment',
+    'Stores brake fluid.',
+    124,
+  ],
+  [
+    'washer-pump',
+    'Windshield washer pump',
+    'electrical',
+    'electrical',
+    'Not yet verified',
+    'Supplies washer fluid.',
+    208,
+  ],
+  [
+    'fuel-pump-level-sensor',
+    'Fuel pump with level sensor',
+    'engine',
+    'engine',
+    'Not yet verified',
+    'Fuel supply and level sensing.',
+    208,
+  ],
+  [
+    'auxiliary-power-outlet',
+    'Auxiliary power outlet',
+    'electrical',
+    'electrical',
+    'Lower center console',
+    'Powers cabin accessories.',
+    114,
+  ],
+  [
+    'interior-light',
+    'Interior lamp',
+    'electrical',
+    'electrical',
+    'Cabin',
+    'Illuminates the cabin.',
+    208,
+  ],
+  [
+    'fuel-filler-cap',
+    'Fuel filler cap',
+    'exterior',
+    'exterior',
+    'Fuel filler opening',
+    'Closes the fuel filler.',
+    117,
+  ],
+] as const;
+for (const [id, name, system, parent, location, description, page] of ownerAdditions) {
+  const sourceId = `owners-detail-${page}`;
+  if (!sources.some((source) => source.id === sourceId))
+    sources.push({
+      ...sources.find((source) => source.id === 'owners-2015')!,
+      id: sourceId,
+      sourceUrl: `https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=${page + 2}`,
+      documentTitle: `2015 U.S. operator manual — printed page ${page}`,
+      retrievedAt: '2026-10-18',
+      notes:
+        'Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified.',
+    });
+  add(id, name, system, parent, false, location, description);
+  components.at(-1)!.sourceIds = [sourceId];
+}
 export const catalog = components;
 export const componentById = new Map(catalog.map((c) => [c.id, c]));
 export const oemParts: OEMPart[] = [

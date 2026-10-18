@@ -1,0 +1,772 @@
+{
+  "schemaVersion": 1,
+  "revision": "2026-10-18.2",
+  "publishedAt": "2026-10-18",
+  "configuration": {
+    "id": "smart-451-us-2015-passion-coupe-gas",
+    "manufacturer": "smart",
+    "model": "Fortwo",
+    "year": 2015,
+    "generation": "Second generation",
+    "chassisCode": "451",
+    "market": "United States",
+    "trim": "Passion",
+    "bodyStyle": "Coupé",
+    "engineCode": null,
+    "transmissionCode": null,
+    "engine": "1.0 L · 3-cylinder gasoline",
+    "transmission": "5-speed automated manual",
+    "drivetrain": "Rear engine · rear-wheel drive",
+    "productionStart": null,
+    "productionEnd": null,
+    "dimensions": {
+      "length": 2695,
+      "widthWithMirrors": 1752,
+      "height": 1555,
+      "wheelbase": 1867
+    },
+    "sourceIds": [
+      "owners-2015",
+      "intro-451"
+    ]
+  },
+  "catalogUrl": "/vehicles/smart-451-us-2015-passion-coupe-gas/2026-10-18.2/catalog.json",
+  "catalogHash": "9f22c8343aef7a1c7c9ed68ef5cc2e12427c6041e31ea42d23110a4b5e58dd8a",
+  "photos": [
+    {
+      "id": "smart-451-front",
+      "url": "/photos/smart-451/front.jpg",
+      "sha256": "74575603e58244e1270d448ec4c7fc2c4ec117471ea76c9060aeb02ef8667733",
+      "kind": "photograph",
+      "caption": "Front three-quarter · European 451",
+      "scope": "2011 European 451 facelift photograph. Reference for exterior location only; not the selected 2015 U.S. equipment. Source title and description differ on trim.",
+      "width": 2358,
+      "height": 1658,
+      "componentIds": [
+        "exterior",
+        "windshield",
+        "door-left",
+        "headlight-left",
+        "wheel-front-left"
+      ],
+      "hotspots": [
+        {
+          "instanceId": "windshield",
+          "label": "Windshield",
+          "x": 0.58,
+          "y": 0.265
+        },
+        {
+          "instanceId": "door-left",
+          "label": "Left door",
+          "x": 0.255,
+          "y": 0.47
+        },
+        {
+          "instanceId": "headlight-left",
+          "label": "Left headlight",
+          "x": 0.565,
+          "y": 0.495
+        }
+      ],
+      "author": "M 93",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Smart_Fortwo_Coup%C3%A9_Pulse_(C_451%2C_Facelift)_%E2%80%93_Frontansicht%2C_17._Juli_2011%2C_D%C3%BCsseldorf.jpg",
+      "license": "CC-BY-SA-3.0-DE",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "attribution": "© M 93 / Wikimedia Commons · CC BY-SA 3.0 DE · original photograph, unmodified",
+      "redistributionAllowed": true,
+      "retrievedAt": "2026-10-18"
+    },
+    {
+      "id": "smart-451-rear",
+      "url": "/photos/smart-451/rear.jpg",
+      "sha256": "4064221621d0b5473dfb8957d75128a95f825a78c5f701f8b2208b415d183a4c",
+      "kind": "photograph",
+      "caption": "Rear three-quarter · European 451",
+      "scope": "2011 European 451 facelift photograph. Reference for exterior location only; not the selected 2015 U.S. equipment. Source title and description differ on trim.",
+      "width": 2340,
+      "height": 1572,
+      "componentIds": [
+        "rear-hatch",
+        "rear-glass",
+        "tailgate",
+        "hatch-spoiler",
+        "hatch-wiper-arm",
+        "hatch-brake-light"
+      ],
+      "hotspots": [
+        {
+          "instanceId": "rear-glass",
+          "label": "Rear window",
+          "x": 0.265,
+          "y": 0.24
+        },
+        {
+          "instanceId": "tailgate",
+          "label": "Lower tailgate",
+          "x": 0.22,
+          "y": 0.47
+        },
+        {
+          "instanceId": "hatch-spoiler",
+          "label": "Rear spoiler",
+          "x": 0.275,
+          "y": 0.115
+        },
+        {
+          "instanceId": "hatch-wiper-arm",
+          "label": "Rear wiper",
+          "x": 0.315,
+          "y": 0.145
+        }
+      ],
+      "author": "M 93",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Smart_Fortwo_Coup%C3%A9_Pulse_(C_451%2C_Facelift)_%E2%80%93_Heckansicht%2C_17._Juli_2011%2C_D%C3%BCsseldorf.jpg",
+      "license": "CC-BY-SA-3.0-DE",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "attribution": "© M 93 / Wikimedia Commons · CC BY-SA 3.0 DE · original photograph, unmodified",
+      "redistributionAllowed": true,
+      "retrievedAt": "2026-10-18"
+    }
+  ],
+  "diagrams": [],
+  "models": [],
+  "assemblies": [],
+  "providerRevisions": [
+    {
+      "provider": "local-reviewed-catalog",
+      "revision": "2",
+      "retrievedAt": "2026-10-18",
+      "staleAfter": null
+    }
+  ],
+  "serviceProcedures": [],
+  "completionPlan": {
+    "schemaVersion": 1,
+    "vehicleId": "smart-451-us-2015-passion-coupe-gas",
+    "areas": [
+      {
+        "id": "exterior",
+        "name": "Complete exterior",
+        "milestone": 1,
+        "componentIds": [
+          "safety-cell",
+          "front-bumper",
+          "rear-bumper",
+          "service-panel",
+          "windshield",
+          "roof",
+          "rear-glass",
+          "tailgate",
+          "door-left",
+          "window-left",
+          "mirror-left",
+          "fender-left",
+          "quarter-left",
+          "headlight-left",
+          "taillight-left",
+          "door-right",
+          "window-right",
+          "mirror-right",
+          "fender-right",
+          "quarter-right",
+          "headlight-right",
+          "taillight-right",
+          "wheel-front-left",
+          "wheel-rear-left",
+          "wheel-front-right",
+          "wheel-rear-right",
+          "front-reinforcement",
+          "absorber",
+          "wiper-motor",
+          "door-hinges",
+          "window-regulator",
+          "weatherstrip",
+          "arch-liner",
+          "body-clips",
+          "hatch-upper-frame",
+          "hatch-upper-trim",
+          "hatch-spoiler",
+          "hatch-hinge-left",
+          "hatch-hinge-right",
+          "hatch-strut-left",
+          "hatch-strut-right",
+          "hatch-lower-panel",
+          "hatch-lock-right",
+          "hatch-lock-left",
+          "hatch-upper-lock",
+          "hatch-lower-trim",
+          "hatch-lower-hinge-left",
+          "hatch-lower-hinge-right",
+          "hatch-seal",
+          "hatch-brake-light",
+          "hatch-wiper-motor",
+          "hatch-handle-switch",
+          "hatch-wiper-arm",
+          "hatch-hardware",
+          "service-panel-retaining-strap",
+          "washer-reservoir",
+          "fuel-filler-cap"
+        ],
+        "requiredAssemblyIds": [],
+        "requiredModes": [
+          "studio",
+          "component"
+        ],
+        "expectedInstances": null,
+        "inventoryReview": null,
+        "geometryReview": null,
+        "missingMeasurements": [
+          "451 facelift surface profiles and seams",
+          "Lamp, wheel and tire geometry for U.S. equipment",
+          "Panel mounting datums and installed clearances"
+        ]
+      },
+      {
+        "id": "engine",
+        "name": "Engine & subcomponents",
+        "milestone": 2,
+        "componentIds": [
+          "engine-block",
+          "cylinder-head",
+          "intake",
+          "pistons",
+          "rods",
+          "crankshaft",
+          "camshafts",
+          "valves",
+          "timing",
+          "throttle",
+          "injectors",
+          "spark-plugs",
+          "coils",
+          "air-filter",
+          "engine-mounts",
+          "alternator",
+          "starter",
+          "oil-pan",
+          "oil-pump",
+          "oil-filter",
+          "engine-compartment-cover",
+          "engine-cover-fastener",
+          "oil-dipstick",
+          "oil-filler-cap"
+        ],
+        "requiredAssemblyIds": [
+          "engine"
+        ],
+        "requiredModes": [
+          "studio",
+          "xray",
+          "cutaway",
+          "component",
+          "exploded"
+        ],
+        "expectedInstances": null,
+        "inventoryReview": null,
+        "geometryReview": null,
+        "missingMeasurements": [
+          "Confirmed engine variant and internal component inventory",
+          "Casting surfaces, internal dimensions and mounting datums"
+        ]
+      },
+      {
+        "id": "transmission",
+        "name": "Transmission & clutch",
+        "milestone": 2,
+        "componentIds": [
+          "transmission-case",
+          "flywheel",
+          "clutch-disc",
+          "pressure-plate",
+          "release-bearing",
+          "actuator-rod",
+          "actuator-connector",
+          "release-fork",
+          "gear-selector",
+          "driveshaft-left",
+          "driveshaft-right",
+          "gears",
+          "input-shaft",
+          "output-shaft",
+          "differential",
+          "trans-mount",
+          "cv-joints",
+          "actuator-internals"
+        ],
+        "requiredAssemblyIds": [
+          "transmission"
+        ],
+        "requiredModes": [
+          "studio",
+          "xray",
+          "cutaway",
+          "component",
+          "exploded"
+        ],
+        "expectedInstances": null,
+        "inventoryReview": null,
+        "geometryReview": null,
+        "missingMeasurements": [
+          "Transmission variant, gear and clutch dimensions",
+          "Shaft axes, actuator travel and mounting datums"
+        ]
+      },
+      {
+        "id": "front-suspension",
+        "name": "Front suspension",
+        "milestone": 2,
+        "componentIds": [
+          "spring-front-left",
+          "spring-front-right",
+          "control-arms",
+          "knuckles",
+          "hub-bearings",
+          "bushings"
+        ],
+        "requiredAssemblyIds": [
+          "suspension"
+        ],
+        "requiredModes": [
+          "studio",
+          "xray",
+          "cutaway",
+          "component",
+          "exploded"
+        ],
+        "expectedInstances": null,
+        "inventoryReview": null,
+        "geometryReview": null,
+        "missingMeasurements": [
+          "Front suspension pivot coordinates, spring and damper dimensions"
+        ]
+      },
+      {
+        "id": "rear-suspension",
+        "name": "Rear suspension",
+        "milestone": 2,
+        "componentIds": [
+          "spring-rear-left",
+          "spring-rear-right",
+          "hub-bearings",
+          "bushings",
+          "rear-axle"
+        ],
+        "requiredAssemblyIds": [
+          "suspension"
+        ],
+        "requiredModes": [
+          "studio",
+          "xray",
+          "cutaway",
+          "component",
+          "exploded"
+        ],
+        "expectedInstances": null,
+        "inventoryReview": null,
+        "geometryReview": null,
+        "missingMeasurements": [
+          "Rear axle and suspension pivot coordinates",
+          "Damper, bushing and spring dimensions"
+        ]
+      },
+      {
+        "id": "braking",
+        "name": "Braking systems",
+        "milestone": 2,
+        "componentIds": [
+          "brake-front-left",
+          "brake-rear-left",
+          "brake-front-right",
+          "brake-rear-right",
+          "master-cylinder",
+          "abs-module",
+          "brake-lines",
+          "brake-pads",
+          "parking-cable",
+          "wheel-speed",
+          "brake-fluid-reservoir"
+        ],
+        "requiredAssemblyIds": [
+          "brakes"
+        ],
+        "requiredModes": [
+          "studio",
+          "xray",
+          "cutaway",
+          "component",
+          "exploded"
+        ],
+        "expectedInstances": null,
+        "inventoryReview": null,
+        "geometryReview": null,
+        "missingMeasurements": [
+          "Front disc / rear drum internal geometry",
+          "Hydraulic routing, brackets and attachment coordinates"
+        ]
+      },
+      {
+        "id": "steering",
+        "name": "Steering",
+        "milestone": 2,
+        "componentIds": [
+          "steering-wheel",
+          "tie-rods",
+          "rack"
+        ],
+        "requiredAssemblyIds": [],
+        "requiredModes": [
+          "studio",
+          "xray",
+          "cutaway",
+          "component",
+          "exploded"
+        ],
+        "expectedInstances": null,
+        "inventoryReview": null,
+        "geometryReview": null,
+        "missingMeasurements": [
+          "Rack, column and steering linkage geometry",
+          "Joint axes, travel limits and mounting coordinates"
+        ]
+      },
+      {
+        "id": "cooling-hvac",
+        "name": "Cooling & HVAC",
+        "milestone": 2,
+        "componentIds": [
+          "radiator",
+          "coolant-pipes",
+          "cooling-fan",
+          "reservoir",
+          "water-pump",
+          "thermostat",
+          "heater-core",
+          "hvac-housing",
+          "blower",
+          "ac-compressor",
+          "condenser",
+          "refrigerant-lines"
+        ],
+        "requiredAssemblyIds": [
+          "cooling"
+        ],
+        "requiredModes": [
+          "studio",
+          "xray",
+          "cutaway",
+          "component",
+          "exploded"
+        ],
+        "expectedInstances": null,
+        "inventoryReview": null,
+        "geometryReview": null,
+        "missingMeasurements": [
+          "Heat exchanger and housing dimensions",
+          "Hose, pipe and duct routing and connections"
+        ]
+      },
+      {
+        "id": "electrical",
+        "name": "Electrical & electronics",
+        "milestone": 2,
+        "componentIds": [
+          "battery",
+          "sam",
+          "ecu",
+          "tcu",
+          "harness",
+          "ground",
+          "cluster",
+          "obd",
+          "washer-pump",
+          "auxiliary-power-outlet",
+          "interior-light"
+        ],
+        "requiredAssemblyIds": [
+          "electrical"
+        ],
+        "requiredModes": [
+          "studio",
+          "xray",
+          "cutaway",
+          "component",
+          "exploded"
+        ],
+        "expectedInstances": null,
+        "inventoryReview": null,
+        "geometryReview": null,
+        "missingMeasurements": [
+          "Equipment-specific modules and connector housings",
+          "Harness paths, clips and connector pin identities"
+        ]
+      },
+      {
+        "id": "chassis",
+        "name": "Chassis & undercarriage",
+        "milestone": 2,
+        "componentIds": [
+          "safety-cell",
+          "floor",
+          "front-reinforcement",
+          "absorber",
+          "rear-axle"
+        ],
+        "requiredAssemblyIds": [],
+        "requiredModes": [
+          "studio",
+          "xray",
+          "cutaway",
+          "component",
+          "exploded"
+        ],
+        "expectedInstances": null,
+        "inventoryReview": null,
+        "geometryReview": null,
+        "missingMeasurements": [
+          "Structural cross-sections and underbody surfaces",
+          "Mounting hole patterns and body coordinate datums"
+        ]
+      },
+      {
+        "id": "interior",
+        "name": "Complete interior",
+        "milestone": 2,
+        "componentIds": [
+          "dashboard",
+          "steering-wheel",
+          "seat-left",
+          "seat-right",
+          "floor",
+          "seatbelts",
+          "airbags",
+          "seat-mounts",
+          "console",
+          "pedals",
+          "door-trim",
+          "hvac-controls",
+          "cargo-floor-lift-strap",
+          "cargo-floor-hook"
+        ],
+        "requiredAssemblyIds": [
+          "interior"
+        ],
+        "requiredModes": [
+          "studio",
+          "xray",
+          "cutaway",
+          "component",
+          "exploded"
+        ],
+        "expectedInstances": null,
+        "inventoryReview": null,
+        "geometryReview": null,
+        "missingMeasurements": [
+          "Trim-specific cabin surfaces, seats and restraint hardware",
+          "Mounting locations and clearance envelopes"
+        ]
+      },
+      {
+        "id": "doors-hatch",
+        "name": "Doors, windows & rear hatch",
+        "milestone": 2,
+        "componentIds": [
+          "windshield",
+          "rear-glass",
+          "tailgate",
+          "door-left",
+          "window-left",
+          "mirror-left",
+          "door-right",
+          "window-right",
+          "mirror-right",
+          "door-hinges",
+          "window-regulator",
+          "weatherstrip",
+          "door-trim",
+          "hatch-upper-frame",
+          "hatch-upper-trim",
+          "hatch-spoiler",
+          "hatch-hinge-left",
+          "hatch-hinge-right",
+          "hatch-strut-left",
+          "hatch-strut-right",
+          "hatch-lower-panel",
+          "hatch-lock-right",
+          "hatch-lock-left",
+          "hatch-upper-lock",
+          "hatch-lower-trim",
+          "hatch-lower-hinge-left",
+          "hatch-lower-hinge-right",
+          "hatch-seal",
+          "hatch-brake-light",
+          "hatch-wiper-motor",
+          "hatch-handle-switch",
+          "hatch-wiper-arm",
+          "hatch-hardware"
+        ],
+        "requiredAssemblyIds": [
+          "rear-hatch"
+        ],
+        "requiredModes": [
+          "studio",
+          "xray",
+          "cutaway",
+          "component",
+          "exploded"
+        ],
+        "expectedInstances": null,
+        "inventoryReview": null,
+        "geometryReview": null,
+        "missingMeasurements": [
+          "Glass curvature, hinge axes and installed latch positions",
+          "Strut end fittings and mount coordinates",
+          "Seal cross-sections and complete fastener inventory"
+        ]
+      },
+      {
+        "id": "fuel-exhaust",
+        "name": "Fuel & exhaust",
+        "milestone": 2,
+        "componentIds": [
+          "intake",
+          "exhaust",
+          "injectors",
+          "catalyst",
+          "oxygen-sensor",
+          "fuel-pump-level-sensor",
+          "fuel-filler-cap"
+        ],
+        "requiredAssemblyIds": [],
+        "requiredModes": [
+          "studio",
+          "xray",
+          "cutaway",
+          "component",
+          "exploded"
+        ],
+        "expectedInstances": null,
+        "inventoryReview": null,
+        "geometryReview": null,
+        "missingMeasurements": [
+          "Tank, filler and vapor-system inventory and routing",
+          "Exhaust profiles, heat shields and attachment locations"
+        ]
+      },
+      {
+        "id": "wheels",
+        "name": "Wheels & tires",
+        "milestone": 2,
+        "componentIds": [
+          "wheel-front-left",
+          "wheel-rear-left",
+          "wheel-front-right",
+          "wheel-rear-right"
+        ],
+        "requiredAssemblyIds": [],
+        "requiredModes": [
+          "studio",
+          "xray",
+          "cutaway",
+          "component",
+          "exploded"
+        ],
+        "expectedInstances": null,
+        "inventoryReview": null,
+        "geometryReview": null,
+        "missingMeasurements": [
+          "Selected wheel design and tire sidewall/tread geometry",
+          "Hub interface dimensions and wheel offsets"
+        ]
+      },
+      {
+        "id": "hardware",
+        "name": "Fasteners, brackets & mounts",
+        "milestone": 2,
+        "componentIds": [
+          "body-clips",
+          "engine-mounts",
+          "trans-mount",
+          "seat-mounts",
+          "hatch-hardware",
+          "engine-cover-fastener"
+        ],
+        "requiredAssemblyIds": [],
+        "requiredModes": [
+          "studio",
+          "xray",
+          "cutaway",
+          "component",
+          "exploded"
+        ],
+        "expectedInstances": null,
+        "inventoryReview": null,
+        "geometryReview": null,
+        "missingMeasurements": [
+          "Configuration-specific fastener and bracket inventory",
+          "Thread sizes, lengths, mounting coordinates and quantities"
+        ]
+      }
+    ],
+    "discoveries": [
+      {
+        "id": "manufacturer-manual",
+        "areaIds": [
+          "exterior",
+          "engine",
+          "transmission",
+          "front-suspension",
+          "rear-suspension",
+          "braking",
+          "steering",
+          "cooling-hvac",
+          "electrical",
+          "chassis",
+          "interior",
+          "doors-hatch",
+          "fuel-exhaust",
+          "wheels",
+          "hardware"
+        ],
+        "componentIds": [],
+        "checkedAt": "2026-10-18",
+        "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf",
+        "outcome": "reference-only",
+        "reason": "Manufacturer identity and component-location reference; not CAD, dimensions, a complete inventory or VIN-specific fitment.",
+        "nextAction": "Obtain configuration-specific component inventory, measurements and licensed geometry."
+      },
+      {
+        "id": "febi-strut",
+        "areaIds": [],
+        "componentIds": [
+          "hatch-strut-left",
+          "hatch-strut-right"
+        ],
+        "checkedAt": "2026-10-18",
+        "sourceUrl": "https://partsfinder.bilsteingroup.com/en/article/febi/30351",
+        "outcome": "reference-only",
+        "reason": "Manufacturer dimensional reference for febi 30351. No 3D download, installed mount coordinates or confirmed selected-vehicle fitment.",
+        "nextAction": "Verify application, obtain end-fitting geometry and measure both installed mounting points before modeling."
+      },
+      {
+        "id": "sketchfab-451",
+        "areaIds": [
+          "exterior"
+        ],
+        "componentIds": [],
+        "checkedAt": "2026-10-18",
+        "sourceUrl": "https://sketchfab.com/3d-models/smart-fortwo-subd-d75bc4356ab440e7892b760546f402b2",
+        "outcome": "access-required",
+        "reason": "Detailed exterior candidate requires sign-in; noncommercial license and sport trim are unsuitable for automatic publication.",
+        "nextAction": "Keep excluded under the free, no-sign-in sourcing constraint; seek a redistributable matching asset."
+      }
+    ]
+  },
+  "featuredAssemblyId": "rear-hatch",
+  "focusTargets": {
+    "hatch": "rear-hatch",
+    "powertrain": "engine-block",
+    "suspension": "suspension",
+    "interior": "interior"
+  }
+}

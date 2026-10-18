@@ -13,7 +13,7 @@ describe('published vehicle boundaries', () => {
     validateVehiclePackage(initial);
     const c = computeCoverage(initial as VehiclePackage);
     expect(c.level).toBe('C');
-    expect(c.parts).toBe(148);
+    expect(c.parts).toBe(162);
     expect(c.mappedParts).toBe(0);
     expect(c.photos).toBe(2);
     expect([...c.modes]).toEqual(['photos']);

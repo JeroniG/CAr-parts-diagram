@@ -16,6 +16,8 @@ try {
     process.env.AUTOATLAS_PRODUCTION_URL ?? 'http://127.0.0.1:4173/?fixture=smart-451',
     { waitUntil: 'domcontentloaded' },
   );
+  await page.getByText('Vehicle geometry required', { exact: true }).waitFor();
+  await page.getByRole('button', { name: 'Explore the 21-part hatch sample', exact: true }).click();
   await page.locator('.assembly-controls[data-status="ready"]').waitFor({ timeout: 60000 });
   if ((await page.locator('.scene-canvas canvas').count()) !== 1)
     throw Error('Persistent 3D canvas missing.');
@@ -33,7 +35,7 @@ try {
     throw Error('Development snapshot API leaked into production.');
   if (errors.length) throw Error(errors.join('\n'));
   console.log(
-    'Production preview passed: permanent 3D hatch sample, visible disclosure, working explosion and supporting photographs; no legacy car or debug API.',
+    'Production preview passed: Whole Vehicle entry and explicitly opened 3D hatch sample, visible disclosure, working explosion and supporting photographs; no legacy car or debug API.',
   );
 } finally {
   await browser.close();

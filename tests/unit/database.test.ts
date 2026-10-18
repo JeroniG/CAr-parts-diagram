@@ -56,7 +56,7 @@ describe('PostgreSQL migration and seed', () => {
   it('stores separate part definitions and physical instance identities', async () => {
     expect(
       (await db.query<{ n: number }>('select count(*)::int n from part_instance')).rows[0].n,
-    ).toBe(148);
+    ).toBe(catalog.filter((c) => c.componentType === 'part').length);
     await expect(
       db.exec("update part_instance set definition_id='missing-definition' where id='rear-glass'"),
     ).rejects.toThrow(/foreign key/i);

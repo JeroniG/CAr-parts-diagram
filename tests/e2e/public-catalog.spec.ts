@@ -32,7 +32,7 @@ async function registerFixture(page: Page, broken = false) {
   });
   return f;
 }
-test('public entry loads the labeled 3D hatch sample and preserves licensed supporting references', async ({
+test('public entry starts at Whole Vehicle and opens the sample only on request', async ({
   page,
 }) => {
   const errors: string[] = [],
@@ -42,6 +42,9 @@ test('public entry loads the labeled 3D hatch sample and preserves licensed supp
     if (r.url().endsWith('.glb')) models.push(r.url());
   });
   await page.goto('/');
+  await expect(page.getByText('Vehicle geometry required', { exact: true })).toBeVisible();
+  await expect(page.locator('.fixture-banner')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Explore the 21-part hatch sample', exact: true }).click();
   await expect(page.locator('.assembly-controls')).toHaveAttribute('data-status', 'ready', {
     timeout: 45000,
   });
@@ -80,6 +83,9 @@ test('photo hotspot selects the exact component and offers reversible zoom', asy
 });
 test('hatch and unavailable modes keep the same 3D canvas', async ({ page }) => {
   await page.goto('/');
+  await expect(page.getByText('Vehicle geometry required', { exact: true })).toBeVisible();
+  await expect(page.locator('.fixture-banner')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Explore the 21-part hatch sample', exact: true }).click();
   await expect(page.locator('.assembly-controls')).toHaveAttribute('data-status', 'ready', {
     timeout: 45000,
   });
@@ -176,7 +182,7 @@ test('same workspace loads a second test-only vehicle with separate instance cal
   await openSearch(page);
   await page.getByRole('textbox', { name: 'Search vehicle registry' }).fill('2015 smart');
   await page.locator('.vehicle-result').click();
-  await expect(page.locator('.workspace-heading h1')).toHaveText('Rear hatch / rear door');
+  await expect(page.locator('.workspace-heading h1')).toHaveText('smart Fortwo');
   await references(page);
   await expect(page.locator('.photo-caption strong')).toContainText('Front');
   expect(errors).toEqual([]);

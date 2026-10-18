@@ -28,7 +28,9 @@
     "export:vehicle": "node --import tsx scripts/export-vehicle.ts",
     "import:vehicle": "node --import tsx scripts/import-vehicle.ts",
     "verify:production": "node scripts/verify-production.mjs",
-    "capture:workspace": "node scripts/capture-workspace.mjs"
+    "capture:workspace": "node scripts/capture-workspace.mjs",
+    "audit:vehicle": "node --import tsx scripts/audit-vehicle.ts",
+    "capture:progress": "node scripts/capture-progress.mjs"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.3.0",
