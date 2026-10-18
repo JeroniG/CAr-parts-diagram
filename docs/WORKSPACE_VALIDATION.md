@@ -29,6 +29,6 @@ Realism, full-vehicle size in the viewport and detailed full-vehicle X-ray remai
 - 65 unit/database/import tests pass across 8 files. New tests verify the correct removed side for all five cut directions, shifted bounds, custom-position clamping and empty bounds.
 - Asset validation passes: 3 GLBs, 75 unique development mappings, 216 mesh primitives, 162 catalog rows, both hatch LODs, hashes, semantic roots and HDR provenance. Published coverage remains 148 parts, 2 licensed photographs and 0 reviewed models.
 - Production preview passes with the legacy query parameter: one persistent canvas, the labeled 21-part hatch sample, working explosion and reference photographs; no legacy vehicle request and no development snapshot API.
-- Final desktop/mobile mode regression results and the full CI result are recorded below after execution.
+- Final targeted desktop/mobile regression: **8 passed** (2.1 minutes). Covers reference reset, retained canvas across available/unavailable modes, all five cut directions, opacity scope, exact 0% reassembly, slider reopening, strut highlight/isolation/rotation and restoration. Full CI runs the complete 62-scenario suite on the pull request; see its checks for the latest result.
 
 An early development run caught reference reset incorrectly closing its dialog; this was fixed. Live edits interrupted an early canvas-ID/visibility check, so that run is not reported as passing verification. Final checks run against unchanged application code.

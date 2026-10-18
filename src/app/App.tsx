@@ -576,7 +576,7 @@ export default function App() {
                   <div className="scene-message asset-gap" role="status">
                     <Box size={30} />
                     <h2>Vehicle geometry required</h2>
-                    <p>No reviewed 2015 U.S. gasoline 451 vehicle model is installed.</p>
+                    <p>No reviewed full-vehicle model is installed for this configuration.</p>
                     {fixture && (
                       <button onClick={openHatch}>Explore the 21-part hatch sample</button>
                     )}
@@ -702,9 +702,9 @@ export default function App() {
                         <option value="left">Left side</option>
                         <option value="right">Right side</option>
                         <option value="upper">Upper</option>
-                        <option value="longitudinal">Longitudinal (legacy)</option>
-                        <option value="cross">Cross-section (legacy)</option>
-                        <option value="horizontal">Horizontal (legacy)</option>
+                        <option value="longitudinal">Longitudinal</option>
+                        <option value="cross">Cross-section</option>
+                        <option value="horizontal">Horizontal</option>
                       </select>
                     </label>
                     <label className="clip-scope">
