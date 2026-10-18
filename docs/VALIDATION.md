@@ -1,3 +1,5 @@
+> Historical validation of the earlier photo-first iteration follows. The subsequent correction makes 3D permanent and uses a labeled hatch sample by default. Current results and screenshots are recorded in [WORKSPACE_VALIDATION.md](WORKSPACE_VALIDATION.md); the no-canvas production assertions below are superseded.
+
 # Validation record — October 18, 2026
 
 The existing application was tested before and after the upgrade. The public default is now a reference/photo catalog; the original vehicle and detailed hatch are explicit development fixtures. Test success does not validate factory geometry or replacement compatibility.

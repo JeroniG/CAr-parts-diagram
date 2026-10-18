@@ -12,3 +12,19 @@ export function developmentFixture(id: string) {
     lesson: 'illustrative-transmission',
   };
 }
+
+/** Original MIT interaction sample. Never included in reviewed geometry coverage. */
+export function inspectionFixture(id: string) {
+  if (id !== vehicle.id) return null;
+  return {
+    assemblies: [rearHatch],
+    exteriorComponentIds: [
+      'rear-glass',
+      'hatch-spoiler',
+      'hatch-lower-panel',
+      'hatch-upper-frame',
+      'hatch-upper-trim',
+      'hatch-lower-trim',
+    ],
+  };
+}

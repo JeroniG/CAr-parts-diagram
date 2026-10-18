@@ -29,8 +29,8 @@ export function WorkspaceSettings({
         <div className="development-setting">
           <strong>Development geometry</strong>
           <p>
-            Opt into the old vehicle and hatch samples for interaction testing. These are not
-            accurate production assets.
+            The hatch sample tests selection, explosion and cutaway controls. Its dimensions and
+            fitment are unverified. Reviewed vehicle assets load automatically when installed.
           </p>
           <label>
             <input

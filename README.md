@@ -2,9 +2,9 @@
 
 An automotive parts workspace built on the existing **React 19, TypeScript, Vite 7 and Three.js 0.180** application. The first published configuration is the **2015 U.S. Smart Fortwo 451 gasoline Passion coupé**. Vehicle identity, catalog content, model coverage and replacement-part fitment are separate records.
 
-**The public experience is a licensed photo and component catalog. The photorealistic vehicle asset milestone is not complete.** No accurate, redistribution-approved full-vehicle or rear-hatch CAD/scan has been acquired. The old vehicle and new hatch sample are opt-in development fixtures, never the production fallback.
+**The primary workspace is now persistent interactive 3D. The photorealistic vehicle asset milestone is not complete.** No accurate, redistribution-approved full-vehicle or rear-hatch CAD/scan has been acquired. The default shows an explicitly labeled original 21-part hatch interaction sample; it does not load the old primitive car. Photographs and diagrams are supporting references in a dialog.
 
-![AutoAtlas public catalog](docs/screenshots/public-desktop.png)
+![Actual 3D hatch workspace — unverified sample](docs/screenshots/workspace-a-sample.png)
 
 ## Run and display
 
@@ -30,15 +30,15 @@ Open **http://localhost:4173**. No database or API key is required. Optional VIN
 - Vehicle registry search by make, model, year, platform and powertrain; explicit configuration selection; optional vPIC identity lookup. Unsupported vehicles retain the current vehicle and can be recorded in an exportable local coverage request.
 - Two licensed photographs, gallery navigation, zoom/pan/reset, source attribution and authored part markers linked to the same selection as the tree and inspector. Figure-specific diagram callouts use the same pipeline when authorized diagrams are imported.
 - 162 catalog rows: **148 parts and 14 assemblies across 8 systems**. Search names, aliases, systems and available OEM references. Read function, location, related components and source limitations.
-- Modes 2–16 share one workspace. Unavailable content gives a reason and reference fallback. No shell-only model is published as a complete vehicle.
+- Modes 2–16 share one workspace. Unavailable content gives a precise reason while retaining the 3D canvas. References open separately. No shell-only model is published as a complete vehicle.
 - Versioned vehicle packages, hashes, typed part definitions and separate physical instances, provider contracts, bounded downloads, cancellation, a four-package memory cache and local administrator publication tooling.
 - Tested switching to a **synthetic test-only second vehicle** through the same UI, including two instances sharing one definition. It is not in the public registry and is not a second supported real vehicle.
 
-### Development 3D interactions
+### 3D interactions and development fixtures
 
-On the development server only, open **http://localhost:5173/?fixture=smart-451** or enable **Development geometry** in Settings. Every view carries a development banner. These are original approximate models, not validated OEM parts.
+The default hatch sample works in development and preview builds and can be disabled in Settings. Every sample view carries a development banner. **http://localhost:5173/?fixture=smart-451** retains the old whole-vehicle fixture solely for explicit development regression testing; the production build ignores this legacy opt-in. These are original approximate models, not validated OEM parts.
 
-The existing vehicle supports orbit/pan/zoom, picking, focus, hide/isolate, transparency, clipping, camera presets, reversible explosion and the conceptual clutch lesson. **Hatch assembly** loads 21 independently selectable sample components on demand with low/high GLBs, controlled separation, isolated rotation, return to assembly, and illustrative hinge/telescoping-strut motion. Model-coordinate measurement is explicitly illustrative; production measurement requires recorded scale validation.
+The existing vehicle supports orbit/pan/zoom, picking, focus, hide/isolate, transparency, clipping, camera presets, inventory layout and the conceptual clutch lesson. Whole-vehicle explosion is disabled without authored transforms. **Hatch assembly** loads 21 independently selectable sample components on demand with low/high GLBs, controlled separation, isolated rotation, return to assembly, and illustrative hinge/telescoping-strut motion. Model-coordinate measurement is explicitly illustrative; production measurement requires recorded scale validation.
 
 PBR materials, a licensed HDR environment, ACES tone mapping, antialiasing, adaptive graphics quality and optional high-quality GPU ambient occlusion are supported. Meshopt geometry and local KTX2 decoding are configured. Real GPU AO and a KTX2-textured production asset still need hardware validation.
 
@@ -46,7 +46,7 @@ PBR materials, a licensed HDR environment, ACES tone mapping, antialiasing, adap
 
 | Content              | Actual status                                                                                                                                                                           |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Public coverage      | **C — photo/component catalog**, zero reviewed 3D parts                                                                                                                                 |
+| Public coverage      | **Interactive hatch sample + catalog**, zero reviewed 3D parts                                                                                                                                 |
 | Photographs          | M 93's 2011 European 451 facelift front/rear views, CC BY-SA 3.0 DE; exterior-location references, **not 2015 U.S. equipment evidence**. The source title/description disagree on trim. |
 | Service diagrams     | No authorized vehicle-specific diagram published; import/callout pipeline tested with a synthetic raster                                                                                |
 | OEM identities       | Three sourced references; **zero confirmed fitments** for this gasoline configuration. Headlamp evidence comes from an Electric Drive catalog and is labeled accordingly.               |
@@ -97,3 +97,9 @@ Apply database migrations **001, 002, 003**, then `db/seed.sql`, through an admi
 Acquire an appropriately licensed **451 gasoline U.S. coupe** vehicle and separated hatch asset, with source measurements, identity mapping, low/high detail, PBR textures and recorded human review. Then validate import, fit and scale before enabling production model modes. Add licensed service/fitment providers and real diagrams separately. Benchmark physical desktop/mobile GPUs and validate Safari, Firefox, touch and assistive technology.
 
 The supplied concept image guides layout, not geometry, part identifiers, engine placement or repair steps. [Progress](docs/PROGRESS.md) records completed work and remaining tasks. Code and original samples are MIT; photographs, HDR and decoder licenses are separate in [ASSET_LICENSES](ASSET_LICENSES.md).
+
+## Permanent 3D workspace correction
+
+X-ray, authored assembly explosion, directional cutaway and part focus operate in one retained canvas. X-ray uses explicit exterior groups; internal components remain opaque and selectable. Cutaway supports front/rear/left/right/upper planes, custom position, and exterior-only or all-component clipping. Bounds are measured from installed parts. Blue highlighting, independent isolated rotation, hide/restore, camera presets and supporting references retain stable catalog IDs.
+
+The default has 21 **sample** mappings and 0 reviewed mappings. All 148 catalog parts remain available. Returning to the complete vehicle explains the missing accurate asset rather than substituting imagery or an inaccurate model. See [asset audit and sourcing steps](docs/ASSET_SOURCING.md), [import workflow](docs/VEHICLE_IMPORT.md), and [actual visual validation](docs/WORKSPACE_VALIDATION.md).

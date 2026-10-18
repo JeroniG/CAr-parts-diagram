@@ -4,7 +4,7 @@ import { PointerTap } from './controls/pointerTap';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { loadVehicle, disposeObject } from './loaders/vehicleLoader';
-import { inventoryLayout, radialLayout } from './explosion/layout';
+import { inventoryLayout } from './explosion/layout';
 import { mechanismState } from './animations/transmission';
 import type { WorkspaceData } from '../features/vehicles/CatalogContext';
 import type { AssemblyDefinition } from '../types/assembly';
@@ -13,6 +13,7 @@ export interface ViewerDataset {
   base: { assetUrl: string; manifestUrl: string } | null;
   assemblies: AssemblyDefinition[];
   fixture: boolean;
+  exteriorComponentIds?: string[];
 }
 import type { LoadedVehicle } from './loaders/vehicleLoader';
 
@@ -28,6 +29,7 @@ import { MeasurementController } from './controls/MeasurementController';
 import type { Measurement } from './controls/MeasurementController';
 import type { AssemblyLoadStatus } from '../types/assembly';
 import { HDRLoader } from 'three/addons/loaders/HDRLoader.js';
+import { cutawayPlane } from './controls/cutaway';
 import { initialView } from './state';
 import type { CameraView, Quality, ViewState } from './state';
 export { initialView } from './state';
@@ -215,6 +217,7 @@ export class Viewer {
         this.scene.add(this.root);
         this.update(this.state);
         this.cb.loaded(0);
+        if (this.softwareRenderer && this.state.adaptive) this.cb.quality('low');
         return;
       }
       const loaded = await loadVehicle(definition.assetUrl, definition.manifestUrl, {
@@ -434,6 +437,8 @@ export class Viewer {
   update(next: ViewState) {
     const previous = this.state;
     this.state = next;
+    this.floor.visible =
+      this.groundVisible && !next.activeAssembly && !next.isolated && next.explode === 0;
     if (!next.activeAssembly && (this.assemblyRoot || this.assemblyRequest || this.assemblyKey)) {
       this.releaseAssembly();
       this.cb.loaded(this.parts.size);
@@ -526,6 +531,7 @@ export class Viewer {
     const selected = next.selected
       ? this.dataset.catalog.descendants(next.selected)
       : new Set<string>();
+    const hasModeledSelection = [...selected].some((id) => this.parts.has(id));
     const transparent = new Set(
       [...next.transparent].flatMap((id) => [...this.dataset.catalog.descendants(id)]),
     );
@@ -536,6 +542,7 @@ export class Viewer {
       next.bodyOpacity,
       next.section,
       next.cut,
+      next.clipExteriorOnly,
       next.quality,
       next.dimUnselected,
       next.activeAssembly,
@@ -562,50 +569,46 @@ export class Viewer {
       this.explosionTargets =
         next.layout === 'inventory'
           ? inventoryLayout(visible)
-          : this.assemblyRoot || !this.dataset.fixture
-            ? new Map(
-                visible.map((p) => [
-                  p.id,
-                  p.center
-                    .clone()
-                    .add(
-                      new T.Vector3(
-                        ...(this.parts.get(p.id)!.group.userData.explodedTransform?.translation ??
-                          this.assemblyParts.get(p.id)?.separation ?? [0, 0, 0]),
-                      ),
+          : new Map(
+              visible.map((p) => [
+                p.id,
+                p.center
+                  .clone()
+                  .add(
+                    new T.Vector3(
+                      ...(this.parts.get(p.id)!.group.userData.explodedTransform?.translation ??
+                        this.assemblyParts.get(p.id)?.separation ?? [0, 0, 0]),
                     ),
-                ]),
-              )
-            : radialLayout(visible);
+                  ),
+              ]),
+            );
     }
     if (materialKey !== this.lastMaterialKey) {
       this.lastMaterialKey = materialKey;
-      const normal =
-        next.section === 'longitudinal'
-          ? new T.Vector3(-1, 0, 0)
-          : next.section === 'cross'
-            ? new T.Vector3(0, 0, -1)
-            : new T.Vector3(0, -1, 0);
-      const cut = next.section === 'horizontal' ? 0.8 + next.cut * 0.8 : next.cut * 1.4;
-      const planes = next.section === 'off' ? [] : [new T.Plane(normal, cut)];
+      const bounds = new T.Box3();
+      for (const part of this.parts.values())
+        bounds.union(new T.Box3().setFromCenterAndSize(part.base, part.size));
+      const plane = cutawayPlane(next.section, next.cut, bounds);
+      const planes = plane ? [plane] : [];
+      const exteriorRoots =
+        this.dataset.exteriorComponentIds ??
+        this.dataset.catalog.manifest.exteriorComponentIds ??
+        [];
       for (const [id, part] of this.parts) {
-        const ghost =
-          transparent.has(id) ||
-          (next.xray &&
-            (this.dataset.fixture
-              ? this.dataset.catalog.componentById.get(id)?.systemId === 'exterior'
-              : !!this.dataset.catalog.manifest.exteriorComponentIds?.some((root) =>
-                  this.dataset.catalog.descendants(root).has(id),
-                )));
+        const exterior =
+          this.state.legacyVehicleFixture && !this.assemblyRoot
+            ? this.dataset.catalog.componentById.get(id)?.systemId === 'exterior'
+            : exteriorRoots.some((root) => this.dataset.catalog.descendants(root).has(id));
+        const ghost = transparent.has(id) || (next.xray && exterior && next.selected !== id);
         for (const m of part.materials) {
           styleMaterial(
             m,
             selected.has(id) && next.selected !== next.activeAssembly,
-            next.dimUnselected && selected.size > 0 && !selected.has(id),
+            next.dimUnselected && hasModeledSelection && !selected.has(id),
             ghost,
             next.bodyOpacity,
           );
-          m.clippingPlanes = planes;
+          m.clippingPlanes = next.clipExteriorOnly && !exterior ? [] : planes;
           m.clipShadows = true;
           m.needsUpdate = true;
         }
@@ -729,7 +732,11 @@ export class Viewer {
       interior: new T.Vector3(0.1, 0.25, -1),
     };
     this.groundVisible = view !== 'bottom';
-    this.floor.visible = this.groundVisible;
+    this.floor.visible =
+      this.groundVisible &&
+      !this.state.activeAssembly &&
+      !this.state.isolated &&
+      this.state.explode === 0;
     this.grid.visible = false;
     const authored = this.dataset.catalog.manifest.cameraPresets?.[view];
     if (!this.dataset.fixture && authored) {
@@ -902,6 +909,10 @@ export class Viewer {
   snapshot() {
     return {
       selected: this.state.selected,
+      canvasId: this.scene.uuid,
+      xray: this.state.xray,
+      section: this.state.section,
+      clipExteriorOnly: this.state.clipExteriorOnly,
       explode: this.state.explode,
       displayedExplosion: this.explosion.value,
       activeAssembly: this.assemblyRoot ? this.state.activeAssembly : null,
@@ -934,6 +945,13 @@ export class Viewer {
         visible: p.group.visible,
         position: p.group.position.toArray(),
         base: p.base.toArray(),
+        opacity: p.materials[0]?.opacity,
+        emissive: p.materials[0]?.emissive.getHexString(),
+        clippingPlanes:
+          p.materials[0]?.clippingPlanes?.map((plane) => ({
+            normal: plane.normal.toArray(),
+            constant: plane.constant,
+          })) ?? [],
         rotation: p.group.quaternion.toArray(),
       })),
       triangles: this.renderer.info.render.triangles,

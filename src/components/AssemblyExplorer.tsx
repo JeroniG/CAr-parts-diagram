@@ -10,7 +10,9 @@ export function AssemblyExplorer({
   onBack,
   onRetry,
   onFrame,
+  hasVehicleModel = true,
 }: {
+  hasVehicleModel?: boolean;
   definition: AssemblyDefinition;
   state: ViewState;
   status: AssemblyLoadStatus;
@@ -40,6 +42,8 @@ export function AssemblyExplorer({
           Fit assembly
         </button>
         <button
+          disabled={!hasVehicleModel}
+          title={!hasVehicleModel ? 'Full vehicle model not installed' : undefined}
           className={state.assemblyContext ? 'active' : ''}
           aria-pressed={state.assemblyContext}
           onClick={() =>

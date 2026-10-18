@@ -1,3 +1,4 @@
+import { sampleContains } from '../vehicles/geometryAvailability';
 import { useState } from 'react';
 import {
   ArrowUpRight,
@@ -69,7 +70,9 @@ export function Inspector({
   const [tab, setTab] = useState<'details' | 'parts' | 'sources'>('details');
   const c = state.selected ? componentById.get(state.selected) : null;
   const hatchPart = c && state.fixtureMode ? hatchPartById.get(c.id) : undefined;
-  const canRender = !!c && (state.fixtureMode ? c.accuracy !== 'D' : coverage.mapped.has(c.id));
+  const canRender =
+    !!c &&
+    (state.fixtureMode ? sampleContains(state, c.id, c.accuracy) : coverage.mapped.has(c.id));
   const reference = manifest.photos.find(
     (p) => c && (p.componentIds.includes(c.id) || p.hotspots.some((h) => h.instanceId === c.id)),
   );
@@ -367,7 +370,7 @@ export function Inspector({
                 ))}
               {c.systemId === 'transmission' && (
                 <button
-                  hidden={!state.fixtureMode}
+                  hidden={!state.legacyVehicleFixture}
                   className="primary-button lesson-link"
                   onClick={onLearn}
                 >

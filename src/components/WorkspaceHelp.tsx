@@ -6,16 +6,17 @@ export function WorkspaceHelp({ onClose }: { onClose: () => void }) {
   return (
     <Dialog title="An atlas for the curious." onClose={onClose}>
       <p className="modal-intro">
-        Explore available vehicle references, component relationships and their sources in one
-        workspace.
+        Inspect parts in a persistent 3D workspace. Sample geometry is labeled; reviewed coverage
+        and fitment are tracked separately.
       </p>
       <div className="help-grid">
         <div>
           <span>01</span>
-          <strong>Explore references</strong>
+          <strong>Explore in 3D</strong>
           <p>
-            Choose a photograph or diagram, zoom, then drag to pan. Authored markers select catalog
-            components.
+            Drag to orbit, scroll to zoom and click a component to focus. X-ray reveals available
+            internals; cutaways clip the exterior. Open References for supporting photographs and
+            diagrams.
           </p>
         </div>
         <div>

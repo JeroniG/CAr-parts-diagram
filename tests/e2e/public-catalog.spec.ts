@@ -2,6 +2,9 @@ import { test, expect, type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 const registry = JSON.parse(readFileSync('public/vehicles/registry.json', 'utf8'));
 import { makeTestPackage, testRaster } from '../fixtures/vehiclePackage';
+async function references(page: Page) {
+  await page.getByRole('button', { name: 'References', exact: true }).click();
+}
 async function openSearch(page: Page) {
   await page.getByRole('button', { name: 'Change vehicle', exact: true }).click();
 }
@@ -29,7 +32,7 @@ async function registerFixture(page: Page, broken = false) {
   });
   return f;
 }
-test('public entry shows licensed photographs, scoped coverage, and no sample geometry', async ({
+test('public entry loads the labeled 3D hatch sample and preserves licensed supporting references', async ({
   page,
 }) => {
   const errors: string[] = [],
@@ -39,6 +42,11 @@ test('public entry shows licensed photographs, scoped coverage, and no sample ge
     if (r.url().endsWith('.glb')) models.push(r.url());
   });
   await page.goto('/');
+  await expect(page.locator('.assembly-controls')).toHaveAttribute('data-status', 'ready', {
+    timeout: 45000,
+  });
+  await expect(page.locator('.fixture-banner')).toContainText('21-part hatch sample');
+  await references(page);
   await expect(page.getByTestId('photo-viewer')).toBeVisible();
   await expect
     .poll(() => page.locator('.photo-plane img').evaluate((e: HTMLImageElement) => e.naturalWidth))
@@ -48,16 +56,19 @@ test('public entry shows licensed photographs, scoped coverage, and no sample ge
   );
   await expect(page.locator('.photo-credit')).toContainText('M 93');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
-  await expect(page.locator('canvas')).toHaveCount(0);
-  expect(models).toEqual([]);
+  await expect(page.locator('.scene-canvas canvas')).toHaveCount(1);
+  expect(models.some((url) => url.includes('/rear-hatch/'))).toBe(true);
+  expect(models.some((url) => url.includes('educational-v1'))).toBe(false);
   expect(errors).toEqual([]);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 test('photo hotspot selects the exact component and offers reversible zoom', async ({ page }) => {
   await page.goto('/');
+  await references(page);
   await page.getByRole('button', { name: 'Select Left door in photograph', exact: true }).click();
   await expect(page.locator('.inspector-title h2')).toHaveText('Left door');
   await explore(page);
+  await references(page);
   await page.getByRole('button', { name: 'Zoom in photograph' }).click();
   await expect(page.locator('.reference-toolbar')).toContainText('125%');
   await page.getByRole('button', { name: 'Reset view', exact: true }).click();
@@ -67,20 +78,22 @@ test('photo hotspot selects the exact component and offers reversible zoom', asy
   await page.getByRole('button', { name: 'Select Rear window in photograph', exact: true }).click();
   await expect(page.locator('.inspector-title h2')).toHaveText('Rear window');
 });
-test('hatch navigation retains references and explains unavailable modes', async ({ page }) => {
+test('hatch and unavailable modes keep the same 3D canvas', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: 'Hatch assembly', exact: true }).click();
-  await expect(page.locator('.workspace-heading h1')).toHaveText('Rear hatch / rear door');
-  await expect(page.locator('.mode-unavailable')).toContainText('reviewed hatch model');
-  await expect(page.locator('.photo-caption strong')).toContainText('Rear');
+  await expect(page.locator('.assembly-controls')).toHaveAttribute('data-status', 'ready', {
+    timeout: 45000,
+  });
+  const before = await page.evaluate(() => window.__autoatlas!.snapshot().canvasId);
   await page.getByRole('button', { name: 'Choose exploration mode' }).click();
   await page.getByRole('menuitem', { name: /Transparent \/ X-ray/ }).click();
-  await expect(page.locator('.mode-unavailable')).toContainText(
-    'Mapped exterior and internal components',
-  );
-  await expect(page.locator('canvas')).toHaveCount(0);
+  expect(await page.evaluate(() => window.__autoatlas!.snapshot().xray)).toBe(true);
+  await page.getByRole('button', { name: 'Choose exploration mode' }).click();
+  await page.getByRole('menuitem', { name: /Engine \/ powertrain/ }).click();
+  await expect(page.locator('.mode-unavailable')).toContainText('No reviewed powertrain model');
+  expect(await page.evaluate(() => window.__autoatlas!.snapshot().canvasId)).toBe(before);
   await page.getByRole('button', { name: 'Vehicle explorer', exact: true }).click();
-  await expect(page.locator('.workspace-heading h1')).toHaveText('smart Fortwo');
+  await expect(page.getByText('Vehicle geometry required', { exact: true })).toBeVisible();
+  await expect(page.locator('.scene-canvas canvas')).toHaveCount(1);
 });
 test('unsupported search records a local request without substituting a vehicle', async ({
   page,
@@ -142,6 +155,7 @@ test('same workspace loads a second test-only vehicle with separate instance cal
   await page.getByRole('textbox', { name: 'Search vehicle registry' }).fill('Atlas');
   await page.locator('.vehicle-result').click();
   await expect(page.locator('.workspace-heading h1')).toHaveText('Atlas TEST ONLY');
+  await references(page);
   await expect(page.locator('.media-kind')).toContainText('CATALOG DIAGRAM');
   await page
     .getByRole('button', {
@@ -151,6 +165,7 @@ test('same workspace loads a second test-only vehicle with separate instance cal
     .click();
   await expect(page.locator('.inspector-title h2')).toHaveText('Test attachment left');
   await explore(page);
+  await references(page);
   await page
     .getByRole('button', {
       name: 'Select Figure 10 · Test attachment right in diagram',
@@ -161,7 +176,8 @@ test('same workspace loads a second test-only vehicle with separate instance cal
   await openSearch(page);
   await page.getByRole('textbox', { name: 'Search vehicle registry' }).fill('2015 smart');
   await page.locator('.vehicle-result').click();
-  await expect(page.locator('.workspace-heading h1')).toHaveText('smart Fortwo');
+  await expect(page.locator('.workspace-heading h1')).toHaveText('Rear hatch / rear door');
+  await references(page);
   await expect(page.locator('.photo-caption strong')).toContainText('Front');
   expect(errors).toEqual([]);
 });
@@ -183,14 +199,17 @@ test('resize handles support keyboard and photo fallback survives image errors',
 }) => {
   await page.route('**/photos/smart-451/front.jpg', (route) => route.fulfill({ status: 404 }));
   await page.goto('/');
+  await references(page);
   await expect(
     page.getByText('The photograph could not be loaded.', { exact: false }),
   ).toBeVisible();
   if (!isMobile) {
+    await page.getByRole('button', { name: 'Close dialog' }).click();
     const handle = page.getByRole('separator', { name: 'Resize systems panel' });
     await handle.focus();
     await page.keyboard.press('ArrowRight');
     await expect(handle).toHaveAttribute('aria-valuenow', '254');
+    await references(page);
   }
   await page.getByRole('button', { name: 'Next photograph' }).click();
   await expect(page.locator('.photo-plane img')).toBeVisible();

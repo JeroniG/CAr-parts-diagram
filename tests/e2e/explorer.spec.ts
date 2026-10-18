@@ -77,7 +77,8 @@ test('transmission isolation, explosion and reset preserve original transforms',
   expect((await snapshot(page)).parts.find((p) => p.id === 'engine-block')?.visible).toBe(false);
   expect((await snapshot(page)).parts.find((p) => p.id === 'actuator-rod')?.visible).toBe(true);
   await explore(page);
-  await page.getByRole('button', { name: 'Exploded', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Exploded', exact: true })).toBeDisabled();
+  await page.getByRole('button', { name: 'Inventory', exact: true }).click();
   await page.getByRole('slider', { name: 'Exploded view', exact: true }).fill('100');
   await expect.poll(async () => (await snapshot(page)).explode).toBe(1);
   const p = (await snapshot(page)).parts.find((p) => p.id === 'actuator-rod')!;

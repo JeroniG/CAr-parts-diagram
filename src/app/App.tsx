@@ -41,9 +41,10 @@ import { VehicleSearch } from '../features/vehicles/VehicleSearch';
 import { PhotoViewport } from '../features/photos/PhotoViewport';
 import { ViewModeSelector, viewModes } from '../features/coverage/ViewModeSelector';
 import type { ViewMode } from '../types/vehiclePackage';
-import { developmentFixture } from '../vehicles/developmentFixtures';
+import { inspectionFixture } from '../vehicles/developmentFixtures';
 import { PanelResizeHandle } from '../components/PanelResizeHandle';
 import type { CSSProperties } from 'react';
+import { ReferenceDialog } from '../components/ReferenceDialog';
 import { AssemblyExplorer } from '../components/AssemblyExplorer';
 
 import { idleAssemblyStatus } from '../types/assembly';
@@ -59,17 +60,25 @@ function Logo() {
 }
 export default function App() {
   const { componentById, vehicle, ancestors, descendants, manifest, coverage } = useCatalog();
-  const fixture = developmentFixture(vehicle.id);
-  const initialFixture =
-    !!fixture && new URLSearchParams(location.search).get('fixture') === 'smart-451';
-  const [mode, setMode] = useState<ViewMode>(
-    initialFixture || coverage.modes.has('studio') ? 'studio' : 'photos',
-  );
+  const fixture = inspectionFixture(vehicle.id);
+  const initialLegacy =
+    import.meta.env.DEV &&
+    !!fixture &&
+    new URLSearchParams(location.search).get('fixture') === 'smart-451';
+  const initialFixture = !!fixture && (manifest.models.length === 0 || initialLegacy);
+  const [mode, setMode] = useState<ViewMode>('studio');
   const [leftWidth, setLeftWidth] = useState(244),
     [rightWidth, setRightWidth] = useState(308);
   const [view, setView] = useState<ViewState>(() => ({
     ...initialView,
     fixtureMode: initialFixture,
+    legacyVehicleFixture: initialLegacy,
+    activeAssembly:
+      initialLegacy || manifest.models.some((m) => m.scope === 'vehicle')
+        ? null
+        : initialFixture
+          ? fixture!.assemblies[0].id
+          : (manifest.assemblies[0]?.id ?? null),
     quality: window.innerWidth < 800 ? 'medium' : 'high',
   }));
   const [assemblyStatus, setAssemblyStatus] = useState<AssemblyLoadStatus>(idleAssemblyStatus);
@@ -78,7 +87,7 @@ export default function App() {
   const [query, setQuery] = useState(''),
     [count, setCount] = useState(0),
     [stats, setStats] = useState({ fps: 0, triangles: 0, drawCalls: 0 });
-  const [dialog, setDialog] = useState<'vehicle' | 'settings' | 'help' | null>(null),
+  const [dialog, setDialog] = useState<'vehicle' | 'settings' | 'help' | 'references' | null>(null),
     [panel, setPanel] = useState<'systems' | 'inspector' | null>(null),
     [sidebar, setSidebar] = useState(true);
   const [lesson, setLesson] = useState(false),
@@ -105,12 +114,27 @@ export default function App() {
     ]),
   );
   const availableModes = view.fixtureMode
-    ? new Set<ViewMode>(viewModes.map((m) => m.id))
+    ? new Set<ViewMode>(
+        view.legacyVehicleFixture
+          ? viewModes.map((m) => m.id)
+          : [
+              'studio',
+              'photos',
+              'premium',
+              'showroom',
+              'xray',
+              'exploded',
+              'cutaway',
+              'component',
+              'disassembly',
+              'hatch',
+              'materials',
+            ],
+      )
     : coverage.modes;
-  const render3D =
-    (view.fixtureMode || manifest.models.length > 0) &&
-    availableModes.has(mode) &&
-    mode !== 'photos';
+  const render3D = true;
+  const hasVehicleModel =
+    view.legacyVehicleFixture || manifest.models.some((m) => m.scope === 'vehicle');
   const patch = (updates: Partial<ViewState>) => setView((v) => ({ ...v, ...updates }));
   const reset = () => {
     setPlaying(false);
@@ -118,15 +142,17 @@ export default function App() {
     setView((v) => ({
       ...initialView,
       fixtureMode: v.fixtureMode,
+      legacyVehicleFixture: v.legacyVehicleFixture,
+      activeAssembly: v.fixtureMode && !v.legacyVehicleFixture ? fixture!.assemblies[0].id : null,
       theme: v.theme,
       quality: v.quality,
       exposure: v.exposure,
       lighting: v.lighting,
     }));
-    setMode(view.fixtureMode ? 'studio' : 'photos');
+    setMode('studio');
     setCameraView('perspective');
     viewerRef.current?.setCamera('perspective');
-    setNotice('Vehicle reassembled. All components restored.');
+    setNotice('Assembly restored. All available components shown.');
   };
   const select = (id: string | null) => {
     if (id && hatchComponentIds.has(id)) {
@@ -147,7 +173,9 @@ export default function App() {
           ? (assemblyDefinitions.find((a) => a.id === id || a.parts.some((p) => p.id === id))?.id ??
             (id === featuredAssembly || ancestors(id).some((a) => a.id === featuredAssembly)
               ? (featuredAssembly ?? null)
-              : null))
+              : hasVehicleModel
+                ? null
+                : v.activeAssembly))
           : v.activeAssembly,
         assemblyContext: id && !hatchComponentIds.has(id) ? false : v.assemblyContext,
         inspectionRotation: 0,
@@ -177,10 +205,10 @@ export default function App() {
       assemblyContext: false,
       inspectionRotation: 0,
     });
-    setCameraView('rear');
+    setCameraView('perspective');
   };
   const closeHatch = () => {
-    setMode(view.fixtureMode ? 'studio' : 'photos');
+    setMode('studio');
     patch({
       activeAssembly: null,
       selected: null,
@@ -233,7 +261,7 @@ export default function App() {
       });
   };
   const startLesson = () => {
-    if (!view.fixtureMode || !fixture) return;
+    if (!view.legacyVehicleFixture || !fixture) return;
     setMode('component');
     if (!lesson) savedView.current = view;
     setLesson(true);
@@ -315,13 +343,16 @@ export default function App() {
     if (playing && !loop && view.animationProgress >= 1) setPlaying(false);
   }, [playing, loop, view.animationProgress]);
   const chooseMode = (next: ViewMode) => {
+    if (next === 'photos') {
+      setDialog('references');
+      return;
+    }
     setMode(next);
     setPlaying(false);
     setLesson(false);
+    if (!availableModes.has(next)) return;
     const focusId = manifest.focusTargets?.[next];
     if (focusId && componentById.has(focusId)) select(focusId);
-    if (next === 'photos') return;
-    if (!availableModes.has(next)) return;
     if (next === 'hatch') {
       openHatch();
       return;
@@ -332,10 +363,11 @@ export default function App() {
       separated: new Set(),
       inspectionRotation: 0,
       xray: next === 'xray',
-      section: next === 'cutaway' ? 'longitudinal' : 'off',
+      section: next === 'cutaway' ? 'left' : 'off',
       lighting: next === 'showroom' ? 'showroom' : next === 'premium' ? 'premium' : 'studio',
       isolated: next === 'component' || next === 'materials' ? view.selected : null,
     });
+    setSectionMenu(next === 'cutaway');
     if (next === 'underbody') camera('bottom');
     else if (next === 'interior') camera('interior');
     else if (manifest.modeCameras?.[next]) camera(manifest.modeCameras[next]!);
@@ -399,7 +431,7 @@ export default function App() {
             <Settings2 size={18} />
           </button>
           <span className="version">
-            {view.fixtureMode ? 'DEVELOPMENT FIXTURE' : 'REFERENCE CATALOG'}
+            {view.fixtureMode ? 'DEVELOPMENT FIXTURE' : '3D WORKSPACE'}
           </span>
         </div>
       </header>
@@ -408,7 +440,7 @@ export default function App() {
           <button
             className={!lesson && !view.activeAssembly ? 'active' : ''}
             onClick={() => {
-              setMode(view.fixtureMode ? 'studio' : 'photos');
+              setMode('studio');
               if (lesson) closeLesson();
               if (view.activeAssembly) closeHatch();
             }}
@@ -425,7 +457,7 @@ export default function App() {
             {featuredAssembly === 'rear-hatch' ? 'Hatch assembly' : 'Assembly explorer'}
           </button>
           <button
-            hidden={!view.fixtureMode || !fixture}
+            hidden={!view.legacyVehicleFixture || !fixture}
             className={lesson ? 'active' : ''}
             onClick={startLesson}
           >
@@ -487,24 +519,28 @@ export default function App() {
                     : `${vehicle.year} · ${vehicle.bodyStyle} · ${vehicle.market}`}
               </p>
             </div>
-            <ViewModeSelector mode={mode} available={availableModes} onChange={chooseMode} />
+            <div className="workspace-view-actions">
+              <button className="references-button" onClick={() => setDialog('references')}>
+                References
+              </button>
+              <ViewModeSelector mode={mode} available={availableModes} onChange={chooseMode} />
+            </div>
           </div>
           {!availableModes.has(mode) && (
             <div className="mode-unavailable" role="status">
               <strong>{viewModes.find((m) => m.id === mode)?.name}</strong>
               <span>{viewModes.find((m) => m.id === mode)?.reason}</span>
-              <button onClick={() => setMode('photos')}>View photo references</button>
+              <button onClick={() => setDialog('references')}>View photo references</button>
             </div>
           )}
           {view.fixtureMode && (
             <div className="fixture-banner">
-              DEVELOPMENT FIXTURE · Unverified geometry and illustrative motion · Not a production
-              vehicle model
+              DEVELOPMENT FIXTURE ·{' '}
+              {view.legacyVehicleFixture ? 'Legacy vehicle' : '21-part hatch sample'} · Dimensions
+              unverified · Accurate vehicle CAD still required
             </div>
           )}
-          {!render3D ? (
-            <PhotoViewport state={view} onSelect={select} />
-          ) : (
+          {
             <Suspense fallback={<div className="scene-message">Loading 3D tools…</div>}>
               <>
                 <SceneCanvas
@@ -528,6 +564,7 @@ export default function App() {
                       status={assemblyStatus}
                       onPatch={patch}
                       onBack={closeHatch}
+                      hasVehicleModel={hasVehicleModel}
                       onRetry={() => viewerRef.current?.retryAssembly()}
                       onFrame={() => {
                         patch({ isolated: null });
@@ -535,6 +572,19 @@ export default function App() {
                       }}
                     />
                   )}
+                {!hasVehicleModel && !view.activeAssembly && (
+                  <div className="scene-message asset-gap" role="status">
+                    <Box size={30} />
+                    <h2>Vehicle geometry required</h2>
+                    <p>No reviewed 2015 U.S. gasoline 451 vehicle model is installed.</p>
+                    {fixture && (
+                      <button onClick={openHatch}>Explore the 21-part hatch sample</button>
+                    )}
+                    <button onClick={() => setDialog('references')}>
+                      Open supporting references
+                    </button>
+                  </div>
+                )}
                 {view.measure && (
                   <div className="measurement-hud" role="status">
                     <Ruler size={15} />
@@ -565,7 +615,9 @@ export default function App() {
                   </span>
                   <small>
                     {view.activeAssembly
-                      ? 'Reference-guided demonstration · Tier C'
+                      ? view.fixtureMode
+                        ? 'Reference-guided demonstration · Tier C'
+                        : 'Imported assembly'
                       : '2015 · Rear engine · Gasoline'}
                   </small>
                 </div>
@@ -645,13 +697,26 @@ export default function App() {
                         onChange={(e) => patch({ section: e.target.value as ViewState['section'] })}
                       >
                         <option value="off">No cut</option>
-                        <option value="longitudinal">Longitudinal</option>
-                        <option value="cross">Cross-section</option>
-                        <option value="horizontal">Horizontal</option>
+                        <option value="front">Front</option>
+                        <option value="rear">Rear</option>
+                        <option value="left">Left side</option>
+                        <option value="right">Right side</option>
+                        <option value="upper">Upper</option>
+                        <option value="longitudinal">Longitudinal (legacy)</option>
+                        <option value="cross">Cross-section (legacy)</option>
+                        <option value="horizontal">Horizontal (legacy)</option>
                       </select>
                     </label>
+                    <label className="clip-scope">
+                      <input
+                        type="checkbox"
+                        checked={view.clipExteriorOnly}
+                        onChange={(e) => patch({ clipExteriorOnly: e.target.checked })}
+                      />
+                      Clip exterior only
+                    </label>
                     <label>
-                      Position
+                      Custom position
                       <input
                         aria-label="Section position"
                         type="range"
@@ -675,10 +740,10 @@ export default function App() {
                 )}
                 <div className="canvas-bottom">
                   <span className="accuracy-pill">
-                    <span>C</span>
-                    {view.activeAssembly
+                    <span>{view.fixtureMode ? 'C' : '3D'}</span>
+                    {view.fixtureMode
                       ? 'Demonstration · dimensions unverified'
-                      : 'Educational geometry'}
+                      : `${coverage.mappedParts} reviewed parts`}
                     <CircleHelp size={12} />
                   </span>
                   <div className="orbit-hint">
@@ -699,10 +764,15 @@ export default function App() {
                   cameraView={cameraView}
                   camera={camera}
                   onSettings={() => setDialog('settings')}
+                  onZoom={() => viewerRef.current?.zoom(0.8)}
+                  onCutaway={() => {
+                    patch({ section: view.section === 'off' ? 'left' : 'off' });
+                    setSectionMenu(view.section === 'off');
+                  }}
                 />
               </>
             </Suspense>
-          )}
+          }
         </main>
         <div className="inspector-wrap">
           <PanelResizeHandle side="right" value={rightWidth} onChange={setRightWidth} />
@@ -748,9 +818,13 @@ export default function App() {
                   hidden: new Set(),
                   separated: new Set(),
                   inspectionRotation: 0,
-                  assemblyContext: !!view.activeAssembly,
+                  assemblyContext: hasVehicleModel && !!view.activeAssembly,
                 });
-                setNotice('Restored the installed position in the complete vehicle.');
+                setNotice(
+                  hasVehicleModel
+                    ? 'Restored the installed position in the complete vehicle.'
+                    : 'Restored the sample assembly. Full vehicle geometry is not installed.',
+                );
               }}
               onClose={() => setPanel(null)}
               onAssembly={openHatch}
@@ -827,16 +901,28 @@ export default function App() {
           stats={stats}
           onClose={() => setDialog(null)}
           onFixtureChange={(enabled) => {
-            setMode(enabled ? 'studio' : 'photos');
+            setMode('studio');
             patch({
               ...initialView,
               theme: view.theme,
               quality: view.quality,
               fixtureMode: enabled,
+              activeAssembly: enabled ? fixture!.assemblies[0].id : null,
             });
             setLesson(false);
           }}
         />
+      )}
+      {dialog === 'references' && (
+        <ReferenceDialog onClose={() => setDialog(null)}>
+          <PhotoViewport
+            state={view}
+            onSelect={(id) => {
+              select(id);
+              if (id) setDialog(null);
+            }}
+          />
+        </ReferenceDialog>
       )}
       {dialog === 'vehicle' && <VehicleSearch onClose={() => setDialog(null)} />}
       {dialog === 'help' && <WorkspaceHelp onClose={() => setDialog(null)} />}

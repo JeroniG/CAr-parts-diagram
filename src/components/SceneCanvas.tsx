@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { MutableRefObject } from 'react';
 import { Box, LoaderCircle, MousePointer2 } from 'lucide-react';
 import { useCatalog } from '../features/vehicles/CatalogContext';
-import { developmentFixture } from '../vehicles/developmentFixtures';
+import { developmentFixture, inspectionFixture } from '../vehicles/developmentFixtures';
 import { Viewer } from '../scene/Viewer';
 import type { Quality, ViewState } from '../scene/Viewer';
 import type { AssemblyLoadStatus } from '../types/assembly';
@@ -41,7 +41,7 @@ export function SceneCanvas({
   useEffect(() => {
     let viewer: Viewer | null = null;
     try {
-      const fixture = state.fixtureMode ? developmentFixture(data.vehicle.id) : null;
+      const fixture = state.fixtureMode ? inspectionFixture(data.vehicle.id) : null;
       const model = data.manifest.models.find((m) => m.scope === 'vehicle');
       viewer = new Viewer(
         ref.current!,
@@ -63,9 +63,12 @@ export function SceneCanvas({
         },
         {
           catalog: data,
-          base: fixture?.base ?? model?.variants.low ?? null,
+          base: state.legacyVehicleFixture
+            ? (developmentFixture(data.vehicle.id)?.base ?? null)
+            : (model?.variants.low ?? null),
           assemblies: fixture?.assemblies ?? data.manifest.assemblies,
           fixture: !!fixture,
+          exteriorComponentIds: fixture?.exteriorComponentIds,
         },
       );
       viewerRef.current = viewer;
@@ -79,7 +82,7 @@ export function SceneCanvas({
       viewerRef.current = null;
       delete window.__autoatlas;
     };
-  }, [viewerRef, data, state.fixtureMode]);
+  }, [viewerRef, data, state.fixtureMode, state.legacyVehicleFixture]);
   useEffect(() => {
     viewerRef.current?.update(state);
   }, [state, viewerRef]);

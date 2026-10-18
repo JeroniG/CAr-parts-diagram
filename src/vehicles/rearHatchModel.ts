@@ -12,8 +12,8 @@ export function buildRearHatch(detail: 'high' | 'low' = 'high') {
   root.name = 'rear-hatch-sample';
   const mats = {
     paint: new T.MeshPhysicalMaterial({
-      color: '#68785c',
-      metalness: 0.3,
+      color: '#e5e9ed',
+      metalness: 0.08,
       roughness: 0.28,
       clearcoat: 1,
       clearcoatRoughness: 0.12,

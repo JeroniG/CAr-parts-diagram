@@ -31,7 +31,7 @@ Run the same command to resume after fixing errors. Identical staged files are r
 
 Run one publisher at a time. This filesystem workflow is not a distributed locking/transaction service; put an exclusive queue and administrative authentication around a future server implementation. Never run a browser-supplied shell command. External provider credentials belong in that future server, not `VITE_*` variables.
 
-`--public-root /tmp/test-output` is for isolated verification. Development fixtures cannot be published to the normal public root, and production clients reject manifests marked `fixture`. `tests/fixtures/vehiclePackage.ts` supplies a synthetic second vehicle solely for import/UI tests. It deliberately has no real automotive specifications or OEM numbers.
+`--public-root /tmp/test-output` is for isolated verification. Development fixtures cannot be published to the normal public root, and production clients reject manifests marked `fixture`. This package rule does not prohibit the separately labeled, original built-in hatch interaction sample, which never contributes to reviewed coverage. `tests/fixtures/vehiclePackage.ts` supplies a synthetic second vehicle solely for import/UI tests. It deliberately has no real automotive specifications or OEM numbers.
 
 ## Updates and stale content
 

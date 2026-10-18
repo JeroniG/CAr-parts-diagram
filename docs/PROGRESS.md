@@ -35,3 +35,7 @@ Current unit result: **59 passed across 7 files**, including import CLI staging/
 4. Benchmark real GPUs/phones, validate compressed textures and Blender exports, and audit keyboard, screen-reader and physical-touch behavior.
 
 The supplied concept collage guides the interface only. Its mechanical placement, part numbers and repair text are not evidence. Exact implementation, import and rights instructions are in README, ARCHITECTURE, VEHICLE_IMPORT, PROVIDERS, ASSET_PIPELINE and ASSET_LICENSES.
+
+## Permanent 3D correction — current work
+
+The later correction supersedes the photo-first default described above. The canvas now remains mounted across modes and reference dialogs. The default is the clearly labeled 21-part hatch sample, including production preview, until reviewed assets arrive; the old primitive vehicle remains explicit development-only. Front/rear/left/right/upper cutaways use installed bounds with exterior-only clipping by default. X-ray uses explicit exterior IDs, blue selection retains per-part materials, and unsupported whole-vehicle explosion is disabled instead of generating radial scatter. Supporting photographs, all 148 catalog parts and source evidence remain intact. See WORKSPACE_VALIDATION.md for current checks and ASSET_SOURCING.md for the asset dependency.

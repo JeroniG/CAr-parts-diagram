@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react';
+import { sampleContains } from '../vehicles/geometryAvailability';
 import {
   Box,
   Expand,
@@ -9,6 +11,8 @@ import {
   EyeOff,
   Ruler,
   ChevronDown,
+  ZoomIn,
+  Scissors,
 } from 'lucide-react';
 import type { CameraView, ViewState } from '../scene/state';
 import type { ViewMode } from '../types/vehiclePackage';
@@ -23,6 +27,8 @@ export function ViewerToolbar({
   cameraView,
   camera,
   onSettings,
+  onZoom,
+  onCutaway,
 }: {
   view: ViewState;
   mode: ViewMode;
@@ -33,13 +39,36 @@ export function ViewerToolbar({
   cameraView: CameraView;
   camera: (v: CameraView) => void;
   onSettings: () => void;
+  onZoom: () => void;
+  onCutaway: () => void;
 }) {
+  const dockRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const dock = dockRef.current!;
+    const workspace = dock.closest<HTMLElement>('.workspace')!;
+    const observer = new ResizeObserver(() =>
+      workspace.style.setProperty(
+        '--dock-reserve',
+        `${dock.getBoundingClientRect().height + 40}px`,
+      ),
+    );
+    observer.observe(dock);
+    return () => {
+      observer.disconnect();
+      workspace.style.removeProperty('--dock-reserve');
+    };
+  }, []);
   const { manifest, coverage, componentById } = useCatalog();
   const selected = view.selected ? componentById.get(view.selected) : undefined;
+  const canExplode =
+    !!view.activeAssembly || manifest.models.some((m) => m.modes.includes('exploded'));
   const canRender =
-    !!selected && (view.fixtureMode ? selected.accuracy !== 'D' : coverage.mapped.has(selected.id));
+    !!selected &&
+    (view.fixtureMode
+      ? sampleContains(view, selected.id, selected.accuracy)
+      : coverage.mapped.has(selected.id));
   return (
-    <div className="bottom-dock">
+    <div className="bottom-dock" ref={dockRef}>
       <div className="dock-top">
         <div className="layout-tabs" aria-label="Exploded layout">
           <button
@@ -50,6 +79,8 @@ export function ViewerToolbar({
                 hatchOpen: 0,
                 separated: new Set(),
                 inspectionRotation: 0,
+                isolated: null,
+                hidden: new Set(),
               })
             }
           >
@@ -57,6 +88,10 @@ export function ViewerToolbar({
             Assembled
           </button>
           <button
+            disabled={!canExplode}
+            title={
+              !canExplode ? 'Select an assembly with authored separation transforms' : undefined
+            }
             className={view.explode > 0 && view.layout === 'radial' ? 'active' : ''}
             onClick={() =>
               patch({
@@ -94,7 +129,7 @@ export function ViewerToolbar({
           <span>Reset all</span>
         </button>
       </div>
-      {(view.explode > 0 || mode === 'exploded' || mode === 'disassembly') && (
+      {(canExplode || view.explode > 0 || mode === 'exploded' || mode === 'disassembly') && (
         <div className="explode-control">
           <span>Explode</span>
           <input
@@ -135,6 +170,43 @@ export function ViewerToolbar({
           <output>{Math.round(view.bodyOpacity * 100)}%</output>
         </label>
       )}
+      <div className="primary-view-modes" aria-label="3D viewing modes">
+        <button aria-pressed={view.xray} onClick={() => patch({ xray: !view.xray })}>
+          <Scan size={16} />
+          X-ray
+        </button>
+        <button
+          disabled={!canExplode}
+          aria-pressed={view.explode > 0}
+          onClick={() =>
+            patch({
+              explode: view.explode ? 0 : 1,
+              layout: 'radial',
+              hatchOpen: 0,
+              isolated: null,
+              separated: new Set(),
+            })
+          }
+        >
+          <Expand size={16} />
+          Explode
+        </button>
+        <button aria-pressed={view.section !== 'off'} onClick={onCutaway}>
+          <Scissors size={16} />
+          Cutaway
+        </button>
+        <button
+          aria-label="Component focus"
+          disabled={!canRender}
+          aria-pressed={!!view.isolated}
+          onClick={() =>
+            patch({ isolated: view.isolated ? null : view.selected, inspectionRotation: 0 })
+          }
+        >
+          <Focus size={16} />
+          Focus
+        </button>
+      </div>
       <div className="dock-part-actions" aria-label="Selected component tools">
         <button
           aria-pressed={view.pointerMode === 'orbit'}
@@ -148,6 +220,10 @@ export function ViewerToolbar({
           onClick={() => patch({ pointerMode: 'pan' })}
         >
           Pan
+        </button>
+        <button onClick={onZoom}>
+          <ZoomIn size={13} />
+          Zoom
         </button>
         <button
           disabled={!canRender}
@@ -196,7 +272,12 @@ export function ViewerToolbar({
             <option value="right">Right side</option>
             <option value="top">Top</option>
             <option value="bottom">Underbody</option>
-            <option value="interior">Interior</option>
+            <option
+              disabled={!view.legacyVehicleFixture && !manifest.cameraPresets?.interior}
+              value="interior"
+            >
+              Interior
+            </option>
           </select>
         </div>
         <button

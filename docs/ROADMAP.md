@@ -1,3 +1,5 @@
+> Current correction: permanent 3D, four core modes, supporting reference dialog and a labeled default hatch sample are implemented. Accurate full-vehicle and assembly assets remain external dependencies; see ASSET_SOURCING.md and WORKSPACE_VALIDATION.md.
+
 # Expansion roadmap
 
 These are tracked follow-up scopes. All geometry and fitment promotions require evidence. **October 18 update:** the public photo/catalog workspace, reusable package registry/switching, provider contracts, import publication, and opt-in 21-part hatch fixture are implemented. See [PROGRESS](PROGRESS.md) for the current status; the original phase table below is retained as the initial roadmap, not a statement that new infrastructure remains absent. Accurate production geometry and licensed service/fitment content are still outstanding.

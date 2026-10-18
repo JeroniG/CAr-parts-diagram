@@ -1,3 +1,4 @@
+import { sampleContains } from '../vehicles/geometryAvailability';
 import { useEffect, useState } from 'react';
 import {
   ChevronDown,
@@ -40,7 +41,9 @@ export function SystemsTree({
     coverage,
   } = useCatalog();
   const isModeled = (id: string) =>
-    state.fixtureMode ? componentById.get(id)?.accuracy !== 'D' : coverage.mapped.has(id);
+    state.fixtureMode
+      ? sampleContains(state, id, componentById.get(id)?.accuracy)
+      : coverage.mapped.has(id);
   const [expanded, setExpanded] = useState(new Set<string>(['exterior']));
   const [modeledOnly, setModeledOnly] = useState(false);
   useEffect(() => {
@@ -209,7 +212,7 @@ export function SystemsTree({
         )}
       </div>
       <div className="sidebar-bottom">
-        <button hidden={!state.fixtureMode} className="learn-teaser" onClick={onLearn}>
+        <button hidden={!state.legacyVehicleFixture} className="learn-teaser" onClick={onLearn}>
           <span className="eyebrow">
             <Circle size={8} fill="currentColor" /> UNDER THE SURFACE
           </span>

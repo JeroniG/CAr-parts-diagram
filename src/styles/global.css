@@ -4388,3 +4388,167 @@ button:disabled {
 .dock-part-actions button[aria-pressed='true'] {
   color: #2f7dff;
 }
+
+/* Persistent engineering workspace: references are supporting media, never the canvas. */
+.workspace-view-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.references-button {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 9px 11px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.primary-view-modes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+.primary-view-modes button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 8px 5px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 11px;
+}
+.primary-view-modes button[aria-pressed='true'] {
+  background: #18518d;
+  border-color: #378de8;
+  color: #fff;
+}
+.primary-view-modes button:disabled {
+  opacity: 0.35;
+}
+.model-mode .bottom-dock {
+  width: min(640px, calc(100% - 48px));
+}
+.model-mode .scene-canvas {
+  bottom: 252px;
+}
+.model-mode .canvas-bottom {
+  bottom: 242px;
+}
+.model-mode .model-caption {
+  display: none;
+}
+.clip-scope {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-popover .clip-scope input {
+  width: auto;
+}
+.asset-gap {
+  max-width: 450px;
+  margin: auto;
+  text-align: center;
+  padding: 24px;
+}
+.asset-gap button {
+  padding: 10px 15px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.reference-dialog .modal {
+  width: min(1120px, 96vw);
+  max-width: 1120px;
+}
+.reference-content {
+  position: relative;
+  height: min(720px, 75dvh);
+}
+.reference-content .photo-workspace {
+  inset: 5px 0 0;
+}
+.reference-content .photo-note {
+  max-height: 105px;
+  overflow: auto;
+}
+@media (max-width: 800px) {
+  .workspace-view-actions {
+    gap: 4px;
+  }
+  .references-button {
+    padding: 8px 5px;
+    font-size: 9px;
+  }
+  .primary-view-modes {
+    gap: 4px;
+    padding: 5px 0;
+  }
+  .primary-view-modes button {
+    font-size: 10px;
+    padding: 6px 3px;
+    gap: 3px;
+  }
+  .model-mode .bottom-dock {
+    width: calc(100% - 24px);
+  }
+  .model-mode .scene-canvas {
+    bottom: 230px;
+  }
+  .model-mode .canvas-bottom {
+    bottom: 220px;
+  }
+  .reference-content {
+    height: 75dvh;
+  }
+}
+@media (min-width: 801px) {
+  .model-mode .workspace-heading {
+    top: 14px;
+  }
+  .model-mode .workspace-heading h1 {
+    font-size: 23px;
+  }
+  .model-mode .workspace-heading p {
+    display: none;
+  }
+  .assembly-workspace .assembly-controls {
+    top: 78px;
+    padding: 7px 10px;
+  }
+  .assembly-workspace .fixture-banner {
+    top: 160px;
+    font-size: 10px;
+  }
+  .model-mode .scene-canvas {
+    top: 125px;
+    bottom: 206px;
+  }
+  .assembly-workspace .scene-canvas {
+    top: 185px;
+  }
+  .model-mode .canvas-bottom {
+    bottom: 198px;
+  }
+}
+/* Reserve actual dock height as mode sliders appear; keep the canvas unobstructed. */
+.model-mode .workspace .scene-canvas {
+  bottom: calc(var(--dock-reserve, 220px) + 24px);
+}
+.model-mode .workspace .canvas-bottom {
+  bottom: var(--dock-reserve, 220px);
+}
+@media (max-width: 800px) {
+  .model-mode .fixture-banner {
+    font-size: 8px;
+    line-height: 1.5;
+  }
+  .model-mode .canvas-bottom .accuracy-pill {
+    font-size: 8px;
+  }
+  .mobile-panel-systems .workspace .scene-canvas,
+  .mobile-panel-inspector .workspace .scene-canvas {
+    bottom: 53%;
+  }
+}

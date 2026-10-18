@@ -66,9 +66,9 @@ export function styleMaterial(
 ) {
   material.color.copy(material.userData.baseColor as Color).multiplyScalar(dim ? 0.46 : 1);
   material.emissive.copy(
-    selected ? new Color(0x73974a) : (material.userData.baseEmissive as Color),
+    selected ? new Color(0x2787ff) : (material.userData.baseEmissive as Color),
   );
-  material.emissiveIntensity = selected ? 0.18 : material.userData.baseEmissiveIntensity;
+  material.emissiveIntensity = selected ? 0.6 : material.userData.baseEmissiveIntensity;
   const fallbackGlass =
     material.userData.baseTransmission > 0 &&
     (!(material instanceof MeshPhysicalMaterial) || !material.transmission);

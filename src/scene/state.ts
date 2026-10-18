@@ -9,8 +9,11 @@ export interface ViewState {
   xray: boolean;
   explode: number;
   layout: 'radial' | 'inventory';
-  section: 'off' | 'longitudinal' | 'cross' | 'horizontal';
+  section:
+    'off' | 'front' | 'rear' | 'left' | 'right' | 'upper' | 'longitudinal' | 'cross' | 'horizontal';
   cut: number;
+  clipExteriorOnly: boolean;
+  legacyVehicleFixture: boolean;
   theme: 'light' | 'dark';
   quality: Quality;
   adaptive: boolean;
@@ -39,6 +42,8 @@ export const initialView: ViewState = {
   layout: 'radial',
   section: 'off',
   cut: 0,
+  clipExteriorOnly: true,
+  legacyVehicleFixture: false,
   theme: 'dark',
   quality: 'high',
   adaptive: true,
