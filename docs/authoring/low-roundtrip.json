@@ -1,0 +1,12 @@
+{
+  "components": 21,
+  "triangles": 36502,
+  "namedNodes": 73,
+  "sourceNamedNodes": 30,
+  "materials": 10,
+  "maxBoundsDriftMetres": 6.113991868339497e-8,
+  "surfaceToleranceMetres": 0.00001,
+  "surfaceComparison": "Every vertex in both directions; world coordinates; all component surfaces.",
+  "materialComparison": "Assignments, base color, roughness, metalness, effective emission, clearcoat, glass transmission/volume/IOR, alpha, double-sided.",
+  "geometryAccuracy": "Unverified. Round-trip preservation is not dimensional or vehicle-fitment verification."
+}

@@ -59,6 +59,8 @@ The 148-part denominator describes this catalog slice, not a factory bill of mat
 
 ## Validation and tooling
 
+The free **Bforartists authoring workflow** is now tested end to end. Open the [editable hatch project](assets/authoring/smart-451-hatch/assembly.blend) and follow [FREE_AUTHORING](docs/FREE_AUTHORING.md) to edit individual parts and stage GLBs for the existing viewer. This project is the unverified sample; conversion does not increase reviewed geometry coverage.
+
 ```sh
 npm run check
 npm run lint

@@ -1,0 +1,42 @@
+{
+  "hatch-blackPaint": {
+    "alphaMode": "OPAQUE",
+    "doubleSided": false
+  },
+  "hatch-polymer": {
+    "alphaMode": "OPAQUE",
+    "doubleSided": false
+  },
+  "hatch-coating": {
+    "alphaMode": "OPAQUE",
+    "doubleSided": false
+  },
+  "hatch-steel": {
+    "alphaMode": "OPAQUE",
+    "doubleSided": false
+  },
+  "hatch-frit": {
+    "alphaMode": "OPAQUE",
+    "doubleSided": true
+  },
+  "hatch-copper": {
+    "alphaMode": "OPAQUE",
+    "doubleSided": false
+  },
+  "hatch-paint": {
+    "alphaMode": "OPAQUE",
+    "doubleSided": false
+  },
+  "hatch-rubber": {
+    "alphaMode": "OPAQUE",
+    "doubleSided": false
+  },
+  "hatch-lens": {
+    "alphaMode": "OPAQUE",
+    "doubleSided": false
+  },
+  "hatch-glass": {
+    "alphaMode": "BLEND",
+    "doubleSided": true
+  }
+}

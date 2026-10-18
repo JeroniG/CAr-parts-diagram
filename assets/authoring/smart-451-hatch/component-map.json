@@ -1,0 +1,284 @@
+{
+  "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+  "license": "MIT",
+  "redistributionAllowed": true,
+  "sourceHash": "7350fa0e94a06cfcfe56f6782fdf0310d8ddd9f271262d0282f8238eb512a279",
+  "sourceManifest": "source.manifest.json",
+  "componentRoots": {
+    "hatch-upper-frame": "hatch-upper-frame",
+    "hatch-upper-trim": "hatch-upper-trim",
+    "hatch-spoiler": "hatch-spoiler",
+    "hatch-hinge-left": "hatch-hinge-left",
+    "hatch-hinge-right": "hatch-hinge-right",
+    "hatch-strut-left": "hatch-strut-left",
+    "hatch-strut-right": "hatch-strut-right",
+    "rear-glass": "rear-glass",
+    "hatch-lower-panel": "hatch-lower-panel",
+    "tailgate": "tailgate",
+    "hatch-lock-right": "hatch-lock-right",
+    "hatch-lock-left": "hatch-lock-left",
+    "hatch-upper-lock": "hatch-upper-lock",
+    "hatch-lower-trim": "hatch-lower-trim",
+    "hatch-lower-hinge-left": "hatch-lower-hinge-left",
+    "hatch-lower-hinge-right": "hatch-lower-hinge-right",
+    "hatch-seal": "hatch-seal",
+    "hatch-brake-light": "hatch-brake-light",
+    "hatch-wiper-motor": "hatch-wiper-motor",
+    "hatch-handle-switch": "hatch-handle-switch",
+    "hatch-wiper-arm": "hatch-wiper-arm"
+  },
+  "explodedTransforms": {
+    "hatch-upper-frame": {
+      "translation": [
+        0,
+        0.12,
+        0.22
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-upper-trim": {
+      "translation": [
+        0,
+        0.36,
+        0.55
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-spoiler": {
+      "translation": [
+        0,
+        0.6,
+        -0.18
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-hinge-left": {
+      "translation": [
+        0.35,
+        0.38,
+        0.12
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-hinge-right": {
+      "translation": [
+        -0.35,
+        0.38,
+        0.12
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-strut-left": {
+      "translation": [
+        0.54,
+        0.12,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-strut-right": {
+      "translation": [
+        -0.54,
+        0.12,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "rear-glass": {
+      "translation": [
+        0,
+        0.1,
+        -0.58
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-lower-panel": {
+      "translation": [
+        0,
+        -0.18,
+        -0.65
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "tailgate": {
+      "translation": [
+        0,
+        -0.06,
+        -0.06
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-lock-right": {
+      "translation": [
+        -0.45,
+        -0.05,
+        -0.38
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-lock-left": {
+      "translation": [
+        0.45,
+        -0.05,
+        -0.38
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-upper-lock": {
+      "translation": [
+        0,
+        -0.08,
+        -0.94
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-lower-trim": {
+      "translation": [
+        0,
+        -0.12,
+        0.48
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-lower-hinge-left": {
+      "translation": [
+        0.3,
+        -0.42,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-lower-hinge-right": {
+      "translation": [
+        -0.3,
+        -0.42,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-seal": {
+      "translation": [
+        0,
+        0,
+        0.86
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-brake-light": {
+      "translation": [
+        0,
+        0.38,
+        -0.66
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-wiper-motor": {
+      "translation": [
+        0.28,
+        0.27,
+        0.78
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-handle-switch": {
+      "translation": [
+        -0.3,
+        -0.08,
+        -0.85
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    "hatch-wiper-arm": {
+      "translation": [
+        0.18,
+        0.1,
+        -1.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    }
+  }
+}

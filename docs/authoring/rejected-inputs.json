@@ -1,0 +1,12 @@
+[
+  {
+    "case": "missing-root",
+    "rejected": true,
+    "reason": "Missing component root"
+  },
+  {
+    "case": "wrong-scale",
+    "rejected": true,
+    "reason": "Normalize and verify source units"
+  }
+]

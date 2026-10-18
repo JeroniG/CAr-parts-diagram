@@ -41,3 +41,13 @@ The supplied concept collage guides the interface only. Its mechanical placement
 The later correction supersedes the photo-first default described above. The canvas now remains mounted across modes and reference dialogs. The default is the clearly labeled 21-part hatch sample, including production preview, until reviewed assets arrive; the old primitive vehicle remains explicit development-only. Front/rear/left/right/upper cutaways use installed bounds with exterior-only clipping by default. X-ray uses explicit exterior IDs, blue selection retains per-part materials, and unsupported whole-vehicle explosion is disabled instead of generating radial scatter. Supporting photographs, all 148 catalog parts and source evidence remain intact. See WORKSPACE_VALIDATION.md for current checks and ASSET_SOURCING.md for the asset dependency.
 
 Current correction validation: 65 unit tests, types, lint, build, assets, production preview and all 8 targeted desktop/mobile regressions pass. The complete 62-scenario browser suite is tracked by the pull-request CI checks. Actual captures and limitations are in WORKSPACE_VALIDATION.md.
+
+## Free authoring workflow — latest progress
+
+Following the user's preference for free software, Bforartists 5.2.0 now runs successfully and has been tested with both hatch LODs. The repository includes an editable high-detail `.blend`, mappings, preparation/export commands, conversion checks and actual browser screenshots. No new runtime dependency or framework was introduced. FreeCAD's handoff is documented but was not executed. See FREE_AUTHORING.md.
+
+The round trips retain 21 identities, all surfaces within 0.01 model mm, material assignments and tested PBR properties. Glass alpha/culling changes exposed by the editor were corrected. Missing component roots and wrong source units are rejected by the real editor script. Export stages fresh hashes/bounds/bindings, preserves the source project and resets edited geometry to Tier C with no inherited review or hardcoded sample motion rig.
+
+Local validation: 68 unit tests across 9 files, TypeScript, lint, asset validation and production build pass. Both exports pass the existing assembly importer. The staged high-detail GLB passes browser selection/highlight, isolate/rotate/return, exterior X-ray, clipping and exact reassembly in one canvas, with zero page errors. Full desktop/mobile CI is linked from PR #12.
+
+This is progress on the asset-authoring pipeline. The main accurate vehicle and dimensionally reviewed hatch remain missing; **0/148 reviewed parts remains the truthful coverage**. The committed project is the original editable sample, not a new accurate model or a finished photorealistic digital twin.

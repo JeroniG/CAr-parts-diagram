@@ -13,6 +13,12 @@ Target: 2015 U.S. Smart Fortwo 451 gasoline coupe. This audit does **not** estab
 
 No accurate whole vehicle CAD, rear-hatch scan, validated interiors, engine, transmission, brake, suspension or electrical models have been acquired. The fixture is not a completed digital twin.
 
+## Free authoring route selected
+
+The user asked to try free programs such as Bforartists or FreeCAD before paid options. Bforartists 5.2.0 was downloaded from the official release, checksum-checked and used to create an editable hatch project. Both current LODs passed surface/material/identity round trips and the exported high-detail sample passed the actual viewer interactions. See [FREE_AUTHORING](FREE_AUTHORING.md). This resolves the previously untested authoring-tool connection, not the missing accurate geometry.
+
+An additional free-model search found [coupled-sim's asset table](https://github.com/bazilinskyy/coupled-sim#used-assets), which labels Filippo Citati's Smart Fortwo as MIT and links to [GrabCAD](https://grabcad.com/library/smart-fortwo-1). The original creator page returned HTTP 403, so creator-issued redistribution terms, generation, physical-part segmentation and quality could not be checked. The downstream table alone was not treated as sufficient provenance. No geometry was downloaded or published, and no creator was contacted.
+
 ## Candidates found online
 
 These are leads, not installed assets or purchase recommendations. Prices and vendor assertions need confirmation before purchase. No account, purchase, license acceptance or creator contact was performed.

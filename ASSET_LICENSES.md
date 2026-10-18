@@ -36,6 +36,8 @@ Owner manual, introduction manual, ZF article and manufacturer parts pages are l
 
 ## Rear-hatch upgrade — October 18, 2026
 
+`assets/authoring/smart-451-hatch/assembly.blend` is the editable Bforartists conversion of the original high-detail MIT hatch sample. Its component mapping and source manifest accompany it. No third-party automotive geometry is included. Geometry remains Tier C. Bforartists itself was downloaded from its official release to temporary tool storage and is not redistributed in this repository. See [the tested authoring workflow](docs/FREE_AUTHORING.md).
+
 | Asset                                               | Creator / source                                                                        | License and use                                                                                                                                                                                                               |
 | --------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `public/models/smart-451/rear-hatch/{low,high}.glb` | AutoAtlas contributors, `src/vehicles/rearHatchModel.ts`                                | Original MIT geometry, generated at two detail levels; **Tier C reference-guided sample**, not CAD or scanned OEM parts. Separate manifest hashes and semantic bindings.                                                      |
