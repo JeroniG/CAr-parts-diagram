@@ -62,6 +62,8 @@ test('four modes share one canvas, keep internals opaque, and restore authored t
   await page.getByRole('button', { name: 'Whole vehicle', exact: true }).click();
   await expect(page.getByText('Vehicle geometry required', { exact: true })).toBeVisible();
   expect((await snapshot(page)).parts).toHaveLength(0);
+  await expect(page.getByRole('button', { name: 'X-ray', exact: true })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Cutaway', exact: true })).toBeDisabled();
   expect((await snapshot(page)).canvasId).toBe(before.canvasId);
 });
 test('component search highlights, isolates, rotates and returns without loading the legacy car', async ({

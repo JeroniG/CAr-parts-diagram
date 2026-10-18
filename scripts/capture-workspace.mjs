@@ -51,13 +51,30 @@ try {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.getByRole('button', { name: 'Explode', exact: true }).click();
   await capture('mobile');
+  await page.setViewportSize({ width: 390, height: 664 });
+  await page.getByRole('button', { name: 'Assembled', exact: true }).click();
+  await page.getByLabel('Camera view', { exact: true }).selectOption('rear');
+  await page.getByRole('button', { name: 'Measure', exact: true }).click();
+  const rect = await page.getByTestId('scene').boundingBox();
+  for (const [x, y] of [
+    [0.5, 0.66],
+    [0.55, 0.66],
+    [0.45, 0.66],
+    [0.5, 0.72],
+  ]) {
+    await page.mouse.click(rect.x + rect.width * x, rect.y + rect.height * y);
+    if ((await page.locator('.measurement-hud').innerText()).includes('mm · model distance')) break;
+  }
+  if (!(await page.locator('.measurement-hud').innerText()).includes('mm · model distance'))
+    throw Error('Short phone surface measurement failed.');
+  await capture('phone-measure');
   await writeFile(
     'docs/screenshots/workspace-metadata.json',
     JSON.stringify(
       {
         captured: new Date().toISOString(),
         browser: browser.version(),
-        viewport: '1440×1000; mobile 390×844',
+        viewport: '1440×1000; mobile 390×844 and short phone 390×664',
         renderer: 'SwiftShader; medium quality; no hardware-only AO/transmission',
         scope:
           'Actual running application; original unverified hatch fixture. NOT photorealistic full-vehicle completion.',

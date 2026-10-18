@@ -624,6 +624,7 @@ export default function App() {
                 <div className="view-toolbar" aria-label="View tools">
                   <button
                     className={`icon-button ${view.xray ? 'active' : ''}`}
+                    disabled={count === 0}
                     aria-label="Toggle X-ray mode"
                     aria-pressed={view.xray}
                     onClick={() => patch({ xray: !view.xray })}
@@ -633,6 +634,7 @@ export default function App() {
                   </button>
                   <button
                     className={`icon-button ${sectionMenu ? 'active' : ''}`}
+                    disabled={count === 0}
                     aria-label="Section cut controls"
                     aria-expanded={sectionMenu}
                     onClick={() => setSectionMenu(!sectionMenu)}
@@ -756,6 +758,7 @@ export default function App() {
                 </div>
                 <ViewerToolbar
                   view={view}
+                  hasGeometry={count > 0}
                   mode={mode}
                   patch={patch}
                   reset={reset}

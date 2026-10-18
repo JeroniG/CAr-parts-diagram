@@ -4,7 +4,7 @@
 
 ## Captured application evidence
 
-Run `npm run capture:workspace` against the development server. The checked-in images were captured from Chromium 156.0.8078.4 at 1440×1000, plus 390×844 mobile, using SwiftShader and medium quality. The script uses UI controls and captures the rendered canvas; it does not generate or composite imagery. `screenshots/workspace-metadata.json` records state and zero page errors. All six captures share one canvas ID.
+Run `npm run capture:workspace` against the development server. The checked-in images were captured from Chromium 156.0.8078.4 at 1440×1000, plus 390×844 mobile and a 390×664 short phone viewport, using SwiftShader and medium quality. The script uses UI controls and captures the rendered canvas; it does not generate or composite imagery. `screenshots/workspace-metadata.json` records state and zero page errors. All seven captures share one canvas ID.
 
 | Required view | Actual capture | Scope |
 | --- | --- | --- |
@@ -13,6 +13,7 @@ Run `npm run capture:workspace` against the development server. The checked-in i
 | C — Exploded | [Authored separation](screenshots/workspace-c-exploded.png) | 21 sample parts, authored translations, adjustable 0–100%. No generated radial scatter. |
 | D — Cutaway | [Left cutaway](screenshots/workspace-d-cutaway.png) | Bounds-aware exterior clipping, retained internal parts, custom position and all-component option. Visual clipping is not a capped engineering section. |
 | E — Focus | [Isolated strut](screenshots/workspace-e-focus.png) | Blue selection, catalog details, independent rotation, precise unknown-OEM disclosure. |
+| Short phone | [Surface measurement](screenshots/workspace-phone-measure.png) | Compact controls preserve space for selecting two real model surfaces; distance is explicitly unverified model geometry. |
 | Mobile | [Mobile exploded sample](screenshots/workspace-mobile.png) | Responsive controls with an unobstructed canvas; the sample warning remains visible. |
 
 ## Comparison with the supplied reference
@@ -32,3 +33,7 @@ Realism, full-vehicle size in the viewport and detailed full-vehicle X-ray remai
 - Final targeted desktop/mobile regression: **8 passed** (2.1 minutes). Covers reference reset, retained canvas across available/unavailable modes, all five cut directions, opacity scope, exact 0% reassembly, slider reopening, strut highlight/isolation/rotation and restoration. Full CI runs the complete 62-scenario suite on the pull request; see its checks for the latest result.
 
 An early development run caught reference reset incorrectly closing its dialog; this was fixed. Live edits interrupted an early canvas-ID/visibility check, so that run is not reported as passing verification. Final checks run against unchanged application code.
+
+The initial full CI run recorded 60 passes, one intentional desktop skip and one failure in mobile surface measurement. A short phone viewport left too little canvas beneath the toolbar. A height-aware compact layout corrected that issue; all 3 affected mobile scenarios (measurement, four modes, strut inspection) then passed locally. The full corrected run is tracked on the pull request; these earlier failures are not represented as successful runs.
+
+After the geometry-availability guard was added, all 4 desktop/mobile measurement and four-mode scenarios passed again (1.3 minutes), including disabled X-ray/cutaway controls in an empty vehicle viewport. A fresh short-phone capture confirms two measured model surface points and a visible inspection area.

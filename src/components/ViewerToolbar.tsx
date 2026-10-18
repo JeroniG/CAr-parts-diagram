@@ -29,6 +29,7 @@ export function ViewerToolbar({
   onSettings,
   onZoom,
   onCutaway,
+  hasGeometry,
 }: {
   view: ViewState;
   mode: ViewMode;
@@ -41,6 +42,7 @@ export function ViewerToolbar({
   onSettings: () => void;
   onZoom: () => void;
   onCutaway: () => void;
+  hasGeometry: boolean;
 }) {
   const dockRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -61,8 +63,10 @@ export function ViewerToolbar({
   const { manifest, coverage, componentById } = useCatalog();
   const selected = view.selected ? componentById.get(view.selected) : undefined;
   const canExplode =
-    !!view.activeAssembly || manifest.models.some((m) => m.modes.includes('exploded'));
+    hasGeometry &&
+    (!!view.activeAssembly || manifest.models.some((m) => m.modes.includes('exploded')));
   const canRender =
+    hasGeometry &&
     !!selected &&
     (view.fixtureMode
       ? sampleContains(view, selected.id, selected.accuracy)
@@ -108,6 +112,7 @@ export function ViewerToolbar({
             Exploded
           </button>
           <button
+            disabled={!hasGeometry}
             className={view.explode > 0 && view.layout === 'inventory' ? 'active' : ''}
             onClick={() =>
               patch({
@@ -171,7 +176,11 @@ export function ViewerToolbar({
         </label>
       )}
       <div className="primary-view-modes" aria-label="3D viewing modes">
-        <button aria-pressed={view.xray} onClick={() => patch({ xray: !view.xray })}>
+        <button
+          disabled={!hasGeometry}
+          aria-pressed={view.xray}
+          onClick={() => patch({ xray: !view.xray })}
+        >
           <Scan size={16} />
           X-ray
         </button>
@@ -191,7 +200,7 @@ export function ViewerToolbar({
           <Expand size={16} />
           Explode
         </button>
-        <button aria-pressed={view.section !== 'off'} onClick={onCutaway}>
+        <button disabled={!hasGeometry} aria-pressed={view.section !== 'off'} onClick={onCutaway}>
           <Scissors size={16} />
           Cutaway
         </button>

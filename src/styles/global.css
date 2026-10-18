@@ -4552,3 +4552,97 @@ button:disabled {
     bottom: 53%;
   }
 }
+/* Phone browser chrome and short windows must still leave room to pick surfaces. */
+@media (max-width: 800px) and (max-height: 740px) {
+  .model-mode .workspace-heading {
+    top: 9px;
+    left: 14px;
+    right: 14px;
+  }
+  .model-mode .workspace-heading h1 {
+    font-size: 17px;
+    line-height: 1.2;
+    margin-top: 4px;
+  }
+  .model-mode .workspace-heading p {
+    display: none;
+  }
+  .model-mode .workspace-breadcrumb {
+    font-size: 6px;
+  }
+  .model-mode .mode-picker > button {
+    font-size: 8px;
+    padding: 6px;
+    min-height: 28px;
+  }
+  .model-mode .references-button {
+    font-size: 8px;
+    padding: 6px;
+  }
+  .assembly-workspace .assembly-controls {
+    top: 58px;
+    padding: 5px 8px;
+  }
+  .assembly-workspace .assembly-motion-row {
+    margin-top: 4px;
+    padding-top: 4px;
+  }
+  .assembly-workspace .fixture-banner {
+    top: 122px;
+    font-size: 7px;
+  }
+  .assembly-workspace .workspace .scene-canvas {
+    top: 151px;
+  }
+  .model-mode .bottom-dock {
+    padding: 5px 8px 0;
+    bottom: 10px;
+  }
+  .model-mode .layout-tabs button {
+    padding: 5px 6px;
+  }
+  .model-mode .explode-control {
+    padding: 5px 0;
+    margin: 0;
+    height: 28px;
+  }
+  .model-mode .body-opacity {
+    padding: 4px 0;
+  }
+  .model-mode .primary-view-modes {
+    padding: 4px 0;
+  }
+  .model-mode .primary-view-modes button {
+    padding: 5px 2px;
+  }
+  .model-mode .dock-part-actions {
+    padding: 5px 0;
+    row-gap: 5px;
+  }
+  .model-mode .dock-bottom {
+    padding: 5px 0;
+    min-height: 24px;
+  }
+  .model-mode .view-toolbar {
+    top: 153px;
+  }
+  .assembly-workspace .measurement-hud {
+    top: 124px;
+    padding: 4px 7px;
+    pointer-events: none;
+  }
+  .measurement-hud button {
+    pointer-events: auto;
+  }
+  .model-mode .measurement-hud small {
+    display: none;
+  }
+  .model-mode .isolation-banner {
+    top: 126px;
+  }
+  .mobile-panel-systems .workspace .scene-canvas,
+  .mobile-panel-inspector .workspace .scene-canvas {
+    top: 65px;
+    bottom: 53%;
+  }
+}
