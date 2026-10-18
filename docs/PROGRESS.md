@@ -57,3 +57,13 @@ This is progress on the asset-authoring pipeline. The main accurate vehicle and 
 The user ruled out downloads requiring sign-in. A publicly downloadable research-repository Smart was inspected as actual geometry: 42,302 triangles, 31 generic mesh objects, and a visual match to the older 450 rather than the required 451. It also lacks confirmed creator-issued redistribution terms. It was excluded; temporary research files were not published. Public metadata and previews clarified the two Sketchfab candidates, but their official downloads require authentication. Other leads either depict the older generation, require login or restrict source-file redistribution. Details and source links are recorded in ASSET_SOURCING.md.
 
 No suitable new model was acquired and no application or catalog behavior changed during this sourcing pass. The previous successful validation remains applicable: 68 unit tests and 61 browser passes with one intentional skip in [CI run 39151198864](https://github.com/JeroniG/CAr-parts-diagram/actions/runs/39151198864). Accurate geometry remains the unresolved dependency; additional conversion scaffolding does not remove it.
+
+## Mandatory whole-vehicle and mechanical milestones — 18 October 2026
+
+This update supersedes the hatch-first default above. Whole Vehicle is now the initial view, with an explicit critical asset gap; the hatch sample opens on request. Both milestones are mandatory and incomplete. No new accurate geometry was obtained.
+
+Added a configuration-scoped completion plan, independent inventory/geometry reviews, separate exterior and 14 mechanical/interior areas, missing-component modeling tasks, source/discovery history, local notes and JSON export. All 162 currently known part records have scope assignments. Areas overlap where a part serves more than one requirement, so area counts must not be summed. Unknown whole-vehicle quantity is never inferred from catalog coverage. Demo assets, unsupported scale, missing positions and open inventory cannot complete a milestone.
+
+The catalog grew from 148 to 162 entries using 14 manufacturer-manual identity references with page locators. No new OEM numbers or confirmed replacement fitments were asserted. Catalog hierarchy and search use indexes rather than repeated full scans; the 10,000-instance test covers the data service, not rendered-scene performance.
+
+`npm run audit:vehicle` scans existing public and authoring/import asset libraries, checks mapped file hashes and writes component tasks. Online searches are recorded separately; most individual CAD searches remain pending. The audit found no reviewed mechanical geometry. The exact missing assets, measurements, licensing and screenshot blockers are in COMPLETE_VEHICLE.md.

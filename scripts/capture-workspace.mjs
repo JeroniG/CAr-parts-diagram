@@ -15,6 +15,8 @@ try {
   await page.goto(process.env.AUTOATLAS_CAPTURE_URL ?? 'http://127.0.0.1:5173/', {
     waitUntil: 'domcontentloaded',
   });
+  await page.getByText('Vehicle geometry required', { exact: true }).waitFor();
+  await page.getByRole('button', { name: 'Explore the 21-part hatch sample', exact: true }).click();
   await page.locator('.assembly-controls[data-status="ready"]').waitFor({ timeout: 60000 });
   await page.getByRole('button', { name: 'Open settings' }).click();
   await page.getByLabel('Adaptive quality').uncheck();

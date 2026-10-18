@@ -25,7 +25,7 @@ export function Dialog({
       if (e.key === 'Tab') {
         const nodes = Array.from(
           el.querySelectorAll<HTMLElement>(
-            'button:not(:disabled),input:not(:disabled),select,a[href],[tabindex="0"]',
+            'button:not(:disabled),input:not(:disabled),textarea:not(:disabled),select,a[href],[tabindex="0"]',
           ),
         );
         const first = nodes[0],

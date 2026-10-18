@@ -63,3 +63,16 @@ Use `docs/VEHICLE_IMPORT.md` for the existing staged, hash-validated import work
 ## Current acceptance gap
 
 A photorealistic complete vehicle and full mechanical X-ray cannot be shown without those assets. Current screenshots prove actual 3D interactions on the labeled hatch sample only. Return-to-vehicle displays the precise missing asset state; it never substitutes a photograph or the old primitive car.
+
+## Mandatory mechanical milestone follow-up — 18 October 2026
+
+The expanded scope is tracked in [COMPLETE_VEHICLE](COMPLETE_VEHICLE.md) and the generated per-component audit. New no-sign-in searches used these exact queries:
+
+- `"Smart 451" "engine" "STEP" model`
+- `"Smart 451" "clutch actuator" CAD download`
+- `"Smart 451" "suspension" model site:grabcad.com/library`
+- `"Smart Fortwo" "brake" site:3dcontentcentral.com`
+
+No usable matching CAD download was returned. Search results were manuals, unrelated repair discussions or other non-CAD material. This is a limited search result, not evidence that no model exists and not an exhaustive search of all 162 catalog entries. No result was imported or used to certify geometry. Individual searches without a recorded component-specific result remain pending in the queue.
+
+The manufacturer's 2015 operator manual supplied 14 additional component identities. Page references are stored separately from shape, quantity, replacement fitment and repair evidence. No manual illustrations were copied and no geometry was reconstructed from them.

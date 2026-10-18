@@ -34,6 +34,7 @@ export function SystemsTree({
     catalog,
     systems,
     componentById,
+    childrenByParent,
     searchComponents,
     ancestors,
     vehicle,
@@ -67,8 +68,8 @@ export function SystemsTree({
   const row = (id: string, depth: number) => {
     const c = componentById.get(id)!;
     if (modeledOnly && !isModeled(c.id)) return null;
-    const children = catalog.filter(
-      (ch) => ch.parentComponentId === id && (!modeledOnly || isModeled(ch.id)),
+    const children = (childrenByParent.get(id) ?? []).filter(
+      (ch) => !modeledOnly || isModeled(ch.id),
     );
     const open = expanded.has(id);
     const isSystem = depth === 0;
@@ -233,7 +234,7 @@ export function SystemsTree({
         </button>
         <div className="coverage">
           <div>
-            <span>Geometry coverage</span>
+            <span>Catalog geometry</span>
             <span>
               {modeled} / {total}
             </span>

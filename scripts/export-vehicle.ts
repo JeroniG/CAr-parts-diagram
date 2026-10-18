@@ -1,3 +1,4 @@
+import { smart451Completion } from '../src/data/smart451Completion';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import type {
@@ -39,7 +40,9 @@ const data: CatalogDataset = {
       name: c.name,
       description: c.description,
       sourceIds: c.sourceIds,
-      identityStatus: 'unverified',
+      identityStatus: c.sourceIds.some((id) => id.startsWith('owners-detail-'))
+        ? 'source-backed'
+        : 'unverified',
     })),
   partInstances: components
     .filter((c: { componentType: string }) => c.componentType === 'part')
@@ -50,7 +53,7 @@ const data: CatalogDataset = {
       side: c.side,
     })),
 };
-const revision = '2026-10-18.1',
+const revision = '2026-10-18.2',
   base = `/vehicles/${vehicle.id}/${revision}`;
 const sha = (b: string | Buffer) => createHash('sha256').update(b).digest('hex');
 const photos: PhotoAsset[] = [];
@@ -124,6 +127,7 @@ const manifest: VehicleManifest = {
     },
   ],
   serviceProcedures: [],
+  completionPlan: smart451Completion(publishedComponents, vehicle.id),
   featuredAssemblyId: 'rear-hatch',
   focusTargets: {
     hatch: 'rear-hatch',

@@ -2,7 +2,7 @@
 
 An automotive parts workspace built on the existing **React 19, TypeScript, Vite 7 and Three.js 0.180** application. The first published configuration is the **2015 U.S. Smart Fortwo 451 gasoline Passion coupé**. Vehicle identity, catalog content, model coverage and replacement-part fitment are separate records.
 
-**The primary workspace is now persistent interactive 3D. The photorealistic vehicle asset milestone is not complete.** No accurate, redistribution-approved full-vehicle or rear-hatch CAD/scan has been acquired. The default shows an explicitly labeled original 21-part hatch interaction sample; it does not load the old primitive car. Photographs and diagrams are supporting references in a dialog.
+**Both required milestones remain incomplete: the realistic exterior and the complete mechanical digital twin.** No accurate, redistribution-approved full-vehicle or mechanical CAD/scan has been acquired. The default is Whole Vehicle with an explicit missing-geometry state; the original 21-part hatch interaction sample opens only on request. Photographs and diagrams are supporting references in a dialog.
 
 ![Actual 3D hatch workspace — unverified sample](docs/screenshots/workspace-a-sample.png)
 
@@ -29,14 +29,14 @@ Open **http://localhost:4173**. No database or API key is required. Optional VIN
 - Dark charcoal/blue interface based on the supplied reference, light theme, resizable desktop sidebars and mobile sheets.
 - Vehicle registry search by make, model, year, platform and powertrain; explicit configuration selection; optional vPIC identity lookup. Unsupported vehicles retain the current vehicle and can be recorded in an exportable local coverage request.
 - Two licensed photographs, gallery navigation, zoom/pan/reset, source attribution and authored part markers linked to the same selection as the tree and inspector. Figure-specific diagram callouts use the same pipeline when authorized diagrams are imported.
-- 162 catalog rows: **148 parts and 14 assemblies across 8 systems**. Search names, aliases, systems and available OEM references. Read function, location, related components and source limitations.
+- 176 catalog rows: **162 parts and 14 assemblies across 8 systems**. Search names, aliases, systems and available OEM references. Read function, location, related components and source limitations.
 - Modes 2–16 share one workspace. Unavailable content gives a precise reason while retaining the 3D canvas. References open separately. No shell-only model is published as a complete vehicle.
 - Versioned vehicle packages, hashes, typed part definitions and separate physical instances, provider contracts, bounded downloads, cancellation, a four-package memory cache and local administrator publication tooling.
 - Tested switching to a **synthetic test-only second vehicle** through the same UI, including two instances sharing one definition. It is not in the public registry and is not a second supported real vehicle.
 
 ### 3D interactions and development fixtures
 
-The default hatch sample works in development and preview builds and can be disabled in Settings. Every sample view carries a development banner. **http://localhost:5173/?fixture=smart-451** retains the old whole-vehicle fixture solely for explicit development regression testing; the production build ignores this legacy opt-in. These are original approximate models, not validated OEM parts.
+The explicitly selected hatch sample works in development and preview builds and can be disabled in Settings. Every sample view carries a development banner. **http://localhost:5173/?fixture=smart-451** retains the old whole-vehicle fixture solely for explicit development regression testing; the production build ignores this legacy opt-in. These are original approximate models, not validated OEM parts.
 
 The existing vehicle supports orbit/pan/zoom, picking, focus, hide/isolate, transparency, clipping, camera presets, inventory layout and the conceptual clutch lesson. Whole-vehicle explosion is disabled without authored transforms. **Hatch assembly** loads 21 independently selectable sample components on demand with low/high GLBs, controlled separation, isolated rotation, return to assembly, and illustrative hinge/telescoping-strut motion. Model-coordinate measurement is explicitly illustrative; production measurement requires recorded scale validation.
 
@@ -55,7 +55,11 @@ PBR materials, a licensed HDR environment, ACES tone mapping, antialiasing, adap
 | Providers            | Local published packages and optional NHTSA identity lookup; external parts/service providers unconfigured                                                                              |
 | Database             | Three PostgreSQL migrations and normalized seed, tested with embedded PostgreSQL; no live database or editorial service provisioned                                                     |
 
-The 148-part denominator describes this catalog slice, not a factory bill of materials. Unknown dimensions, equipment restrictions and compatibility remain unknown. Geometry fidelity, identity evidence, fitment and rights are not one “verified” badge.
+The 162-part denominator describes this catalog slice, not a factory bill of materials. Unknown dimensions, equipment restrictions and compatibility remain unknown. Geometry fidelity, identity evidence, fitment and rights are not one “verified” badge.
+
+## Both milestones and missing geometry
+
+**Vehicle progress** shows separate exterior and mechanical completion, open inventory scope, 15 required areas and 162 modeling tasks. Filter tasks by area, inspect missing measurements and source history, save local draft notes, or export JSON. `npm run audit:vehicle` scans mapped local assets and writes a reproducible report. The search/tree service indexes hierarchy and OEM references; a 10,000-instance regression exercises the data path, not full UI/render performance. See [complete-vehicle requirements and exact missing deliverables](docs/COMPLETE_VEHICLE.md).
 
 ## Validation and tooling
 
@@ -88,7 +92,7 @@ Browser tests reuse port 5173 or start Vite. `npm run capture` records the actua
 
 `ApplicationRoot` loads a registry and swaps validated vehicle packages through `CatalogProvider`. All active catalog queries use this context. The previous package remains active until the new package passes validation; stale requests are canceled. Scene unmounting disposes materials, textures, geometry, animation controllers and loaders.
 
-Photo/catalog mode does not initialize WebGL. Three.js and postprocessing load lazily. Rendering, immutable assembly transforms, camera/input controls, material management, vehicle resolution and metadata are separate modules. See [architecture](docs/ARCHITECTURE.md) and [providers](docs/PROVIDERS.md).
+The workspace retains one WebGL canvas, including when supporting references are open. Three.js and postprocessing load lazily. Rendering, immutable assembly transforms, camera/input controls, material management, vehicle resolution and metadata are separate modules. See [architecture](docs/ARCHITECTURE.md) and [providers](docs/PROVIDERS.md).
 
 Apply database migrations **001, 002, 003**, then `db/seed.sql`, through an administrative connection. Read-only catalog policies are enabled; import job reports have no public read policy. The static importer currently publishes JSON/files, not a remote database. Never place provider credentials or service-role keys in the client. Seed upserts update reviewed identity rows; review before applying to a database with separate editorial changes.
 
@@ -104,4 +108,4 @@ The supplied concept image guides layout, not geometry, part identifiers, engine
 
 X-ray, authored assembly explosion, directional cutaway and part focus operate in one retained canvas. X-ray uses explicit exterior groups; internal components remain opaque and selectable. Cutaway supports front/rear/left/right/upper planes, custom position, and exterior-only or all-component clipping. Bounds are measured from installed parts. Blue highlighting, independent isolated rotation, hide/restore, camera presets and supporting references retain stable catalog IDs.
 
-The default has 21 **sample** mappings and 0 reviewed mappings. All 148 catalog parts remain available. Returning to the complete vehicle explains the missing accurate asset rather than substituting imagery or an inaccurate model. See [asset audit and sourcing steps](docs/ASSET_SOURCING.md), [import workflow](docs/VEHICLE_IMPORT.md), and [actual visual validation](docs/WORKSPACE_VALIDATION.md).
+Whole Vehicle starts with 0 reviewed mappings. The explicitly selected hatch has 21 **sample** mappings. All 162 catalog parts remain available. Returning to the complete vehicle explains the missing accurate asset rather than substituting imagery or an inaccurate model. See [asset audit and sourcing steps](docs/ASSET_SOURCING.md), [import workflow](docs/VEHICLE_IMPORT.md), and [actual visual validation](docs/WORKSPACE_VALIDATION.md).

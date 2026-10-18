@@ -3767,6 +3767,286 @@
         "owners-2015"
       ],
       "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "engine-compartment-cover",
+      "name": "Engine access cover",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Rear cargo floor",
+      "description": "Covers engine access.",
+      "function": "Covers engine access.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-detail-118"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "engine-cover-fastener",
+      "name": "Engine cover fastening screw",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Engine access cover",
+      "description": "Retains the access cover.",
+      "function": "Retains the access cover.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-detail-118"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "cargo-floor-lift-strap",
+      "name": "Cargo floor lift strap",
+      "systemId": "interior",
+      "parentComponentId": "interior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Cargo area",
+      "description": "Lifts the cargo floor.",
+      "function": "Lifts the cargo floor.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-detail-118"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "cargo-floor-hook",
+      "name": "Cargo floor retaining hook",
+      "systemId": "interior",
+      "parentComponentId": "interior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Cargo area",
+      "description": "Retains the lifted floor.",
+      "function": "Retains the lifted floor.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-detail-118"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "oil-dipstick",
+      "name": "Engine oil dipstick",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Passenger-side engine compartment",
+      "description": "Indicates oil level.",
+      "function": "Indicates oil level.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-detail-119"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "oil-filler-cap",
+      "name": "Engine oil filler cap",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Passenger-side engine compartment",
+      "description": "Closes the oil filler.",
+      "function": "Closes the oil filler.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-detail-119"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "service-panel-retaining-strap",
+      "name": "Service flap retaining strap",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Behind service flap",
+      "description": "Tethers the service flap.",
+      "function": "Tethers the service flap.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-detail-120"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "washer-reservoir",
+      "name": "Windshield washer reservoir",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Front compartment",
+      "description": "Stores washer fluid.",
+      "function": "Stores washer fluid.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-detail-123"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "brake-fluid-reservoir",
+      "name": "Brake fluid reservoir",
+      "systemId": "brakes",
+      "parentComponentId": "brakes",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Front compartment",
+      "description": "Stores brake fluid.",
+      "function": "Stores brake fluid.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": true,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-detail-124"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "washer-pump",
+      "name": "Windshield washer pump",
+      "systemId": "electrical",
+      "parentComponentId": "electrical",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Not yet verified",
+      "description": "Supplies washer fluid.",
+      "function": "Supplies washer fluid.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-detail-208"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "fuel-pump-level-sensor",
+      "name": "Fuel pump with level sensor",
+      "systemId": "engine",
+      "parentComponentId": "engine",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Not yet verified",
+      "description": "Fuel supply and level sensing.",
+      "function": "Fuel supply and level sensing.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-detail-208"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "auxiliary-power-outlet",
+      "name": "Auxiliary power outlet",
+      "systemId": "electrical",
+      "parentComponentId": "electrical",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Lower center console",
+      "description": "Powers cabin accessories.",
+      "function": "Powers cabin accessories.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-detail-114"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "interior-light",
+      "name": "Interior lamp",
+      "systemId": "electrical",
+      "parentComponentId": "electrical",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Cabin",
+      "description": "Illuminates the cabin.",
+      "function": "Illuminates the cabin.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-detail-208"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+    },
+    {
+      "id": "fuel-filler-cap",
+      "name": "Fuel filler cap",
+      "systemId": "exterior",
+      "parentComponentId": "exterior",
+      "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+      "accuracy": "D",
+      "location": "Fuel filler opening",
+      "description": "Closes the fuel filler.",
+      "function": "Closes the fuel filler.",
+      "side": "center",
+      "componentType": "part",
+      "safetyCritical": false,
+      "serviceable": null,
+      "aliases": [],
+      "sourceIds": [
+        "owners-detail-117"
+      ],
+      "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
     }
   ],
   "sources": [
@@ -3839,6 +4119,86 @@
       "retrievedAt": "2026-10-17",
       "rights": "Linked factual part identity only. No catalog diagram reproduced.",
       "notes": "Lists right 4518202459 and left 4518202559, without BRABUS. Source configuration is Electric Drive: it is NOT confirmation for this gasoline vehicle."
+    },
+    {
+      "id": "owners-detail-118",
+      "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=120",
+      "publisher": "Mercedes-Benz USA / smart",
+      "documentTitle": "2015 U.S. operator manual — printed page 118",
+      "publicationDate": null,
+      "retrievedAt": "2026-10-18",
+      "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+      "notes": "Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified."
+    },
+    {
+      "id": "owners-detail-119",
+      "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=121",
+      "publisher": "Mercedes-Benz USA / smart",
+      "documentTitle": "2015 U.S. operator manual — printed page 119",
+      "publicationDate": null,
+      "retrievedAt": "2026-10-18",
+      "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+      "notes": "Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified."
+    },
+    {
+      "id": "owners-detail-120",
+      "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=122",
+      "publisher": "Mercedes-Benz USA / smart",
+      "documentTitle": "2015 U.S. operator manual — printed page 120",
+      "publicationDate": null,
+      "retrievedAt": "2026-10-18",
+      "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+      "notes": "Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified."
+    },
+    {
+      "id": "owners-detail-123",
+      "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=125",
+      "publisher": "Mercedes-Benz USA / smart",
+      "documentTitle": "2015 U.S. operator manual — printed page 123",
+      "publicationDate": null,
+      "retrievedAt": "2026-10-18",
+      "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+      "notes": "Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified."
+    },
+    {
+      "id": "owners-detail-124",
+      "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=126",
+      "publisher": "Mercedes-Benz USA / smart",
+      "documentTitle": "2015 U.S. operator manual — printed page 124",
+      "publicationDate": null,
+      "retrievedAt": "2026-10-18",
+      "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+      "notes": "Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified."
+    },
+    {
+      "id": "owners-detail-208",
+      "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=210",
+      "publisher": "Mercedes-Benz USA / smart",
+      "documentTitle": "2015 U.S. operator manual — printed page 208",
+      "publicationDate": null,
+      "retrievedAt": "2026-10-18",
+      "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+      "notes": "Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified."
+    },
+    {
+      "id": "owners-detail-114",
+      "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=116",
+      "publisher": "Mercedes-Benz USA / smart",
+      "documentTitle": "2015 U.S. operator manual — printed page 114",
+      "publicationDate": null,
+      "retrievedAt": "2026-10-18",
+      "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+      "notes": "Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified."
+    },
+    {
+      "id": "owners-detail-117",
+      "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=119",
+      "publisher": "Mercedes-Benz USA / smart",
+      "documentTitle": "2015 U.S. operator manual — printed page 117",
+      "publicationDate": null,
+      "retrievedAt": "2026-10-18",
+      "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+      "notes": "Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified."
     }
   ],
   "oemParts": [
@@ -6358,7 +6718,7 @@
         "geometryAccuracy": "C",
         "dimensionalVerification": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed.",
         "assetVersion": "hatch-1.0.0-low",
-        "contentHash": "aa2cc66d4743150a5b75baf0f8c98f798052f07d61935d908041c0bfa7fd62d0"
+        "contentHash": "6f6046d6d527a3eed095276b2127402ba64613b847a6a63c565132d286a01d3e"
       },
       "assemblyId": "rear-hatch",
       "lod": "low",
@@ -7396,7 +7756,7 @@
         "geometryAccuracy": "C",
         "dimensionalVerification": "Reference-guided demonstration. Diagram establishes platform relationships; photographs guide appearance. Dimensions, 2015 equipment details, pivots, materials and fitment are not yet verified. No removal sequence or fastener locations are claimed.",
         "assetVersion": "hatch-1.0.0-high",
-        "contentHash": "52700d360c39584d4f453a29e0e7d23ae57f366323449bdcc1382fe11bf29df5"
+        "contentHash": "7350fa0e94a06cfcfe56f6782fdf0310d8ddd9f271262d0282f8238eb512a279"
       },
       "assemblyId": "rear-hatch",
       "lod": "high",

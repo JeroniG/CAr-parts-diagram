@@ -114,7 +114,9 @@ for (const c of catalog.filter((c) => c.componentType === 'part')) {
     name: c.name,
     description: c.description,
     sourceIds: c.sourceIds,
-    identityStatus: 'unverified',
+    identityStatus: c.sourceIds.some((id) => id.startsWith('owners-detail-'))
+      ? 'source-backed'
+      : 'unverified',
   });
   insert('part_instance', {
     id: c.id,

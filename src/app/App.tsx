@@ -1,3 +1,4 @@
+import { VehicleProgress } from '../features/completeness/VehicleProgress';
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import {
   ArrowDownToLine,
@@ -73,12 +74,7 @@ export default function App() {
     ...initialView,
     fixtureMode: initialFixture,
     legacyVehicleFixture: initialLegacy,
-    activeAssembly:
-      initialLegacy || manifest.models.some((m) => m.scope === 'vehicle')
-        ? null
-        : initialFixture
-          ? fixture!.assemblies[0].id
-          : (manifest.assemblies[0]?.id ?? null),
+    activeAssembly: null,
     quality: window.innerWidth < 800 ? 'medium' : 'high',
   }));
   const [assemblyStatus, setAssemblyStatus] = useState<AssemblyLoadStatus>(idleAssemblyStatus);
@@ -87,7 +83,9 @@ export default function App() {
   const [query, setQuery] = useState(''),
     [count, setCount] = useState(0),
     [stats, setStats] = useState({ fps: 0, triangles: 0, drawCalls: 0 });
-  const [dialog, setDialog] = useState<'vehicle' | 'settings' | 'help' | 'references' | null>(null),
+  const [dialog, setDialog] = useState<
+      'vehicle' | 'settings' | 'help' | 'references' | 'progress' | null
+    >(null),
     [panel, setPanel] = useState<'systems' | 'inspector' | null>(null),
     [sidebar, setSidebar] = useState(true);
   const [lesson, setLesson] = useState(false),
@@ -133,6 +131,8 @@ export default function App() {
       )
     : coverage.modes;
   const render3D = true;
+  const displayingFixture =
+    view.fixtureMode && !!(view.activeAssembly || view.legacyVehicleFixture);
   const hasVehicleModel =
     view.legacyVehicleFixture || manifest.models.some((m) => m.scope === 'vehicle');
   const patch = (updates: Partial<ViewState>) => setView((v) => ({ ...v, ...updates }));
@@ -143,7 +143,7 @@ export default function App() {
       ...initialView,
       fixtureMode: v.fixtureMode,
       legacyVehicleFixture: v.legacyVehicleFixture,
-      activeAssembly: v.fixtureMode && !v.legacyVehicleFixture ? fixture!.assemblies[0].id : null,
+      activeAssembly: v.activeAssembly,
       theme: v.theme,
       quality: v.quality,
       exposure: v.exposure,
@@ -173,9 +173,7 @@ export default function App() {
           ? (assemblyDefinitions.find((a) => a.id === id || a.parts.some((p) => p.id === id))?.id ??
             (id === featuredAssembly || ancestors(id).some((a) => a.id === featuredAssembly)
               ? (featuredAssembly ?? null)
-              : hasVehicleModel
-                ? null
-                : v.activeAssembly))
+              : null))
           : v.activeAssembly,
         assemblyContext: id && !hatchComponentIds.has(id) ? false : v.assemblyContext,
         inspectionRotation: 0,
@@ -431,7 +429,9 @@ export default function App() {
             <Settings2 size={18} />
           </button>
           <span className="version">
-            {view.fixtureMode ? 'DEVELOPMENT FIXTURE' : '3D WORKSPACE'}
+            {view.fixtureMode && (view.activeAssembly || view.legacyVehicleFixture)
+              ? 'DEVELOPMENT FIXTURE'
+              : '3D WORKSPACE'}
           </span>
         </div>
       </header>
@@ -467,7 +467,9 @@ export default function App() {
         </div>
         <div className="subbar-right">
           <span className="status-dot" />
-          {view.fixtureMode ? 'Unverified development model' : coverage.label}{' '}
+          {view.fixtureMode && (view.activeAssembly || view.legacyVehicleFixture)
+            ? 'Unverified development model'
+            : coverage.label}{' '}
           <span className="sub-separator">/</span>
           <button onClick={() => setDialog('vehicle')}>
             {vehicle.market} · {vehicle.chassisCode}
@@ -482,7 +484,7 @@ export default function App() {
             state={view}
             query={query}
             onQuery={setQuery}
-            onSelect={select}
+            onSelect={(id) => (id ? select(id) : closeHatch())}
             onToggle={toggleHidden}
             onShowAll={() => patch({ hidden: new Set(), isolated: null })}
             onLearn={startLesson}
@@ -520,20 +522,23 @@ export default function App() {
               </p>
             </div>
             <div className="workspace-view-actions">
+              <button className="references-button" onClick={() => setDialog('progress')}>
+                Vehicle progress
+              </button>
               <button className="references-button" onClick={() => setDialog('references')}>
                 References
               </button>
               <ViewModeSelector mode={mode} available={availableModes} onChange={chooseMode} />
             </div>
           </div>
-          {!availableModes.has(mode) && (
+          {mode !== 'studio' && !availableModes.has(mode) && (
             <div className="mode-unavailable" role="status">
               <strong>{viewModes.find((m) => m.id === mode)?.name}</strong>
               <span>{viewModes.find((m) => m.id === mode)?.reason}</span>
               <button onClick={() => setDialog('references')}>View photo references</button>
             </div>
           )}
-          {view.fixtureMode && (
+          {view.fixtureMode && (view.activeAssembly || view.legacyVehicleFixture) && (
             <div className="fixture-banner">
               DEVELOPMENT FIXTURE ·{' '}
               {view.legacyVehicleFixture ? 'Legacy vehicle' : '21-part hatch sample'} · Dimensions
@@ -576,7 +581,11 @@ export default function App() {
                   <div className="scene-message asset-gap" role="status">
                     <Box size={30} />
                     <h2>Vehicle geometry required</h2>
-                    <p>No reviewed full-vehicle model is installed for this configuration.</p>
+                    <p>
+                      Milestone 1 incomplete. No reviewed full-vehicle model is installed for this
+                      configuration. Milestone 2 mechanical geometry is also required.
+                    </p>
+                    <button onClick={() => setDialog('progress')}>Review missing assets</button>
                     {fixture && (
                       <button onClick={openHatch}>Explore the 21-part hatch sample</button>
                     )}
@@ -742,8 +751,8 @@ export default function App() {
                 )}
                 <div className="canvas-bottom">
                   <span className="accuracy-pill">
-                    <span>{view.fixtureMode ? 'C' : '3D'}</span>
-                    {view.fixtureMode
+                    <span>{displayingFixture ? 'C' : '3D'}</span>
+                    {displayingFixture
                       ? 'Demonstration · dimensions unverified'
                       : `${coverage.mappedParts} reviewed parts`}
                     <CircleHelp size={12} />
@@ -913,6 +922,15 @@ export default function App() {
               activeAssembly: enabled ? fixture!.assemblies[0].id : null,
             });
             setLesson(false);
+          }}
+        />
+      )}
+      {dialog === 'progress' && (
+        <VehicleProgress
+          onClose={() => setDialog(null)}
+          onSelect={(id) => {
+            select(id);
+            setDialog(null);
           }}
         />
       )}

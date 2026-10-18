@@ -1,3 +1,4 @@
+import { validateCompletionPlan } from './completionPlan';
 import type { VehiclePackage, VehicleManifest, CatalogDataset } from '../../types/vehiclePackage';
 const idPattern = /^[a-z][a-z0-9-]{1,95}$/;
 export const localAssetPath = (s: unknown): s is string =>
@@ -73,7 +74,7 @@ export function validateVehiclePackage(value: unknown): asserts value is Vehicle
     sources = unique(d.sources, 'source'),
     systems = unique(d.systems, 'system'),
     defs = unique(d.partDefinitions, 'definition');
-  unique(d.partInstances, 'instance');
+  const instanceIds = unique(d.partInstances, 'instance');
   unique(m.photos, 'photo');
   unique(m.diagrams, 'diagram');
   unique(m.models, 'model');
@@ -122,8 +123,9 @@ export function validateVehiclePackage(value: unknown): asserts value is Vehicle
           throw Error('Invalid assembled transform.');
   }
   for (const c of d.components.filter((c) => c.componentType === 'part'))
-    if (!d.partInstances.some((p) => p.id === c.id))
+    if (!instanceIds.has(c.id))
       throw Error('Missing physical instance record.');
+  validateCompletionPlan({ manifest: m, data: d });
   for (const r of d.relationships)
     if (!components.has(r.componentId) || !components.has(r.relatedComponentId))
       throw Error('Unknown related component.');
