@@ -1,7 +1,7 @@
 {
   "manifest": {
     "schemaVersion": 1,
-    "revision": "2026-10-18.1",
+    "revision": "2026-10-18.2",
     "publishedAt": "2026-10-18",
     "configuration": {
       "id": "smart-451-us-2015-passion-coupe-gas",
@@ -31,8 +31,8 @@
         "intro-451"
       ]
     },
-    "catalogUrl": "/vehicles/smart-451-us-2015-passion-coupe-gas/2026-10-18.1/catalog.json",
-    "catalogHash": "e5ba5a98f327e2bdd77cff0841f8ac1a48a87a32758229f858b617234489feaf",
+    "catalogUrl": "/vehicles/smart-451-us-2015-passion-coupe-gas/2026-10-18.2/catalog.json",
+    "catalogHash": "9f22c8343aef7a1c7c9ed68ef5cc2e12427c6041e31ea42d23110a4b5e58dd8a",
     "photos": [
       {
         "id": "smart-451-front",
@@ -142,6 +142,627 @@
       }
     ],
     "serviceProcedures": [],
+    "completionPlan": {
+      "schemaVersion": 1,
+      "vehicleId": "smart-451-us-2015-passion-coupe-gas",
+      "areas": [
+        {
+          "id": "exterior",
+          "name": "Complete exterior",
+          "milestone": 1,
+          "componentIds": [
+            "safety-cell",
+            "front-bumper",
+            "rear-bumper",
+            "service-panel",
+            "windshield",
+            "roof",
+            "rear-glass",
+            "tailgate",
+            "door-left",
+            "window-left",
+            "mirror-left",
+            "fender-left",
+            "quarter-left",
+            "headlight-left",
+            "taillight-left",
+            "door-right",
+            "window-right",
+            "mirror-right",
+            "fender-right",
+            "quarter-right",
+            "headlight-right",
+            "taillight-right",
+            "wheel-front-left",
+            "wheel-rear-left",
+            "wheel-front-right",
+            "wheel-rear-right",
+            "front-reinforcement",
+            "absorber",
+            "wiper-motor",
+            "door-hinges",
+            "window-regulator",
+            "weatherstrip",
+            "arch-liner",
+            "body-clips",
+            "hatch-upper-frame",
+            "hatch-upper-trim",
+            "hatch-spoiler",
+            "hatch-hinge-left",
+            "hatch-hinge-right",
+            "hatch-strut-left",
+            "hatch-strut-right",
+            "hatch-lower-panel",
+            "hatch-lock-right",
+            "hatch-lock-left",
+            "hatch-upper-lock",
+            "hatch-lower-trim",
+            "hatch-lower-hinge-left",
+            "hatch-lower-hinge-right",
+            "hatch-seal",
+            "hatch-brake-light",
+            "hatch-wiper-motor",
+            "hatch-handle-switch",
+            "hatch-wiper-arm",
+            "hatch-hardware",
+            "service-panel-retaining-strap",
+            "washer-reservoir",
+            "fuel-filler-cap"
+          ],
+          "requiredAssemblyIds": [],
+          "requiredModes": [
+            "studio",
+            "component"
+          ],
+          "expectedInstances": null,
+          "inventoryReview": null,
+          "geometryReview": null,
+          "missingMeasurements": [
+            "451 facelift surface profiles and seams",
+            "Lamp, wheel and tire geometry for U.S. equipment",
+            "Panel mounting datums and installed clearances"
+          ]
+        },
+        {
+          "id": "engine",
+          "name": "Engine & subcomponents",
+          "milestone": 2,
+          "componentIds": [
+            "engine-block",
+            "cylinder-head",
+            "intake",
+            "pistons",
+            "rods",
+            "crankshaft",
+            "camshafts",
+            "valves",
+            "timing",
+            "throttle",
+            "injectors",
+            "spark-plugs",
+            "coils",
+            "air-filter",
+            "engine-mounts",
+            "alternator",
+            "starter",
+            "oil-pan",
+            "oil-pump",
+            "oil-filter",
+            "engine-compartment-cover",
+            "engine-cover-fastener",
+            "oil-dipstick",
+            "oil-filler-cap"
+          ],
+          "requiredAssemblyIds": [
+            "engine"
+          ],
+          "requiredModes": [
+            "studio",
+            "xray",
+            "cutaway",
+            "component",
+            "exploded"
+          ],
+          "expectedInstances": null,
+          "inventoryReview": null,
+          "geometryReview": null,
+          "missingMeasurements": [
+            "Confirmed engine variant and internal component inventory",
+            "Casting surfaces, internal dimensions and mounting datums"
+          ]
+        },
+        {
+          "id": "transmission",
+          "name": "Transmission & clutch",
+          "milestone": 2,
+          "componentIds": [
+            "transmission-case",
+            "flywheel",
+            "clutch-disc",
+            "pressure-plate",
+            "release-bearing",
+            "actuator-rod",
+            "actuator-connector",
+            "release-fork",
+            "gear-selector",
+            "driveshaft-left",
+            "driveshaft-right",
+            "gears",
+            "input-shaft",
+            "output-shaft",
+            "differential",
+            "trans-mount",
+            "cv-joints",
+            "actuator-internals"
+          ],
+          "requiredAssemblyIds": [
+            "transmission"
+          ],
+          "requiredModes": [
+            "studio",
+            "xray",
+            "cutaway",
+            "component",
+            "exploded"
+          ],
+          "expectedInstances": null,
+          "inventoryReview": null,
+          "geometryReview": null,
+          "missingMeasurements": [
+            "Transmission variant, gear and clutch dimensions",
+            "Shaft axes, actuator travel and mounting datums"
+          ]
+        },
+        {
+          "id": "front-suspension",
+          "name": "Front suspension",
+          "milestone": 2,
+          "componentIds": [
+            "spring-front-left",
+            "spring-front-right",
+            "control-arms",
+            "knuckles",
+            "hub-bearings",
+            "bushings"
+          ],
+          "requiredAssemblyIds": [
+            "suspension"
+          ],
+          "requiredModes": [
+            "studio",
+            "xray",
+            "cutaway",
+            "component",
+            "exploded"
+          ],
+          "expectedInstances": null,
+          "inventoryReview": null,
+          "geometryReview": null,
+          "missingMeasurements": [
+            "Front suspension pivot coordinates, spring and damper dimensions"
+          ]
+        },
+        {
+          "id": "rear-suspension",
+          "name": "Rear suspension",
+          "milestone": 2,
+          "componentIds": [
+            "spring-rear-left",
+            "spring-rear-right",
+            "hub-bearings",
+            "bushings",
+            "rear-axle"
+          ],
+          "requiredAssemblyIds": [
+            "suspension"
+          ],
+          "requiredModes": [
+            "studio",
+            "xray",
+            "cutaway",
+            "component",
+            "exploded"
+          ],
+          "expectedInstances": null,
+          "inventoryReview": null,
+          "geometryReview": null,
+          "missingMeasurements": [
+            "Rear axle and suspension pivot coordinates",
+            "Damper, bushing and spring dimensions"
+          ]
+        },
+        {
+          "id": "braking",
+          "name": "Braking systems",
+          "milestone": 2,
+          "componentIds": [
+            "brake-front-left",
+            "brake-rear-left",
+            "brake-front-right",
+            "brake-rear-right",
+            "master-cylinder",
+            "abs-module",
+            "brake-lines",
+            "brake-pads",
+            "parking-cable",
+            "wheel-speed",
+            "brake-fluid-reservoir"
+          ],
+          "requiredAssemblyIds": [
+            "brakes"
+          ],
+          "requiredModes": [
+            "studio",
+            "xray",
+            "cutaway",
+            "component",
+            "exploded"
+          ],
+          "expectedInstances": null,
+          "inventoryReview": null,
+          "geometryReview": null,
+          "missingMeasurements": [
+            "Front disc / rear drum internal geometry",
+            "Hydraulic routing, brackets and attachment coordinates"
+          ]
+        },
+        {
+          "id": "steering",
+          "name": "Steering",
+          "milestone": 2,
+          "componentIds": [
+            "steering-wheel",
+            "tie-rods",
+            "rack"
+          ],
+          "requiredAssemblyIds": [],
+          "requiredModes": [
+            "studio",
+            "xray",
+            "cutaway",
+            "component",
+            "exploded"
+          ],
+          "expectedInstances": null,
+          "inventoryReview": null,
+          "geometryReview": null,
+          "missingMeasurements": [
+            "Rack, column and steering linkage geometry",
+            "Joint axes, travel limits and mounting coordinates"
+          ]
+        },
+        {
+          "id": "cooling-hvac",
+          "name": "Cooling & HVAC",
+          "milestone": 2,
+          "componentIds": [
+            "radiator",
+            "coolant-pipes",
+            "cooling-fan",
+            "reservoir",
+            "water-pump",
+            "thermostat",
+            "heater-core",
+            "hvac-housing",
+            "blower",
+            "ac-compressor",
+            "condenser",
+            "refrigerant-lines"
+          ],
+          "requiredAssemblyIds": [
+            "cooling"
+          ],
+          "requiredModes": [
+            "studio",
+            "xray",
+            "cutaway",
+            "component",
+            "exploded"
+          ],
+          "expectedInstances": null,
+          "inventoryReview": null,
+          "geometryReview": null,
+          "missingMeasurements": [
+            "Heat exchanger and housing dimensions",
+            "Hose, pipe and duct routing and connections"
+          ]
+        },
+        {
+          "id": "electrical",
+          "name": "Electrical & electronics",
+          "milestone": 2,
+          "componentIds": [
+            "battery",
+            "sam",
+            "ecu",
+            "tcu",
+            "harness",
+            "ground",
+            "cluster",
+            "obd",
+            "washer-pump",
+            "auxiliary-power-outlet",
+            "interior-light"
+          ],
+          "requiredAssemblyIds": [
+            "electrical"
+          ],
+          "requiredModes": [
+            "studio",
+            "xray",
+            "cutaway",
+            "component",
+            "exploded"
+          ],
+          "expectedInstances": null,
+          "inventoryReview": null,
+          "geometryReview": null,
+          "missingMeasurements": [
+            "Equipment-specific modules and connector housings",
+            "Harness paths, clips and connector pin identities"
+          ]
+        },
+        {
+          "id": "chassis",
+          "name": "Chassis & undercarriage",
+          "milestone": 2,
+          "componentIds": [
+            "safety-cell",
+            "floor",
+            "front-reinforcement",
+            "absorber",
+            "rear-axle"
+          ],
+          "requiredAssemblyIds": [],
+          "requiredModes": [
+            "studio",
+            "xray",
+            "cutaway",
+            "component",
+            "exploded"
+          ],
+          "expectedInstances": null,
+          "inventoryReview": null,
+          "geometryReview": null,
+          "missingMeasurements": [
+            "Structural cross-sections and underbody surfaces",
+            "Mounting hole patterns and body coordinate datums"
+          ]
+        },
+        {
+          "id": "interior",
+          "name": "Complete interior",
+          "milestone": 2,
+          "componentIds": [
+            "dashboard",
+            "steering-wheel",
+            "seat-left",
+            "seat-right",
+            "floor",
+            "seatbelts",
+            "airbags",
+            "seat-mounts",
+            "console",
+            "pedals",
+            "door-trim",
+            "hvac-controls",
+            "cargo-floor-lift-strap",
+            "cargo-floor-hook"
+          ],
+          "requiredAssemblyIds": [
+            "interior"
+          ],
+          "requiredModes": [
+            "studio",
+            "xray",
+            "cutaway",
+            "component",
+            "exploded"
+          ],
+          "expectedInstances": null,
+          "inventoryReview": null,
+          "geometryReview": null,
+          "missingMeasurements": [
+            "Trim-specific cabin surfaces, seats and restraint hardware",
+            "Mounting locations and clearance envelopes"
+          ]
+        },
+        {
+          "id": "doors-hatch",
+          "name": "Doors, windows & rear hatch",
+          "milestone": 2,
+          "componentIds": [
+            "windshield",
+            "rear-glass",
+            "tailgate",
+            "door-left",
+            "window-left",
+            "mirror-left",
+            "door-right",
+            "window-right",
+            "mirror-right",
+            "door-hinges",
+            "window-regulator",
+            "weatherstrip",
+            "door-trim",
+            "hatch-upper-frame",
+            "hatch-upper-trim",
+            "hatch-spoiler",
+            "hatch-hinge-left",
+            "hatch-hinge-right",
+            "hatch-strut-left",
+            "hatch-strut-right",
+            "hatch-lower-panel",
+            "hatch-lock-right",
+            "hatch-lock-left",
+            "hatch-upper-lock",
+            "hatch-lower-trim",
+            "hatch-lower-hinge-left",
+            "hatch-lower-hinge-right",
+            "hatch-seal",
+            "hatch-brake-light",
+            "hatch-wiper-motor",
+            "hatch-handle-switch",
+            "hatch-wiper-arm",
+            "hatch-hardware"
+          ],
+          "requiredAssemblyIds": [
+            "rear-hatch"
+          ],
+          "requiredModes": [
+            "studio",
+            "xray",
+            "cutaway",
+            "component",
+            "exploded"
+          ],
+          "expectedInstances": null,
+          "inventoryReview": null,
+          "geometryReview": null,
+          "missingMeasurements": [
+            "Glass curvature, hinge axes and installed latch positions",
+            "Strut end fittings and mount coordinates",
+            "Seal cross-sections and complete fastener inventory"
+          ]
+        },
+        {
+          "id": "fuel-exhaust",
+          "name": "Fuel & exhaust",
+          "milestone": 2,
+          "componentIds": [
+            "intake",
+            "exhaust",
+            "injectors",
+            "catalyst",
+            "oxygen-sensor",
+            "fuel-pump-level-sensor",
+            "fuel-filler-cap"
+          ],
+          "requiredAssemblyIds": [],
+          "requiredModes": [
+            "studio",
+            "xray",
+            "cutaway",
+            "component",
+            "exploded"
+          ],
+          "expectedInstances": null,
+          "inventoryReview": null,
+          "geometryReview": null,
+          "missingMeasurements": [
+            "Tank, filler and vapor-system inventory and routing",
+            "Exhaust profiles, heat shields and attachment locations"
+          ]
+        },
+        {
+          "id": "wheels",
+          "name": "Wheels & tires",
+          "milestone": 2,
+          "componentIds": [
+            "wheel-front-left",
+            "wheel-rear-left",
+            "wheel-front-right",
+            "wheel-rear-right"
+          ],
+          "requiredAssemblyIds": [],
+          "requiredModes": [
+            "studio",
+            "xray",
+            "cutaway",
+            "component",
+            "exploded"
+          ],
+          "expectedInstances": null,
+          "inventoryReview": null,
+          "geometryReview": null,
+          "missingMeasurements": [
+            "Selected wheel design and tire sidewall/tread geometry",
+            "Hub interface dimensions and wheel offsets"
+          ]
+        },
+        {
+          "id": "hardware",
+          "name": "Fasteners, brackets & mounts",
+          "milestone": 2,
+          "componentIds": [
+            "body-clips",
+            "engine-mounts",
+            "trans-mount",
+            "seat-mounts",
+            "hatch-hardware",
+            "engine-cover-fastener"
+          ],
+          "requiredAssemblyIds": [],
+          "requiredModes": [
+            "studio",
+            "xray",
+            "cutaway",
+            "component",
+            "exploded"
+          ],
+          "expectedInstances": null,
+          "inventoryReview": null,
+          "geometryReview": null,
+          "missingMeasurements": [
+            "Configuration-specific fastener and bracket inventory",
+            "Thread sizes, lengths, mounting coordinates and quantities"
+          ]
+        }
+      ],
+      "discoveries": [
+        {
+          "id": "manufacturer-manual",
+          "areaIds": [
+            "exterior",
+            "engine",
+            "transmission",
+            "front-suspension",
+            "rear-suspension",
+            "braking",
+            "steering",
+            "cooling-hvac",
+            "electrical",
+            "chassis",
+            "interior",
+            "doors-hatch",
+            "fuel-exhaust",
+            "wheels",
+            "hardware"
+          ],
+          "componentIds": [],
+          "checkedAt": "2026-10-18",
+          "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf",
+          "outcome": "reference-only",
+          "reason": "Manufacturer identity and component-location reference; not CAD, dimensions, a complete inventory or VIN-specific fitment.",
+          "nextAction": "Obtain configuration-specific component inventory, measurements and licensed geometry."
+        },
+        {
+          "id": "febi-strut",
+          "areaIds": [],
+          "componentIds": [
+            "hatch-strut-left",
+            "hatch-strut-right"
+          ],
+          "checkedAt": "2026-10-18",
+          "sourceUrl": "https://partsfinder.bilsteingroup.com/en/article/febi/30351",
+          "outcome": "reference-only",
+          "reason": "Manufacturer dimensional reference for febi 30351. No 3D download, installed mount coordinates or confirmed selected-vehicle fitment.",
+          "nextAction": "Verify application, obtain end-fitting geometry and measure both installed mounting points before modeling."
+        },
+        {
+          "id": "sketchfab-451",
+          "areaIds": [
+            "exterior"
+          ],
+          "componentIds": [],
+          "checkedAt": "2026-10-18",
+          "sourceUrl": "https://sketchfab.com/3d-models/smart-fortwo-subd-d75bc4356ab440e7892b760546f402b2",
+          "outcome": "access-required",
+          "reason": "Detailed exterior candidate requires sign-in; noncommercial license and sport trim are unsuitable for automatic publication.",
+          "nextAction": "Keep excluded under the free, no-sign-in sourcing constraint; seek a redistributable matching asset."
+        }
+      ]
+    },
     "featuredAssemblyId": "rear-hatch",
     "focusTargets": {
       "hatch": "rear-hatch",
@@ -3918,6 +4539,286 @@
           "owners-2015"
         ],
         "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+      },
+      {
+        "id": "engine-compartment-cover",
+        "name": "Engine access cover",
+        "systemId": "engine",
+        "parentComponentId": "engine",
+        "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+        "accuracy": "D",
+        "location": "Rear cargo floor",
+        "description": "Covers engine access.",
+        "function": "Covers engine access.",
+        "side": "center",
+        "componentType": "part",
+        "safetyCritical": false,
+        "serviceable": null,
+        "aliases": [],
+        "sourceIds": [
+          "owners-detail-118"
+        ],
+        "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+      },
+      {
+        "id": "engine-cover-fastener",
+        "name": "Engine cover fastening screw",
+        "systemId": "engine",
+        "parentComponentId": "engine",
+        "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+        "accuracy": "D",
+        "location": "Engine access cover",
+        "description": "Retains the access cover.",
+        "function": "Retains the access cover.",
+        "side": "center",
+        "componentType": "part",
+        "safetyCritical": false,
+        "serviceable": null,
+        "aliases": [],
+        "sourceIds": [
+          "owners-detail-118"
+        ],
+        "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+      },
+      {
+        "id": "cargo-floor-lift-strap",
+        "name": "Cargo floor lift strap",
+        "systemId": "interior",
+        "parentComponentId": "interior",
+        "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+        "accuracy": "D",
+        "location": "Cargo area",
+        "description": "Lifts the cargo floor.",
+        "function": "Lifts the cargo floor.",
+        "side": "center",
+        "componentType": "part",
+        "safetyCritical": true,
+        "serviceable": null,
+        "aliases": [],
+        "sourceIds": [
+          "owners-detail-118"
+        ],
+        "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+      },
+      {
+        "id": "cargo-floor-hook",
+        "name": "Cargo floor retaining hook",
+        "systemId": "interior",
+        "parentComponentId": "interior",
+        "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+        "accuracy": "D",
+        "location": "Cargo area",
+        "description": "Retains the lifted floor.",
+        "function": "Retains the lifted floor.",
+        "side": "center",
+        "componentType": "part",
+        "safetyCritical": true,
+        "serviceable": null,
+        "aliases": [],
+        "sourceIds": [
+          "owners-detail-118"
+        ],
+        "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+      },
+      {
+        "id": "oil-dipstick",
+        "name": "Engine oil dipstick",
+        "systemId": "engine",
+        "parentComponentId": "engine",
+        "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+        "accuracy": "D",
+        "location": "Passenger-side engine compartment",
+        "description": "Indicates oil level.",
+        "function": "Indicates oil level.",
+        "side": "center",
+        "componentType": "part",
+        "safetyCritical": false,
+        "serviceable": null,
+        "aliases": [],
+        "sourceIds": [
+          "owners-detail-119"
+        ],
+        "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+      },
+      {
+        "id": "oil-filler-cap",
+        "name": "Engine oil filler cap",
+        "systemId": "engine",
+        "parentComponentId": "engine",
+        "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+        "accuracy": "D",
+        "location": "Passenger-side engine compartment",
+        "description": "Closes the oil filler.",
+        "function": "Closes the oil filler.",
+        "side": "center",
+        "componentType": "part",
+        "safetyCritical": false,
+        "serviceable": null,
+        "aliases": [],
+        "sourceIds": [
+          "owners-detail-119"
+        ],
+        "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+      },
+      {
+        "id": "service-panel-retaining-strap",
+        "name": "Service flap retaining strap",
+        "systemId": "exterior",
+        "parentComponentId": "exterior",
+        "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+        "accuracy": "D",
+        "location": "Behind service flap",
+        "description": "Tethers the service flap.",
+        "function": "Tethers the service flap.",
+        "side": "center",
+        "componentType": "part",
+        "safetyCritical": false,
+        "serviceable": null,
+        "aliases": [],
+        "sourceIds": [
+          "owners-detail-120"
+        ],
+        "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+      },
+      {
+        "id": "washer-reservoir",
+        "name": "Windshield washer reservoir",
+        "systemId": "exterior",
+        "parentComponentId": "exterior",
+        "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+        "accuracy": "D",
+        "location": "Front compartment",
+        "description": "Stores washer fluid.",
+        "function": "Stores washer fluid.",
+        "side": "center",
+        "componentType": "part",
+        "safetyCritical": false,
+        "serviceable": null,
+        "aliases": [],
+        "sourceIds": [
+          "owners-detail-123"
+        ],
+        "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+      },
+      {
+        "id": "brake-fluid-reservoir",
+        "name": "Brake fluid reservoir",
+        "systemId": "brakes",
+        "parentComponentId": "brakes",
+        "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+        "accuracy": "D",
+        "location": "Front compartment",
+        "description": "Stores brake fluid.",
+        "function": "Stores brake fluid.",
+        "side": "center",
+        "componentType": "part",
+        "safetyCritical": true,
+        "serviceable": null,
+        "aliases": [],
+        "sourceIds": [
+          "owners-detail-124"
+        ],
+        "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+      },
+      {
+        "id": "washer-pump",
+        "name": "Windshield washer pump",
+        "systemId": "electrical",
+        "parentComponentId": "electrical",
+        "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+        "accuracy": "D",
+        "location": "Not yet verified",
+        "description": "Supplies washer fluid.",
+        "function": "Supplies washer fluid.",
+        "side": "center",
+        "componentType": "part",
+        "safetyCritical": false,
+        "serviceable": null,
+        "aliases": [],
+        "sourceIds": [
+          "owners-detail-208"
+        ],
+        "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+      },
+      {
+        "id": "fuel-pump-level-sensor",
+        "name": "Fuel pump with level sensor",
+        "systemId": "engine",
+        "parentComponentId": "engine",
+        "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+        "accuracy": "D",
+        "location": "Not yet verified",
+        "description": "Fuel supply and level sensing.",
+        "function": "Fuel supply and level sensing.",
+        "side": "center",
+        "componentType": "part",
+        "safetyCritical": false,
+        "serviceable": null,
+        "aliases": [],
+        "sourceIds": [
+          "owners-detail-208"
+        ],
+        "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+      },
+      {
+        "id": "auxiliary-power-outlet",
+        "name": "Auxiliary power outlet",
+        "systemId": "electrical",
+        "parentComponentId": "electrical",
+        "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+        "accuracy": "D",
+        "location": "Lower center console",
+        "description": "Powers cabin accessories.",
+        "function": "Powers cabin accessories.",
+        "side": "center",
+        "componentType": "part",
+        "safetyCritical": false,
+        "serviceable": null,
+        "aliases": [],
+        "sourceIds": [
+          "owners-detail-114"
+        ],
+        "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+      },
+      {
+        "id": "interior-light",
+        "name": "Interior lamp",
+        "systemId": "electrical",
+        "parentComponentId": "electrical",
+        "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+        "accuracy": "D",
+        "location": "Cabin",
+        "description": "Illuminates the cabin.",
+        "function": "Illuminates the cabin.",
+        "side": "center",
+        "componentType": "part",
+        "safetyCritical": false,
+        "serviceable": null,
+        "aliases": [],
+        "sourceIds": [
+          "owners-detail-208"
+        ],
+        "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
+      },
+      {
+        "id": "fuel-filler-cap",
+        "name": "Fuel filler cap",
+        "systemId": "exterior",
+        "parentComponentId": "exterior",
+        "vehicleConfigId": "smart-451-us-2015-passion-coupe-gas",
+        "accuracy": "D",
+        "location": "Fuel filler opening",
+        "description": "Closes the fuel filler.",
+        "function": "Closes the fuel filler.",
+        "side": "center",
+        "componentType": "part",
+        "safetyCritical": false,
+        "serviceable": null,
+        "aliases": [],
+        "sourceIds": [
+          "owners-detail-117"
+        ],
+        "geometryNotes": "Catalog only. Reference geometry has not been acquired or validated."
       }
     ],
     "sources": [
@@ -3990,6 +4891,86 @@
         "retrievedAt": "2026-10-17",
         "rights": "Linked factual part identity only. No catalog diagram reproduced.",
         "notes": "Lists right 4518202459 and left 4518202559, without BRABUS. Source configuration is Electric Drive: it is NOT confirmation for this gasoline vehicle."
+      },
+      {
+        "id": "owners-detail-118",
+        "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=120",
+        "publisher": "Mercedes-Benz USA / smart",
+        "documentTitle": "2015 U.S. operator manual — printed page 118",
+        "publicationDate": null,
+        "retrievedAt": "2026-10-18",
+        "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+        "notes": "Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified."
+      },
+      {
+        "id": "owners-detail-119",
+        "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=121",
+        "publisher": "Mercedes-Benz USA / smart",
+        "documentTitle": "2015 U.S. operator manual — printed page 119",
+        "publicationDate": null,
+        "retrievedAt": "2026-10-18",
+        "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+        "notes": "Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified."
+      },
+      {
+        "id": "owners-detail-120",
+        "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=122",
+        "publisher": "Mercedes-Benz USA / smart",
+        "documentTitle": "2015 U.S. operator manual — printed page 120",
+        "publicationDate": null,
+        "retrievedAt": "2026-10-18",
+        "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+        "notes": "Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified."
+      },
+      {
+        "id": "owners-detail-123",
+        "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=125",
+        "publisher": "Mercedes-Benz USA / smart",
+        "documentTitle": "2015 U.S. operator manual — printed page 123",
+        "publicationDate": null,
+        "retrievedAt": "2026-10-18",
+        "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+        "notes": "Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified."
+      },
+      {
+        "id": "owners-detail-124",
+        "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=126",
+        "publisher": "Mercedes-Benz USA / smart",
+        "documentTitle": "2015 U.S. operator manual — printed page 124",
+        "publicationDate": null,
+        "retrievedAt": "2026-10-18",
+        "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+        "notes": "Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified."
+      },
+      {
+        "id": "owners-detail-208",
+        "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=210",
+        "publisher": "Mercedes-Benz USA / smart",
+        "documentTitle": "2015 U.S. operator manual — printed page 208",
+        "publicationDate": null,
+        "retrievedAt": "2026-10-18",
+        "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+        "notes": "Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified."
+      },
+      {
+        "id": "owners-detail-114",
+        "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=116",
+        "publisher": "Mercedes-Benz USA / smart",
+        "documentTitle": "2015 U.S. operator manual — printed page 114",
+        "publicationDate": null,
+        "retrievedAt": "2026-10-18",
+        "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+        "notes": "Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified."
+      },
+      {
+        "id": "owners-detail-117",
+        "sourceUrl": "https://www.mbusa.com/content/dam/mb-nafta/us/smart/manuals/2015/owners_manual.pdf#page=119",
+        "publisher": "Mercedes-Benz USA / smart",
+        "documentTitle": "2015 U.S. operator manual — printed page 117",
+        "publicationDate": null,
+        "retrievedAt": "2026-10-18",
+        "rights": "Link only. Copyright retained by publisher; no diagrams redistributed.",
+        "notes": "Component identity reference only. Physical quantity, exact equipment applicability, OEM number, geometry and mounting measurements remain unverified."
       }
     ],
     "oemParts": [
@@ -5598,6 +6579,132 @@
           "owners-2015"
         ],
         "identityStatus": "unverified"
+      },
+      {
+        "id": "def-engine-compartment-cover",
+        "name": "Engine access cover",
+        "description": "Covers engine access.",
+        "sourceIds": [
+          "owners-detail-118"
+        ],
+        "identityStatus": "source-backed"
+      },
+      {
+        "id": "def-engine-cover-fastener",
+        "name": "Engine cover fastening screw",
+        "description": "Retains the access cover.",
+        "sourceIds": [
+          "owners-detail-118"
+        ],
+        "identityStatus": "source-backed"
+      },
+      {
+        "id": "def-cargo-floor-lift-strap",
+        "name": "Cargo floor lift strap",
+        "description": "Lifts the cargo floor.",
+        "sourceIds": [
+          "owners-detail-118"
+        ],
+        "identityStatus": "source-backed"
+      },
+      {
+        "id": "def-cargo-floor-hook",
+        "name": "Cargo floor retaining hook",
+        "description": "Retains the lifted floor.",
+        "sourceIds": [
+          "owners-detail-118"
+        ],
+        "identityStatus": "source-backed"
+      },
+      {
+        "id": "def-oil-dipstick",
+        "name": "Engine oil dipstick",
+        "description": "Indicates oil level.",
+        "sourceIds": [
+          "owners-detail-119"
+        ],
+        "identityStatus": "source-backed"
+      },
+      {
+        "id": "def-oil-filler-cap",
+        "name": "Engine oil filler cap",
+        "description": "Closes the oil filler.",
+        "sourceIds": [
+          "owners-detail-119"
+        ],
+        "identityStatus": "source-backed"
+      },
+      {
+        "id": "def-service-panel-retaining-strap",
+        "name": "Service flap retaining strap",
+        "description": "Tethers the service flap.",
+        "sourceIds": [
+          "owners-detail-120"
+        ],
+        "identityStatus": "source-backed"
+      },
+      {
+        "id": "def-washer-reservoir",
+        "name": "Windshield washer reservoir",
+        "description": "Stores washer fluid.",
+        "sourceIds": [
+          "owners-detail-123"
+        ],
+        "identityStatus": "source-backed"
+      },
+      {
+        "id": "def-brake-fluid-reservoir",
+        "name": "Brake fluid reservoir",
+        "description": "Stores brake fluid.",
+        "sourceIds": [
+          "owners-detail-124"
+        ],
+        "identityStatus": "source-backed"
+      },
+      {
+        "id": "def-washer-pump",
+        "name": "Windshield washer pump",
+        "description": "Supplies washer fluid.",
+        "sourceIds": [
+          "owners-detail-208"
+        ],
+        "identityStatus": "source-backed"
+      },
+      {
+        "id": "def-fuel-pump-level-sensor",
+        "name": "Fuel pump with level sensor",
+        "description": "Fuel supply and level sensing.",
+        "sourceIds": [
+          "owners-detail-208"
+        ],
+        "identityStatus": "source-backed"
+      },
+      {
+        "id": "def-auxiliary-power-outlet",
+        "name": "Auxiliary power outlet",
+        "description": "Powers cabin accessories.",
+        "sourceIds": [
+          "owners-detail-114"
+        ],
+        "identityStatus": "source-backed"
+      },
+      {
+        "id": "def-interior-light",
+        "name": "Interior lamp",
+        "description": "Illuminates the cabin.",
+        "sourceIds": [
+          "owners-detail-208"
+        ],
+        "identityStatus": "source-backed"
+      },
+      {
+        "id": "def-fuel-filler-cap",
+        "name": "Fuel filler cap",
+        "description": "Closes the fuel filler.",
+        "sourceIds": [
+          "owners-detail-117"
+        ],
+        "identityStatus": "source-backed"
       }
     ],
     "partInstances": [
@@ -6487,6 +7594,90 @@
         "id": "hatch-hardware",
         "definitionId": "def-hatch-hardware",
         "parentAssemblyId": "rear-hatch",
+        "side": "center"
+      },
+      {
+        "id": "engine-compartment-cover",
+        "definitionId": "def-engine-compartment-cover",
+        "parentAssemblyId": "engine",
+        "side": "center"
+      },
+      {
+        "id": "engine-cover-fastener",
+        "definitionId": "def-engine-cover-fastener",
+        "parentAssemblyId": "engine",
+        "side": "center"
+      },
+      {
+        "id": "cargo-floor-lift-strap",
+        "definitionId": "def-cargo-floor-lift-strap",
+        "parentAssemblyId": "interior",
+        "side": "center"
+      },
+      {
+        "id": "cargo-floor-hook",
+        "definitionId": "def-cargo-floor-hook",
+        "parentAssemblyId": "interior",
+        "side": "center"
+      },
+      {
+        "id": "oil-dipstick",
+        "definitionId": "def-oil-dipstick",
+        "parentAssemblyId": "engine",
+        "side": "center"
+      },
+      {
+        "id": "oil-filler-cap",
+        "definitionId": "def-oil-filler-cap",
+        "parentAssemblyId": "engine",
+        "side": "center"
+      },
+      {
+        "id": "service-panel-retaining-strap",
+        "definitionId": "def-service-panel-retaining-strap",
+        "parentAssemblyId": "exterior",
+        "side": "center"
+      },
+      {
+        "id": "washer-reservoir",
+        "definitionId": "def-washer-reservoir",
+        "parentAssemblyId": "exterior",
+        "side": "center"
+      },
+      {
+        "id": "brake-fluid-reservoir",
+        "definitionId": "def-brake-fluid-reservoir",
+        "parentAssemblyId": "brakes",
+        "side": "center"
+      },
+      {
+        "id": "washer-pump",
+        "definitionId": "def-washer-pump",
+        "parentAssemblyId": "electrical",
+        "side": "center"
+      },
+      {
+        "id": "fuel-pump-level-sensor",
+        "definitionId": "def-fuel-pump-level-sensor",
+        "parentAssemblyId": "engine",
+        "side": "center"
+      },
+      {
+        "id": "auxiliary-power-outlet",
+        "definitionId": "def-auxiliary-power-outlet",
+        "parentAssemblyId": "electrical",
+        "side": "center"
+      },
+      {
+        "id": "interior-light",
+        "definitionId": "def-interior-light",
+        "parentAssemblyId": "electrical",
+        "side": "center"
+      },
+      {
+        "id": "fuel-filler-cap",
+        "definitionId": "def-fuel-filler-cap",
+        "parentAssemblyId": "exterior",
         "side": "center"
       }
     ]

@@ -7,17 +7,23 @@ export function createCatalog(
   const catalog = data.components,
     { fitments, oemParts, systems } = data;
   const componentById = new Map(catalog.map((c) => [c.id, c]));
+  const childrenByParent = new Map<string, Component[]>();
+  for (const c of catalog)
+    if (c.parentComponentId) {
+      const siblings = childrenByParent.get(c.parentComponentId) ?? [];
+      siblings.push(c);
+      childrenByParent.set(c.parentComponentId, siblings);
+    }
   function descendants(id: string): Set<string> {
     const ids = new Set<string>([id]);
-    let changed = true;
-    while (changed) {
-      changed = false;
-      for (const c of catalog)
-        if (c.parentComponentId && ids.has(c.parentComponentId) && !ids.has(c.id)) {
-          ids.add(c.id);
-          changed = true;
+    const pending = [id];
+    while (pending.length)
+      for (const child of childrenByParent.get(pending.pop()!) ?? []) {
+        if (!ids.has(child.id)) {
+          ids.add(child.id);
+          pending.push(child.id);
         }
-    }
+      }
     return ids;
   }
   function ancestors(id: string): Component[] {
@@ -31,21 +37,31 @@ export function createCatalog(
     }
     return result;
   }
+  const systemNames = new Map(systems.map((s) => [s.id, s.name]));
+  const partNumbers = new Map(oemParts.map((p) => [p.id, p.partNumber]));
+  const numbersByComponent = new Map<string, string[]>();
+  for (const f of fitments)
+    numbersByComponent.set(f.componentId, [
+      ...(numbersByComponent.get(f.componentId) ?? []),
+      partNumbers.get(f.oemPartId) ?? '',
+    ]);
+  const searchIndex = new Map(
+    catalog.map((c) => [
+      c.id,
+      [
+        c.name,
+        ...c.aliases,
+        systemNames.get(c.systemId) ?? '',
+        ...ancestors(c.id).map((p) => p.name),
+        ...(numbersByComponent.get(c.id) ?? []),
+      ].map((s) => s.toLowerCase()),
+    ]),
+  );
   function searchComponents(query: string): Component[] {
     const q = query.trim().toLowerCase();
     if (!q) return [];
     return catalog
-      .filter((c) =>
-        [
-          c.name,
-          ...c.aliases,
-          systems.find((s) => s.id === c.systemId)?.name ?? '',
-          ...ancestors(c.id).map((p) => p.name),
-          ...fitments
-            .filter((f) => f.componentId === c.id)
-            .map((f) => oemParts.find((p) => p.id === f.oemPartId)?.partNumber ?? ''),
-        ].some((s) => s.toLowerCase().includes(q)),
-      )
+      .filter((c) => searchIndex.get(c.id)!.some((text) => text.includes(q)))
       .sort((a, b) => {
         const rank = (c: Component) => {
           const n = c.name.toLowerCase();
@@ -69,7 +85,15 @@ export function createCatalog(
     return !isolated || descendants(isolated).has(id);
   }
 
-  return { catalog, componentById, descendants, ancestors, searchComponents, visibleComponent };
+  return {
+    catalog,
+    componentById,
+    childrenByParent,
+    descendants,
+    ancestors,
+    searchComponents,
+    visibleComponent,
+  };
 }
 export function validateFitment(
   f: PartFitment,

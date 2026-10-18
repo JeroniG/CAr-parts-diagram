@@ -2,6 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 const snapshot = (page: Page) => page.evaluate(() => window.__autoatlas!.snapshot());
 async function ready(page: Page) {
   await page.goto('/');
+  await page.getByRole('button', { name: 'Explore the 21-part hatch sample', exact: true }).click();
   await expect(page.locator('.assembly-controls')).toHaveAttribute('data-status', 'ready', {
     timeout: 45000,
   });

@@ -1,0 +1,200 @@
+.vehicle-progress .modal {
+  width: min(1080px, calc(100vw - 32px));
+  max-width: 1080px;
+}
+.progress-body {
+  padding: 20px 24px;
+  overflow: auto;
+  max-height: 78dvh;
+}
+.progress-intro,
+.progress-small {
+  color: var(--muted);
+  line-height: 1.6;
+}
+.progress-small {
+  font-size: 11px;
+}
+.milestone-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 18px 0;
+}
+.milestone-grid section {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+}
+.milestone-grid small {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+.milestone-grid h3 {
+  margin: 8px 0 14px;
+}
+.milestone-grid strong {
+  color: #d5a86e;
+}
+.milestone-grid p {
+  margin-bottom: 0;
+  font-size: 12px;
+}
+.progress-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 12px;
+}
+.progress-counts b {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 3px;
+}
+.inventory-disclosure {
+  padding: 12px;
+  border-left: 2px solid #d5a86e;
+  font-size: 12px;
+  line-height: 1.6;
+  background: #bd8e4410;
+}
+.coverage-table {
+  overflow-x: auto;
+}
+.coverage-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.coverage-table th,
+.coverage-table td {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line);
+}
+.coverage-table th {
+  font-weight: 500;
+}
+.coverage-table button {
+  text-align: left;
+  color: var(--accent);
+}
+.queue-heading,
+.queue-filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+}
+.export-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.queue-filters select,
+.queue-filters input,
+.modeling-detail textarea {
+  background: var(--panel);
+  color: inherit;
+  border: 1px solid var(--line);
+  padding: 10px;
+  border-radius: 6px;
+  min-width: 0;
+}
+.queue-filters input {
+  flex: 1;
+}
+.modeling-workspace {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.85fr) minmax(250px, 1.5fr);
+  gap: 16px;
+}
+.modeling-list {
+  max-height: 440px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.modeling-list button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.modeling-list button[aria-pressed='true'] {
+  background: #2787ff22;
+  box-shadow: inset 2px 0 #2787ff;
+}
+.modeling-list small {
+  display: block;
+  margin-top: 5px;
+  font-size: 10px;
+  opacity: 0.7;
+}
+.modeling-detail {
+  font-size: 12px;
+  line-height: 1.7;
+}
+.modeling-detail h3 {
+  margin: 0;
+}
+.modeling-detail h4 {
+  margin: 14px 0 5px;
+}
+.modeling-detail ul {
+  padding-left: 18px;
+  margin: 0;
+}
+.modeling-detail a {
+  color: var(--accent);
+}
+.modeling-detail > a {
+  display: block;
+}
+.modeling-detail label,
+.modeling-detail textarea {
+  display: block;
+  width: 100%;
+}
+.modeling-detail textarea {
+  min-height: 90px;
+  resize: vertical;
+  margin-top: 5px;
+}
+.inspect-task {
+  display: block;
+  margin-top: 16px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+@media (max-width: 600px) {
+  .progress-body {
+    padding: 14px;
+  }
+  .milestone-grid,
+  .modeling-workspace {
+    grid-template-columns: 1fr;
+  }
+  .modeling-list {
+    max-height: 200px;
+  }
+  .queue-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .queue-heading {
+    align-items: baseline;
+  }
+}
+
+.modeling-detail textarea {
+  font: inherit;
+}
+.modeling-detail textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}

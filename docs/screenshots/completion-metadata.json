@@ -1,0 +1,11 @@
+{
+  "captures": [
+    "whole-vehicle",
+    "milestones",
+    "modeling-task",
+    "phone"
+  ],
+  "scope": "Actual missing-geometry and progress UI; not photorealistic vehicle acceptance.",
+  "pageErrors": [],
+  "phoneSampleButton": "Opened 21-part sample successfully at 390x664"
+}

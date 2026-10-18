@@ -256,7 +256,9 @@ export function ViewerToolbar({
           {view.selected && view.hidden.has(view.selected) ? 'Show part' : 'Hide part'}
         </button>
         <button
-          disabled={!view.fixtureMode && !manifest.models.some((m) => m.scaleValidated)}
+          disabled={
+            !hasGeometry || (!view.fixtureMode && !manifest.models.some((m) => m.scaleValidated))
+          }
           title="Measurement requires validated scale; development samples show illustrative model distances only."
           className={view.measure ? 'active' : ''}
           aria-pressed={view.measure}

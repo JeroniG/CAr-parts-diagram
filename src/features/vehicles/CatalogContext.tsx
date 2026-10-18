@@ -1,3 +1,4 @@
+import { computeCompleteness } from '../completeness/completeness';
 import { createContext, useContext, useMemo, type ReactNode } from 'react';
 import type { RegistryEntry, VehiclePackage } from '../../types/vehiclePackage';
 import { createCatalog } from '../../services/catalog';
@@ -8,6 +9,7 @@ export function createWorkspaceData(pkg: VehiclePackage) {
     ...createCatalog(pkg.data),
     manifest: pkg.manifest,
     coverage: computeCoverage(pkg),
+    completeness: computeCompleteness(pkg),
   };
 }
 export type WorkspaceData = ReturnType<typeof createWorkspaceData>;
