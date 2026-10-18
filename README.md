@@ -17,6 +17,8 @@ npm run dev
 
 Open `http://localhost:5173`. No account, database or API key is required. Vehicle GLB, Meshopt decoder, fonts and catalog JSON are served locally. Optional VIN decoding contacts NHTSA only when requested and does not persist the VIN.
 
+In GitHub Codespaces, forward port **5173** in the **Ports** tab and open its browser URL. Private forwarded ports require signing in with the GitHub account that owns the Codespace. Vite automatically allows the current Codespace's exact preview hostname.
+
 ## Explore
 
 - Drag to orbit; right-drag or two-finger drag to pan; scroll or pinch to zoom.
